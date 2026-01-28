@@ -1,0 +1,15 @@
+
+/*--Page Layout--*/
+
+body {
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 83% 1fr;
+}
+
+main {
+    grid-template-rows: 1fr;
+}

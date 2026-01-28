@@ -1,0 +1,51 @@
+/*--Page Layout--*/
+
+body {
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    grid-template-columns: 1fr;
+}
+
+main {
+    grid-template-rows: 1fr;
+}
+
+.scrollable-container button {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px);
+}
+
+.aside {
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    outline: none;
+}
+article a {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0;
+    margin-left: 10%;
+}
+article .articleTitle a {
+    margin-left: 0;
+}
+.menu {
+    display: block;
+}
+.menu img {
+    grid-area: img;
+    background: #fff;
+    outline: 4px solid var(--outline);
+    max-width: calc(98% - 14px);
+    height: auto;
+    margin: 10px;
+}
+.menu .details {
+    grid-area: desc;
+    width: 99%;
+    align-self: baseline;
+}
