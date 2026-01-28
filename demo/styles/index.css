@@ -8,16 +8,18 @@
 
     --background: #303030;
 
-    --primary: #48494a;
-    --primary-highlight: #5a5b5c;
-    --primary-shadow: #323334;
-    --primary-dark: #242425;
+    --primary-dark: #041B24;
+    --primary-shadow: #103647;
+    --primary: #27576B;
+    --primary-highlight: #487A8F;
+    --primary-bright: #78A9BF;
 
-    --secondary: #eff1f3;
-    --secondary-shadow: #b1b2b5;
-    --secondary-dark: #58585a;
-    --secondary-highlight: #d0d1d4;
-    
+    --secondary-dark: #3A2003;
+    --secondary-shadow: #704515;
+    --secondary: #AA7539;
+    --secondary-highlight: #E4AB6D;
+    --secondary-bright: #FFD09B;
+
     --outline: #1e1e1f;
     --details: green;
 }
@@ -72,7 +74,7 @@ a{
 
 header {
     color: var(--black);
-    background: var(--secondary);
+    background: var(--secondary-highlight);
     border-bottom: 0.7vw solid var(--secondary-shadow);
     display: grid;
     place-items: center;
@@ -188,7 +190,7 @@ main {
     width: auto;
     margin-top: 15px;
     padding-bottom: 15px;
-    border-bottom: 1px solid var(--secondary-shadow);
+    border-bottom: 1px solid var(--primary-highlight);
 }
 .menu ul li:last-child {
     border: none;
@@ -237,7 +239,7 @@ input[type=text]{
     margin-left: 25%;
 }
 input[type=text]::placeholder {
-    color: var(--secondary-shadow);
+    color: var(--secondary);
 }
 
 button{
@@ -247,16 +249,16 @@ button{
     width: calc(98% - 5px);
     outline: 4px solid var(--outline);
     font-size: min(1.2vw, 22px);
-    background: var(--secondary-highlight);
+    background: var(--secondary);
     color: var(--outline);
     border: none;
     border-bottom: 4px solid var(--primary);
-    box-shadow: inset 0 0 0 4px var(--secondary);
+    box-shadow: inset 0 0 0 4px var(--secondary-highlight);
     cursor: pointer;
 }
 button:hover {
     background: var(--secondary-shadow);
-    box-shadow: inset 0 50% var(--secondary-dark);
+    box-shadow: inset 0 0 0 4px var(--secondary);
 }
 button:active {
     border-bottom: 0px solid var(--secondary-dark);
@@ -316,10 +318,10 @@ button.red:active {
     background-clip: content-box;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
+    background: var(--secondary-highlight);
     border-bottom: 5px solid var(--secondary-dark);
     outline: 3px solid var(--black);
-    box-shadow: inset 0 0 0 2px var(--secondary-highlight);
+    box-shadow: inset 0 0 0 2px var(--secondary);
     
 }
 
