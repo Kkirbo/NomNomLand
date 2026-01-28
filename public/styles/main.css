@@ -1,8 +1,17 @@
 :root{
   --lightgray: rgb(185, 185, 185);
-  --deepblue: rgb(14, 78, 199);
-  --brightred: rgb(255, 83, 60);
   --solid-black: rgb(0, 0, 0);
+  --blue-900: #041B24;
+  --blue-800: #103647;
+  --blue-700: #27576B;
+  --blue-600: #487A8F;
+  --blue-500: #78A9BF;
+  --orange-900: #3A2003;
+  --orange-800: #704515;
+  --orange-700: #AA7539;
+  --orange-600: #E4AB6D;
+  --orange-500: #FFD09B;
+
 }
 
 @keyframes spin{
@@ -13,6 +22,18 @@
   }
 }
 
+@keyframes grow{
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+}
+}
+
+.Connexion-pannel:hover{
+  animation: grow .8s ease-in-out forwards;
+}
 img:hover{
   animation: spin 1s ease-in;
 }
@@ -21,6 +42,8 @@ h1{
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-size: 300%;
+  width: 100%;
+  color: white;
 }
 
 main{
@@ -28,15 +51,42 @@ main{
   grid-template-areas:
   "header header header"
   "nav nav nav"
-  "left-upper-main upper-main right-aside"
-  "left-lower-main lower-main right-aside"
+  "left-aside main right-aside"
+  "left-aside main right-aside"
   "left-footer footer right-aside";
   grid-template-rows: clamp(80px, auto, 150px) 50px auto auto 40px;
   grid-template-columns:auto 65% auto;
 }
+html, body {
+  min-height: 100%;
+}
 
+/*body {
+  margin: 0;
+  background: linear-gradient(
+    to top,
+    var(--blue-900) 0%,
+    var(--blue-700) 50%,
+    var(--blue-500) 100%
+  );
+  background-repeat: no-repeat;
+}
+*/
 header {
   grid-area: header;
-  background-color: var(--lightgray);
   border-bottom: 2px solid var(--solid-black);
+  display:flex;
 }
+
+.Connexion-pannel{
+  font-size: 200%;
+  padding-right: 5%;
+  padding-left: 5%;
+  align-items: center;
+  display:flex;
+  justify-content: flex-start;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: var(--solid-black);
+}
+
