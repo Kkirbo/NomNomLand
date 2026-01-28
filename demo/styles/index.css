@@ -56,6 +56,7 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 a{
     color: var(--black);
     text-decoration: none;
@@ -175,6 +176,7 @@ main {
     opacity: 80%;
 }
 .menu h3 {
+    width: calc(100% - 14px);
     grid-area: title;
     text-align: center;
 }
