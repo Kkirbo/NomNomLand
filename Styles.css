@@ -6,15 +6,14 @@
 }
 
 @keyframes spin{
- from{
+  from {
     transform: rotate(0deg);
- } to{
+  } to {
     transform: rotate(360deg);
-    
-}
+  }
 }
 img:hover{
-    
+
     animation: spin 1s ease-in;
 }
 
@@ -42,5 +41,5 @@ main>header{
     grid-area: header;
     background-color: var(--lightgray);
     border-bottom: 2px solid var(--solid-black);
-    
+
 }
