@@ -38,13 +38,6 @@ img:hover{
   animation: spin 1s ease-in;
 }
 
-h1{
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-  font-size: 300%;
-  width: 100%;
-  color: white;
-}
 
 main{
   display:grid;
@@ -54,11 +47,12 @@ main{
   "left-aside main right-aside"
   "left-aside main right-aside"
   "left-footer footer right-aside";
-  grid-template-rows: clamp(80px, auto, 150px) 50px auto auto 40px;
-  grid-template-columns:auto 65% auto;
+  grid-template-rows: clamp(150px, auto, 175px) 50px auto auto 40px;
+  grid-template-columns:auto 45% auto;
 }
 html, body {
   min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 /*body {
@@ -74,10 +68,18 @@ html, body {
 */
 header {
   grid-area: header;
-  border-bottom: 2px solid var(--solid-black);
+  /*border-bottom: 2px solid var(--solid-black);*/
   display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--solid-black);
 }
-
+.big-title{
+  font-size: 200%;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
 .Connexion-pannel{
   font-size: 200%;
   padding-right: 5%;
@@ -90,3 +92,41 @@ header {
   border-left-color: var(--solid-black);
 }
 
+.sidebar{
+  grid-area: left-aside;
+  background-color: var(--blue-500);
+  position:absolute;
+  height:grid;
+  border-radius: 5px;
+  box-shadow:2px 2px 5px var(--solid-black);
+  padding: 15px;
+}
+
+.sidebar a{
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  font-size: larger;
+}
+.sidebar a:hover{
+  background-color: var(--blue-700);
+  color: white;
+}
+.sidebar a:active{
+  background-color: var(--blue-900);
+  text-decoration: underline;
+  color: white;
+}
+
+.Smaller-title{
+  font-size: 100%;
+  text-align: center;
+}
+.searchbar{
+  grid-area: nav;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
