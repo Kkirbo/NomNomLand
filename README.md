@@ -26,6 +26,13 @@ Il faut choquer
 $ls recettes/
 $sudo cook carbonara
 
+Contenu du site:
+-Commander/Reserver une table
+-Horaries d'ouverture
+-Carte des plats
+-Emplacement du restaurant (google maps)
+
+
 Cahier des charges:
 -Valeurs RGB à noter sur doc à rendre
 -Inovation:
