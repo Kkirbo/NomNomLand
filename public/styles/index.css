@@ -46,8 +46,7 @@ body {
     max-height: 100vh;
     background: var(--background);
     color: var(--white);
-    overflow-x: hidden;
-    overflow-y: hidden;
+    align-items: center;
 }
 
 #background {
@@ -65,6 +64,10 @@ header {
     color: var(--black);
     background: var(--secondary-highlight);
     border-bottom: 0.7vw solid var(--secondary-shadow);
+    border-radius: 50%;
+    width: 50%;
+    padding: 15px;
+    margin: 10px auto;
 }
 header > h1 {
     padding: 10px;
@@ -75,17 +78,80 @@ header > h1 {
     text-align: center;
 }
 header > h2 {
-    padding: 10px;
-    font-weight: 1;
-    text-align: center;
+  padding: 10px;
+  font-weight: 1;
+  text-align: center;
 }
 
-aside {
-    
+button#togglesidebar {
+  z-index: 6;
+  cursor: pointer;
+  position: fixed;
+  top: 5px;
+  left: 7px;
+  padding: 10px;
+  background: none;
+  border: none
+}
+button#togglesidebar > svg {
+  width: 2.5rem;
+  height: auto;
+  fill: var(--secondary);
+}
+
+aside.sidebar {
+  height: 100%;
+  width: 25%;
+  min-width: 375px;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+
+  background-color: var(--primary);
+  overflow-x: hidden;
+  font-size: 2rem;
+  border-radius: 0 25px 25px 0;
+
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(.25,0,.5,1), opacity 0.25s ease;
+}
+aside.sidebar.open {
+  transform: translateX(0);
+  opacity: 1;
+}
+aside.sidebar a {
+  text-decoration: none;
+  color: var(--secondary-highlight);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+aside.sidebar li {
+  cursor: pointer;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--secondary-highlight);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+aside.sidebar li:hover {
+  background-color: var(--primary-shadow);
+  color: var(--secondary);
+}
+aside.sidebar li svg {
+  width: 50px;
+  height: auto;
+  fill: var(--secondary);
+}
+aside.sidebar li:hover svg {
+  fill: var(--secondary);
 }
 
 main {
-    
+
 }
 
 footer{
@@ -141,7 +207,7 @@ input[type=text]::placeholder {
     border-bottom: 5px solid var(--secondary-dark);
     outline: 3px solid var(--black);
     box-shadow: inset 0 0 0 2px var(--secondary);
-    
+
 }
 
 /*--Too wide--*/
@@ -173,4 +239,7 @@ input[type=text]::placeholder {
 /*--Mobile--*/
 
 @media screen and (max-width: 995px) {
+  header {
+      font-size: 2vw;
+  }
 }
