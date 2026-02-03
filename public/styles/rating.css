@@ -1,0 +1,128 @@
+/*--Global CSS--*/
+@import url('https://fonts.cdnfonts.com/css/mina');
+@import url('https://fonts.cdnfonts.com/css/bolonewt');
+
+:root{
+    --black: rgb(0, 0, 0);
+    --white: rgb(255, 255, 255);
+
+    --background: #303030;
+
+    --primary-dark: #041B24;
+    --primary-shadow: #103647;
+    --primary: #27576B;
+    --primary-highlight: #487A8F;
+    --primary-bright: #78A9BF;
+
+    --secondary-dark: #3A2003;
+    --secondary-shadow: #704515;
+    --secondary: #AA7539;
+    --secondary-highlight: #E4AB6D;
+    --secondary-bright: #FFD09B;
+
+    --outline: #1e1e1f;
+    --details: green;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+* {
+    font-family: 'Mina', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-weight: 1;
+}
+
+/*--Page Layout--*/
+
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+    background: var(--background);
+    color: var(--white);
+}
+
+label {
+    display: grid;
+}
+
+form {
+    border: solid var(--secondary);
+    border-radius: 10px;
+    margin: 3rem;
+    padding: 3rem;
+}
+form > h1{
+    text-decoration: underline;
+    padding: 2rem;
+    text-align: center;
+}
+
+#submit-button{
+    position: fixed;
+    bottom: 1.4rem;
+    left: calc(50vw - 150px);
+    width: 300px;
+    height: 50px;
+
+    background-color: var(--primary-dark);
+    color: var(--primary-highlight);
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition-duration: 50ms;
+}
+#submit-button:hover{
+    transform: scale(1.15);
+    transition-duration: 100ms;
+    border-radius: 10px;
+}
+
+span.question-subtitle {
+    font-style: italic
+}
+
+div.question {
+    display: grid;
+}
+
+div.start-wrapper {
+    display: inline-flex;
+    flex-direction: row-reverse; /* ⭐ important */
+    gap: 0.3rem;
+}
+
+.start-wrapper label {
+    user-select: none;
+}
+
+.start-wrapper input {
+    display: none;
+}
+
+.start-wrapper label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.start-wrapper label:hover,
+.start-wrapper label:hover ~ label {
+    color: #f5b301;
+}
+
+.start-wrapper input:checked ~ label {
+    color: #f5b301;
+}
+
+.start-wrapper label:hover {
+    transform: scale(1.15);
+}
+
+
