@@ -1,6 +1,4 @@
-/* =========================
-   VARIABLES
-========================= */
+
 
 :root{
     --secondary: #AA7539;
@@ -10,9 +8,6 @@
     --white: #ffffff;
 }
 
-/* =========================
-   RESET GENERAL
-========================= */
 
 *{
     margin:0;
@@ -26,9 +21,7 @@ body{
     color: white;
 }
 
-/* =========================
-   HEADER
-========================= */
+
 
 header{
     display:flex;
@@ -46,9 +39,7 @@ header a{
     border-radius:5px;
 }
 
-/* =========================
-   FORMULAIRE
-========================= */
+
 
 fieldset{
     display:flex;
@@ -69,10 +60,6 @@ legend{
     background:white;
 }
 
-/* =========================
-   CHAMPS
-========================= */
-
 .field{
     margin:10px 0;
 }
@@ -90,9 +77,6 @@ label{
     border:1px solid #aaa;
 }
 
-/* =========================
-   BOUTONS
-========================= */
 
 .button{
     position:relative;
@@ -109,9 +93,6 @@ label{
     background: var(--secondary-bright);
 }
 
-/* =========================
-   BURGERS
-========================= */
 
 .burger{
     position:absolute;
@@ -124,9 +105,6 @@ label{
 
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
 
 @keyframes explode1{
     0%{
@@ -184,9 +162,6 @@ label{
 }
 
 
-/* =========================
-   HOVER BURGER
-========================= */
 
 .button:hover .burger{
     opacity:1;
@@ -198,9 +173,7 @@ label{
 .button:hover .b4{animation:explode4 1s ease-out;}
 .button:hover .b5{animation:explode5 1s ease-out;}
 
-/* =========================
-   SUPPRESSION SPIN NUMBER
-========================= */
+
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{
