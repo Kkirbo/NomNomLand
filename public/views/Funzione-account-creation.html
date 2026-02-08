@@ -1,60 +1,83 @@
-<!DOCTYPE HTML>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="../styles/Inscription.css">
-    </head>
-    <body>
-        <header>
-            <h1>Bienvenido to the Funzione</h1>
-            <a class="main-menu" href="zqdjkzoiqdjk">Main menu</a>
-        </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/Inscription.css">
+</head>
 
-        <fieldset>
-            <legend>Login</legend>
-            <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
-                <div class="field">
-                <label for="Name">Name:</label>
-                <input id="Name" type="text" class="champ">
-            </div>
-                <div class="field">
-                <label for="Nom de famille">First name:</label>
-                <input id="email" type="text" class="champ" required>
-            </div>
-            <div class="field">
-                <label for="age">Age:</label>
-                <input id="age" type="number" min="1" max="99" class="champ" maxlength="2">
-            </div>
-            <div class="field">
-                <label for="email">E-mail:</label>
-                <input id="email" type="email" class="champ">
-            </div>
-            <div class="field">
-                <label for="email">Reconfirm E-mail:</label>
-                <input id="email" type="email" class="champ" required>
-            </div>
-             <div class="field">
-                <label for="genre">Genre:</label>
-                <input id="Radio-homme" type="radio" name="genre" class="radio" checked> Homme
-                <input id="Radio-femme" type="radio" name="genre" class="radio"> Femme
-            </div>
-            <div class="field">
-                <label for="adress">Adress:</label>
-                <input id="adress" type="text" pattern="^[0-9]+[ ]?+[A-Za-zÀ-ÿ' -]+([A-Za-zÀ-ÿ'-,]+)*$"  placeholder="12 Rivoli Street Paris">
-            </div>
-            <div class="field">
-                <label for="Credit-card-info">Bank Info</label>
-                <input id="Bank-Info" type="text" pattern="^[0-9]{16}$"  placeholder="1234567891011123" required>
-                <label for="Exp-date">Expiration Date</label>
-                <input type="datetime-local" id="Exp-date">
-            </div>
-            <div class="field">
-                <label for="Submit">Signing in</label>
-                <input type="submit" id="submit">
-                <label for="Reset-form">Reset form</label>
-                <button type="reset" id="reset">Reset the form</button>
-            </div>
-            
-            </form>
-        </fieldset>
-    </body>
+<body>
+
+<header>
+    <h1>Bienvenido to the Funzione</h1>
+    <a class="main-menu" href="#">Main menu</a>
+</header>
+
+<fieldset>
+    <legend>Login</legend>
+
+    <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
+
+        <div class="field">
+            <label for="name">Name:</label>
+            <input id="name" name="name" type="text" class="champ" required>
+        </div>
+        <div class="field">
+            <label for="firstname">First name:</label>
+            <input id="firstname" name="firstname" type="text" class="champ" required>
+        </div>
+        <div class="field">
+            <label for="age">Age:</label>
+            <input id="age" name="age" type="number" min="1" max="99" class="champ">
+        </div>
+        <div class="field">
+            <label for="email">E-mail:</label>
+            <input id="email" name="email" type="email" class="champ" required>
+        </div>
+        <div class="field">
+            <label for="email-confirm">Reconfirm E-mail:</label>
+            <input id="email-confirm" name="email-confirm" type="email" class="champ" required>
+        </div>
+        <div class="field">
+            <label>Genre:</label>
+            <input id="radio-homme" type="radio" name="genre" value="homme" checked>
+            <label for="radio-homme">Homme</label>
+            <input id="radio-femme" type="radio" name="genre" value="femme">
+            <label for="radio-femme">Femme</label>
+        </div>
+        <div class="field">
+            <label for="address">Address:</label>
+            <input id="address" name="address" type="text"
+                   pattern="^[0-9]+[ ]?[A-Za-zÀ-ÿ' -]+$"
+                   placeholder="12 Rivoli Street Paris">
+        </div>
+        <div class="field">
+            <label>Signing in</label>
+            <button type="submit" class="button">
+                Submit
+                <img src="../assets/burger.png" class="burger b1" alt="">
+                <img src="../assets/burger.png" class="burger b2" alt="">
+                <img src="../assets/burger.png" class="burger b3" alt="">
+                <img src="../assets/burger.png" class="burger b4" alt="">
+                <img src="../assets/burger.png" class="burger b5" alt="">
+            </button>
+            <br><br>
+            <label>Reset form</label>
+            <button type="reset" class="button">
+                Reset form
+                <img src="../assets/burger.png" class="burger b1" alt="">
+                <img src="../assets/burger.png" class="burger b2" alt="">
+                <img src="../assets/burger.png" class="burger b3" alt="">
+                <img src="../assets/burger.png" class="burger b4" alt="">
+                <img src="../assets/burger.png" class="burger b5" alt="">
+
+            </button>
+
+        </div>
+
+    </form>
+
+</fieldset>
+
+</body>
+</html>

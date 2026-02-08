@@ -1,10 +1,212 @@
-html, body {
-  margin: 0;
-  
-  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --secondary: #AA7539;
+    --secondary-bright: #FFD09B;
+    --primary: #27576B;
+    --background: #303030;
+    --white: #ffffff;
 }
+
+/* =========================
+   RESET GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+body{
+    background: var(--background);
+    color: white;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     display:flex;
-    justify-content: center;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    padding:20px;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    border:1px solid white;
+    padding:5px 10px;
+    border-radius:5px;
+}
+
+/* =========================
+   FORMULAIRE
+========================= */
+
+fieldset{
+    display:flex;
+    flex-direction:column;
+    width:fit-content;
+    margin:40px auto;
+    padding:25px;
+    background-color: var(--secondary-bright);
+    border-radius:15px;
+    color:black;
+}
+
+legend{
+    text-align:center;
+    font-weight:bold;
+    padding:5px 15px;
+    border-radius:10px;
+    background:white;
+}
+
+/* =========================
+   CHAMPS
+========================= */
+
+.field{
+    margin:10px 0;
+}
+
+label{
+    display:inline-block;
+    min-width:180px;
+    margin-bottom:5px;
+}
+
+.champ{
+    height:28px;
+    padding:3px;
+    border-radius:5px;
+    border:1px solid #aaa;
+}
+
+/* =========================
+   BOUTONS
+========================= */
+
+.button{
+    position:relative;
+    border:1px solid var(--secondary);
+    background:white;
+    border-radius:10px;
+    padding:10px 20px;
+    margin-top:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.button:hover{
+    background: var(--secondary-bright);
+}
+
+/* =========================
+   BURGERS
+========================= */
+
+.burger{
+    position:absolute;
+    width:40px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    opacity:0;
+    pointer-events:none;
+
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes explode1{
+    0%{
+        transform:translate(-50%,-50%) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translate(120px,-120px) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes explode2{
+    0%{
+        transform:translate(-50%,-50%) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translate(-120px,-150px) rotate(-360deg);
+        opacity:0;
+    }
+}
+
+@keyframes explode3{
+    0%{
+        transform:translate(-50%,-50%) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translate(60px,-200px) rotate(540deg);
+        opacity:0;
+    }
+}
+
+@keyframes explode4{
+    0%{
+        transform:translate(-50%,-50%) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translate(-160px,-80px) rotate(-540deg);
+        opacity:0;
+    }
+}
+
+@keyframes explode5{
+    0%{
+        transform:translate(-50%,-50%) scale(1) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translate(-50%,-220px) scale(0.5) rotate(720deg);
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   HOVER BURGER
+========================= */
+
+.button:hover .burger{
+    opacity:1;
+}
+
+.button:hover .b1{animation:explode1 1s ease-out;}
+.button:hover .b2{animation:explode2 1s ease-out;}
+.button:hover .b3{animation:explode3 1s ease-out;}
+.button:hover .b4{animation:explode4 1s ease-out;}
+.button:hover .b5{animation:explode5 1s ease-out;}
+
+/* =========================
+   SUPPRESSION SPIN NUMBER
+========================= */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+}
+
+input[type=number]{
+    -moz-appearance:textfield;
 }
