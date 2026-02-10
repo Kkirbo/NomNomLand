@@ -56,6 +56,22 @@ html, body {
   font-family: 'Mina', sans-serif;
 }
 
+/*--Buttons--*/
+button {
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+button:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
+
 /*--Page Layout--*/
 
 body {
@@ -252,6 +268,10 @@ aside.sidebar li:hover svg {
   fill: var(--secondary-highlight);
 }
 
+main {
+
+}
+
 section.searchbar {
   padding: 10px;
   width: clamp(300px, 40%, 800px);
@@ -282,13 +302,21 @@ section.searchbar input[type="text"]::placeholder {
   color: var(--secondary-cold-shadow);
 }
 
-main {
-
+section.carousel {
+  display: inline-flex;
+  gap: 5rem;
+}
+section.carousel article {
+  background: var(--primary);
+  width: max(33%, 300px);
+  border-radius: 3rem;
+  padding: 3rem;
+  border: 0.2rem solid var(--primary-bright);
 }
 
 footer {
   width: calc(100% - 16px);
-  height: minmax(auto, 100%);
+  height: min(auto, 100%);
   overflow: hidden;
   background: var(--primary);
   border: none;
