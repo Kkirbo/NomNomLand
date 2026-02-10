@@ -1,0 +1,87 @@
+:root{
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+
+  --background: #303030;
+
+  --primary-dark: #010101;
+  --primary-shadow: #121212;
+  --primary: #1c1c1c;
+  --primary-highlight: #333333;
+  --primary-bright: #484848;
+
+  --primary-shadow-04: rgba(18, 18, 18, 0.4);
+  --primary-highlight-04: rgba(51, 51, 51, 0.4);
+
+  --secondary-dark: #0C4400;
+  --secondary-shadow: #0E5000;
+  --secondary: #105C00;
+  --secondary-highlight: #126700;
+  --secondary-bright: #187305;
+
+  --secondary-cold-dark: #004C29;
+  --secondary-cold-shadow: #004224;
+  --secondary-cold: #004C29;
+  --secondary-cold-highlight: #00562F;
+  --secondary-cold-bright: #045F36;
+
+  --secondary-hot-dark: #2B4B00;
+  --secondary-hot-shadow: #335800;
+  --secondary-hot: #3A6500;
+  --secondary-hot-highlight: #427200;
+  --secondary-hot-bright: #4B7E05;
+
+  --shaded-glass-dark: #0f0f0f80;
+  --shaded-glass-shadow: #1d1d1d80;
+  --shaded-glass: #29292980;
+  --shaded-glass-highlight: #36363680;
+  --shaded-glass-bright: #58585880;
+
+  --outline: #1e1e1f;
+  --details: green;
+}
+
+h1{
+    text-align: center;
+}
+
+.liste{
+    border:2px solid #ffffff;
+    height: 100%;
+    overflow: scroll;
+}
+
+.liste li{
+    border-bottom: 2px solid var(--white) ;
+    list-style: none;
+    text-align: center;
+    height: fit-content;
+    width: 100%;
+}
+img{
+    display: flex;
+    margin:auto;
+    align-items: center;
+}
+
+ul {
+    padding: 0;
+}
+
+.texte {
+    font-size: 20px;
+}
+
+.image-menu {
+    width: 350px;
+}
+
+@media (max-width: 768px) {
+    .texte {
+        font-size: 16px;
+    }
+
+    .image-menu {
+        width: 200px;
+    }
+}

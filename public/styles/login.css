@@ -126,3 +126,7 @@ input::placeholder{
 a:hover{
     background-color: var(--gray);
 }
+
+a {
+  margin: auto;
+}

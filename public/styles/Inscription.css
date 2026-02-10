@@ -1,34 +1,10 @@
 
 
-:root{
-    --secondary: #AA7539;
-    --secondary-bright: #FFD09B;
-    --primary: #27576B;
-    --background: #303030;
-    --white: #ffffff;
-}
-
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-}
-
-body{
-    background: var(--background);
-    color: white;
-}
 
 
 
 header{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:20px;
-    padding:20px;
+    
 }
 
 header a{
@@ -77,6 +53,20 @@ label{
     border:1px solid #aaa;
 }
 
+button {
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+button:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
 
 .button{
     position:relative;
