@@ -71,6 +71,20 @@ button:hover {
   border: 0.2rem solid var(--secondary-bright);
   box-shadow: 0 0 1rem var(--secondary-hot);
 }
+input[type="submit"] {
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
 
 /*--Page Layout--*/
 
@@ -269,7 +283,9 @@ aside.sidebar li:hover svg {
 }
 
 main {
-
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 section.searchbar {
@@ -303,6 +319,9 @@ section.searchbar input[type="text"]::placeholder {
 }
 
 section.carousel {
+  width: max(80%, 300px);
+  margin: auto;
+  overflow: visible;
   display: inline-flex;
   gap: 5rem;
 }

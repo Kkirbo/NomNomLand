@@ -1,0 +1,22 @@
+.infos {
+  max-width: 400px;
+  max-height: 100vh;
+  margin: 0 auto;
+  padding: 4rem;
+  font-size: 1.5rem;
+}
+
+
+.delivery-info dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.btn-success {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+dd > a {
+    color: green;
+}
