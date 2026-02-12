@@ -1,29 +1,26 @@
 const carousel = document.querySelector('.carousel');
 const cards = [...carousel.children];
 
-const cardWidth = cards[0].getBoundingClientRect().width;
+const cardWidth = cards[0].clientWidth * 0.9;
 const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
 const step = cardWidth + gap;
 
-/* ---- Clone cards ---- *//*
-cards.forEach(card => {
-  carousel.appendChild(card.cloneNode(true));
-  carousel.insertBefore(card.cloneNode(true), carousel.firstChild);
-});*/
-
-/**
- * Auto Scroll
- */
-let mouseHover;
-let autoScroll = setInterval(() => {
-    if (mouseHover) return;
-    if (carousel.scrollLeft >= step * cards.length) {
-        carousel.scrollLeft -= step * cards.length;
+/*if (carousel.scrollLeft <= cardWidth * 0.75) {
+    carousel.scrollLeft += 10;
+}
+if (carousel.scrollLeft >= cardWidth * cards.length) {
+    carousel.scrollLeft -= cardWidth * cards.length;
+}*/
+let mouseScrolling = false;
+let stopScroll;
+carousel.addEventListener('scroll', () => {
+    //console.log(`Scroll: ${carousel.scrollLeft} min: ${cardWidth} max: ${cardWidth * (cards.length - 1)}`);
+    if (carousel.scrollLeft <= cardWidth && !mouseScrolling) {
+        //carousel.scrollLeft = cardWidth;
+        carousel.scrollBy({ left: 10, behavior: 'smooth' });
     }
-    carousel.scrollBy({ left: step, behavior: 'smooth' });
-}, 2000);
-
-carousel.addEventListener('mouseenter', () => {mouseHover = true;});
-carousel.addEventListener('mouseleave', () => {mouseHover = false;});
-carousel.addEventListener('touchstart', () => {mouseHover = true;}, { passive: true });
-carousel.addEventListener('touchend', () => {mouseHover = false;});
+    if (carousel.scrollLeft >= cardWidth * (cards.length - 1) && !mouseScrolling) {
+        //carousel.scrollLeft = cardWidth * (cards.length - 1);
+        carousel.scrollBy({ left: -10, behavior: 'smooth' });
+    }
+});

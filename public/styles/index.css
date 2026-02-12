@@ -316,7 +316,7 @@ section.carousel {
   scroll-marker-group: after;
 }
 section.carousel::-webkit-scrollbar {
-  display: none;
+  display: default;
 }
 section.carousel::scroll-marker-group {
   transform: translateY(-1.2rem);
@@ -346,6 +346,12 @@ section.carousel article::scroll-marker {
   height: 1.2rem;
   background: var(--primary);
   border-radius: 50%;
+}
+section.carousel article:first-child::scroll-marker {
+  display: none;
+}
+section.carousel article:last-child::scroll-marker {
+  display: none;
 }
 section.carousel article::scroll-marker:target-current {
   background: var(--secondary);
