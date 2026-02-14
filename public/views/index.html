@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Funzione</title>
 
-    <link rel="icon" href="../assets/images/logo.ico">
+    <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <script defer src="../scripts/index.js"></script>
 </head>
 <body>
-    <video autoplay muted loop playsinline id="background">
+    <video autoplay muted loop playsinline class="background">
         <source src="../assets/videos/background.mp4" type="video/mp4">
     </video>
+    <canvas class="background"></canvas>
     <header>
         <h1>La Funzione</h1>
         <h2>Depuis 1964, compilé en 2026</h2>
@@ -64,9 +65,9 @@
 
     <main>
       <section class="carousel">
-        <article></article>
-        <article class="Meal">
-              <a href="menu/1" class="imageLink"><img draggable="false" src="../assets/images/menu1.png" alt="Menu1 Image"></a>
+        <article class="modernNeonBoxGlass"></article>
+        <article class="Meal modernNeonBoxGlass">
+              <a href="menu/1" class="imageLink"><img draggable="false" src="../assets/images/meals/special.png" alt="Special meal Image"></a>
               <h3>Today's special</h3>
               <ul>
                   <li>Name</li>
@@ -74,8 +75,8 @@
                   <li><a href="menu/1"><button>Order</button></a></li>
               </ul>
         </article>
-        <article class="Meal">
-            <a href="menu/2" class="imageLink"><img draggable="false" src="../assets/images/menu2.png" alt="Menu2 Image"></a>
+        <article class="Meal modernNeonBoxGlass">
+            <a href="menu/2" class="imageLink"><img draggable="false" src="../assets/images/meals/favorite.png" alt="Favorite meal Image"></a>
             <h3>Customer favorite</h3>
             <ul>
                 <li>Name</li>
@@ -83,8 +84,8 @@
                 <li><a href="menu/2"><button>Order</button></a></li>
             </ul>
         </article>
-        <article class="Meal">
-            <a href="menu/3" class="imageLink"><img draggable="false" src="../assets/images/menu3.png" alt="Menu3 Image"></a>
+        <article class="Meal modernNeonBoxGlass">
+            <a href="menu/3" class="imageLink"><img draggable="false" src="../assets/images/meals/bestseller.png" alt="Best seller meal Image"></a>
             <h3>Best seller</h3>
             <ul>
                 <li>Name</li>
@@ -92,15 +93,17 @@
                 <li><a href="menu/3"><button>Order</button></a></li>
             </ul>
         </article>
-        <article></article>
+        <article class="modernNeonBoxGlass"></article>
       </section>
+
       <section class="searchbar">
         <span>$ls</span>
         <input type="text" name="searchmeal" placeholder="Search for your favorite meal...">
       </section>
+
       <section class="menus">
         <article class="menu">
-              <a href="menu/1" class="imageLink"><img draggable="false" src="../assets/images/menu1.png" alt="Menu1 Image"></a>
+              <a href="menu/1" class="imageLink"><img draggable="false" src="../assets/images/menus/menu1.png" alt="Menu1 Image"></a>
               <h3>Menu 1</h3>
               <ul>
                   <li>Entree | Plat</li>
@@ -112,7 +115,7 @@
               </ul>
           </article>
           <article class="menu">
-              <a href="menu/2" class="imageLink"><img draggable="false" src="../assets/images/menu2.png" alt="Menu2 Image"></a>
+              <a href="menu/2" class="imageLink"><img draggable="false" src="../assets/images/menus/menu2.png" alt="Menu2 Image"></a>
               <h3>Menu 2</h3>
               <ul>
                   <li>Entree | Plat | Dessert</li>
@@ -124,7 +127,7 @@
               </ul>
           </article>
           <article class="menu">
-              <a href="menu/3" class="imageLink"><img draggable="false" src="../assets/images/menu3.png" alt="Menu3 Image"></a>
+              <a href="menu/3" class="imageLink"><img draggable="false" src="../assets/images/menus/menu3.png" alt="Menu3 Image"></a>
               <h3>Menu 3</h3>
               <ul>
                   <li>Entree | Plat | Boisson | Dessert</li>

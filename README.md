@@ -31,7 +31,7 @@ Contenu du site:
 -Horaries d'ouverture
 -Carte des plats
 -Emplacement du restaurant (google maps)
-
+-Allergens
 
 Cahier des charges:
 -Valeurs RGB à noter sur doc à rendre

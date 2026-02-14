@@ -14,8 +14,9 @@
   --primary-highlight: #333333;
   --primary-bright: #484848;
 
-  --primary-shadow-04: rgba(18, 18, 18, 0.4);
-  --primary-highlight-04: rgba(51, 51, 51, 0.4);
+  --primary-shadow-04: #12121266;
+  --primary-04: #1c1c1c66;
+  --primary-highlight-04: #33333366;
 
   --secondary-dark: #0C4400;
   --secondary-shadow: #0E5000;
@@ -86,6 +87,23 @@ input[type="submit"]:hover {
   box-shadow: 0 0 1rem var(--secondary-hot);
 }
 
+/*--Boxes--*/
+.modernNeonBox {
+  background: var(--primary);
+  border: 0.2rem solid var(--secondary-shadow);
+  box-shadow: 0 0 10px #004C29;
+  border-radius: 3rem;
+  font-weight: 1;
+}
+.modernNeonBoxGlass {
+  background: var(--primary-04);
+  border: 0.2rem solid var(--secondary-shadow);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px #004C29;
+  border-radius: 3rem;
+  font-weight: 1;
+}
+
 /*--Animate--*/
 @keyframes viewCard {
   0%, 100% {
@@ -114,7 +132,7 @@ body {
   font-weight: 1;
 }
 
-#background {
+.background {
   position: fixed;
   top: 0;
   left: 0;
@@ -124,6 +142,7 @@ body {
   z-index: -99999;
   user-select: none;
   pointer-events: none;
+  background: transparent;
 }
 
 header {
@@ -229,7 +248,7 @@ input.togglesidebar:checked ~ .togglesidebar .bot_line {
 aside.sidebar {
   height: 100%;
   width: 25%;
-  min-width: 375px;
+  min-width: 340px;
   position: fixed;
   z-index: 5;
   top: 0;
@@ -314,9 +333,32 @@ section.carousel {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scroll-marker-group: after;
+  anchor-name: --carousel;
 }
 section.carousel::-webkit-scrollbar {
-  display: default;
+  display: default; /*set to none*/
+}
+section.carousel::scroll-button(left), section.carousel::scroll-button(right) {
+  content: '';
+  border: none;
+  background-color: var(--primary-bright);
+  border-radius: 0 7rem 7rem 0;
+  opacity: 0;
+  height: 100%;
+  width: 10vw;
+  cursor: pointer;
+  position: fixed;
+  position-anchor: --carousel;
+  position-area: left center;
+  translate: 10vw;
+}
+section.carousel::scroll-button(right) {
+  border-radius: 7rem 0 0 7rem;
+  position-area: right center;
+  translate: -10vw;
+}
+section.carousel::scroll-button(left):hover, section.carousel::scroll-button(right):hover {
+  opacity: 0.5;
 }
 section.carousel::scroll-marker-group {
   transform: translateY(-1.2rem);
@@ -325,11 +367,7 @@ section.carousel::scroll-marker-group {
   gap: .5em;
 }
 section.carousel article {
-  background: var(--primary);
-  border: 0.2rem solid var(--primary-bright);
-  border-radius: 3rem;
-  
-  flex: 0 0 clamp(15rem, 60%, 80rem);
+  flex: 0 0 clamp(14rem, 60%, 80rem);
   aspect-ratio: 7/5;
 
   padding: 3rem;
