@@ -3,8 +3,9 @@
 @import url('https://fonts.cdnfonts.com/css/bolonewt');
 
 :root{
-  --black: rgb(0, 0, 0);
-  --white: rgb(255, 255, 255);
+  --black: #000000;
+  --white: #ffffff;
+  --pastel-blue: #58b5e0;
 
   --background: #303030;
 
@@ -104,6 +105,20 @@ input[type="submit"]:hover {
   font-weight: 1;
 }
 
+/*--Input--*/
+input[type="text"] {
+  color: var(--secondary-highlight);
+  background: var(--primary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  caret-color: var(--secondary-bright);
+  outline: none;
+  padding: 0.1rem 0.5rem;
+}
+input[type="text"]::placeholder {
+  color: var(--secondary-cold-shadow);
+}
+
 /*--Animate--*/
 @keyframes viewCard {
   0%, 100% {
@@ -153,7 +168,6 @@ header {
   border-radius: 15px;
   width: clamp(300px, 50%, 1000px);
   padding: 0;
-  margin: 0;
   font-weight: 1;
   padding: 15px;
   margin: 10px auto;
@@ -336,7 +350,7 @@ section.carousel {
   anchor-name: --carousel;
 }
 section.carousel::-webkit-scrollbar {
-  display: default; /*set to none*/
+  display: none; /*set to none*/
 }
 section.carousel::scroll-button(left), section.carousel::scroll-button(right) {
   content: '';
@@ -426,37 +440,78 @@ section.searchbar input[type="text"]::placeholder {
   color: var(--secondary-cold-shadow);
 }
 
-footer {
-  width: calc(100% - 16px);
-  height: min(auto, 100%);
-  overflow: hidden;
-  background: var(--primary);
-  border: none;
-  padding: 10px;
+article img {
+  max-width: 300px;
 }
 
+footer {
+  width: calc(100vw - 15px);
+  height: min(auto, 100%);
+  background: var(--primary);
+  font-size: 1.1rem;
+  border: none;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
 footer > span {
   display: block;
+  flex: 0 0 100%;
+  margin-top: 1rem;
 }
-
-footer a{
+footer a {
   color: var(--white);
   text-decoration: none;
+  anchor-name: --location-link;
+}
+footer li:has(iframe) {
+  position: relative;
+}
+footer a + iframe{
+  display: none;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: 25px;
+  left: -30px;
+  z-index: 10;
+  border-radius: 3rem;
+}
+footer li:has(iframe):hover a {
+  color: var(--pastel-blue);
+}
+footer li:has(iframe):hover iframe{
+  display: block;
+}
+footer ul {
+  list-style-position: inside;
+  flex: 1 1 250px;
+}
+footer ul > li:first-child {
+  display: inline-block;
+  font-weight: 800;
+  list-style-type: none;
+}
+footer ul li:has(form[action="newsletter"]) {
+  list-style-type: none;
+}
+footer ul li form[action="newsletter"] input {
+  margin: 0.3rem;
+  font-size: 1.1rem;
 }
 
 /*--Scrollbar--*/
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--secondary-dark);
-  border: 3px solid transparent;
-  background-clip: content-box;
+  background-color: var(--primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary);
-  border: 0.2rem solid var(--primary);
+  background: var(--primary-bright);
+  border: none;
   border-radius: 15px;
 }
 
