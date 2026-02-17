@@ -75,7 +75,33 @@ ul {
 .image-menu {
     width: 350px;
 }
+a{
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
 
+.modal{
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(77,77,77, .7);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_content{
+    background-color: var(--white);
+    padding: 1.5em, 2em;
+    width:500px;
+    max-width: 90%;
+    color: var(--black);
+
+}
 @media (max-width: 768px) {
     .texte {
         font-size: 16px;
