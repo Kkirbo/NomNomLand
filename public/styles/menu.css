@@ -40,14 +40,22 @@
   --outline: #1e1e1f;
   --details: green;
 }
-
+.return0{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 200%;
+    font-weight: bold;
+}
 h1{
     text-align: center;
 }
 
 .liste{
     border:2px solid #ffffff;
-
+    text-align: center;
 }
 
 .liste li{
@@ -63,10 +71,11 @@ img{
     align-items: center;
 }
 
-ul {
+.liste {
    padding: 0;
-   margin-left: 30%;
-   margin-right: 30%;
+   margin-left: 25%;
+   margin-right: 25%;
+
 }
 
 .texte {
@@ -106,7 +115,8 @@ a{
 .modal_content{
     background-color: var(--primary-shadow);
     padding: 1.5em 2em;
-    width:500px;
+    width:fit-content;
+    padding: 4%;
     max-width: 90%;
     color: var(--white);
     border-radius: 5px;
