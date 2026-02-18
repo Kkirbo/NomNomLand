@@ -113,21 +113,28 @@ a{
 }
 
 .modal_content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background-color: var(--primary-shadow);
     padding: 1.5em 2em;
-    width:fit-content;
+    max-height: 80vh;      
+    overflow-y: scroll;
     padding: 4%;
     max-width: 90%;
     color: var(--white);
     border-radius: 5px;
     position: relative;
 }
-
+.modal_content ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
 .modal_close{
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    font-size: 200%;
+    position: sticky;
+
+    font-size: 300%;
     cursor: pointer;
     color: var(--white);
     text-decoration: none;
@@ -149,4 +156,48 @@ a.link{
 a.link:visited {
     text-decoration: none;
     color: var(--white);
+}
+.dish-title {
+    text-align: center;
+    color: var(--secondary-bright);
+    margin-bottom: 5px;
+}
+
+.dish-version {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+
+.dish-section h3 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.dish-section {
+    width: 100%;
+    text-align: left;
+
+}
+
+.dish-section li {
+    list-style: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.devnote {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    color: var(--secondary-hot-bright);
+}
+.dish-footer {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 1px solid var(--primary-highlight);
+    color: var(--secondary-bright);
+    text-align: center;
 }
