@@ -39,6 +39,7 @@
 
   --outline: #1e1e1f;
   --details: green;
+  --neon: #39ff14;
 }
 .return0{
     display: flex;
@@ -93,6 +94,7 @@ a{
 }
 
 .modal{
+    display:none;
     visibility: hidden;
     opacity: 0;
     position:fixed;
@@ -107,6 +109,7 @@ a{
 }
 
 .modal:target{
+    display:flex;
     visibility: visible;
     opacity: 1;
     transition: .25s ease-in-out;
@@ -120,11 +123,14 @@ a{
     padding: 1.5em 2em;
     max-height: 80vh;      
     overflow-y: scroll;
-    padding: 4%;
     max-width: 90%;
     color: var(--white);
     border-radius: 5px;
     position: relative;
+}
+.dish-section li{
+    font-weight: bold;
+    text-shadow: 0 0 3px var(--details);
 }
 .modal_content ul {
     margin: 0;
@@ -132,12 +138,13 @@ a{
     width: 100%;
 }
 .modal_close{
-    position: sticky;
-
-    font-size: 300%;
+    position:fixed;
+    font-size: 3rem;
     cursor: pointer;
     color: var(--white);
     text-decoration: none;
+    padding: 0%;
+    margin: 0%;
 }
 @media (max-width: 768px) {
     .texte {
@@ -158,8 +165,10 @@ a.link:visited {
     color: var(--white);
 }
 .dish-title {
+    padding-top: 10px;
     text-align: center;
-    color: var(--secondary-bright);
+    color: var(--neon);
+    text-shadow: 0 0 2px var(--secondary-bright);
     margin-bottom: 5px;
 }
 
@@ -172,9 +181,10 @@ a.link:visited {
 
 
 .dish-section h3 {
-    color: var(--secondary);
+    color: var(--neon);
     margin-bottom: 10px;
     font-size: 18px;
+    text-shadow: 1px 1px 2px var(--secondary);
 }
 
 .dish-section {
@@ -188,6 +198,11 @@ a.link:visited {
     margin-bottom: 8px;
     font-size: 14px;
 }
+.devnote ul{
+    list-style:none;
+    font-size: small;
+    font-style: italic;
+}
 .devnote {
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -200,4 +215,10 @@ a.link:visited {
     border-top: 1px solid var(--primary-highlight);
     color: var(--secondary-bright);
     text-align: center;
+}
+.dish-img{
+    border: 2px solid var(--secondary-cold-shadow);
+    box-shadow: 0 0 2px 1px var(--details);
+    /*width: clamp(100px,50%,1000px);
+    height: clamp(100px,50%,1000px); */
 }
