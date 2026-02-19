@@ -11,7 +11,7 @@ carousel.addEventListener('scroll', () => {
   const scrollCenter = carousel.scrollLeft + carousel.clientWidth / 2;
   let closestIndex = firstValidCard;
   let closestDistance = Infinity;
-  
+
   cards.forEach((card, index) => {
     const distance = Math.abs(scrollCenter - (card.offsetLeft + card.clientWidth / 2));
     if (distance < closestDistance) {
@@ -19,7 +19,7 @@ carousel.addEventListener('scroll', () => {
       closestIndex = index;
     }
   });
-  
+
   // If on blank cards, snap back to nearest valid card
   if (closestIndex === 0) {
     cards[firstValidCard].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -49,12 +49,11 @@ function animatePlaceholder() {
 const searchBarEntersView = new IntersectionObserver(() => {
   searchinput.placeholder = "";
   animatePlaceholder();
-}, 
+},
 {
   threshold: 1
 });
 searchBarEntersView.observe(searchbar);
-
 
 /**
  * Canvas animations
@@ -76,6 +75,8 @@ function draw() {
     ctx.save();
     ctx.fillStyle = 'rgb(190, 25, 25)';
     ctx.fillRect(pos[0], pos[1], 10, 10);
+    pos[0] += 1;
+    pos[1] += 1;
     ctx.restore();
 
     ctx.restore();
@@ -84,5 +85,3 @@ function draw() {
 }
 
 window.requestAnimationFrame(draw);
-
-
