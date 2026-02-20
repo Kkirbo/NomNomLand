@@ -259,8 +259,18 @@ ul li:last-child {
     margin: auto; 
 }
 
+
+.cards-container {
+    display: flex;          
+    gap: 20px;               
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 ul.liste.card {
-    width: 200px;                 
-    padding: 0;
+    width: 200px;            
     list-style: none;
+    background-color: var(--primary-shadow); 
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--black);
 }
