@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css"/>
     <link rel="stylesheet" href="../styles/menu.css"/>
     <title>Funzione-Liste des menus</title>
 </head>
-    <header>
+<body>
+      <header>
         <h1>La Funzione</h1>
         <h2>Depuis 1964, compilé en 2026</h2>
     </header>
-<body>
     <input type="checkbox" id="togglesidebar" class="togglesidebar">
     <label for="togglesidebar" class="togglesidebar">
       <span class="top_line"></span>
@@ -55,52 +56,70 @@
       </ul>
     </aside>
 
-
+      <section class="searchbar">
+        <span>$ls</span>
+        <input type="text" name="searchmeal" placeholder="">
+      </section>
 <h1>Liste des menus</h1>
 
-<ul class="liste">
+<section class="menu-layout">
 
-  <li class="texte">
-    Menu connexion à la nature
-  </li>
+  <div class="menu-left">
+    <h2>Menus</h2>
+    
+    <ul class="liste card">
+      <li>
+        <img src="../assets/images/meals/Broccoli menu.png" class="menu-img"/></li>
+      <li class="texte">Menu connexion à la nature</li>
+    </ul>
+  </div>
 
-  <li class="texte">
-    <a href="#salad" class="link">Salade sans 5G</a>
-  </li>
 
-  <li class="texte">
-    <a href="#calzone" class="link">Calzone Container</a>
-  </li>
+  <div class="menu-right">
+    <h2>Plats</h2>
+    <ul class="liste">
 
-  <li class="texte">
-    <a href="#lasagna" class="link">Full Stack Lasagna // Beta-1.0</a>
-  </li>
+      <li class="texte">
+        <a href="#salad" class="link">Salade sans 5G</a>
+      </li>
 
-  <li class="texte">
-    <a href="#margherita" class="link">NPC Margherita</a>
-  </li>
+      <li class="texte">
+        <a href="#calzone" class="link">Calzone Container</a>
+      </li>
 
-  <li class="texte">
-    <a href="#penne" class="link">Penne.js Bolognese</a>
-  </li>
+      <li class="texte">
+        <a href="#lasagna" class="link">Full Stack Lasagna // Beta-1.0</a>
+      </li>
 
-  <li class="texte">
-    <a href="#ravioli" class="link">Boolean Ravioli Open-Source</a>
-  </li>
+      <li class="texte">
+        <a href="#margherita" class="link">NPC Margherita</a>
+      </li>
 
-  <li class="texte">
-    <a href="#carbonara" class="link">Callback Carbonara</a>
-  </li>
+      <li class="texte">
+        <a href="#penne" class="link">Penne.js Bolognese</a>
+      </li>
 
-  <li class="texte">
-    <a href="#spaghetti" class="link">Spaghetti Code</a>
-  </li>
+      <li class="texte">
+        <a href="#ravioli" class="link">Boolean Ravioli Open-Source</a>
+      </li>
 
-  <li class="texte">
-    Plats Italiens In Dente et sans bugs — compilation parfaite, ni trop cuite, ni trop crue
-  </li>
+      <li class="texte">
+        <a href="#carbonara" class="link">Callback Carbonara</a>
+      </li>
 
-</ul>
+      <li class="texte">
+        <a href="#spaghetti" class="link">Spaghetti Code</a>
+      </li>
+
+      <li class="texte">
+        Plats Italiens In Dente et sans bugs — compilation parfaite, ni trop cuite, ni trop crue
+      </li>
+
+    </ul>
+  </div>
+
+</section>
+
 
   <a href="../views/index.html" class="return0">
     Fin du menu: return 0; // Buon appetito
@@ -145,7 +164,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title" id="Calzone-container">Calzone Container</h2>
-    <img src="../assets/images/meals/Calzone-Container.webp" label="Calzone-Container"/>
+    <img src="../assets/images/meals/Calzone-Container.webp" class="dish-img" label="Calzone-Container"/>
     <p class="dish-version">Version Dockerisée 2.3 - Hot Deploy Edition</p>
     <div class="dish-section">
       <h3>Architecture </h3>
@@ -196,7 +215,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Full Stack Lasagna</h2>
-    <img src="../assets/images/meals/FullStack-Lasagna.webp" label="FullStack-Lasagna"/>
+    <img src="../assets/images/meals/Lasagnes.jpg" class="dish-img" label="FullStack-Lasagna"/>
     <p class="dish-version">Version Beta-1.0 — Layered Deployment</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -248,7 +267,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">NPC Margherita</h2>
-    <img src="../assets/images/meals/NPC-Margherita.webp" label="NPC-Margherita"/>
+    <img src="../assets/images/meals/Margherita Pizza.jpg" label="NPC-Margherita"/>
     <p class="dish-version">Version Passive 1.4 — Background Process</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -296,7 +315,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
         <h2 class="dish-title">Penne.js Bolognese</h2>
-    <img src="../assets/images/meals/Pennejs-Bolognese.webp" label="Pennejs-Bolognese"/>
+    <img src="../assets/images/meals/Pennejs-Bolognese.webp" class="dish-img" label="Pennejs-Bolognese"/>
     <p class="dish-version">Version 3.2 — Async Flavor</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -305,7 +324,7 @@
         <li>Runtime : Sauce bolognaise riche</li>
         <li>Event Loop : Cuisson progressive</li>
         <li>Modules : Parmesan, thym</li>
-        <li>Package Manager : Huile d’olive</li>
+        <li>Package Manager : Huile d'olive</li>
       </ul>
     </div>
     <div class="dish-section">
@@ -343,7 +362,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
      <h2 class="dish-title">Boolean Ravioli Open-Source</h2>
-    <img src="../assets/images/meals/Boolean-Ravioli.webp" label="Boolean-Ravioli"/>
+    <img src="../assets/images/meals/Ravioli-OS.webp" class="dish-img" label="Boolean-Ravioli"/>
     <p class="dish-version">Version 1.1 — True/False Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -390,7 +409,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Callback Carbonara</h2>
-    <img src="../assets/images/meals/Callback-Carbonara.webp" label="Callback-Carbonara"/>
+    <img src="../assets/images/meals/Carbonara.jpg" class="dish-img" label="Callback-Carbonara"/>
     <p class="dish-version">Version 2.0 — Creamy Response</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -433,11 +452,12 @@
   </div>
 </div>
 
+
 <div id="spaghetti" class="modal">
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
         <h2 class="dish-title">Spaghetti Code</h2>
-    <img src="../assets/images/meals/Spaghetti-Code.webp" label="Spaghetti-Code"/>
+    <img src="../assets/images/meals/Bolognaise.jpg" class="dish-img" label="Spaghetti-Code"/>
     <p class="dish-version">Version Legacy 0.9 — Chaos Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
