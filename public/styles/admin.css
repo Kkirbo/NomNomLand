@@ -68,6 +68,7 @@
     backdrop-filter: blur(8px);
     background: rgba(0, 0, 0, 0.5);
     height: 100vh;
+    z-index: 7;
 }
 
 @keyframes fadeIn {
@@ -93,12 +94,13 @@ h2 {
   font-weight: 1;
 }
 
-button[type=submit]{
+.orders button[type=submit]{
     margin: 1rem;
     padding: 1rem;
+    font-size: 1.2rem;
 }
 
-label {
+.orders label {
   background: var(--primary);
   color: var(--secondary);
   border: 0.2rem solid var(--secondary);
@@ -106,8 +108,20 @@ label {
   transition: all 0.1s;
   cursor: pointer;
   padding: 1rem;
+  font-size: 1.2rem;
 }
-label:hover {
+.orders label:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
   border: 0.2rem solid var(--secondary-bright);
   box-shadow: 0 0 1rem var(--secondary-hot);
+}
+.orders label.overlay {
+  cursor: auto;
+}
+.orders label.overlay:hover {
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  box-shadow: 0;
 }
