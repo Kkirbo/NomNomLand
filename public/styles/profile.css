@@ -102,15 +102,17 @@
   background: green;
 }
 
-button {
+input {
   cursor: pointer;
   border: none;
   padding: 0.8rem 1rem;
   border-radius: 8px;
   font-size: 0.9rem;
+  width: 100%;
+  color: var(--shaded-glass-bright);
 }
 
-button:hover {
+input:hover {
   border: none;
 }
 
