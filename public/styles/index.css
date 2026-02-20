@@ -6,6 +6,8 @@
   --black: #000000;
   --white: #ffffff;
   --pastel-blue: #58b5e0;
+  --pastel-red: #ff4d4d;
+  --pastel-orange: #ffcc00;
 
   --background: #303030;
 
@@ -56,6 +58,10 @@ html, body {
 
 * {
   font-family: 'Mina', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 /*--Buttons--*/
@@ -335,12 +341,14 @@ main {
 
 section.carousel {
   width: 100%;
+  font-size: 1.1rem;
   max-height: 75vh;
   margin: 1rem auto 1.5rem auto;
   display: flex;
   gap: 2rem;
 
   overflow-x: scroll;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scroll-marker-group: after;
@@ -377,18 +385,6 @@ section.carousel::scroll-marker-group {
   justify-content: center;
   gap: .5em;
 }
-section.carousel article {
-  flex: 0 0 clamp(14rem, 60%, 80rem);
-  aspect-ratio: 7/5;
-
-  padding: 3rem;
-
-  scroll-snap-align: center;
-
-  animation: viewCard ease both;
-  animation-timeline: view(x);
-  animation-range: entry 10% exit 90%;
-}
 section.carousel article::scroll-marker {
   content: '';
   width: 1.2rem;
@@ -406,7 +402,84 @@ section.carousel article::scroll-marker:target-current {
   background: var(--secondary);
 }
 
-section.searchbar {
+/*
+section.carousel article {
+  flex: 0 0 clamp(14rem, 60%, 80rem);
+  aspect-ratio: 7/5;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 3rem;
+
+  scroll-snap-align: center;
+
+  animation: viewCard ease both;
+  animation-timeline: view(x);
+  animation-range: entry 10% exit 90%;
+}
+*/
+section.carousel article {
+  flex: 0 0 clamp(14rem, 60%, 80rem);
+  aspect-ratio: 7/5;
+
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+  "title title"
+  "img desc";
+  overflow-wrap: anywhere;
+
+  padding: 3rem;
+
+  scroll-snap-align: center;
+
+  animation: viewCard ease both;
+  animation-timeline: view(x);
+  animation-range: entry 10% exit 90%;
+}
+section.carousel article img {
+  display: block;
+  margin: 1rem auto;
+  grid-area: img;
+  width: 80%;
+  border-radius: 3rem;
+}
+section.carousel article img:hover {
+  opacity: 80%;
+}
+section.carousel article h3 { 
+  grid-area: title;
+  text-align: center;
+}
+section.carousel article ul {
+  list-style: none;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  grid-area: desc;
+}
+section.carousel article ul li {
+  max-width: 100%;
+  width: auto;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid var(--primary-bright);
+}
+section.carousel article ul li:last-child {
+  border: none;
+}
+section.carousel article ul button {
+  font-size: 1.3rem;
+  margin-top: 0.8rem;
+  padding: 0.8rem 1.2rem;
+}
+
+form.searchbar {
   padding: 10px;
   width: clamp(300px, 50%, 800px);
   height: auto;
@@ -418,11 +491,11 @@ section.searchbar {
   margin: 1rem auto;
   transition: all 0.5s;
 }
-section.searchbar span {
+form.searchbar span {
   width: 10%;
   color: var(--secondary);
 }
-section.searchbar input[type="text"] {
+form.searchbar input[type="text"] {
   caret-color: var(--secondary-bright);
   padding: 10px 0 10px 0;
   width: 90%;
@@ -432,8 +505,9 @@ section.searchbar input[type="text"] {
   font-size: 1.5rem;
   background: none;
   border: none;
+  border-radius: 0;
 }
-section.searchbar input[type="text"]::placeholder {
+form.searchbar input[type="text"]::placeholder {
   color: var(--secondary-cold-shadow);
 }
 
@@ -442,6 +516,7 @@ section.menus {
   height: auto;
   margin: 0;
   padding: 0;
+  font-size: 1.1rem;
   border: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
@@ -450,10 +525,13 @@ section.menus {
 }
 section.menus article {
   flex: 0 0 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 section.menus article img {
   display: block;
-  margin: 1rem auto;
+  margin: 0 auto;
   width: 90%;
   max-width: 300px;
   border-radius: 3rem;
@@ -473,63 +551,89 @@ section.menus article ul li {
   border-bottom: 0.1rem solid var(--primary-highlight);
 }
 section.menus article a {
+  margin: 1rem;
   text-decoration: none;
+}
+section.menus article a:has(button) {
+  margin-top: auto;
 }
 section.menus article button {
   display: block;
-  margin: 0.5rem auto;
+  margin: 0 auto;
   font-size: 1.2rem;
   padding: 0.5rem 1.5rem;
 }
 
-.infos {
-  padding: 4rem 2rem;
-}
-.infos h2 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-.faq-container {
-  width: 100%;
+section.infos {
+  margin: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.faq-item {
+section.infos h2 {
+  width: fit-content;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-04);
+  border: 0.2rem solid var(--secondary-shadow);
+  border-radius: 3rem;
+}
+section.infos a {
+  color: var(--pastel-blue);
+  text-decoration: none;
+}
+
+section.infos article {
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+section.infos article p {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+section.infos article strong {
+  font-weight: 600;
+}
+section.infos article p:last-of-type {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+
+section.infos details {
   width: 100%;
-  box-sizing: border-box;
   border: 0.2rem solid var(--secondary-shadow);
   border-radius: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
+  font-size: 1.1rem;
   background: var(--primary-04);
 }
-.faq-item summary {
+section.infos details summary {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   list-style: none;
   position: relative;
 }
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-.faq-item summary::after {
+section.infos details summary::after {
   content: "+";
   position: absolute;
+  top: -25%;
   right: 0;
-  font-size: 1.3rem;
-  transition: transform 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: 100;
+  transition: all 0.2s ease;
 }
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
+section.infos details[open] summary::after {
+  transform: rotate(45deg) translateX(-0.1rem);
 }
-.faq-item p {
-  margin-top: 1rem;
-  line-height: 1.5;
+section.infos details p {
+  margin-left: 1rem;
+  text-align: left;
 }
 
 footer {
-  width: calc(100vw - 15px);
-  height: min(auto, 100%);
+  width: 100vw;
   background: var(--primary);
   font-size: 1.1rem;
   border: none;
@@ -541,7 +645,7 @@ footer {
 footer > span {
   display: block;
   flex: 0 0 100%;
-  margin-top: 1rem;
+  margin-top: 0.2rem;
 }
 footer a {
   color: var(--white);
@@ -551,30 +655,32 @@ footer a {
 footer li:has(iframe) {
   position: relative;
 }
-footer a + iframe{
+footer li a + iframe{
   display: none;
   position: absolute;
   width: 300px;
   height: 300px;
-  bottom: 25px;
-  left: -30px;
+  bottom: 0px;
+  left: -40px;
   z-index: 10;
+  border: 0.2rem solid var(--secondary-shadow);
   border-radius: 3rem;
 }
 footer li:has(iframe):hover a {
   color: var(--pastel-blue);
 }
-footer li:has(iframe):hover iframe{
+footer li:hover iframe{
   display: block;
 }
 footer ul {
-  list-style-position: inside;
+  list-style: none;
   flex: 1 1 250px;
+  padding: 0 3rem;
 }
 footer ul > li:first-child {
+  margin-bottom: 0.2rem;
   display: inline-block;
   font-weight: 800;
-  list-style-type: none;
 }
 footer ul li:has(form#newsletter) {
   list-style-type: none;

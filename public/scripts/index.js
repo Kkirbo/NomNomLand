@@ -6,7 +6,6 @@ const cards = [...carousel.children];
 const firstValidCard = 1;
 const lastValidCard = cards.length - 2;
 
-// Block scroll on blank elements and constrain to valid cards only
 carousel.addEventListener('scroll', () => {
   const scrollCenter = carousel.scrollLeft + carousel.clientWidth / 2;
   let closestIndex = firstValidCard;
@@ -20,17 +19,24 @@ carousel.addEventListener('scroll', () => {
     }
   });
 
-  // If on blank cards, snap back to nearest valid card
   if (closestIndex === 0) {
-    cards[firstValidCard].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    carousel.scrollTo({
+      left: cards[firstValidCard].offsetLeft - (carousel.clientWidth - cards[firstValidCard].clientWidth) / 2,
+      behavior: 'smooth'
+    });
   } else if (closestIndex === cards.length - 1) {
-    cards[lastValidCard].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    carousel.scrollTo({
+      left: cards[lastValidCard].offsetLeft - (carousel.clientWidth - cards[lastValidCard].clientWidth) / 2,
+      behavior: 'smooth'
+    });
   }
 }, { passive: true });
 
-// Initial scroll
 window.addEventListener('load', () => {
-  cards[firstValidCard].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  carousel.scrollTo({
+    left: cards[firstValidCard].offsetLeft - (carousel.clientWidth - cards[firstValidCard].clientWidth) / 2,
+    behavior: 'smooth'
+  });
 });
 
 /**
@@ -68,20 +74,20 @@ canvas.height = window.innerHeight;
 let pos = [-5, -5];
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.save();
+  ctx.save();
 
-    ctx.save();
-    ctx.fillStyle = 'rgb(190, 25, 25)';
-    ctx.fillRect(pos[0], pos[1], 10, 10);
-    pos[0] += 1;
-    pos[1] += 1;
-    ctx.restore();
+  ctx.save();
+  ctx.fillStyle = 'rgb(190, 25, 25)';
+  ctx.fillRect(pos[0], pos[1], 10, 10);
+  pos[0] += 1;
+  pos[1] += 1;
+  ctx.restore();
 
-    ctx.restore();
+  ctx.restore();
 
-    window.requestAnimationFrame(draw);
+  window.requestAnimationFrame(draw);
 }
 
 window.requestAnimationFrame(draw);

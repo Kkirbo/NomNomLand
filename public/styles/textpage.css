@@ -1,0 +1,50 @@
+main {
+    min-height: 100vh;
+    width: 100vw;
+}
+main section {
+    width: 90%;
+    display: block;
+    margin: 3rem auto;
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+main section a {
+    color: var(--pastel-blue);
+    text-decoration: none;
+}
+
+div:has(table) {
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.4rem;
+}
+table th,
+table td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 0.1rem solid var(--primary-highlight);
+}
+table th:first-child,
+table td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+table tbody tr:hover {
+    background: var(--primary-bright);
+}
+.contains, .trace {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.contains {
+  color: var(--pastel-red);
+}
+.trace {
+  color: var(--pastel-orange);
+}

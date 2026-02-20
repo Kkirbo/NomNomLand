@@ -4,7 +4,8 @@ La Funzione
 -Depuis 1964 Complié en 2026
 
 Plats/menu:
-Menu connexion à la nature Salade sans 5G
+Menu connexion à la nature
+Salade sans 5G
 Calzone Container
 Full Stack Lasagna
 // Beta-1.0
