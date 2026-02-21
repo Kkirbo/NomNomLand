@@ -1,5 +1,5 @@
 /**
- * Carousel
+ * Carousel Lock In Between Blank Elements
  */
 const carousel = document.querySelector('.carousel');
 const cards = [...carousel.children];
@@ -40,16 +40,15 @@ window.addEventListener('load', () => {
 });
 
 /**
- * Searchbar
+ * Searchbar Animation
  */
 const searchbar = document.querySelector('.searchbar');
 const searchinput = searchbar.querySelector('input');
 searchinput.placeholder = "";
 const placeholderText = "Search for your favorite meal...";
 function animatePlaceholder() {
-  if (searchinput.placeholder.length == placeholderText.length) {
-   return;
-  } else searchinput.placeholder += placeholderText[searchinput.placeholder.length];
+  if (searchinput.placeholder.length == placeholderText.length) return;
+  else searchinput.placeholder += placeholderText[searchinput.placeholder.length];
   window.setTimeout(animatePlaceholder, Math.random() * (250 - 50) + 50);
 };
 const searchBarEntersView = new IntersectionObserver(() => {
@@ -64,6 +63,7 @@ searchBarEntersView.observe(searchbar);
 /**
  * Canvas animations
  */
+/*
 const canvas = document.querySelector('canvas');
 canvas.style.top = "0px";
 const ctx = canvas.getContext('2d');
@@ -90,4 +90,4 @@ function draw() {
   window.requestAnimationFrame(draw);
 }
 
-window.requestAnimationFrame(draw);
+window.requestAnimationFrame(draw);*/
