@@ -109,6 +109,7 @@ h2 {
   cursor: pointer;
   padding: 1rem;
   font-size: 1.2rem;
+  z-index: 0;
 }
 .orders label:hover {
   color: var(--primary);
