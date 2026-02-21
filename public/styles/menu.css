@@ -118,7 +118,7 @@ a{
     background-color: var(--primary-shadow);
     padding: 1.5em 2em;
     max-height: 80vh;      
-    overflow-y: scroll;
+    overflow-y: auto;
     max-width: 90%;
     color: var(--white);
     border-radius: 5px;
@@ -238,6 +238,12 @@ a.link:visited {
 .menu-right {
   flex: 2;
 }
+.menu-right {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 
 .menu-left .liste,
 .menu-right .liste {
@@ -248,6 +254,8 @@ a.link:visited {
 .menu-right h2 {
   text-align: center;
   color: var(--neon);
+   border-bottom: 2px solid var(--secondary-cold);
+  padding-bottom: 8px;
 }
 ul li:last-child {
     border-bottom: none;
@@ -256,21 +264,72 @@ ul li:last-child {
 .menu-img {
     width: 200px; 
     height: auto;
-    margin: auto; 
+    display: block;
 }
-
-
 .cards-container {
     display: flex;          
     gap: 20px;               
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-ul.liste.card {
-    width: 200px;            
-    list-style: none;
-    background-color: var(--primary-shadow); 
-    border-radius: 5px;
-    box-shadow: 0 0 5px var(--black);
+
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  gap: 5px;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--neon);
+  transition: transform 0.25s linear, box-shadow 0.25s linear;
+  animation: neonrgb 1s alternate infinite;
+}
+@keyframes neonrgb {
+    0% {
+      box-shadow:0 0 5px var(--secondary-cold-shadow),0 0 9px var(--secondary-cold-highlight);
+  }
+
+  33% {
+    box-shadow:0 0 10px var(--secondary-bright),0 0 11px var(--secondary);
+  }
+
+  66% {
+    box-shadow:0 0 12px var(--secondary-hot-bright),0 0 15px var(--secondary-hot);
+  }
+
+  100% {
+    box-shadow: 0 0 17px var(--secondary-bright), 0 0 20px var(--neon);
+  }
+}
+.menu-card h3 {
+  font-size: 18px;
+  color: var(--white);
+  text-shadow: 0 0 2px var(--secondary-cold-highlight);
+}
+.menu-card h3:hover {
+  color: var(--neon);
+  text-shadow: 0 0 5px var(--neon);
+}
+.card-btn {
+  padding: 8px 15px;
+  background: var(--secondary-cold);
+  color: var(--white);
+  border-radius: 20px;
+  font-size: 12px;
+  box-shadow: 0 0 5px var(--secondary-cold-shadow);
+  text-shadow: 0 0 2px var(--secondary-cold-highlight);
+}
+
+.card-btn:hover {
+  background: var(--secondary-cold-bright);
 }
