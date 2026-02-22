@@ -62,6 +62,8 @@
     color: var(--white);
     font-size: 200%;
     font-weight: bold;
+    background-color: var(--primary-bright);
+    margin-top: 15px;
 }
 h1{
     text-align: center;
@@ -249,6 +251,7 @@ a.link:visited {
 #menuheader,#sousmenuheader{
     margin: auto;
     padding-bottom: 2%;
+
 }
 
 
@@ -342,6 +345,9 @@ ul li:last-child {
 .menu-card h3:hover {
   color: var(--neon);
   text-shadow: 0 0 5px var(--neon);
+}
+.menu-card:last-child{
+    margin-bottom: 15px;
 }
 .card-btn {
   padding: 8px 15px;
