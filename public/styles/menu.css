@@ -1,44 +1,6 @@
 :root{
-  --black: rgb(0, 0, 0);
-  --white: rgb(255, 255, 255);
-
-  --background: #303030;
-
-  --primary-dark: #010101;
-  --primary-shadow: #121212;
-  --primary: #1c1c1c;
-  --primary-highlight: #333333;
-  --primary-bright: #484848;
-
-  --primary-shadow-04: rgba(18, 18, 18, 0.4);
-  --primary-highlight-04: rgba(51, 51, 51, 0.4);
-
-  --secondary-dark: #0C4400;
-  --secondary-shadow: #0E5000;
-  --secondary: #105C00;
-  --secondary-highlight: #126700;
-  --secondary-bright: #187305;
-
-  --secondary-cold-dark: #004C29;
-  --secondary-cold-shadow: #004224;
-  --secondary-cold: #004C29;
-  --secondary-cold-highlight: #00562F;
-  --secondary-cold-bright: #045F36;
-
-  --secondary-hot-dark: #2B4B00;
-  --secondary-hot-shadow: #335800;
-  --secondary-hot: #3A6500;
-  --secondary-hot-highlight: #427200;
-  --secondary-hot-bright: #4B7E05;
-
-  --shaded-glass-dark: #0f0f0f80;
-  --shaded-glass-shadow: #1d1d1d80;
-  --shaded-glass: #29292980;
-  --shaded-glass-highlight: #36363680;
-  --shaded-glass-bright: #58585880;
-   
   --outline: #1e1e1f;
-  --details: green;
+  --details: #008000;
   --neon: #39ff14;
 
   --basic-dark: #0655cc;          
@@ -97,6 +59,8 @@ h1{
 
 a{
     text-decoration: none;
+}
+.menu-card a {
     padding: 15px;
     border-radius: 5px;
     text-transform: uppercase;
@@ -127,14 +91,12 @@ a{
 .modal_content{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    background-color: var(--primary-shadow);
-    padding: 1.5em 2em;
+    gap: 1rem;
+    padding: 3rem;
     max-height: 80vh;      
     overflow-y: auto;
     max-width: 90%;
     color: var(--white);
-    border-radius: 15px;
     position: relative;
 }
 .dish-section li{
@@ -147,7 +109,8 @@ a{
     width: 100%;
 }
 .modal_close{
-    position:fixed;
+    position: absolute;
+    top: 10px;
     font-size: 3rem;
     cursor: pointer;
     color: var(--white);
@@ -250,7 +213,7 @@ a.link:visited {
 
 #menuheader,#sousmenuheader{
     margin: auto;
-    padding-bottom: 2%;
+    margin-bottom: 2%;
 
 }
 
@@ -262,8 +225,12 @@ ul li{
 .menu-right h2 {
   text-align: center;
   color: var(--neon);
-   border-bottom: 2px solid var(--secondary-cold);
+   border-bottom: 2px solid var(--primary-bright);
   padding-bottom: 8px;
+}
+.menu-left h2:last-of-type,
+.menu-right h2:last-of-type {
+  color: var(--basic-neon);
 }
 ul li:last-child {
     border-bottom: none;
@@ -391,4 +358,8 @@ ul li:last-child {
 }
 .menu-card.basic .card-btn-basic:hover {
     background: var(--basic);
+}
+
+footer {
+    text-transform: none;
 }

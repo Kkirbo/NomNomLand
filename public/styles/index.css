@@ -415,7 +415,7 @@ section.carousel article {
 
   scroll-snap-align: center;
 
-  /*animation: viewCard ease both;*/
+  /*animation: viewCard ease both; Animation uses features incompatible with Mozilla*/
   animation-timeline: view(x);
   animation-range: entry 10% exit 90%;
 }

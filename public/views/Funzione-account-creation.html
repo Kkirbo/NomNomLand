@@ -80,15 +80,19 @@
                 <input id="email" name="email" type="email" class="champ" required>
             </div>
             <div class="field">
-                <label for="email-confirm">Reconfirm E-mail:</label>
+                <label for="email-confirm">Confirm E-mail:</label>
                 <input id="email-confirm" name="email-confirm" type="email" class="champ" required>
             </div>
             <div class="field">
-                <label>Genre:</label>
-                <input id="radio-homme" type="radio" name="genre" value="homme" checked>
-                <label for="radio-homme">Homme</label>
-                <input id="radio-femme" type="radio" name="genre" value="femme">
-                <label for="radio-femme">Femme</label>
+                <label>Gender:</label>
+                <input id="radio-male" type="radio" name="gender" value="male" checked>
+                <label for="radio-male">Male</label>
+                <input id="radio-female" type="radio" name="gender" value="female">
+                <label for="radio-female">Female</label>
+                <input id="radio-other" type="radio" name="gender" value="other">
+                <label for="radio-other">Other</label>
+                <input id="radio-unspecified" type="radio" name="gender" value="unspecified">
+                <label for="radio-unspecified">Prefer not to say</label>
             </div>
             <div class="field">
                 <label for="address">Address:</label>
@@ -97,7 +101,7 @@
                     placeholder="12 Rivoli Street Paris">
             </div>
             <div class="field">
-                <label>Signing in</label>
+                <label>Sign in</label>
                 <button type="submit" class="button">
                     Submit
                 </button>
