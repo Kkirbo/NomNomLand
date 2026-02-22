@@ -1,6 +1,7 @@
 # NomNomLand
 TODO:
-La Funzione
+La Funzione[Rapport_Projet_Phase1 (2).pdf](https://github.com/user-attachments/files/25473156/Rapport_Projet_Phase1.2.pdf)
+
 -Depuis 1964 Complié en 2026
 
 Plats/menu:
@@ -9,7 +10,8 @@ Salade sans 5G
 Calzone Container
 Full Stack Lasagna
 // Beta-1.0
-NPC Margherita
+NPC Margherita[Uploading Rapport_Projet_Phase1 (2).pdf…]()
+
 Penne.js
 Bolognese Boolean
 Ravioli Open-Source
