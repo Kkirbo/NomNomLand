@@ -254,7 +254,9 @@ a.link:visited {
 
 }
 
-
+ul li{
+    padding: 0 5 0 5;
+}
 
 .menu-left h2,
 .menu-right h2 {

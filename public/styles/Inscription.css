@@ -1,31 +1,70 @@
+:root{
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+
+  --background: #303030;
+
+  --primary-dark: #010101;
+  --primary-shadow: #121212;
+  --primary: #1c1c1c;
+  --primary-highlight: #333333;
+  --primary-bright: #484848;
+
+  --primary-shadow-04: rgba(18, 18, 18, 0.4);
+  --primary-highlight-04: rgba(51, 51, 51, 0.4);
+
+  --secondary-dark: #0C4400;
+  --secondary-shadow: #0E5000;
+  --secondary: #105C00;
+  --secondary-highlight: #126700;
+  --secondary-bright: #187305;
+
+  --secondary-cold-dark: #004C29;
+  --secondary-cold-shadow: #004224;
+  --secondary-cold: #004C29;
+  --secondary-cold-highlight: #00562F;
+  --secondary-cold-bright: #045F36;
+
+  --secondary-hot-dark: #2B4B00;
+  --secondary-hot-shadow: #335800;
+  --secondary-hot: #3A6500;
+  --secondary-hot-highlight: #427200;
+  --secondary-hot-bright: #4B7E05;
+
+  --shaded-glass-dark: #0f0f0f80;
+  --shaded-glass-shadow: #1d1d1d80;
+  --shaded-glass: #29292980;
+  --shaded-glass-highlight: #36363680;
+  --shaded-glass-bright: #58585880;
+   
+  --outline: #1e1e1f;
+  --details: green;
+  --neon: #39ff14;
+  --incorrect: 	#C41D0C;
+}
 
 
-
-
-
+body:not(h1) {
+    font-size: clamp(0.8125em, 1.5vw, 1.125em);
+}
 header{
-    
+    font-size: 1em;
 }
-
-header a{
-    color:white;
-    text-decoration:none;
-    border:1px solid white;
-    padding:5px 10px;
-    border-radius:5px;
-}
-
 
 
 fieldset{
     display:flex;
     flex-direction:column;
+    flex-wrap: wrap;
     width:fit-content;
-    margin:40px auto;
-    padding:25px;
-    background-color: var(--secondary-bright);
-    border-radius:15px;
-    color:black;
+    margin: auto;
+    margin-bottom: 0.9375em;
+    background-color: var(--primary-shadow);
+    border-radius:0.9375em;
+    color:var(--black);
+    border-color: var(--details);
+    border-width: 0.125em;
+    box-shadow: 0 0 0.625em var(--details);
 }
 
 legend{
@@ -33,27 +72,74 @@ legend{
     font-weight:bold;
     padding:5px 15px;
     border-radius:10px;
-    background:white;
+    border: 1px solid var(--details);
+    box-shadow: 0 0 5px var(--details);
+    background: var(--primary-shadow);
+    color: var(--neon);
+}
+#firstname,
+#age,
+#email,
+#email-confirm,
+#address{
+    caret-color: var(--details);
+    min-width: 200px;
+    color: var(--details);
+    outline: none;
+}
+@keyframes transition{
+    0%{
+        border: 1px solid var(--incorrect);
+        box-shadow: 0 0 5px var(--incorrect);
+    }
+    100%{
+        border: 1px solid var(--details);
+        box-shadow: 0 0 5px var(--details);
+    }
+
 }
 
+@keyframes transition-inverse{
+    0%{
+        border: 1px solid var(--details);
+        box-shadow: 0 0 5px var(--details);
+    }
+    100%{
+        border: 1px solid var(--incorrect);
+        box-shadow: 0 0 5px var(--incorrect);
+    }
+}
+
+input:valid {
+    border: 1px solid var(--details);
+    box-shadow: 0 0 5px var(--details);
+    animation: transition 0.5s ease;
+}
+input:invalid {
+    border: 1px solid var(--incorrect);
+    box-shadow: 0 0 5px var(--incorrect);
+    animation: transition-inverse 0.5s ease;
+}
 .field{
     margin:10px 0;
+    color: var(--details);
 }
 
-label{
+form label{
     display:inline-block;
-    min-width:180px;
+    min-width:200px;
+
     margin-bottom:5px;
 }
 
 .champ{
-    height:28px;
-    padding:3px;
-    border-radius:5px;
-    border:1px solid #aaa;
+    background-color: var(--outline);
+    border-radius: 48px  48px ;
+    height: clamp(26px, 2.5vw, 36px);
 }
 
 button {
+
   background: var(--primary);
   color: var(--secondary);
   border: 0.2rem solid var(--secondary);
@@ -62,6 +148,7 @@ button {
   cursor: pointer;
 }
 button:hover {
+  
   color: var(--primary);
   background: var(--secondary-bright);
   border: 0.2rem solid var(--secondary-bright);
@@ -71,98 +158,21 @@ button:hover {
 .button{
     position:relative;
     border:1px solid var(--secondary);
-    background:white;
+    background: var(--white);
     border-radius:10px;
     padding:10px 20px;
-    margin-top:5px;
+    
     cursor:pointer;
     transition:0.3s;
 }
 
-.button:hover{
-    background: var(--secondary-bright);
+.radio{
+    display:none;
 }
 
-
-.burger{
-    position:absolute;
-    width:40px;
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-    opacity:0;
-    pointer-events:none;
-
+input[type="radio"] {
+    display: none;
 }
-
-
-@keyframes explode1{
-    0%{
-        transform:translate(-50%,-50%) rotate(0deg);
-        opacity:1;
-    }
-    100%{
-        transform:translate(120px,-120px) rotate(360deg);
-        opacity:0;
-    }
-}
-
-@keyframes explode2{
-    0%{
-        transform:translate(-50%,-50%) rotate(0deg);
-        opacity:1;
-    }
-    100%{
-        transform:translate(-120px,-150px) rotate(-360deg);
-        opacity:0;
-    }
-}
-
-@keyframes explode3{
-    0%{
-        transform:translate(-50%,-50%) rotate(0deg);
-        opacity:1;
-    }
-    100%{
-        transform:translate(60px,-200px) rotate(540deg);
-        opacity:0;
-    }
-}
-
-@keyframes explode4{
-    0%{
-        transform:translate(-50%,-50%) rotate(0deg);
-        opacity:1;
-    }
-    100%{
-        transform:translate(-160px,-80px) rotate(-540deg);
-        opacity:0;
-    }
-}
-
-@keyframes explode5{
-    0%{
-        transform:translate(-50%,-50%) scale(1) rotate(0deg);
-        opacity:1;
-    }
-    100%{
-        transform:translate(-50%,-220px) scale(0.5) rotate(720deg);
-        opacity:0;
-    }
-}
-
-
-
-.button:hover .burger{
-    opacity:1;
-}
-
-.button:hover .b1{animation:explode1 1s ease-out;}
-.button:hover .b2{animation:explode2 1s ease-out;}
-.button:hover .b3{animation:explode3 1s ease-out;}
-.button:hover .b4{animation:explode4 1s ease-out;}
-.button:hover .b5{animation:explode5 1s ease-out;}
-
 
 
 input[type=number]::-webkit-inner-spin-button,
@@ -170,6 +180,48 @@ input[type=number]::-webkit-outer-spin-button{
     -webkit-appearance:none;
 }
 
+
 input[type=number]{
     -moz-appearance:textfield;
+}
+.field label[for^="radio"] {
+  display: inline;
+  cursor: pointer;
+  padding: 5px 5px;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  color: var(--secondary);
+  font-weight: bold;
+  transition:  0.4s ease;
+}
+
+
+.field label[for^="radio"]:hover {
+  background: var(--secondary-cold-highlight);
+  border-color: var(--secondary-cold-bright);
+  color: var(--white);
+}
+
+input[type="radio"]:checked + label {
+  background: var(--secondary);
+  color: var(--primary-dark);
+  border-color: var(--secondary-bright);
+  animation: radioSelect 0.35s ease ;
+}
+
+@keyframes radioSelect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+fieldset{
+    margin:auto;
 }

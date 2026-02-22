@@ -8,44 +8,44 @@
     <title>Menu</title>
 </head>
 <body>
-  <input type="checkbox" id="togglesidebar" class="togglesidebar">
-    <label for="togglesidebar" class="togglesidebar">
+  <input type="checkbox" id="togglesidebar" class="togglesidebar" aria-label="Toggle sidebar navigation">
+    <label for="togglesidebar" class="togglesidebar" aria-label="Open navigation menu">
       <span class="top_line"></span>
       <span class="mid_line"></span>
       <span class="bot_line"></span>
     </label>
-    <aside class="sidebar">
-      <ul>
+    <aside class="sidebar" aria-label="Main navigation sidebar">
+      <ul role="list">
         <li>
-          <label for="togglesidebar"><span>Close</span></label>
+          <label for="togglesidebar" aria-label="Close navigation menu"><span>Close</span></label>
         </li>
         <li>
-          <a class="active" href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+          <a class="active" href="index.html" aria-label="Go to Home page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
             Home
           </a>
         </li>
         <li>
-          <a href="../views/Funzion-login.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
+          <a href="../views/Funzion-login.html" aria-label="Go to Login page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
             Login
           </a>
         </li>
         <li>
-          <a href="menu.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m175-120-56-56 410-410q-18-42-5-95t57-95q53-53 118-62t106 32q41 41 32 106t-62 118q-42 44-95 57t-95-5l-50 50 304 304-56 56-304-302-304 302Zm118-342L173-582q-54-54-54-129t54-129l248 250-128 128Z"/></svg>
+          <a href="menu.html" aria-label="Go to Menu page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m175-120-56-56 410-410q-18-42-5-95t57-95q53-53 118-62t106 32q41 41 32 106t-62 118q-42 44-95 57t-95-5l-50 50 304 304-56 56-304-302-304 302Zm118-342L173-582q-54-54-54-129t54-129l248 250-128 128Z"/></svg>
             Menu
           </a>
         </li>
         <li>
-          <a href="index.html#contact">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m480-80-10-120h-10q-142 0-241-99t-99-241q0-142 99-241t241-99q71 0 132.5 26.5t108 73q46.5 46.5 73 108T800-540q0 75-24.5 144t-67 128q-42.5 59-101 107T480-80Zm80-146q71-60 115.5-140.5T720-540q0-109-75.5-184.5T460-800q-109 0-184.5 75.5T200-540q0 109 75.5 184.5T460-280h100v54Zm-101-95q17 0 29-12t12-29q0-17-12-29t-29-12q-17 0-29 12t-12 29q0 17 12 29t29 12Zm-29-127h60q0-30 6-42t38-44q18-18 30-39t12-45q0-51-34.5-76.5T460-720q-44 0-74 24.5T344-636l56 22q5-17 19-33.5t41-16.5q27 0 40.5 15t13.5 33q0 17-10 30.5T480-558q-35 30-42.5 47.5T430-448Zm30-65Z"/></svg>
+          <a href="index.html#contact" aria-label="Go to Contact section">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="m480-80-10-120h-10q-142 0-241-99t-99-241q0-142 99-241t241-99q71 0 132.5 26.5t108 73q46.5 46.5 73 108T800-540q0 75-24.5 144t-67 128q-42.5 59-101 107T480-80Zm80-146q71-60 115.5-140.5T720-540q0-109-75.5-184.5T460-800q-109 0-184.5 75.5T200-540q0 109 75.5 184.5T460-280h100v54Zm-101-95q17 0 29-12t12-29q0-17-12-29t-29-12q-17 0-29 12t-12 29q0 17 12 29t29 12Zm-29-127h60q0-30 6-42t38-44q18-18 30-39t12-45q0-51-34.5-76.5T460-720q-44 0-74 24.5T344-636l56 22q5-17 19-33.5t41-16.5q27 0 40.5 15t13.5 33q0 17-10 30.5T480-558q-35 30-42.5 47.5T430-448Zm30-65Z"/></svg>
             Contact
           </a>
         </li>
         <li>
-          <a href="index.html#about">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+          <a href="index.html#about" aria-label="Go to About section">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" aria-hidden="true" focusable="false"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
             About
           </a>
         </li>
@@ -57,60 +57,62 @@
       <h2>Depuis 1964, compilé en 2026</h2>
     </header>
 
-      <form action="menu.html" method="get" class="searchbar"autocomplete=off>
-        <span>$ls</span>
-        <input type="text" name="search" placeholder="Search for your favorite meal...">
+      <form action="menu.html" method="get" class="searchbar" autocomplete="off" role="search" aria-label="Search the menu">
+        <label for="search" class="sr-only">Search for your favorite meal</label>
+        <span aria-hidden="true">$ls</span>
+        <input type="text" id="search" name="search" placeholder="Search for your favorite meal...">
       </form>
+
 <h1 id="menuheader">Menus list</h1>
 
   <div class="menu-left">
     <h2 id="sousmenuheader">Menus</h2>
     
-  <div class="cards-container">
-    <article class="menu-card modernNeonBoxGlass">
-  <img src="../assets/images/menus/nature.png" class="menu-img" />
+  <div class="cards-container" role="list" aria-label="Featured menus">
+    <article class="menu-card modernNeonBoxGlass" role="listitem" aria-label="Connect to Nature menu, 8.99€">
+  <img src="../assets/images/menus/nature.png" class="menu-img" alt="Connect to Nature menu illustration" />
   <h3>Connect to Nature</h3>
-  <a href="#menu1" class="card-btn">8.99€</a>
+  <a href="#menu1" class="card-btn" aria-label="View Connect to Nature menu details – 8.99€">8.99€</a>
 </article>
 
-<article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/Wombo-combo.png" class="menu-img" />
+<article class="menu-card modernNeonBoxGlass" role="listitem" aria-label="Wombo Combo menu, 15.99€">
+    <img src="../assets/images/meals/Wombo-combo.png" class="menu-img" alt="Wombo Combo menu illustration" />
     <h3>Wombo Combo</h3>
-    <a href="#menu2" class="card-btn">15.99€</a>
+    <a href="#menu2" class="card-btn" aria-label="View Wombo Combo menu details – 15.99€">15.99€</a>
   </article>
 
-<article class="menu-card modernNeonBoxGlass">
-      <img src="../assets/images/meals/CPU.png" class="menu-img"/>
+<article class="menu-card modernNeonBoxGlass" role="listitem" aria-label="SegFault Rush / Core dumped menu, 19.99€">
+      <img src="../assets/images/meals/CPU.png" class="menu-img" alt="SegFault Rush / Core dumped menu illustration"/>
       <h3>SegFault Rush  /  (Core dumped)</h3>
-    <a href="#menu3" class="card-btn">19.99€</a>
+    <a href="#menu3" class="card-btn" aria-label="View SegFault Rush menu details – 19.99€">19.99€</a>
     </article>
- <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/Bluestacks.png" class="menu-img"/>
+ <article class="menu-card modernNeonBoxGlass" role="listitem" aria-label="Sweet BlueStacks menu, 4.99€">
+    <img src="../assets/images/meals/Bluestacks.png" class="menu-img" alt="Sweet BlueStacks menu illustration"/>
     <h3>Sweet BlueStacks</h3>
-    <a href="#menu4" class="card-btn">4.99€</a>
+    <a href="#menu4" class="card-btn" aria-label="View Sweet BlueStacks menu details – 4.99€">4.99€</a>
   </article>
-    <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/Café-Java.png" class="menu-img"/>
-    <h3>Java & Tea Runtime</h3>
-    <a href="#menu5" class="card-btn">4.99€</a>
+    <article class="menu-card modernNeonBoxGlass" role="listitem" aria-label="Java and Tea Runtime menu, 4.99€">
+    <img src="../assets/images/meals/Café-Java.png" class="menu-img" alt="Java and Tea Runtime menu illustration"/>
+    <h3>Java &amp; Tea Runtime</h3>
+    <a href="#menu5" class="card-btn" aria-label="View Java and Tea Runtime menu details – 4.99€">4.99€</a>
   </article>
     </div>
-<div class="cards-container">
-  <article class="menu-card modernNeonBoxGlass basic">
+<div class="cards-container" role="list" aria-label="Menu categories">
+  <article class="menu-card modernNeonBoxGlass basic" role="listitem" aria-label="Entries category">
     <h3>Entries</h3>
-    <a href="#menuentrees" class="card-btn card-btn-basic">More info...</a>
+    <a href="#menuentrees" class="card-btn card-btn-basic" aria-label="See all entries">More info...</a>
   </article>
-  <article class="menu-card modernNeonBoxGlass basic">
+  <article class="menu-card modernNeonBoxGlass basic" role="listitem" aria-label="Main meals category">
     <h3>Main meals</h3>
-    <a href="#menuplats" class="card-btn card-btn-basic">More info...</a>
+    <a href="#menuplats" class="card-btn card-btn-basic" aria-label="See all main meals">More info...</a>
   </article>
-  <article class="menu-card modernNeonBoxGlass basic">
+  <article class="menu-card modernNeonBoxGlass basic" role="listitem" aria-label="Desserts category">
     <h3>Desserts</h3>
-    <a href="#menudesserts" class="card-btn card-btn-basic">More info...</a>
+    <a href="#menudesserts" class="card-btn card-btn-basic" aria-label="See all desserts">More info...</a>
   </article>
-  <article class="menu-card modernNeonBoxGlass basic">
+  <article class="menu-card modernNeonBoxGlass basic" role="listitem" aria-label="Drinks and hot drinks category">
     <h3>Drinks and hot drinks</h3>
-    <a href="#menudrinks" class="card-btn card-btn-basic">More info...</a>
+    <a href="#menudrinks" class="card-btn card-btn-basic" aria-label="See all drinks and hot drinks">More info...</a>
   </article>
 </div>
 </div>
@@ -119,27 +121,29 @@
 </section>
 
 
-  <a href="../views/index.html" class="return0">
+  <a href="../views/index.html" class="return0" aria-label="Return to home page">
     End of the menu: return 0; // Buon appetito
   </a>
 
-<div id="salad" class="modal">
+<!-- ===== MODALS ===== -->
+
+<div id="salad" class="modal" role="dialog" aria-modal="true" aria-labelledby="salad-title">
   <div class="modal_content">
-        <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Salade sans 5G</h2>
-    <img src="../assets/images/meals/Salade.jpeg" class="dish-img" label="Salade sans 5G"/>
+        <a href="#" class="modal_close" aria-label="Close Salade sans 5G details">&times;</a>
+    <h2 class="dish-title" id="salad-title">Salade sans 5G</h2>
+    <img src="../assets/images/meals/Salade.jpeg" class="dish-img" alt="Salade sans 5G – fresh garden salad with quinoa, avocado and lemon dressing"/>
     <p class="dish-version">Version Nature Stable 1.0 — 100% Offline</p>
       <div class="dish-section">
-        <h3> Architecture</h3>
+        <h3>Architecture</h3>
         <ul>
           <li>Frontend : Roquette, jeunes pousses</li>
           <li>Backend : Avocat, concombre, tomates</li>
           <li>Seeds and kernel : Quinoa, graines, noix</li>
-          <li>Firewall : Citron & huile d'olive</li>
+          <li>Firewall : Citron &amp; huile d'olive</li>
         </ul>
       </div>
       <div class="dish-section">
-        <h3> Spécifications</h3>
+        <h3>Spécifications</h3>
         <ul>
           <li>Exécution : Fraîche</li>
           <li>Build : 7 min</li>
@@ -152,20 +156,20 @@
         <p>blablahblah</p>
       </div>
     <div class="dish-footer">
-      <p>> Aucun réseau requis. Recharge naturelle garantie.</p>
+      <p>&gt; Aucun réseau requis. Recharge naturelle garantie.</p>
     </div>
     </div>
   </div>
 </div>
 
-<div id="calzone" class="modal">
+<div id="calzone" class="modal" role="dialog" aria-modal="true" aria-labelledby="calzone-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title" id="Calzone-container">Calzone Container</h2>
-    <img src="../assets/images/meals/Calzone-Container.webp" class="dish-img" label="Calzone-Container"/>
+    <a href="#" class="modal_close" aria-label="Close Calzone Container details">&times;</a>
+    <h2 class="dish-title" id="calzone-title">Calzone Container</h2>
+    <img src="../assets/images/meals/Calzone-Container.webp" class="dish-img" alt="Calzone Container – folded artisan pizza filled with mozzarella, ham and mushrooms"/>
     <p class="dish-version">Version Dockerisée 2.3 - Hot Deploy Edition</p>
     <div class="dish-section">
-      <h3>Architecture </h3>
+      <h3>Architecture</h3>
       <ul>
         <li>Frontend: Pâte artisanale double couche (UI isolée)</li>
         <li>Core engine: Sauce tomate sécurisée (base LTS)</li>
@@ -180,7 +184,7 @@
       <ul>
         <li>Exécution: Chaud / Temps réel</li>
         <li>Build: 12 min au four (2000°C)</li>
-        <li>Scalabilité: Fomat Solo / Duo</li>
+        <li>Scalabilité: Format Solo / Duo</li>
         <li>Tolérance aux pannes: Résiste aux coupures de Wi-Fi</li>
         <li>Compatibilité: Omnivore / Option</li>
       </ul>
@@ -209,17 +213,17 @@
   </div>
 </div>
 
-<div id="lasagna" class="modal">
+<div id="lasagna" class="modal" role="dialog" aria-modal="true" aria-labelledby="lasagna-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Full Stack Lasagna</h2>
-    <img src="../assets/images/meals/lasagna.jpg" class="dish-img" label="FullStack-Lasagna"/>
+    <a href="#" class="modal_close" aria-label="Close Full Stack Lasagna details">&times;</a>
+    <h2 class="dish-title" id="lasagna-title">Full Stack Lasagna</h2>
+    <img src="../assets/images/meals/lasagna.jpg" class="dish-img" alt="Full Stack Lasagna – multi-layered lasagna with beef ragù, béchamel and gratin cheese"/>
     <p class="dish-version">Version Beta-1.0 — Layered Deployment</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Frontend : Feuille de pâte supérieure (UI visible)</li>
-        <li>Backend : Ragoût bœuf & légumes</li>
+        <li>Backend : Ragoût bœuf &amp; légumes</li>
         <li>API Layer : Béchamel intermédiaire</li>
         <li>Database : Fromage gratiné persistant</li>
         <li>Cache : Herbes aromatiques</li>
@@ -259,13 +263,11 @@
   </div>
 </div>
 
-</div>
-
-<div id="margherita" class="modal">
+<div id="margherita" class="modal" role="dialog" aria-modal="true" aria-labelledby="margherita-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">NPC Margherita</h2>
-    <img src="../assets/images/meals/Margherita Pizza.jpg" label="NPC-Margherita"/>
+    <a href="#" class="modal_close" aria-label="Close NPC Margherita details">&times;</a>
+    <h2 class="dish-title" id="margherita-title">NPC Margherita</h2>
+    <img src="../assets/images/meals/Margherita Pizza.jpg" alt="NPC Margherita – classic pizza with tomato sauce, mozzarella and fresh basil"/>
     <p class="dish-version">Version Passive 1.4 — Background Process</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -274,7 +276,7 @@
         <li>Core : Sauce tomate vanilla</li>
         <li>Rendering : Mozzarella dynamique</li>
         <li>Script comportemental : Basilic décoratif</li>
-        <li>AI Level : Stable & prévisible</li>
+        <li>AI Level : Stable &amp; prévisible</li>
       </ul>
     </div>
     <div class="dish-section">
@@ -309,11 +311,11 @@
   </div>
 </div>
 
-<div id="penne" class="modal">
+<div id="penne" class="modal" role="dialog" aria-modal="true" aria-labelledby="penne-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-        <h2 class="dish-title">Penne.js Bolognese</h2>
-    <img src="../assets/images/meals/Penne.jpg" class="dish-img" label="Pennejs-Bolognese"/>
+    <a href="#" class="modal_close" aria-label="Close Penne.js Bolognese details">&times;</a>
+        <h2 class="dish-title" id="penne-title">Penne.js Bolognese</h2>
+    <img src="../assets/images/meals/Penne.jpg" class="dish-img" alt="Penne.js Bolognese – penne pasta with rich bolognese sauce and parmesan"/>
     <p class="dish-version">Version 3.2 — Async Flavor</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -328,7 +330,7 @@
     <div class="dish-section">
       <h3>Spécifications</h3>
       <ul>
-        <li>Exécution : Chaud & asynchrone</li>
+        <li>Exécution : Chaud &amp; asynchrone</li>
         <li>Build : 15 min</li>
         <li>Dépendances : Viande + tomate</li>
         <li>Compatibilité : Node Kitchen</li>
@@ -355,18 +357,17 @@
   </div>
 </div>
 
-
-<div id="ravioli" class="modal">
+<div id="ravioli" class="modal" role="dialog" aria-modal="true" aria-labelledby="ravioli-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Boolean Ravioli Open-Source</h2>
-    <img src="../assets/images/meals/ravioli.webp" class="dish-img" label="Boolean-Ravioli"/>
+    <a href="#" class="modal_close" aria-label="Close Boolean Ravioli Open-Source details">&times;</a>
+    <h2 class="dish-title" id="ravioli-title">Boolean Ravioli Open-Source</h2>
+    <img src="../assets/images/meals/ravioli.webp" class="dish-img" alt="Boolean Ravioli Open-Source – fresh ravioli stuffed with ricotta and spinach in tomato sauce"/>
     <p class="dish-version">Version 1.1 — True/False Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Shell : Pâte hermétique</li>
-        <li>Payload : Ricotta & épinards</li>
+        <li>Payload : Ricotta &amp; épinards</li>
         <li>Condition : Fromage = true</li>
         <li>Else : Vide = false</li>
         <li>Repository : Sauce tomate publique</li>
@@ -403,17 +404,17 @@
   </div>
 </div>
 
-<div id="carbonara" class="modal">
+<div id="carbonara" class="modal" role="dialog" aria-modal="true" aria-labelledby="carbonara-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Callback Carbonara</h2>
-    <img src="../assets/images/meals/Carbonara.jpg" class="dish-img" label="Callback-Carbonara"/>
+    <a href="#" class="modal_close" aria-label="Close Callback Carbonara details">&times;</a>
+    <h2 class="dish-title" id="carbonara-title">Callback Carbonara</h2>
+    <img src="../assets/images/meals/Carbonara.jpg" class="dish-img" alt="Callback Carbonara – spaghetti with creamy egg and parmesan sauce and crispy lardons"/>
     <p class="dish-version">Version 2.0 — Creamy Response</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Core Engine : Spaghetti</li>
-        <li>Callback : Sauce œuf & parmesan</li>
+        <li>Callback : Sauce œuf &amp; parmesan</li>
         <li>Promise : Lardons croustillants</li>
         <li>Async Layer : Poivre noir</li>
         <li>Dependency Injection : Crème (optionnelle ⚠)</li>
@@ -450,12 +451,11 @@
   </div>
 </div>
 
-
-<div id="spaghetti" class="modal">
+<div id="spaghetti" class="modal" role="dialog" aria-modal="true" aria-labelledby="spaghetti-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-        <h2 class="dish-title">Spaghetti Code</h2>
-    <img src="../assets/images/meals/spaghetti.jpg" class="dish-img" label="Spaghetti-Code"/>
+    <a href="#" class="modal_close" aria-label="Close Spaghetti Code details">&times;</a>
+        <h2 class="dish-title" id="spaghetti-title">Spaghetti Code</h2>
+    <img src="../assets/images/meals/spaghetti.jpg" class="dish-img" alt="Spaghetti Code – tangled spaghetti with mystery sauce"/>
     <p class="dish-version">Version Legacy 0.9 — Chaos Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -463,7 +463,7 @@
         <li>Structure : Nouilles entremêlées</li>
         <li>Core : Sauce indéterminée</li>
         <li>Modules : Mélange aléatoire</li>
-        <li>Dépendances : Multiples & non documentées</li>
+        <li>Dépendances : Multiples &amp; non documentées</li>
         <li>Debug : Complexe</li>
       </ul>
     </div>
@@ -498,20 +498,19 @@
   </div>
 </div>
 
-
-<div id="bruschetta" class="modal">
+<div id="bruschetta" class="modal" role="dialog" aria-modal="true" aria-labelledby="bruschetta-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Bruschetta Binary</h2>
-    <img src="../assets/images/meals/Bruschetta.jpg" class="dish-img" label="Bruschetta-Binary"/>
+    <a href="#" class="modal_close" aria-label="Close Bruschetta Binary details">&times;</a>
+    <h2 class="dish-title" id="bruschetta-title">Bruschetta Binary</h2>
+    <img src="../assets/images/meals/Bruschetta.jpg" class="dish-img" alt="Bruschetta Binary – toasted artisan bread with cherry tomatoes, garlic and basil"/>
     <p class="dish-version">Version 1.0 — Crunchy Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Base: Pain grillé artisanal</li>
         <li>Frontend: Tomates cerises</li>
-        <li>Backend: Ail & basilic</li>
-        <li>Middleware: Huile d’olive extra vierge</li>
+        <li>Backend: Ail &amp; basilic</li>
+        <li>Middleware: Huile d'olive extra vierge</li>
       </ul>
     </div>
     <div class="dish-section">
@@ -528,17 +527,17 @@
   </div>
 </div>
 
-<div id="garlic" class="modal">
+<div id="garlic" class="modal" role="dialog" aria-modal="true" aria-labelledby="garlic-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Garlic Bread API</h2>
-    <img src="../assets/images/meals/garlic_bread.jpg" class="dish-img" label="Garlic-Bread-API"/>
+    <a href="#" class="modal_close" aria-label="Close Garlic Bread API details">&times;</a>
+    <h2 class="dish-title" id="garlic-title">Garlic Bread API</h2>
+    <img src="../assets/images/meals/garlic_bread.jpg" class="dish-img" alt="Garlic Bread API – crispy baguette with garlic butter and fresh parsley"/>
     <p class="dish-version">Version 2.1 — Hot Deploy</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Base: Baguette croustillante</li>
-        <li>Middleware: Beurre à l’ail</li>
+        <li>Middleware: Beurre à l'ail</li>
         <li>Addon: Persil frais</li>
         <li>Runtime: Four chaud 180°C</li>
       </ul>
@@ -552,24 +551,22 @@
       </ul>
     </div>
     <div class="dish-footer">
-      <p>API garantie sans bug d’ail</p>
+      <p>API garantie sans bug d'ail</p>
     </div>
   </div>
 </div>
 
-
-
-<div id="smoothie" class="modal">
+<div id="smoothie" class="modal" role="dialog" aria-modal="true" aria-labelledby="smoothie-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Smoothie API</h2>
-    <img src="../assets/images/meals/smoothie.jpg" class="dish-img" label="Smoothie-API"/>
+    <a href="#" class="modal_close" aria-label="Close Smoothie API details">&times;</a>
+    <h2 class="dish-title" id="smoothie-title">Smoothie API</h2>
+    <img src="../assets/images/meals/smoothie.jpg" class="dish-img" alt="Smoothie API – fresh blended fruit smoothie with orange juice and ice"/>
     <p class="dish-version">Version 1.2 — Fruity Endpoint</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Base: Fruits frais mixés</li>
-        <li>Middleware: Jus d’orange & pomme</li>
+        <li>Middleware: Jus d'orange &amp; pomme</li>
         <li>Frontend: Glaçons</li>
       </ul>
     </div>
@@ -579,11 +576,11 @@
   </div>
 </div>
 
-<div id="tiramisu" class="modal">
+<div id="tiramisu" class="modal" role="dialog" aria-modal="true" aria-labelledby="tiramisu-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Tiramisu Async</h2>
-    <img src="../assets/images/meals/tiramisu.jpg" class="dish-img" label="Tiramisu-Async"/>
+    <a href="#" class="modal_close" aria-label="Close Tiramisu Async details">&times;</a>
+    <h2 class="dish-title" id="tiramisu-title">Tiramisu Async</h2>
+    <img src="../assets/images/meals/tiramisu.jpg" class="dish-img" alt="Tiramisu Async – classic layered tiramisu with coffee-soaked biscuits and mascarpone"/>
     <p class="dish-version">Version 1.0 — Layered Flavor</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -600,16 +597,16 @@
   </div>
 </div>
 
-<div id="gelato" class="modal">
+<div id="gelato" class="modal" role="dialog" aria-modal="true" aria-labelledby="gelato-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Gelato Node.js</h2>
-    <img src="../assets/images/meals/gelato.jpg" class="dish-img" label="Gelato-Nodejs"/>
+    <a href="#" class="modal_close" aria-label="Close Gelato Node.js details">&times;</a>
+    <h2 class="dish-title" id="gelato-title">Gelato Node.js</h2>
+    <img src="../assets/images/meals/gelato.jpg" class="dish-img" alt="Gelato Node.js – Italian gelato with fresh fruit and chocolate sauce"/>
     <p class="dish-version">Version 2.2 — Async Freeze</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
-        <li>Base: Lait & crème</li>
+        <li>Base: Lait &amp; crème</li>
         <li>Middleware: Fruits frais</li>
         <li>Frontend: Sauce chocolat</li>
         <li>Runtime: Congélation rapide</li>
@@ -621,11 +618,11 @@
   </div>
 </div>
 
-<div id="latte" class="modal">
+<div id="latte" class="modal" role="dialog" aria-modal="true" aria-labelledby="latte-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Latte Debug</h2>
-    <img src="../assets/images/meals/cat-latte.jpg" class="dish-img" label="Latte-Debug"/>
+    <a href="#" class="modal_close" aria-label="Close Latte Debug details">&times;</a>
+    <h2 class="dish-title" id="latte-title">Latte Debug</h2>
+    <img src="../assets/images/meals/cat-latte.jpg" class="dish-img" alt="Latte Debug – espresso with steamed milk and decorative latte art"/>
     <p class="dish-version">Version 3.0 — Error Handling Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -641,18 +638,18 @@
   </div>
 </div>
 
-<div id="the" class="modal">
+<div id="the" class="modal" role="dialog" aria-modal="true" aria-labelledby="the-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Thé Green Deployment</h2>
-    <img src="../assets/images/meals/tea.jpg" class="dish-img" label="Green-Tea"/>
+    <a href="#" class="modal_close" aria-label="Close Thé Green Deployment details">&times;</a>
+    <h2 class="dish-title" id="the-title">Thé Green Deployment</h2>
+    <img src="../assets/images/meals/tea.jpg" class="dish-img" alt="Thé Green Deployment – brewed green tea with optional honey and lemon"/>
     <p class="dish-version">Version 2.5 — Continuous Brew</p>
     <div class="dish-section">
       <h3>Architecture</h3>
       <ul>
         <li>Base: Feuilles de thé vert</li>
         <li>Middleware: Infusion lente</li>
-        <li>Frontend: Miel & citron optionnels</li>
+        <li>Frontend: Miel &amp; citron optionnels</li>
         <li>Runtime: Température 80°C</li>
       </ul>
     </div>
@@ -661,11 +658,12 @@
     </div>
   </div>
 </div>
-<div id="espresso" class="modal">
+
+<div id="espresso" class="modal" role="dialog" aria-modal="true" aria-labelledby="espresso-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Espresso Kernel Panic</h2>
-    <img src="../assets/images/meals/Espresso.jpg" class="dish-img" label="Espresso-Kernel-Panic"/>
+    <a href="#" class="modal_close" aria-label="Close Espresso Kernel Panic details">&times;</a>
+    <h2 class="dish-title" id="espresso-title">Espresso Kernel Panic</h2>
+    <img src="../assets/images/meals/Espresso.jpg" class="dish-img" alt="Espresso Kernel Panic – intense concentrated espresso shot"/>
     <p class="dish-version">Version 1.9 — Fatal Shot Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -682,146 +680,159 @@
   </div>
 </div>
 
-<div id="menu1" class="modal">
+<!-- ===== MENU MODALS ===== -->
+
+<div id="menu1" class="modal" role="dialog" aria-modal="true" aria-labelledby="menu1-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Menu connexion à la nature</h2>
-    <ul class="liste">
-      <li><a href="#salad" class="link"> Salade sans 5G</a></li>
-      <li><a href="#bruschetta" class="link"> Bruschetta Binary</a></li>
-      <li><a href="#garlicbread" class="link"> Garlic Bread API</a></li>
+    <a href="#" class="modal_close" aria-label="Close Connect to Nature menu">&times;</a>
+    <h2 class="dish-title" id="menu1-title">Menu connexion à la nature</h2>
+    <ul class="liste" aria-label="Dishes included in Connect to Nature menu">
+      <li><a href="#salad" class="link" aria-label="View Salade sans 5G details">Salade sans 5G</a></li>
+      <li><a href="#bruschetta" class="link" aria-label="View Bruschetta Binary details">Bruschetta Binary</a></li>
+      <li><a href="#garlic" class="link" aria-label="View Garlic Bread API details">Garlic Bread API</a></li>
     </ul>
   </div>
 </div>
-<div id="menu2" class="modal">
+
+<div id="menu2" class="modal" role="dialog" aria-modal="true" aria-labelledby="menu2-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Wombo Combo</h2>
-    <ul class="liste">
-      <li><a href="#calzone" class="link">Calzone Container</a></li>
-      <li><a href="#lasagna" class="link">Full Stack Lasagna</a></li>
-      <li><a href="#margherita" class="link">NPC Margherita</a></li>
+    <a href="#" class="modal_close" aria-label="Close Wombo Combo menu">&times;</a>
+    <h2 class="dish-title" id="menu2-title">Wombo Combo</h2>
+    <ul class="liste" aria-label="Dishes included in Wombo Combo menu">
+      <li><a href="#calzone" class="link" aria-label="View Calzone Container details">Calzone Container</a></li>
+      <li><a href="#lasagna" class="link" aria-label="View Full Stack Lasagna details">Full Stack Lasagna</a></li>
+      <li><a href="#margherita" class="link" aria-label="View NPC Margherita details">NPC Margherita</a></li>
     </ul>
   </div>
 </div>
-<div id="menu3" class="modal">
+
+<div id="menu3" class="modal" role="dialog" aria-modal="true" aria-labelledby="menu3-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">SegFault Rush (Core dumped)</h2>
-    <ul class="liste">
-      <li><a href="#penne" class="link">Penne.js Bolognese</a></li>
-      <li><a href="#ravioli" class="link">Boolean Ravioli Open-Source</a></li>
-      <li><a href="#carbonara" class="link">Callback Carbonara</a></li>
-      <li><a href="#spaghetti" class="link">Spaghetti Code</a></li>
-      <li><a href="espresso" class="link">Espresso Kernel Panic</a></li>
+    <a href="#" class="modal_close" aria-label="Close SegFault Rush menu">&times;</a>
+    <h2 class="dish-title" id="menu3-title">SegFault Rush (Core dumped)</h2>
+    <ul class="liste" aria-label="Dishes included in SegFault Rush menu">
+      <li><a href="#penne" class="link" aria-label="View Penne.js Bolognese details">Penne.js Bolognese</a></li>
+      <li><a href="#ravioli" class="link" aria-label="View Boolean Ravioli Open-Source details">Boolean Ravioli Open-Source</a></li>
+      <li><a href="#carbonara" class="link" aria-label="View Callback Carbonara details">Callback Carbonara</a></li>
+      <li><a href="#spaghetti" class="link" aria-label="View Spaghetti Code details">Spaghetti Code</a></li>
+      <li><a href="#espresso" class="link" aria-label="View Espresso Kernel Panic details">Espresso Kernel Panic</a></li>
     </ul>
   </div>
 </div>
-<div id="menu4" class="modal">
+
+<div id="menu4" class="modal" role="dialog" aria-modal="true" aria-labelledby="menu4-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Sweet BlueStacks</h2>
-    <ul class="liste">
-      <li><a href="#tiramisu" class="link">Tiramisu Async</a></li>
-      <li><a href="#gelato" class="link">Gelato Vanilla Script</a></li>
+    <a href="#" class="modal_close" aria-label="Close Sweet BlueStacks menu">&times;</a>
+    <h2 class="dish-title" id="menu4-title">Sweet BlueStacks</h2>
+    <ul class="liste" aria-label="Dishes included in Sweet BlueStacks menu">
+      <li><a href="#tiramisu" class="link" aria-label="View Tiramisu Async details">Tiramisu Async</a></li>
+      <li><a href="#gelato" class="link" aria-label="View Gelato Vanilla Script details">Gelato Vanilla Script</a></li>
     </ul>
   </div>
 </div>
-<div id="menu5" class="modal">
+
+<div id="menu5" class="modal" role="dialog" aria-modal="true" aria-labelledby="menu5-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Java & Tea Runtime</h2>
-    <ul class="liste">
-      <li><a href="#latte" class="link">Latte Debug</a></li>
-      <li><a href="#espresso" class="link">Espresso Kernel Panic</a></li>
-      <li><a href="#greentea" class="link">Thé Green Deployment</a></li>
+    <a href="#" class="modal_close" aria-label="Close Java and Tea Runtime menu">&times;</a>
+    <h2 class="dish-title" id="menu5-title">Java &amp; Tea Runtime</h2>
+    <ul class="liste" aria-label="Dishes included in Java and Tea Runtime menu">
+      <li><a href="#latte" class="link" aria-label="View Latte Debug details">Latte Debug</a></li>
+      <li><a href="#espresso" class="link" aria-label="View Espresso Kernel Panic details">Espresso Kernel Panic</a></li>
+      <li><a href="#the" class="link" aria-label="View Thé Green Deployment details">Thé Green Deployment</a></li>
     </ul>
   </div>
 </div>
-<div id="menuentrees" class="modal">
+
+<!-- ===== CATEGORY MODALS ===== -->
+
+<div id="menuentrees" class="modal" role="dialog" aria-modal="true" aria-labelledby="menuentrees-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title basic">Entries</h2>
-    <ul class="liste">
-      <li class="texte"><a href="#salad" class="link">Salade sans 5G</a></li>
-      <li class="texte"><a href="#bruschetta" class="link">Bruschetta Binary</a></li>
-      <li class="texte"><a href="#garlic" class="link">Garlic Bread API</a></li>
+    <a href="#" class="modal_close" aria-label="Close Entries list">&times;</a>
+    <h2 class="dish-title basic" id="menuentrees-title">Entries</h2>
+    <ul class="liste" aria-label="List of all entries">
+      <li class="texte"><a href="#salad" class="link" aria-label="View Salade sans 5G details">Salade sans 5G</a></li>
+      <li class="texte"><a href="#bruschetta" class="link" aria-label="View Bruschetta Binary details">Bruschetta Binary</a></li>
+      <li class="texte"><a href="#garlic" class="link" aria-label="View Garlic Bread API details">Garlic Bread API</a></li>
     </ul>
   </div>
 </div>
-<div id="menuplats" class="modal">
+
+<div id="menuplats" class="modal" role="dialog" aria-modal="true" aria-labelledby="menuplats-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title basic">Meals</h2>
-    <ul class="liste">
-      <li class="texte"><a href="#calzone" class="link">Calzone Container</a></li>
-      <li class="texte"><a href="#lasagna" class="link">Full Stack Lasagna</a></li>
-      <li class="texte"><a href="#margherita" class="link">NPC Margherita</a></li>
-      <li class="texte"><a href="#penne" class="link">Penne.js Bolognese</a></li>
-      <li class="texte"><a href="#ravioli" class="link">Boolean Ravioli Open-Source</a></li>
-      <li class="texte"><a href="#carbonara" class="link">Callback Carbonara</a></li>
-      <li class="texte"><a href="#spaghetti" class="link">Spaghetti Code</a></li>
+    <a href="#" class="modal_close" aria-label="Close Main meals list">&times;</a>
+    <h2 class="dish-title basic" id="menuplats-title">Meals</h2>
+    <ul class="liste" aria-label="List of all main meals">
+      <li class="texte"><a href="#calzone" class="link" aria-label="View Calzone Container details">Calzone Container</a></li>
+      <li class="texte"><a href="#lasagna" class="link" aria-label="View Full Stack Lasagna details">Full Stack Lasagna</a></li>
+      <li class="texte"><a href="#margherita" class="link" aria-label="View NPC Margherita details">NPC Margherita</a></li>
+      <li class="texte"><a href="#penne" class="link" aria-label="View Penne.js Bolognese details">Penne.js Bolognese</a></li>
+      <li class="texte"><a href="#ravioli" class="link" aria-label="View Boolean Ravioli Open-Source details">Boolean Ravioli Open-Source</a></li>
+      <li class="texte"><a href="#carbonara" class="link" aria-label="View Callback Carbonara details">Callback Carbonara</a></li>
+      <li class="texte"><a href="#spaghetti" class="link" aria-label="View Spaghetti Code details">Spaghetti Code</a></li>
     </ul>
   </div>
 </div>
-<div id="menudrinks" class="modal">
+
+<div id="menudrinks" class="modal" role="dialog" aria-modal="true" aria-labelledby="menudrinks-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title basic">Coffee and drinks</h2>
-    <ul class="liste">
-      <li class="texte"><a href="#latte" class="link">Latte Debug</a></li>
-      <li class="texte"><a href="#espresso" class="link">Espresso Kernel Panic</a></li>
-      <li class="texte"><a href="#the" class="link">Thé Green Deployment</a></li>
-      <li class="texte"><a href="#smoothie" class="link">Smoothie API</a></li>
+    <a href="#" class="modal_close" aria-label="Close Coffee and drinks list">&times;</a>
+    <h2 class="dish-title basic" id="menudrinks-title">Coffee and drinks</h2>
+    <ul class="liste" aria-label="List of all drinks and hot drinks">
+      <li class="texte"><a href="#latte" class="link" aria-label="View Latte Debug details">Latte Debug</a></li>
+      <li class="texte"><a href="#espresso" class="link" aria-label="View Espresso Kernel Panic details">Espresso Kernel Panic</a></li>
+      <li class="texte"><a href="#the" class="link" aria-label="View Thé Green Deployment details">Thé Green Deployment</a></li>
+      <li class="texte"><a href="#smoothie" class="link" aria-label="View Smoothie API details">Smoothie API</a></li>
     </ul>
   </div>
 </div>
-<div id="menudesserts" class="modal">
+
+<div id="menudesserts" class="modal" role="dialog" aria-modal="true" aria-labelledby="menudesserts-title">
   <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title basic">Desserts</h2>
-    <ul class="liste">
-    <li class="texte"><a href="#tiramisu" class="link">Tiramisu Async</a></li>
-    <li class="texte"><a href="#gelato" class="link">Gelato Vanilla Script</a></li>
+    <a href="#" class="modal_close" aria-label="Close Desserts list">&times;</a>
+    <h2 class="dish-title basic" id="menudesserts-title">Desserts</h2>
+    <ul class="liste" aria-label="List of all desserts">
+      <li class="texte"><a href="#tiramisu" class="link" aria-label="View Tiramisu Async details">Tiramisu Async</a></li>
+      <li class="texte"><a href="#gelato" class="link" aria-label="View Gelato Vanilla Script details">Gelato Vanilla Script</a></li>
     </ul>
   </div>
 </div>
 
   <footer>
-      <ul>
+      <ul aria-label="About La Funzione">
         <li>La Funzione</li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#faq">Q&A</a></li>
-        <li><a href="allergens.html">Allergens</a></li>
-        <li><a href="careers.html">Join Our Team</a></li>
+        <li><a href="index.html#about" aria-label="About La Funzione">About</a></li>
+        <li><a href="index.html#faq" aria-label="Frequently asked questions">Q&amp;A</a></li>
+        <li><a href="allergens.html" aria-label="Allergen information">Allergens</a></li>
+        <li><a href="careers.html" aria-label="Join our team – careers page">Join Our Team</a></li>
       </ul>
-      <ul>
+      <ul aria-label="Legal information">
         <li>Legal</li>
-        <li><a href="terms-conditions.html">Terms&Conditions</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="cookies.html">Cookies</a></li>
-        <li><a href="profile.html">Your data</a></li>
+        <li><a href="terms-conditions.html" aria-label="Terms and Conditions">Terms&amp;Conditions</a></li>
+        <li><a href="privacy.html" aria-label="Privacy policy">Privacy</a></li>
+        <li><a href="cookies.html" aria-label="Cookie policy">Cookies</a></li>
+        <li><a href="profile.html" aria-label="Manage your personal data">Your data</a></li>
       </ul>
-      <ul>
+      <ul aria-label="Contact information">
         <li id="contact">Contact</li>
-        <li><a href="mailto:contact@lafunzione.food">contact@lafunzione.food</a></li>
-        <li><a href="tel:+0134251010">01 34 25 10 10</a></li>
+        <li><a href="mailto:contact@lafunzione.food" aria-label="Send an email to contact@lafunzione.food">contact@lafunzione.food</a></li>
+        <li><a href="tel:+0134251010" aria-label="Call us at 01 34 25 10 10">01 34 25 10 10</a></li>
         <li>
-          <a href="https://maps.app.goo.gl/5BUSSRWpAiBjagqx7" target="_blank">FJRP+WPP, Melekeok 96940, Palau</a>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1089.3778345655624!2d134.63623613069282!3d7.492283402849117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32d567007187c2ed%3A0xc7f259bbc1734e84!2sNgermedellim%20Marine%20Sanctuary!5e1!3m2!1sfr!2sfr!4v1771535012373!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a href="https://maps.app.goo.gl/5BUSSRWpAiBjagqx7" target="_blank" aria-label="View our location on Google Maps – Melekeok, Palau (opens in new tab)">FJRP+WPP, Melekeok 96940, Palau</a>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1089.3778345655624!2d134.63623613069282!3d7.492283402849117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32d567007187c2ed%3A0xc7f259bbc1734e84!2sNgermedellim%20Marine%20Sanctuary!5e1!3m2!1sfr!2sfr!4v1771535012373!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map showing La Funzione restaurant location in Melekeok, Palau" aria-label="Interactive Google Maps embed showing restaurant location"></iframe>
         </li>
       </ul>
-      <ul>
+      <ul aria-label="Newsletter subscription">
         <li>Newsletter</li>
         <li>
-          <form method="post" id="newsletter">
-            <input type="text" placeholder="Enter e-mail address">
-            <input type="submit" value="Subscribe">
+          <form method="post" id="newsletter" aria-label="Subscribe to our newsletter">
+            <label for="newsletter-email" class="sr-only">Enter your email address</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Enter e-mail address" aria-label="Email address for newsletter subscription">
+            <input type="submit" value="Subscribe" aria-label="Subscribe to the newsletter">
           </form>
         </li>
       </ul>
-      <span>For your health, eat 5 fruits and vegetables a day.</span>
-      <span>&copy 2026 <a href="about.html">La Funzione Inc.</a> | All rights reserved.</span>
+      <span role="note">For your health, eat 5 fruits and vegetables a day.</span>
+      <span>&copy; 2026 <a href="about.html" aria-label="About La Funzione Inc.">La Funzione Inc.</a> | All rights reserved.</span>
     </footer>
 </body>
 </html>
