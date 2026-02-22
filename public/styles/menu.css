@@ -36,10 +36,23 @@
   --shaded-glass: #29292980;
   --shaded-glass-highlight: #36363680;
   --shaded-glass-bright: #58585880;
-
+   
   --outline: #1e1e1f;
   --details: green;
   --neon: #39ff14;
+
+  --basic-dark: #0655cc;          
+  --basic-shadow: #074dbf;        
+  --basic: #0a86ff;               
+  --basic-highlight: #3aa0ff;     
+  --basic-bright: #7fc5ff; 
+  --basic-dark-04: #0655cc66;    
+  --basic-shadow-04: #074dbf66;
+  --basic-highlight-04: #3aa0ff66;
+  --basic-bright-04: #7fc5ff66;
+  --basic-neon: #1a9cff;
+  --basic-box-shadow: #007acc;
+  --basic-text-shadow: #7fcfff;
 }
 .return0{
     display: flex;
@@ -79,9 +92,7 @@ h1{
     font-size: 20px;
 }
 
-.image-menu {
-    width: 350px;
-}
+
 a{
     text-decoration: none;
     padding: 15px;
@@ -121,7 +132,7 @@ a{
     overflow-y: auto;
     max-width: 90%;
     color: var(--white);
-    border-radius: 5px;
+    border-radius: 15px;
     position: relative;
 }
 .dish-section li{
@@ -170,7 +181,9 @@ a.link:visited {
     text-shadow: 0 0 2px var(--secondary-bright);
     margin-bottom: 5px;
 }
-
+.dish-title.basic{
+    color:var(--basic)
+}
 .dish-version {
     text-align: center;
     font-size: 14px;
@@ -231,24 +244,14 @@ a.link:visited {
   margin: 50px auto;
   width: 80%;
 }
-.menu-left {
-  flex: 2;
-}
 
-.menu-right {
-  flex: 2;
-}
-.menu-right {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+
+#menuheader,#sousmenuheader{
+    margin: auto;
+    padding-bottom: 2%;
 }
 
 
-.menu-left .liste,
-.menu-right .liste {
-  margin: 0;
-}
 
 .menu-left h2,
 .menu-right h2 {
@@ -267,11 +270,12 @@ ul li:last-child {
     display: block;
 }
 .cards-container {
-    display: flex;          
-    gap: 20px;               
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly; /* meilleure répartition */
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
 }
 
 
@@ -291,7 +295,7 @@ ul li:last-child {
 .menu-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 15px var(--neon);
-  transition: transform 0.25s linear, box-shadow 0.25s linear;
+  transition: transform 0.25s ease-in, box-shadow 0.25s ease-in;
   animation: neonrgb 1s alternate infinite;
 }
 @keyframes neonrgb {
@@ -311,6 +315,25 @@ ul li:last-child {
     box-shadow: 0 0 17px var(--secondary-bright), 0 0 20px var(--neon);
   }
 }
+
+@keyframes neonrgb-basic {
+  0% {
+    box-shadow: 0 0 5px var(--basic-shadow), 0 0 9px var(--basic-highlight);
+  }
+
+  33% {
+    box-shadow: 0 0 10px var(--basic-bright), 0 0 11px var(--basic);
+  }
+
+  66% {
+    box-shadow: 0 0 12px var(--basic-bright-04), 0 0 15px var(--basic-dark);
+  }
+
+  100% {
+    box-shadow: 0 0 17px var(--basic-bright), 0 0 20px var(--basic);
+  }
+}
+
 .menu-card h3 {
   font-size: 18px;
   color: var(--white);
@@ -332,4 +355,32 @@ ul li:last-child {
 
 .card-btn:hover {
   background: var(--secondary-cold-bright);
+}
+.menu-card.modernNeonBoxGlass.basic{
+    border: 0.2rem solid var(--basic);
+    box-shadow: 0 0 10px var(--basic-dark);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.menu-card.basic:hover {
+    transform: translateY(-5px);
+    animation: neonrgb-basic 1s alternate infinite;
+}
+
+.menu-card.modernNeonBoxGlass.basic h3{
+    font-size: xx-large;
+}
+
+.menu-card.modernNeonBoxGlass.basic h3:hover{
+    color: var(--basic-neon);
+    text-shadow: 0 0 5px var(--basic-highlight);
+}
+
+.menu-card.basic .card-btn-basic {
+    background: var(--basic-dark);
+    box-shadow: 0 0 5px var(--basic-box-shadow);
+    text-shadow: 0 0 2px var(--basic-text-shadow);
+    transition: background 0.25s ease;
+}
+.menu-card.basic .card-btn-basic:hover {
+    background: var(--basic);
 }

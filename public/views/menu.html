@@ -57,16 +57,14 @@
       <h2>Depuis 1964, compilé en 2026</h2>
     </header>
 
-      <form action="menu.html" method="get" class="searchbar">
+      <form action="menu.html" method="get" class="searchbar"autocomplete=off>
         <span>$ls</span>
         <input type="text" name="search" placeholder="Search for your favorite meal...">
       </form>
-<h1>Liste des menus</h1>
-
-<section class="menu-layout">
+<h1 id="menuheader">Liste des menus</h1>
 
   <div class="menu-left">
-    <h2>Menus</h2>
+    <h2 id="sousmenuheader">Menus</h2>
     
   <div class="cards-container">
     <article class="menu-card modernNeonBoxGlass">
@@ -76,84 +74,47 @@
 </article>
 
 <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/Salad menu.png" class="menu-img" />
+    <img src="../assets/images/meals/Wombo-combo.png" class="menu-img" />
     <h3>Wombo Combo</h3>
     <a href="#menu2" class="card-btn">Voir le menu</a>
   </article>
 
 <article class="menu-card modernNeonBoxGlass">
-      <img src="../assets/images/meals/Calzone menu.png" class="menu-img"/>
-      <h3>SegFault Rush(Core dumped)</h3>
+      <img src="../assets/images/meals/CPU.png" class="menu-img"/>
+      <h3>SegFault Rush  /  (Core dumped)</h3>
     <a href="#menu3" class="card-btn">Voir le menu</a>
     </article>
-  </div>
  <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/dessert-menu.png" class="menu-img"/>
+    <img src="../assets/images/meals/Bluestacks.png" class="menu-img"/>
     <h3>Sweet BlueStacks</h3>
     <a href="#menu4" class="card-btn">Voir le menu</a>
   </article>
     <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/coffee-menu.png" class="menu-img"/>
+    <img src="../assets/images/meals/Café-Java.png" class="menu-img"/>
     <h3>Java & Tea Runtime</h3>
     <a href="#menu5" class="card-btn">Voir le menu</a>
   </article>
-  <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/coffee-menu.png" class="menu-img"/>
+    </div>
+<div class="cards-container">
+  <article class="menu-card modernNeonBoxGlass basic">
     <h3>Entries</h3>
-    <a href="#menuentrees" class="card-btn">Voir le menu</a>
+    <a href="#menuentrees" class="card-btn card-btn-basic">Voir le menu</a>
   </article>
-  <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/coffee-menu.png" class="menu-img"/>
-    <h3>Main meal</h3>
-    <a href="#menuplats" class="card-btn">Voir le menu</a>
+  <article class="menu-card modernNeonBoxGlass basic">
+    <h3>Main meals</h3>
+    <a href="#menuplats" class="card-btn card-btn-basic">Voir le menu</a>
   </article>
-  <article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/coffee-menu.png" class="menu-img"/>
+  <article class="menu-card modernNeonBoxGlass basic">
     <h3>Desserts</h3>
-    <a href="#menudesserts" class="card-btn">Voir le menu</a>
-  </article><article class="menu-card modernNeonBoxGlass">
-    <img src="../assets/images/meals/coffee-menu.png" class="menu-img"/>
+    <a href="#menudesserts" class="card-btn card-btn-basic">Voir le menu</a>
+  </article>
+  <article class="menu-card modernNeonBoxGlass basic">
     <h3>Drinks and hot drinks</h3>
-    <a href="#menudrinks" class="card-btn">Voir le menu</a>
+    <a href="#menudrinks" class="card-btn card-btn-basic">Voir le menu</a>
   </article>
 </div>
-
-
-  <div class="menu-right">
-<h2>Entrées</h2>
-  <ul class="liste">
-    <li class="texte"><a href="#salad" class="link">Salade sans 5G</a></li>
-    <li class="texte"><a href="#bruschetta" class="link">Bruschetta Binary</a></li>
-    <li class="texte"><a href="#garlic" class="link">Garlic Bread API</a></li>
-  </ul>
-
-  <h2>Plats</h2>
-  <ul class="liste">
-    <li class="texte"><a href="#calzone" class="link">Calzone Container</a></li>
-    <li class="texte"><a href="#lasagna" class="link">Full Stack Lasagna</a></li>
-    <li class="texte"><a href="#margherita" class="link">NPC Margherita</a></li>
-    <li class="texte"><a href="#penne" class="link">Penne.js Bolognese</a></li>
-    <li class="texte"><a href="#ravioli" class="link">Boolean Ravioli</a></li>
-    <li class="texte"><a href="#carbonara" class="link">Callback Carbonara</a></li>
-    <li class="texte"><a href="#spaghetti" class="link">Spaghetti Code</a></li>
-  </ul>
-
-  <h2>Desserts</h2>
-  <ul class="liste">
-    <li class="texte"><a href="#tiramisu" class="link">Tiramisu Async</a></li>
-    <li class="texte"><a href="#gelato" class="link">Gelato Vanilla Script</a></li>
-  </ul>
-
-  <h2>Boissons & Cafés</h2>
-  <ul class="liste">
-    <li class="texte"><a href="#latte" class="link">Latte Debug</a></li>
-    <li class="texte"><a href="#espresso" class="link">Espresso Kernel Panic</a></li>
-    <li class="texte"><a href="#the" class="link">Thé Green Deployment</a></li>
-    <li class="texte"><a href="#smoothie" class="link">Smootie API</a></li>
-  </ul>
-
 </div>
-  </div>
+
 
 </section>
 
@@ -352,7 +313,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
         <h2 class="dish-title">Penne.js Bolognese</h2>
-    <img src="../assets/images/meals/Pennejs-Bolognese.webp" class="dish-img" label="Pennejs-Bolognese"/>
+    <img src="../assets/images/meals/Penne.jpg" class="dish-img" label="Pennejs-Bolognese"/>
     <p class="dish-version">Version 3.2 — Async Flavor</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -542,7 +503,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Bruschetta Binary</h2>
-    <img src="../assets/images/meals/bruschetta.jpg" class="dish-img" label="Bruschetta-Binary"/>
+    <img src="../assets/images/meals/Bruschetta.jpg" class="dish-img" label="Bruschetta-Binary"/>
     <p class="dish-version">Version 1.0 — Crunchy Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -596,25 +557,7 @@
   </div>
 </div>
 
-<div id="latte" class="modal">
-  <div class="modal_content">
-    <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Latte UML</h2>
-    <img src="../assets/images/meals/latte.jpg" class="dish-img" label="Latte-UML"/>
-    <p class="dish-version">Version 2.1 — Diagram Edition</p>
-    <div class="dish-section">
-      <h3>Architecture</h3>
-      <ul>
-        <li>Base: Lait chaud</li>
-        <li>Middleware: Expresso</li>
-        <li>Frontend: Latte art</li>
-      </ul>
-    </div>
-    <div class="dish-footer">
-      <p>Design visuel garanti</p>
-    </div>
-  </div>
-</div>
+
 
 <div id="smoothie" class="modal">
   <div class="modal_content">
@@ -682,7 +625,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Latte Debug</h2>
-    <img src="../assets/images/meals/latte_debug.jpg" class="dish-img" label="Latte-Debug"/>
+    <img src="../assets/images/meals/cat-latte.jpg" class="dish-img" label="Latte-Debug"/>
     <p class="dish-version">Version 3.0 — Error Handling Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -702,7 +645,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Thé Green Deployment</h2>
-    <img src="../assets/images/meals/green_tea.jpg" class="dish-img" label="Green-Tea"/>
+    <img src="../assets/images/meals/tea.jpg" class="dish-img" label="Green-Tea"/>
     <p class="dish-version">Version 2.5 — Continuous Brew</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -722,7 +665,7 @@
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Espresso Kernel Panic</h2>
-    <img src="../assets/images/meals/espresso.jpg" class="dish-img" label="Espresso-Kernel-Panic"/>
+    <img src="../assets/images/meals/Espresso.jpg" class="dish-img" label="Espresso-Kernel-Panic"/>
     <p class="dish-version">Version 1.9 — Fatal Shot Edition</p>
     <div class="dish-section">
       <h3>Architecture</h3>
@@ -779,7 +722,7 @@
     <a href="#" class="modal_close">&times;</a>
     <h2 class="dish-title">Sweet BlueStacks</h2>
     <ul class="liste">
-      <li><a href="#tiramisu" class="link">Tiramisu 404</a></li>
+      <li><a href="#tiramisu" class="link">Tiramisu Async</a></li>
       <li><a href="#gelato" class="link">Gelato Vanilla Script</a></li>
     </ul>
   </div>
@@ -798,7 +741,7 @@
 <div id="menuentrees" class="modal">
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Entrées</h2>
+    <h2 class="dish-title basic">Entries</h2>
     <ul class="liste">
       <li class="texte"><a href="#salad" class="link">Salade sans 5G</a></li>
       <li class="texte"><a href="#bruschetta" class="link">Bruschetta Binary</a></li>
@@ -809,7 +752,7 @@
 <div id="menuplats" class="modal">
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Plats</h2>
+    <h2 class="dish-title basic">Meals</h2>
     <ul class="liste">
       <li class="texte"><a href="#calzone" class="link">Calzone Container</a></li>
       <li class="texte"><a href="#lasagna" class="link">Full Stack Lasagna</a></li>
@@ -824,7 +767,7 @@
 <div id="menudrinks" class="modal">
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Boissons & Cafés</h2>
+    <h2 class="dish-title basic">Coffee and drinks</h2>
     <ul class="liste">
       <li class="texte"><a href="#latte" class="link">Latte Debug</a></li>
       <li class="texte"><a href="#espresso" class="link">Espresso Kernel Panic</a></li>
@@ -836,7 +779,7 @@
 <div id="menudesserts" class="modal">
   <div class="modal_content">
     <a href="#" class="modal_close">&times;</a>
-    <h2 class="dish-title">Desserts</h2>
+    <h2 class="dish-title basic">Desserts</h2>
     <ul class="liste">
     <li class="texte"><a href="#tiramisu" class="link">Tiramisu Async</a></li>
     <li class="texte"><a href="#gelato" class="link">Gelato Vanilla Script</a></li>
