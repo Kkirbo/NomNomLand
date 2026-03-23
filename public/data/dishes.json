@@ -1,0 +1,100 @@
+{
+  "dishes": [
+    {
+      "id": "salad",
+      "name": "Salade sans 5G",
+      "category": "entry",
+      "image": "../assets/images/meals/Salade.jpeg"
+    },
+    {
+      "id": "bruschetta",
+      "name": "Bruschetta Binary",
+      "category": "entry",
+      "image": "../assets/images/meals/Bruschetta.jpg"
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic Bread API",
+      "category": "entry",
+      "image": "../assets/images/meals/garlic_bread.jpg"
+    },
+    {
+      "id": "calzone",
+      "name": "Calzone Container",
+      "category": "meal",
+      "image": "../assets/images/meals/Calzone-Container.webp"
+    },
+    {
+      "id": "lasagna",
+      "name": "Full Stack Lasagna",
+      "category": "meal",
+      "image": "../assets/images/meals/lasagna.jpg"
+    },
+    {
+      "id": "margherita",
+      "name": "NPC Margherita",
+      "category": "meal",
+      "image": "../assets/images/meals/Margherita Pizza.jpg"
+    },
+    {
+      "id": "penne",
+      "name": "Penne.js Bolognese",
+      "category": "meal",
+      "image": "../assets/images/meals/Penne.jpg"
+    },
+    {
+      "id": "ravioli",
+      "name": "Boolean Ravioli Open-Source",
+      "category": "meal",
+      "image": "../assets/images/meals/ravioli.webp"
+    },
+    {
+      "id": "carbonara",
+      "name": "Callback Carbonara",
+      "category": "meal",
+      "image": "../assets/images/meals/Carbonara.jpg"
+    },
+    {
+      "id": "spaghetti",
+      "name": "Spaghetti Code",
+      "category": "meal",
+      "image": "../assets/images/meals/spaghetti.jpg"
+    },
+    {
+      "id": "tiramisu",
+      "name": "Tiramisu Async",
+      "category": "dessert",
+      "image": "../assets/images/meals/tiramisu.jpg"
+    },
+    {
+      "id": "gelato",
+      "name": "Gelato Node.js",
+      "category": "dessert",
+      "image": "../assets/images/meals/gelato.jpg"
+    },
+    {
+      "id": "latte",
+      "name": "Latte Debug",
+      "category": "drink",
+      "image": "../assets/images/meals/cat-latte.jpg"
+    },
+    {
+      "id": "espresso",
+      "name": "Espresso Kernel Panic",
+      "category": "drink",
+      "image": "../assets/images/meals/Espresso.jpg"
+    },
+    {
+      "id": "the",
+      "name": "Thé Green Deployment",
+      "category": "drink",
+      "image": "../assets/images/meals/tea.jpg"
+    },
+    {
+      "id": "smoothie",
+      "name": "Smoothie API",
+      "category": "drink",
+      "image": "../assets/images/meals/smoothie.jpg"
+    }
+  ]
+}

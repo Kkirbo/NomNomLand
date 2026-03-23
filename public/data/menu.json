@@ -1,0 +1,14 @@
+{
+  "menus": [
+    {
+      "name": "Entrées",
+      "description": "Nos entrées maison",
+      "dishes": ["salad","bruschetta","garlic"]
+    },
+    {
+      "name": "Plats",
+      "description": "Nos plats principaux",
+      "dishes": ["calzone","lasagna","margherita"]
+    }
+  ]
+}
