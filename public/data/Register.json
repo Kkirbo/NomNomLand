@@ -1,0 +1,17 @@
+{
+  "User": {
+    "id": "number",
+    "login": "string",
+    "password": "string (hashed)",
+    "role": "string (client | restaurateur | admin | delivery)",
+    "profile": {
+      "firstName": "string",
+      "lastName": "string",
+      "username": "string",
+      "age": "string",
+      "address": "string"
+    },
+    "createdAt": "datetime",
+    "lastLogin": "datetime"
+  }
+}

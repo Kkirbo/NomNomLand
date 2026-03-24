@@ -9,9 +9,9 @@
 </head>
 <body>
 
-  <?php include '../php/header.html'; ?>
+  <?php include 'header.html'; ?>
 
-  <?php include '../php/sidebar.php'; ?>
+  <?php include 'sidebar.php'; ?>
 
     <main>
     <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
@@ -35,9 +35,21 @@
         </fieldset>
     </form>
 </main>
+<?php
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    <?php include '../php/footer.html'; ?>
+    echo "<br>Email : $email";
+    echo "<br>Password : $password";
+}
+session_start();
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $_SESSION['email'] = $_POST['email'];
+}
+?>
+    <?php include 'footer.html'; ?>
 </body>
 </html>

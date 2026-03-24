@@ -10,9 +10,9 @@
 
 <body>
 
-  <?php include '../php/header.html'; ?>
+  <?php include 'header.html'; ?>
 
-  <?php include '../php/sidebar.php'; ?>
+  <?php include 'sidebar.php'; ?>
 
     <fieldset>
         <legend>Register</legend>
@@ -69,8 +69,38 @@
             </div>
         </form>
     </fieldset>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $firstName = $_POST['firstname'] ?? '';
+    $lastName = $_POST['name'] ?? '';
+    $username = strtolower($firstName . '.' . $lastName);
+    $user = [
+        "id" => time(),
+        "login" => $email,
+        "password" => password_hash($password, PASSWORD_DEFAULT),
+        "role" => "client",
+        "profile" =>[
+            "firstName" =>$firstName,
+            "lastName" =>$lastName,
+            "username" =>$username
+        ],
+        "createdAt" => date("Y-m-d H:i:s"),
+        "lastLogin" => null
+    ];
+    $file = "Register.json";
+    if (file_exists($file)) {
+        $users = json_decode(file_get_contents($file), true);
+        $users=[];
+    }
 
-    <?php include '../php/footer.html'; ?>
+    // Ajout de l'utilisateur
+    $users[] = $user;
+
+    // Écriture dans le JSON
+    file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
+    <?php include 'footer.html'; ?>
 
 </body>
 </html>
