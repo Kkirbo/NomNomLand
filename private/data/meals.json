@@ -1,0 +1,32 @@
+{
+  "meals": [
+    {
+      "id": "ravioli",
+      "title": "Boolean Ravioli Open-Source",
+      "description": "Version 1.1 — True/False Edition",
+      "image": "../assets/images/meals/ravioli.webp",
+      "carousel": 1
+    },
+    {
+      "id": "lasagna",
+      "title": "Full Stack Lasagna",
+      "description": "Version Beta-1.0 — Layered Deployment",
+      "image": "../assets/images/meals/lasagna.jpg",
+      "carousel": 2
+    },
+    {
+      "id": "spaghetti",
+      "title": "Spaghetti Code",
+      "description": "Version Legacy 0.9 — Chaos Edition",
+      "image": "../assets/images/meals/spaghetti.jpg",
+      "carousel": 3
+    },
+    {
+      "id": "burger",
+      "title": "Binary Burger",
+      "description": "Version 2.0 — Stack Edition",
+      "image": "../assets/images/meals/burger.jpg",
+      "carousel": 0
+    }
+  ]
+}
