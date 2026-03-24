@@ -36,6 +36,20 @@
         "price": 19.99
     },
     {
+        "id": "menu4",
+        "title": "Sweet BlueStacks",
+        "image": "../assets/images/menus/menu3.png",
+        "description": [],
+        "price": 4.99
+    },
+    {
+        "id": "menu5",
+        "title": "Java & Tea Runtime",
+        "image": "../assets/images/menus/menu3.png",
+        "description": [],
+        "price": 4.99
+    },
+    {
         "id": "menu6",
         "title": "Git Merge Menu",
         "image": "../assets/images/menus/git.png",
@@ -49,7 +63,7 @@
     },
     {
         "id": "menu7",
-        "title": "Import All Menu",
+        "title": "Import * Menu",
         "image": "../assets/images/menus/import.png",
         "description": [
             "Starter | Main course | Drink | Dessert",

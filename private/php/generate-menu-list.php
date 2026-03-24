@@ -1,6 +1,8 @@
 <?php
 $menus = json_decode(file_get_contents('../../private/data/menus.json'), true);
 
+$menus = array_slice($menus, 0, 3);
+
 foreach ($menus as $menu) {
     echo '<article class="menu modernNeonBoxGlass">';
     echo '<a href="menu.php#' . htmlspecialchars($menu['id']) . '" class="imageLink">';
