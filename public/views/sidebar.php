@@ -48,7 +48,6 @@
 
   document.addEventListener('click', (e) => {
     if (!sidebarCheckbox.checked) return;
-    console.log(e.target);
     if (!sidebar.contains(e.target) && !e.target.matches('.togglesidebar, .togglesidebar *')) {
       sidebarCheckbox.checked = false;
     }
