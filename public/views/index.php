@@ -19,35 +19,11 @@
 
     <main>
       <section class="carousel">
-        <article class="modernNeonBoxGlass"></article>
-        <article class="Meal modernNeonBoxGlass">
-              <a href="menu.php#ravioli" class="imageLink"><img draggable="false" src="../assets/images/meals/ravioli.webp" alt="Ravioli Image"></a>
-              <ul>
-                  <li><h3>Today's special</h3></li>
-                  <li>Boolean Ravioli Open-Source</li>
-                  <li>Version 1.1 — True/False Edition</li>
-                  <li><a href="menu.php#ravioli"><button>Order</button></a></li>
-              </ul>
-        </article>
-        <article class="Meal modernNeonBoxGlass">
-            <a href="menu.php#lasagna" class="imageLink"><img draggable="false" src="../assets/images/meals/lasagna.jpg" alt="Favorite meal Image"></a>
-            <ul>
-                <li><h3>Customer favorite</h3></li>
-                <li>Full Stack Lasagna</li>
-                <li>Version Beta-1.0 — Layered Deployment</li>
-                <li><a href="menu.php#lasagna"><button>Order</button></a></li>
-            </ul>
-        </article>
-        <article class="Meal modernNeonBoxGlass">
-            <a href="menu.php#spaghetti" class="imageLink"><img draggable="false" src="../assets/images/meals/spaghetti.jpg" alt="Best seller meal Image"></a>
-            <ul>
-                <li><h3>Best seller</h3></li>
-                <li>Spaghetti Code</li>
-                <li>Version Legacy 0.9 — Chaos Edition</li>
-                <li><a href="menu.php#spaghetti"><button>Order</button></a></li>
-            </ul>
-        </article>
-        <article class="modernNeonBoxGlass"></article>
+          <article class="modernNeonBoxGlass"></article>
+
+          <?php include '../../private/php/generate-carousel.php'; ?>
+
+          <article class="modernNeonBoxGlass"></article>
       </section>
 
       <form action="menu.php" method="get" class="searchbar"autocomplete=off>
@@ -55,40 +31,43 @@
         <input type="text" name="search" placeholder="Search for your favorite meal...">
       </form>
 
-      <section class="menus">
+      <!--<section class="menus">
         <article class="menu modernNeonBoxGlass">
-              <a href="menu.php#menu1" class="imageLink"><img draggable="false" src="../assets/images/menus/nature.png" alt="Nature Menu Image"></a>
-              <h3>Connect to Nature Menu</h3>
-              <ul>
-                  <li>Starter | Main course</li>
-                  <li>The best vegetal menu</li>
-                  <li>No gluten dishes included</li>
-                  <li>Available 24/7</li>
-              </ul>
-              <a href="menu.php#menu1"><button>8.99€</button></a>
-          </article>
-          <article class="menu modernNeonBoxGlass">
-              <a href="menu.php#menu2" class="imageLink"><img draggable="false" src="../assets/images/menus/menu2.png" alt="Wombo Combo Menu Image"></a>
-              <h3>Wombo Combo Menu</h3>
-              <ul>
-                  <li>Main course | Drink</li>
-                  <li>All our classics avaiable</li>
-                  <li>The choice of our clients</li>
-                  <li>The standard</li>
-              </ul>
-              <a href="menu.php#menu2"><button>15.99€</button></a>
-          </article>
-          <article class="menu modernNeonBoxGlass">
-              <a href="menu.php#menu3" class="imageLink"><img draggable="false" src="../assets/images/menus/menu3.png" alt="SegFault Menu Image"></a>
-              <h3>SegFault Rushed Menu</h3>
-              <ul>
-                  <li>Main course | Drink</li>
-                  <li>The best foods avaiable</li>
-                  <li>For a quick meal</li>
-                  <li>Affordable and Fast</li>
-              </ul>
-              <a href="menu.php#menu3"><button>19.99€</button></a>
-          </article>
+            <a href="menu.php#menu1" class="imageLink"><img draggable="false" src="../assets/images/menus/nature.png" alt="Nature Menu Image"></a>
+            <h3>Connect to Nature Menu</h3>
+            <ul>
+                <li>Starter | Main course</li>
+                <li>The best vegetal menu</li>
+                <li>No gluten dishes included</li>
+                <li>Available 24/7</li>
+            </ul>
+            <a href="menu.php#menu1"><button>8.99€</button></a>
+        </article>
+        <article class="menu modernNeonBoxGlass">
+            <a href="menu.php#menu2" class="imageLink"><img draggable="false" src="../assets/images/menus/menu2.png" alt="Wombo Combo Menu Image"></a>
+            <h3>Wombo Combo Menu</h3>
+            <ul>
+                <li>Main course | Drink</li>
+                <li>All our classics avaiable</li>
+                <li>The choice of our clients</li>
+                <li>The standard</li>
+            </ul>
+            <a href="menu.php#menu2"><button>15.99€</button></a>
+        </article>
+        <article class="menu modernNeonBoxGlass">
+            <a href="menu.php#menu3" class="imageLink"><img draggable="false" src="../assets/images/menus/menu3.png" alt="SegFault Menu Image"></a>
+            <h3>SegFault Rushed Menu</h3>
+            <ul>
+                <li>Main course | Drink</li>
+                <li>The best foods avaiable</li>
+                <li>For a quick meal</li>
+                <li>Affordable and Fast</li>
+            </ul>
+            <a href="menu.php#menu3"><button>19.99€</button></a>
+        </article>
+      </section>-->
+      <section class="menus">
+        <?php include '../../private/php/generate-menu-list.php'; ?>
       </section>
 
       <section class="infos" id="about">
