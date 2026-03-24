@@ -13,9 +13,9 @@
 <body>
     <canvas class="background"></canvas>
 
-    <?php include '../php/header.html'; ?>
+    <?php include 'header.html'; ?>
 
-    <?php include '../php/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <main>
       <section class="modernNeonBoxGlass">
@@ -62,7 +62,7 @@
           You can control and manage cookies through your browser settings.
           You may block or delete cookies at any time. Please note that disabling
           certain cookies may affect website functionality.
-          To manage cookies please see your <a href="profile.html">profile</a>.
+          To manage cookies please see your <a href="profile.php">profile</a>.
         </p>
 
         <h2>4. Third-Party Cookies</h2>
@@ -80,7 +80,7 @@
       </section>
     </main>
 
-    <?php include '../php/footer.html'; ?>
+    <?php include 'footer.html'; ?>
 
 </body>
 </html>

@@ -10,13 +10,13 @@
 </head>
 <body>
 
-    <?php include '../php/header.html'; ?>
+    <?php include 'header.html'; ?>
 
-    <?php include '../php/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <h1>Admin Page</h1>
 
-    <?php include '../php/footer.html'; ?>
+    <?php include 'footer.html'; ?>
 
 </body>
 </html>

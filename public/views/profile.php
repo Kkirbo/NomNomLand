@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <?php include '../php/sidebar.php'; ?>
+  <?php include 'sidebar.php'; ?>
 
 <section class="profile">
 

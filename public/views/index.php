@@ -13,51 +13,51 @@
     <!-- Background animation not yet implemented
     <canvas class="background"></canvas>
     -->
-    <?php include '../php/header.html'; ?>
+    <?php include 'header.html'; ?>
 
-    <?php include '../php/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <main>
       <section class="carousel">
         <article class="modernNeonBoxGlass"></article>
         <article class="Meal modernNeonBoxGlass">
-              <a href="menu.html#ravioli" class="imageLink"><img draggable="false" src="../assets/images/meals/ravioli.webp" alt="Ravioli Image"></a>
+              <a href="menu.php#ravioli" class="imageLink"><img draggable="false" src="../assets/images/meals/ravioli.webp" alt="Ravioli Image"></a>
               <ul>
                   <li><h3>Today's special</h3></li>
                   <li>Boolean Ravioli Open-Source</li>
                   <li>Version 1.1 — True/False Edition</li>
-                  <li><a href="menu.html#ravioli"><button>Order</button></a></li>
+                  <li><a href="menu.php#ravioli"><button>Order</button></a></li>
               </ul>
         </article>
         <article class="Meal modernNeonBoxGlass">
-            <a href="menu.html#lasagna" class="imageLink"><img draggable="false" src="../assets/images/meals/lasagna.jpg" alt="Favorite meal Image"></a>
+            <a href="menu.php#lasagna" class="imageLink"><img draggable="false" src="../assets/images/meals/lasagna.jpg" alt="Favorite meal Image"></a>
             <ul>
                 <li><h3>Customer favorite</h3></li>
                 <li>Full Stack Lasagna</li>
                 <li>Version Beta-1.0 — Layered Deployment</li>
-                <li><a href="menu.html#lasagna"><button>Order</button></a></li>
+                <li><a href="menu.php#lasagna"><button>Order</button></a></li>
             </ul>
         </article>
         <article class="Meal modernNeonBoxGlass">
-            <a href="menu.html#spaghetti" class="imageLink"><img draggable="false" src="../assets/images/meals/spaghetti.jpg" alt="Best seller meal Image"></a>
+            <a href="menu.php#spaghetti" class="imageLink"><img draggable="false" src="../assets/images/meals/spaghetti.jpg" alt="Best seller meal Image"></a>
             <ul>
                 <li><h3>Best seller</h3></li>
                 <li>Spaghetti Code</li>
                 <li>Version Legacy 0.9 — Chaos Edition</li>
-                <li><a href="menu.html#spaghetti"><button>Order</button></a></li>
+                <li><a href="menu.php#spaghetti"><button>Order</button></a></li>
             </ul>
         </article>
         <article class="modernNeonBoxGlass"></article>
       </section>
 
-      <form action="menu.html" method="get" class="searchbar"autocomplete=off>
+      <form action="menu.php" method="get" class="searchbar"autocomplete=off>
         <span>$ls</span>
         <input type="text" name="search" placeholder="Search for your favorite meal...">
       </form>
 
       <section class="menus">
         <article class="menu modernNeonBoxGlass">
-              <a href="menu.html#menu1" class="imageLink"><img draggable="false" src="../assets/images/menus/nature.png" alt="Nature Menu Image"></a>
+              <a href="menu.php#menu1" class="imageLink"><img draggable="false" src="../assets/images/menus/nature.png" alt="Nature Menu Image"></a>
               <h3>Connect to Nature Menu</h3>
               <ul>
                   <li>Starter | Main course</li>
@@ -65,10 +65,10 @@
                   <li>No gluten dishes included</li>
                   <li>Available 24/7</li>
               </ul>
-              <a href="menu.html#menu1"><button>8.99€</button></a>
+              <a href="menu.php#menu1"><button>8.99€</button></a>
           </article>
           <article class="menu modernNeonBoxGlass">
-              <a href="menu.html#menu2" class="imageLink"><img draggable="false" src="../assets/images/menus/menu2.png" alt="Wombo Combo Menu Image"></a>
+              <a href="menu.php#menu2" class="imageLink"><img draggable="false" src="../assets/images/menus/menu2.png" alt="Wombo Combo Menu Image"></a>
               <h3>Wombo Combo Menu</h3>
               <ul>
                   <li>Main course | Drink</li>
@@ -76,10 +76,10 @@
                   <li>The choice of our clients</li>
                   <li>The standard</li>
               </ul>
-              <a href="menu.html#menu2"><button>15.99€</button></a>
+              <a href="menu.php#menu2"><button>15.99€</button></a>
           </article>
           <article class="menu modernNeonBoxGlass">
-              <a href="menu.html#menu3" class="imageLink"><img draggable="false" src="../assets/images/menus/menu3.png" alt="SegFault Menu Image"></a>
+              <a href="menu.php#menu3" class="imageLink"><img draggable="false" src="../assets/images/menus/menu3.png" alt="SegFault Menu Image"></a>
               <h3>SegFault Rushed Menu</h3>
               <ul>
                   <li>Main course | Drink</li>
@@ -87,7 +87,7 @@
                   <li>For a quick meal</li>
                   <li>Affordable and Fast</li>
               </ul>
-              <a href="menu.html#menu3"><button>19.99€</button></a>
+              <a href="menu.php#menu3"><button>19.99€</button></a>
           </article>
       </section>
 
@@ -101,13 +101,13 @@
           </p>
           <p>
             Our menu is built on classic Italian foundations with a modern twist.
-            From our <a href="menu.html#lasagna">Full Stack Lasagna</a> layered to perfection, to our
-            <a href="menu.html#carbonara">Callback Carbonara</a> that always delivers, every dish is crafted
+            From our <a href="menu.php#lasagna">Full Stack Lasagna</a> layered to perfection, to our
+            <a href="menu.php#carbonara">Callback Carbonara</a> that always delivers, every dish is crafted
             with precision and passion.
           </p>
           <p>
-            We proudly serve our signature <a href="menu.html#salad">5G-Free Salad</a> (pure nature, zero
-            interference), the legendary <a href="menu.html#margherita">NPC Margherita</a> (simple, iconic,
+            We proudly serve our signature <a href="menu.php#salad">5G-Free Salad</a> (pure nature, zero
+            interference), the legendary <a href="menu.php#margherita">NPC Margherita</a> (simple, iconic,
             never glitchy), and pasta cooked strictly in dente —
             perfectly compiled, never overcooked, never undercooked.
           </p>
@@ -120,7 +120,7 @@
 
           <p>
             Ready to execute your reservation?
-            <a href="menu.html">Order now</a> or <a href="#contact">Contact us</a>
+            <a href="menu.php">Order now</a> or <a href="#contact">Contact us</a>
           </p>
         </article>
       </section>
@@ -148,7 +148,7 @@
           <summary>Are allergens clearly indicated?</summary>
           <p>
             Absolutely. A full allergen list is available upon request and on
-            our dedicated <a href="allergens.html">allergens</a> page.
+            our dedicated <a href="allergens.php">allergens</a> page.
           </p>
         </details>
 
@@ -192,7 +192,7 @@
       </section>
     </main>
 
-    <?php include '../php/footer.html'; ?>
+    <?php include 'footer.html'; ?>
 
 </body>
 </html>

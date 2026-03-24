@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <?php include '../php/sidebar.php'; ?>
+  <?php include 'sidebar.php'; ?>
 
     <section class="infos modernNeonBoxGlass">
 
@@ -17,7 +17,7 @@
 
       <label for="toggle" class="btn">Informations</label>
 
-      <form action="delivery.html" method="post">
+      <form action="delivery.php" method="post">
         <input type="submit" value="Delivery complete">
       </form>
     </section>

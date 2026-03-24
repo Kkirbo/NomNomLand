@@ -9,9 +9,9 @@
   </head>
   <body>
 
-    <?php include '../php/header.html'; ?>
+    <?php include 'header.html'; ?>
 
-    <?php include '../php/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <form method="post" name="rating" action="https://formtester.goodbytes.be/post.php">
 

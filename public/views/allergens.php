@@ -13,9 +13,9 @@
 <body>
     <canvas class="background"></canvas>
 
-    <?php include '../php/header.html'; ?>
+    <?php include 'header.html'; ?>
 
-    <?php include '../php/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <main>
       <section class="modernNeonBoxGlass">
@@ -196,7 +196,7 @@
       </section>
     </main>
 
-    <?php include '../php/footer.html'; ?>
+    <?php include 'footer.html'; ?>
 
 </body>
 </html>
