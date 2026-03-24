@@ -7,66 +7,68 @@
 
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/admin.css">
+    <?php include '../../private/php/orders_data.php'; ?>
 </head>
 <body>
 
-    <?php include '../php/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
 
     <section class="orders">
 
         <h2>Pending Orders</h2>
 
+        <?php foreach ($orders as $order): ?>
+
         <article class="menu modernNeonBoxGlassAdmin orderCard">
 
-            <h3>Order #1024</h3>
+            <h3>Order #<?= $order['id'] ?></h3>
 
             <ul>
-                <li><strong>Customer Email:</strong> john.doe@email.com</li>
-                <li><strong>Arrival Date:</strong> 2026-02-20 18:42</li>
+                <li><strong>Customer Email:</strong> <?= $order['email'] ?></li>
+                <li><strong>Arrival Date:</strong> <?= $order['date'] ?></li>
             </ul>
 
-            <!-- Checkbox cachée -->
-            <input type="checkbox" id="order-toggle" class="modalToggle">
+            <?php $toggleId = "order-toggle-" . $order['id']; ?>
 
-            <!-- Bouton ouvrir -->
-            <label for="order-toggle" class="openModalBtn">
+            <input type="checkbox" id="<?= $toggleId ?>" class="modalToggle">
+
+            <label for="<?= $toggleId ?>" class="openModalBtn">
                 Display Details
             </label>
 
-            <!-- MODAL FULL SCREEN -->
             <div class="modal">
-
-                <!-- Overlay fermeture -->
-                <label for="order-toggle" class="overlay"></label>
+                <label for="<?= $toggleId ?>" class="overlay"></label>
 
                 <div class="modalContent modernNeonBoxGlass">
 
-                    <h3>Order #1024 Details</h3>
+                    <h3>Order #<?= $order['id'] ?> Details</h3>
 
                     <ul>
-                        <li>1x Git Merge Menu</li>
-                        <li>2x Connect to Nature Menu</li>
-                        <li>1x Coke</li>
+                        <?php foreach ($order['content'] as $item): ?>
+                            <li><?= $item ?></li>
+                        <?php endforeach; ?>
+
                     </ul>
+                    
+                    <p><strong>Status:</strong> <?= $order['delivery']['status'] ?></p>
+                    <p><strong>Adress:</strong> <?= $order['delivery']['address'] ?></p>
+                    <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
 
-                    <p><strong>Total:</strong> 34.97€</p>
-
-                    <!-- Start Preparation -->
-                    <form action="update_order_status.php" method="POST">
-                        <input type="hidden" name="order_id" value="1024">
+                    <!-- Form 1 -->
+                    <form action="../../private/php/update_order_status.php" method="POST">
+                        <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
                         <input type="hidden" name="status" value="preparing">
                         <button type="submit">Start Preparation</button>
                     </form>
 
-                    <!-- Send to Delivery -->
-                    <form action="update_order_status.php" method="POST">
-                        <input type="hidden" name="order_id" value="1024">
+                    <!-- Form 2 -->
+                    <form action="../../private/php/update_order_status.php" method="POST">
+                        <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
                         <input type="hidden" name="status" value="delivery">
                         <button type="submit">Send to Delivery</button>
                     </form>
 
-                    <!-- Bouton fermer -->
-                    <label for="order-toggle" class="closeBtn">
+                    <label for="<?= $toggleId ?>" class="closeBtn">
                         Close
                     </label>
 
@@ -74,185 +76,7 @@
             </div>
 
         </article>
-
-      <article class="menu modernNeonBoxGlassAdmin orderCard">
-
-        <h3>Order #1023</h3>
-
-        <ul>
-            <li><strong>Customer Email:</strong> the.rock@email.com</li>
-            <li><strong>Arrival Date:</strong> 2026-02-20 18:42</li>
-        </ul>
-
-        <!-- Checkbox cachée -->
-        <input type="checkbox" id="order-toggle" class="modalToggle">
-
-        <!-- Bouton ouvrir -->
-        <label for="order-toggle" class="openModalBtn">
-            Display Details
-        </label>
-
-        <!-- MODAL FULL SCREEN -->
-        <div class="modal">
-
-            <!-- Overlay fermeture -->
-            <label for="order-toggle" class="overlay"></label>
-
-            <div class="modalContent modernNeonBoxGlass">
-
-                <h3>Order #1023 Details</h3>
-
-                <ul>
-                    <li>1x Git Merge Menu</li>
-                    <li>2x Connect to Nature Menu</li>
-                    <li>1x Coke</li>
-                </ul>
-
-                <p><strong>Total:</strong> 34.97€</p>
-
-                <!-- Start Preparation -->
-                <form action="update_order_status.php" method="POST">
-                    <input type="hidden" name="order_id" value="1024">
-                    <input type="hidden" name="status" value="preparing">
-                    <button type="submit">Start Preparation</button>
-                </form>
-
-                <!-- Send to Delivery -->
-                <form action="update_order_status.php" method="POST">
-                    <input type="hidden" name="order_id" value="1024">
-                    <input type="hidden" name="status" value="delivery">
-                    <button type="submit">Send to Delivery</button>
-                </form>
-
-                <!-- Bouton fermer -->
-                <label for="order-toggle" class="closeBtn">
-                    Close
-                </label>
-
-            </div>
-        </div>
-
-      </article>
-
-    <article class="menu modernNeonBoxGlassAdmin orderCard">
-
-        <h3>Order #1022</h3>
-
-        <ul>
-            <li><strong>Customer Email:</strong> pas.dinspi@email.com</li>
-            <li><strong>Arrival Date:</strong> 2026-02-20 18:42</li>
-        </ul>
-
-        <!-- Checkbox cachée -->
-        <input type="checkbox" id="order-toggle" class="modalToggle">
-
-        <!-- Bouton ouvrir -->
-        <label for="order-toggle" class="openModalBtn">
-            Display Details
-        </label>
-
-        <!-- MODAL FULL SCREEN -->
-        <div class="modal">
-
-            <!-- Overlay fermeture -->
-            <label for="order-toggle" class="overlay"></label>
-
-            <div class="modalContent modernNeonBoxGlass">
-
-                <h3>Order #1022 Details</h3>
-
-                <ul>
-                    <li>1x Git Merge Menu</li>
-                    <li>2x Connect to Nature Menu</li>
-                    <li>1x Coke</li>
-                </ul>
-
-                <p><strong>Total:</strong> 34.97€</p>
-
-                <!-- Start Preparation -->
-                <form action="update_order_status.php" method="POST">
-                    <input type="hidden" name="order_id" value="1024">
-                    <input type="hidden" name="status" value="preparing">
-                    <button type="submit">Start Preparation</button>
-                </form>
-
-                <!-- Send to Delivery -->
-                <form action="update_order_status.php" method="POST">
-                    <input type="hidden" name="order_id" value="1024">
-                    <input type="hidden" name="status" value="delivery">
-                    <button type="submit">Send to Delivery</button>
-                </form>
-
-                <!-- Bouton fermer -->
-                <label for="order-toggle" class="closeBtn">
-                    Close
-                </label>
-
-            </div>
-        </div>
-
-      </article>
-
-    <article class="menu modernNeonBoxGlassAdmin orderCard">
-
-        <h3>Order #1021</h3>
-
-        <ul>
-            <li><strong>Customer Email:</strong> goat@email.com</li>
-            <li><strong>Arrival Date:</strong> 2026-02-20 21:22</li>
-        </ul>
-
-        <!-- Checkbox cachée -->
-        <input type="checkbox" id="order-toggle" class="modalToggle">
-
-        <!-- Bouton ouvrir -->
-        <label for="order-toggle" class="openModalBtn">
-            Display Details
-        </label>
-
-        <!-- MODAL FULL SCREEN -->
-        <div class="modal">
-
-            <!-- Overlay fermeture -->
-            <label for="order-toggle" class="overlay"></label>
-
-            <div class="modalContent modernNeonBoxGlass">
-
-                <h3>Order #1021 Details</h3>
-
-                <ul>
-                    <li>1x Git Merge Menu</li>
-                    <li>2x Connect to Nature Menu</li>
-                    <li>1x Water</li>
-                </ul>
-
-                <p><strong>Total:</strong> 34.97€</p>
-
-                <!-- Start Preparation -->
-                <form action="update_order_status.php" method="POST">
-                    <input type="hidden" name="order_id" value="1024">
-                    <input type="hidden" name="status" value="preparing">
-                    <button type="submit">Start Preparation</button>
-                </form>
-
-                <!-- Send to Delivery -->
-                <form action="update_order_status.php" method="POST">
-                    <input type="hidden" name="order_id" value="1024">
-                    <input type="hidden" name="status" value="delivery">
-                    <button type="submit">Send to Delivery</button>
-                </form>
-
-                <!-- Bouton fermer -->
-                <label for="order-toggle" class="closeBtn">
-                    Close
-                </label>
-
-            </div>
-        </div>
-
-      </article>
-
-    </section>
+        <?php endforeach; ?>
 
 </body>
 </html>
