@@ -17,7 +17,7 @@
     <fieldset>
         <legend>Register</legend>
 
-        <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
+        <form method="post">
 
             <div class="field">
                 <label for="name">Name:</label>
@@ -36,8 +36,8 @@
                 <input id="email" name="email" type="email" class="champ" required>
             </div>
             <div class="field">
-                <label for="email-confirm">Confirm E-mail:</label>
-                <input id="email-confirm" name="email-confirm" type="email" class="champ" required>
+                <label for="email-confirm">Password:</label>
+                <input id="email-confirm" name="password" type="text" class="champ" required>
             </div>
             <div class="field">
                 <label>Gender:</label>
@@ -75,31 +75,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $firstName = $_POST['firstname'] ?? '';
     $lastName = $_POST['name'] ?? '';
-    $username = strtolower($firstName . '.' . $lastName);
+    $age = $_POST['age'] ?? '';
+    $address = $_POST['address'] ?? '';
+    $gender = $_POST['gender'] ?? '';
+    $username = $firstName . '.' . $lastName;
+
     $user = [
-        "id" => time(),
-        "login" => $email,
-        "password" => password_hash($password, PASSWORD_DEFAULT),
-        "role" => "client",
-        "profile" =>[
-            "firstName" =>$firstName,
-            "lastName" =>$lastName,
-            "username" =>$username
-        ],
-        "createdAt" => date("Y-m-d H:i:s"),
-        "lastLogin" => null
+        "User" => [
+            "id" => time(),
+            "login" => $email,
+            "password" => password_hash($password, PASSWORD_DEFAULT),
+            "role" => "client",
+            "profile" => [
+                "firstName" => $firstName,
+                "lastName" => $lastName,
+                "username" => $username,
+                "age" => $age,
+                "address" => $address,
+                "gender" => $gender
+            ],
+            "createdAt" => date("Y-m-d H:i:s"),
+            "lastLogin" => null
+        ]
     ];
-    $file = "Register.json";
+
+    $file = __DIR__ . "/../data/Register.json";  //DIR is for the absolute path of the file
     if (file_exists($file)) {
-        $users = json_decode(file_get_contents($file), true);
-        $users=[];
+        $content = file_get_contents($file);
+        $users = json_decode($content, true);
+        if (!is_array($users)) $users = [];
+    } else {
+        $users = [];
     }
+    $users[] = $user; 
+    $json = json_encode($users, JSON_PRETTY_PRINT);
+    if ($json === false) {
+        echo "Erreur JSON : " . json_last_error_msg();
+    } else {
+        $result = file_put_contents($file, $json);
+        if ($result === false) echo "Impossible d'écrire dans Register.json !";
+    }
+}
+?>
 
-    // Ajout de l'utilisateur
-    $users[] = $user;
-
-    // Écriture dans le JSON
-    file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
     <?php include 'footer.html'; ?>
 
 </body>
