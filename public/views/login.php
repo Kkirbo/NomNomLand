@@ -14,7 +14,7 @@
   <?php include 'sidebar.php'; ?>
 
     <main>
-    <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
+    <form method="post">
         <fieldset>
             <div class="field">
                 <label for="email">E-mail:</label>
@@ -37,17 +37,22 @@
 </main>
 <?php
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    echo "<br>Email : $email";
-    echo "<br>Password : $password";
+    $password = password_hash($password, PASSWORD_DEFAULT);
 }
-session_start();
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $_SESSION['email'] = $_POST['email'];
+$file = file_get_contents("../data/users.json");
+$users = json_decode($file, true);
+foreach ($users["users"]as $user) {
+    if ($users==true && $user["email"] === $email && $user["password"] === $password) {
+        $_SESSION["user"] = $user;
+        $sstart= session_start();
+        $_SESSION['timestamp'][]= $sstart;
+        setcookie("user",$email, time() + 86400);
+        header("../views/profile.php");
+    }
 }
 ?>
     <?php include 'footer.html'; ?>
