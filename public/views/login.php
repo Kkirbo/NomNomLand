@@ -41,8 +41,9 @@
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_verify($password, PASSWORD_DEFAULT);
 }
+$error=false;
 $file = file_get_contents("../data/users.json");
 $users = json_decode($file, true);
 foreach ($users["users"]as $user) {
@@ -53,8 +54,13 @@ foreach ($users["users"]as $user) {
         setcookie("user",$email, time() + 86400);
         header("../views/profile.php");
     }
+    else {
+    $error=true;
+    }
 }
 ?>
+<?php if $error: ?>
+    <p class="error-message">Invalid credentials. Please try again.</p>
     <?php include 'footer.html'; ?>
 </body>
 </html>
