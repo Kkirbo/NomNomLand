@@ -12,7 +12,8 @@
         ],
         "delivery": {
             "status": "delivery",
-            "address": "1 rue C.D.G Paris"
+            "address": "1 rue C.D.G Paris",
+            "delivery_person_id": 1
         },
         "price": 17.1,
         "paymentStatus": "failed",
@@ -31,7 +32,8 @@
         ],
         "delivery": {
             "status": "delivery",
-            "address": "2 rue C.D.G Paris"
+            "address": "2 rue C.D.G Paris",
+            "delivery_person_id": 0
         },
         "price": 17.2,
         "paymentStatus": "paid",
@@ -49,7 +51,8 @@
         ],
         "delivery": {
             "status": "delivery",
-            "address": "3 rue C.D.G Paris"
+            "address": "3 rue C.D.G Paris",
+            "delivery_person_id": 1
         },
         "price": 17.3,
         "paymentStatus": "pending",
