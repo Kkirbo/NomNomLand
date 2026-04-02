@@ -7,9 +7,18 @@
 
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/admin.css">
-    <?php include '../../private/php/orders_data.php'; ?>
 </head>
 <body>
+
+    <?php
+
+    require_once "../../private/php/data_loader.php";
+    require_once "../../private/php/helper.php";
+
+    $deliveryPeople = getDeliveryPeople();
+    $orders = getOrders();
+
+    ?>
 
     <?php include 'sidebar.php'; ?>
 
@@ -54,18 +63,31 @@
                     <p><strong>Adress:</strong> <?= $order['delivery']['address'] ?></p>
                     <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
 
-                    <!-- Form 1 -->
+                    <p><strong>Delivery person:</strong>
+                        <?= getDeliveryName($order["delivery"]["delivery_person_id"] ?? null, $deliveryPeople) ?>
+                    </p>
+
                     <form action="../../private/php/update_order_status.php" method="POST">
                         <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
                         <input type="hidden" name="status" value="preparing">
                         <button type="submit">Start Preparation</button>
                     </form>
 
-                    <!-- Form 2 -->
                     <form action="../../private/php/update_order_status.php" method="POST">
                         <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
+                        
+                        
                         <input type="hidden" name="status" value="delivery">
                         <button type="submit">Send to Delivery</button>
+                        
+                        <select name="delivery_person_id" required>
+                            <?php foreach ($deliveryPeople as $person): ?>
+                                <option value="<?= $person['id'] ?>">
+                                    <?= $person['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+
                     </form>
 
                     <label for="<?= $toggleId ?>" class="closeBtn">
