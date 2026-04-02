@@ -1,0 +1,17 @@
+[
+    {
+        "id": "d1",
+        "name": "Jean Dupont",
+        "available": true
+    },
+    {
+        "id": "d2",
+        "name": "Sophie Martin",
+        "available": true
+    },
+    {
+        "id": "d3",
+        "name": "Marc Lavoine",
+        "available": false
+    }
+]
