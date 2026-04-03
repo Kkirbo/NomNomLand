@@ -1,0 +1,92 @@
+[
+    {
+        "User": {
+            "id": 1775205716,
+            "login": "julien@email.com",
+            "password": "$2y$10$y3eaUc3JBrHRE8pX1UhY6ORRNeRJed\/U0nI9SsC9mrKg4e56pf1T6",
+            "role": "client",
+            "profile": {
+                "firstName": "Julien",
+                "lastName": "Dupont",
+                "username": "Julien.Dupont",
+                "age": "18",
+                "address": "1 rue Versailles",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-03 10:41:56",
+            "lastLogin": null
+        }
+    },
+    {
+        "User": {
+            "id": 1775205850,
+            "login": "martin@email.com",
+            "password": "$2y$10$xaYwVj\/ybavq\/nvFwVwlsu.GtHNl.i.in4gmCWllFc\/Rzm8JnaRJG",
+            "role": "delivery",
+            "profile": {
+                "firstName": "Martin",
+                "lastName": "Lelivreur",
+                "username": "Martin.Lelivreur",
+                "age": "21",
+                "address": "2 rue Versailles",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-03 10:44:10",
+            "lastLogin": null
+        }
+    },
+    {
+        "User": {
+            "id": 1775205957,
+            "login": "jean@email.com",
+            "password": "$2y$10$9lY.Ox6mB22wH7SaYC7y3euDAqdWGL\/1LakJjPjIVGIgN2MjktFAC",
+            "role": "cook",
+            "profile": {
+                "firstName": "Lecuisinier",
+                "lastName": "Jean",
+                "username": "Lecuisinier.Jean",
+                "age": "30",
+                "address": "3 rue Versailles",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-03 10:45:57",
+            "lastLogin": null
+        }
+    },
+    {
+        "User": {
+            "id": 1775206179,
+            "login": "gregoire@email.com",
+            "password": "$2y$10$\/ShY8eyrNEevYqQT.8ppu.IDBDzEshlpa\/D8c7TwMKHHwr6Eke4B2",
+            "role": "admin",
+            "profile": {
+                "firstName": "Leadmin",
+                "lastName": "Gregoire",
+                "username": "Leadmin.Gregoire",
+                "age": "34",
+                "address": "4 rue Versailles",
+                "gender": "unspecified"
+            },
+            "createdAt": "2026-04-03 10:49:40",
+            "lastLogin": null
+        }
+    },
+    {
+        "User": {
+            "id": 1775206360,
+            "login": "eva@email.com",
+            "password": "$2y$10$1lNLWAOlP0LAMSznXgn80.eoBYA\/VZuq3Ylbq8GqOuyVUWxVb5Z\/C",
+            "role": "client",
+            "profile": {
+                "firstName": "Lacliente",
+                "lastName": "Eva",
+                "username": "Lacliente.Eva",
+                "age": "32",
+                "address": "6 rue Versailles",
+                "gender": "female"
+            },
+            "createdAt": "2026-04-03 10:52:40",
+            "lastLogin": null
+        }
+    }
+]
