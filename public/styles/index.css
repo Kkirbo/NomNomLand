@@ -389,12 +389,10 @@ section.carousel::scroll-button(left), section.carousel::scroll-button(right) {
   position: fixed;
   position-anchor: --carousel;
   position-area: left center;
-  translate: 10vw;
 }
 section.carousel::scroll-button(right) {
   border-radius: 7rem 0 0 7rem;
   position-area: right center;
-  translate: -10vw;
 }
 section.carousel::scroll-button(left):hover, section.carousel::scroll-button(right):hover {
   opacity: 0.5;
