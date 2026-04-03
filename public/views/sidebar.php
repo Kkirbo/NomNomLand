@@ -46,10 +46,16 @@
   const sidebarCheckbox = document.getElementById('togglesidebar');
   const sidebar = document.querySelector('.sidebar');
 
+  //Hide sidebar when clicking outside
   document.addEventListener('click', (e) => {
     if (!sidebarCheckbox.checked) return;
     if (!sidebar.contains(e.target) && !e.target.matches('.togglesidebar, .togglesidebar *')) {
       sidebarCheckbox.checked = false;
     }
+  });
+
+  //Escape key to toggle sidebar
+  document.addEventListener('keydown', (e) => {
+    if (e.keyCode === 27) sidebarCheckbox.checked = !sidebarCheckbox.checked;
   });
 </script>

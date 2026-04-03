@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
               <a href="register.php">No account? Sign up</a>
 
               <?php
-                if ($error!=false) echo"<p class=error-message>" . $error . "</p>";
+                if ($error!='') echo"<p class=error-message>" . $error . "</p>";
               ?>
           </fieldset>
       </form>

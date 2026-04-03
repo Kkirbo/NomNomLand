@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 $dataDishes = json_decode(file_get_contents("../data/dishes.json"), true);
 $dataMenus  = json_decode(file_get_contents("../data/menus.json"), true);

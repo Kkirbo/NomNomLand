@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +72,7 @@
       </div>
 
       <?php
-        if ($error!=false) echo"<p class=error-message>" . $error . "</p>";
+        if ($error!='') echo"<p class=error-message>" . $error . "</p>";
       ?>
     </fieldset>
   </form>

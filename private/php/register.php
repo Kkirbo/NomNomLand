@@ -1,6 +1,6 @@
 <?php
+$error = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $error = false;
   $email = $_POST['email'] ?? '';
   $password = $_POST['password'] ?? '';
   $firstName = $_POST['firstname'] ?? '';
