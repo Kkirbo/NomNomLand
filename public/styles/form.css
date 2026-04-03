@@ -44,7 +44,7 @@ fieldset {
     box-shadow: 0 0 0.625em var(--secondary-bright);
 }
 .field input {
-  width: max(55%, 300px);
+  width: max(55%, 200px);
   font-size: 1.2rem;
   color: var(--secondary-bright);
 }

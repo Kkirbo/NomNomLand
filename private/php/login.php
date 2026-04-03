@@ -1,4 +1,5 @@
 <?php
+if (isset($_SESSION["user_email"])) header("Location: index.php");
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
 if (!isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['password']) || empty($_POST['password'])) {
@@ -7,7 +8,12 @@ if (!isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['password
 }
 $email = $_POST['email'];
 $password = $_POST['password'];
-$users = json_decode(file_get_contents("../../private/data/users.json"), true);
+$file = file_get_contents(__DIR__ . "/../data/users.json");
+if (!$file) {
+    $error = "Database error, please try again.";
+    return;
+}
+$users = json_decode($file, true);
 if (!$users || !isset($users["users"])) {
     $error = "Internal server error, please try again.";
     return;
@@ -23,5 +29,5 @@ foreach ($users["users"] as $user) {
         exit();
     }
 }
-$error = "Invalid credentials, please try again.";
+if (!isset($_SESSION["user_email"])) $error = "Invalid credentials, please try again.";
 ?>

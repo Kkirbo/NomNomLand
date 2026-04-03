@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       ]
   ];
 
-  $file = __DIR__ . "../data/users.json";
-  if (file_exists($file)) {
-      $content = file_get_contents($file);
+  $path = __DIR__ . "/../data/users.json";
+  if (file_exists($path)) {
+      $content = file_get_contents($path);
       $users = json_decode($content, true);
       if (!is_array($users)) $users = [];
   } else {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($json === false) {
       echo "Erreur JSON : " . json_last_error_msg();
   } else {
-      $result = file_put_contents($file, $json);
+      $result = file_put_contents($path, $json);
       if ($result === false) $error = "Internal server error, please try again.";
   }
 }

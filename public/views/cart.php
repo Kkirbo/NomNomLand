@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Cart</title>
 
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
@@ -16,7 +16,7 @@
     <?php include 'sidebar.php'; ?>
 
     <main>
-        <h1>Admin Page</h1>
+        <h1>Cart</h1>
     </main>
 
     <?php include 'footer.html'; ?>

@@ -1,8 +1,8 @@
-[
-    {
-        "User": {
+{
+    "users": [
+        {
             "id": 1775205716,
-            "login": "julien@email.com",
+            "email": "julien@email.com",
             "password": "$2y$10$y3eaUc3JBrHRE8pX1UhY6ORRNeRJed\/U0nI9SsC9mrKg4e56pf1T6",
             "role": "client",
             "profile": {
@@ -15,12 +15,10 @@
             },
             "createdAt": "2026-04-03 10:41:56",
             "lastLogin": null
-        }
-    },
-    {
-        "User": {
+        },
+        {
             "id": 1775205850,
-            "login": "martin@email.com",
+            "email": "martin@email.com",
             "password": "$2y$10$xaYwVj\/ybavq\/nvFwVwlsu.GtHNl.i.in4gmCWllFc\/Rzm8JnaRJG",
             "role": "delivery",
             "profile": {
@@ -33,12 +31,10 @@
             },
             "createdAt": "2026-04-03 10:44:10",
             "lastLogin": null
-        }
-    },
-    {
-        "User": {
+        },
+        {
             "id": 1775205957,
-            "login": "jean@email.com",
+            "email": "jean@email.com",
             "password": "$2y$10$9lY.Ox6mB22wH7SaYC7y3euDAqdWGL\/1LakJjPjIVGIgN2MjktFAC",
             "role": "cook",
             "profile": {
@@ -51,12 +47,10 @@
             },
             "createdAt": "2026-04-03 10:45:57",
             "lastLogin": null
-        }
-    },
-    {
-        "User": {
+        },
+        {
             "id": 1775206179,
-            "login": "gregoire@email.com",
+            "email": "gregoire@email.com",
             "password": "$2y$10$\/ShY8eyrNEevYqQT.8ppu.IDBDzEshlpa\/D8c7TwMKHHwr6Eke4B2",
             "role": "admin",
             "profile": {
@@ -69,12 +63,10 @@
             },
             "createdAt": "2026-04-03 10:49:40",
             "lastLogin": null
-        }
-    },
-    {
-        "User": {
+        },
+        {
             "id": 1775206360,
-            "login": "eva@email.com",
+            "email": "eva@email.com",
             "password": "$2y$10$1lNLWAOlP0LAMSznXgn80.eoBYA\/VZuq3Ylbq8GqOuyVUWxVb5Z\/C",
             "role": "client",
             "profile": {
@@ -87,12 +79,10 @@
             },
             "createdAt": "2026-04-03 10:52:40",
             "lastLogin": null
-        }
-    },
-    {
-        "User": {
+        },
+        {
             "id": 1775208196,
-            "login": "jade@email.com",
+            "email": "jade@email.com",
             "password": "$2y$10$EvVhPfomHppzPm305XjqUuS9eKNNS5HkznvatX\/X2E2jZd2GsidM6",
             "role": "delivery",
             "profile": {
@@ -105,6 +95,22 @@
             },
             "createdAt": "2026-04-03 11:23:16",
             "lastLogin": null
+        },
+        {
+            "id": 1775243008,
+            "email": "tomjedusor@email.com",
+            "password": "$2y$12$tFla3ZCncEc\/TQJI7aeU5uxQOVCKwqm\/Sn\/dQn2vhSZchsmFCJkCK",
+            "role": "client",
+            "profile": {
+                "firstName": "Tom",
+                "lastName": "Jedusor",
+                "username": "Tom.Jedusor",
+                "age": "",
+                "address": "",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-03 19:03:28",
+            "lastLogin": null
         }
-    }
-]
+    ]
+}

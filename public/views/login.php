@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include '../../private/php/login.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,41 +15,39 @@
 
   <?php include 'sidebar.php'; ?>
 
-  <?php include '../../private/php/login.php'; ?>
+  <main>
+    <form method="post">
+        <fieldset>
+            <div class="field">
+                <label for="email">E-mail:</label>
+                <input id="email" name="email" type="email" placeholder="example@email.com" required>
+            </div>
 
-    <main>
-      <form method="post">
-          <fieldset>
-              <div class="field">
-                  <label for="email">E-mail:</label>
-                  <input id="email" name="email" type="email" placeholder="example@email.com" required>
+            <div class="field">
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" placeholder="password" required>
+            </div>
+
+            <div class="field buttons">
+              <div>
+                <label>Sign in</label>
+                <button type="submit" class="button">Submit</button>
               </div>
-
-              <div class="field">
-                  <label for="password">Password:</label>
-                  <input id="password" name="password" type="password" placeholder="password" required>
+              <div>
+                <label>Reset form</label>
+                <button type="reset" class="button" id="reset">Reset</button>
               </div>
+            </div>
 
-              <div class="field buttons">
-                <div>
-                  <label>Sign in</label>
-                  <button type="submit" class="button">Submit</button>
-                </div>
-                <div>
-                  <label>Reset form</label>
-                  <button type="reset" class="button" id="reset">Reset</button>
-                </div>
-              </div>
+            <a href="register.php">No account? Sign up</a>
 
-              <a href="register.php">No account? Sign up</a>
+            <?php
+              if ($error!='') echo"<p class=error-message>" . $error . "</p>";
+            ?>
+        </fieldset>
+    </form>
+  </main>
 
-              <?php
-                if ($error!='') echo"<p class=error-message>" . $error . "</p>";
-              ?>
-          </fieldset>
-      </form>
-    </main>
-
-    <?php include 'footer.html'; ?>
+  <?php include 'footer.html'; ?>
 </body>
 </html>

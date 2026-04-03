@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include '../../private/php/register.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +17,12 @@
 
   <?php include 'sidebar.php'; ?>
 
-  <?php include '../../private/php/register.php'; ?>
-
   <main>
     <form method="post">
     <fieldset>
 
       <div class="field">
-          <label for="name">Name:</label>
+          <label for="name">Last Name:</label>
           <input id="name" name="name" type="text" placeholder="Last Name" required>
       </div>
       <div class="field">
