@@ -1,71 +1,62 @@
 <?php
-$dataDishes = json_decode(file_get_contents("../data/meal.json"), true);
+$dataDishes = json_decode(file_get_contents("../data/dishes.json"), true);
 $dataMenus  = json_decode(file_get_contents("../data/menus.json"), true);
+
+include "../php/menu_creator.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../assets/icons/logo.ico">
-    <link rel="stylesheet" href="../styles/index.css"/>
-    <link rel="stylesheet" href="../styles/menu.css"/>
     <title>Menu</title>
+    <link rel="stylesheet" href="../styles/menu.css">
 </head>
 
 <body>
 
-<?php include "../php/header.html"; ?>
-<?php include "../php/sidebar.php"; ?>
-<?php include "../../private/php/maenu_creator.php"; ?>
+<h1>Restaurant Menu</h1>
 
-<h1 id="menuheader">Restaurant Menu</h1>
-<div class="menu-left">
-    <h2 id="sousmenuheader">Menus</h2>
-    <div class="cards-container">
-        <?php
-        foreach ($dataMenus["menus"] as $menu) {
-            renderCard(
-                $menu["id"],
-                $menu["name"],
-                $menu["image"],
-                $menu["price"],
-                $menu["name"],
-                $menu["description"]
-            );
-        }
-        ?>
-    </div>
-    <h2>Others</h2>
-    <div class="cards-container">
-
-    <div class="cards-container">
-        <?php
-        renderCard("menuentrees", "Entries", "", "More info...", "", "", true);
-        renderCard("menuplats", "Main meals", "", "More info...", "", "", true);
-        renderCard("menudesserts", "Desserts", "", "More info...", "", "", true);
-        renderCard("menudrinks", "Drinks", "", "More info...", "", "", true);
-        ?>
-    </div>
-
+<h2>Menus</h2>
+<div class="cards-container">
+<?php
+foreach ($dataMenus["menus"] as $menu) {
+    renderCard($menu["id"], $menu["name"], $menu["image"], $menu["price"]);
+}
+?>
 </div>
 
-<a href="../views/index.html" class="return0">
-    End of the menu: return 0; // Buon appetito
-</a>
+<h2>Categories</h2>
+<div class="cards-container">
+<?php
+$categories = [];
+
+foreach ($dataDishes["dishes"] as $dish) {
+    $categories[$dish["category"]] = true;
+}
+
+foreach (array_keys($categories) as $cat) {
+    renderCard($cat, ucfirst($cat), "", "More info...", true);
+}
+?>
+</div>
 
 <?php
+// MENU MODALS
 foreach ($dataMenus["menus"] as $menu) {
     renderMenuModal($menu, $dataDishes);
 }
-?>
 
-<?php
+// DISH MODALS
 foreach ($dataDishes["dishes"] as $id => $dish) {
-    renderModal($id, $dish);
+    renderDishModal($id, $dish);
+}
+
+// CATEGORY MODALS
+foreach (array_keys($categories) as $cat) {
+    renderCategoryModal($cat, $dataDishes);
 }
 ?>
 
-<?php include "../php/footer.html"; ?>
 </body>
 </html>
