@@ -33,6 +33,7 @@
 
       <section class="menus">
         <?php include '../../private/php/generate-menu-list.php'; ?>
+        <?php generateMenuList(3); ?>
       </section>
 
       <section class="infos" id="about">

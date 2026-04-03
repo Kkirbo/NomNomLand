@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/Inscription.css">
+    <link rel="stylesheet" href="../styles/form.css">
+    <!--<link rel="stylesheet" href="../styles/register.css">-->
 
 </head>
 
@@ -14,61 +15,61 @@
 
   <?php include 'sidebar.php'; ?>
 
+  <main>
+    <form method="post">
     <fieldset>
-        <legend>Register</legend>
 
-        <form method="post">
-
-            <div class="field">
-                <label for="name">Name:</label>
-                <input id="name" name="name" type="text" class="champ" required>
-            </div>
-            <div class="field">
-                <label for="firstname">First name:</label>
-                <input id="firstname" name="firstname" type="text" class="champ" required>
-            </div>
-            <div class="field">
-                <label for="age">Age:</label>
-                <input id="age" name="age" type="number" min="1" max="99" class="champ">
-            </div>
-            <div class="field">
-                <label for="email">E-mail:</label>
-                <input id="email" name="email" type="email" class="champ" required>
-            </div>
-            <div class="field">
-                <label for="email-confirm">Password:</label>
-                <input id="email-confirm" name="password" type="text" class="champ" required>
-            </div>
-            <div class="field">
-                <label>Gender:</label>
-                <input id="radio-male" type="radio" name="gender" value="male" checked>
-                <label for="radio-male">Male</label>
-                <input id="radio-female" type="radio" name="gender" value="female">
-                <label for="radio-female">Female</label>
-                <input id="radio-other" type="radio" name="gender" value="other">
-                <label for="radio-other">Other</label>
-                <input id="radio-unspecified" type="radio" name="gender" value="unspecified">
-                <label for="radio-unspecified">Prefer not to say</label>
-            </div>
-            <div class="field">
-                <label for="address">Address:</label>
-                <input id="address" name="address" type="text"
-                    pattern="^[0-9]+[ ]?[A-Za-zÀ-ÿ' -]+$"
-                    placeholder="12 Rivoli Street Paris">
-            </div>
-            <div class="field">
-                <label>Sign in</label>
-                <button type="submit" class="button">
-                    Submit
-                </button>
-                <br><br>
-                <label>Reset form</label>
-                <button type="reset" class="button" id="reset">
-                    Reset form
-                </button>
-            </div>
-        </form>
+      <div class="field">
+          <label for="name">Name:</label>
+          <input id="name" name="name" type="text" class="champ" required>
+      </div>
+      <div class="field">
+          <label for="firstname">First name:</label>
+          <input id="firstname" name="firstname" type="text" class="champ" required>
+      </div>
+      <div class="field">
+          <label for="age">Age:</label>
+          <input id="age" name="age" type="number" min="1" max="99" class="champ">
+      </div>
+      <div class="field">
+          <label for="email">E-mail:</label>
+          <input id="email" name="email" type="email" class="champ" required>
+      </div>
+      <div class="field">
+          <label for="email-confirm">Password:</label>
+          <input id="email-confirm" name="password" type="text" class="champ" required>
+      </div>
+      <div class="field">
+          <label>Gender:</label>
+          <input id="radio-male" type="radio" name="gender" value="male" checked>
+          <label class="button" for="radio-male">Male</label>
+          <input id="radio-female" type="radio" name="gender" value="female">
+          <label class="button" for="radio-female">Female</label>
+          <input id="radio-other" type="radio" name="gender" value="other">
+          <label class="button" for="radio-other">Other</label>
+          <input id="radio-unspecified" type="radio" name="gender" value="unspecified">
+          <label class="button" for="radio-unspecified">Prefer not to say</label>
+      </div>
+      <div class="field">
+          <label for="address">Address:</label>
+          <input id="address" name="address" type="text"
+              pattern="^[0-9]+[ ]?[A-Za-zÀ-ÿ' -]+$"
+              placeholder="12 Rivoli Street Paris">
+      </div>
+      <div class="field">
+          <label>Sign in</label>
+          <button type="submit" class="button">
+              Submit
+          </button>
+          <br><br>
+          <label>Reset form</label>
+          <button type="reset" class="button" id="reset">
+              Reset form
+          </button>
+      </div>
     </fieldset>
+  </form>
+  </main>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -107,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $users = [];
     }
-    $users[] = $user; 
+    $users[] = $user;
     $json = json_encode($users, JSON_PRETTY_PRINT);
     if ($json === false) {
         echo "Erreur JSON : " . json_last_error_msg();
