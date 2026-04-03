@@ -24,9 +24,9 @@
             "password": "$2y$10$xaYwVj\/ybavq\/nvFwVwlsu.GtHNl.i.in4gmCWllFc\/Rzm8JnaRJG",
             "role": "delivery",
             "profile": {
-                "firstName": "Martin",
-                "lastName": "Lelivreur",
-                "username": "Martin.Lelivreur",
+                "firstName": "Lelivreur",
+                "lastName": "Martin",
+                "username": "Lelivreur.Martin",
                 "age": "21",
                 "address": "2 rue Versailles",
                 "gender": "male"
@@ -94,7 +94,7 @@
             "id": 1775208196,
             "login": "jade@email.com",
             "password": "$2y$10$EvVhPfomHppzPm305XjqUuS9eKNNS5HkznvatX\/X2E2jZd2GsidM6",
-            "role": "client",
+            "role": "delivery",
             "profile": {
                 "firstName": "Lalivreuse",
                 "lastName": "Jade",
