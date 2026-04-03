@@ -88,5 +88,23 @@
             "createdAt": "2026-04-03 10:52:40",
             "lastLogin": null
         }
+    },
+    {
+        "User": {
+            "id": 1775208196,
+            "login": "jade@email.com",
+            "password": "$2y$10$EvVhPfomHppzPm305XjqUuS9eKNNS5HkznvatX\/X2E2jZd2GsidM6",
+            "role": "client",
+            "profile": {
+                "firstName": "Lalivreuse",
+                "lastName": "Jade",
+                "username": "Lalivreuse.Jade",
+                "age": "54",
+                "address": "7 rue Versailles",
+                "gender": "female"
+            },
+            "createdAt": "2026-04-03 11:23:16",
+            "lastLogin": null
+        }
     }
 ]
