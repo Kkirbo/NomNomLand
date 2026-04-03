@@ -20,24 +20,30 @@
           <fieldset>
               <div class="field">
                   <label for="email">E-mail:</label>
-                  <input id="email" name="email" type="email" class="champ" placeholder="example@mail.com" required>
+                  <input id="email" name="email" type="email" placeholder="example@email.com" required>
               </div>
 
               <div class="field">
                   <label for="password">Password:</label>
-                  <input id="password" name="password" type="password" class="champ" placeholder="abcdefg..." required>
+                  <input id="password" name="password" type="password" placeholder="password" required>
               </div>
+
+              <div class="field buttons">
+                <div>
+                  <label>Sign in</label>
+                  <button type="submit" class="button">Submit</button>
+                </div>
+                <div>
+                  <label>Reset form</label>
+                  <button type="reset" class="button" id="reset">Reset</button>
+                </div>
+              </div>
+
+              <a href="register.php">No account? Sign up</a>
 
               <?php
-                if ($error==true) echo"<p class=error-message>Invalid credentials. Please try again.</p>";
+                if ($error!=false) echo"<p class=error-message>" . $error . "</p>";
               ?>
-
-              <div class="buttons-container">
-                  <button type="submit" name="Submit" class="button">Login</button>
-                  <button type="reset" class="button">Reset</button>
-              </div>
-
-              <a class="signup-link" href="register.html">No account? Sign up</a>
           </fieldset>
       </form>
     </main>
