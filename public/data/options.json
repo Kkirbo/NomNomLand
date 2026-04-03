@@ -1,0 +1,14 @@
+  "Option": {
+    "id": "number",
+    "type": "string (ingredient_modification | coupon)",
+    "description": "string",
+    "priceImpact": "number",
+    "couponCode": "string",
+    "discountPercentage": "number"
+  },
+{
+"plats":["Oeufs","+ de sel"],
+"taille":["Atto-sized","Normal","Tera-portion"],
+"nombre": "number",
+"id":"number",
+}

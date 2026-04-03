@@ -27,7 +27,7 @@
             </div>
 
             <div class="buttons-container">
-                <button type="submit" class="button">Login</button>
+                <button type="submit" name="Submit" class="button">Login</button>
                 <button type="reset" class="button">Reset</button>
             </div>
 
@@ -36,31 +36,28 @@
     </form>
 </main>
 <?php
-
-
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+session_start();
+$error = false;
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $password = password_verify($password, PASSWORD_DEFAULT);
-}
-$error=false;
-$file = file_get_contents("../data/users.json");
-$users = json_decode($file, true);
-foreach ($users["users"]as $user) {
-    if ($users==true && $user["email"] === $email && $user["password"] === $password) {
-        $_SESSION["user"] = $user;
-        $sstart= session_start();
-        $_SESSION['timestamp'][]= $sstart;
-        setcookie("user",$email, time() + 86400);
-        header("../views/profile.php");
+    $file = file_get_contents("../data/users.json");
+    $users = json_decode($file, true);
+    foreach ($users["users"] as $user) {
+        if ($user["email"] === $email && password_verify($password, $user["password"])) {
+            $_SESSION["user"] = $user;
+            setcookie("user", $email, time() + 86400, "/");
+            header("Location: ../views/profile.php");
+            exit();
+        }
     }
-    else {
-    $error=true;
+    if ($email!= "" && $password!="" && isset($_POST['Submit'])){
+        $error = true;
     }
-}
 ?>
-<?php if $error: ?>
-    <p class="error-message">Invalid credentials. Please try again.</p>
+<?php if ($error==true){
+    echo"<p class=error-message>Invalid credentials. Please try again.</p>";
+} ?>
+ 
     <?php include 'footer.html'; ?>
 </body>
 </html>
