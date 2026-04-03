@@ -1,0 +1,177 @@
+fieldset{
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    width:fit-content;
+    margin: auto;
+    margin-bottom: 0.9375em;
+    background-color: var(--primary-shadow);
+    border-radius:0.9375em;
+    color:var(--black);
+    border-color: var(--secondary-bright);
+    border-width: 0.125em;
+    box-shadow: 0 0 0.625em var(--secondary-bright);
+}
+
+legend{
+    text-align:center;
+    font-weight:bold;
+    padding:5px 15px;
+    border-radius:10px;
+    border: 1px solid var(--secondary-bright);
+    box-shadow: 0 0 5px var(--secondary-bright);
+    background: var(--primary-shadow);
+    color: var(--neon);
+}
+#firstname,
+#age,
+#email,
+#email-confirm,
+#address{
+    caret-color: var(--secondary-bright);
+    min-width: 200px;
+    color: var(--secondary-bright);
+    outline: none;
+}
+@keyframes transition{
+    0%{
+        border: 1px solid var(--pastel-red);
+        box-shadow: 0 0 5px var(--pastel-red);
+    }
+    100%{
+        border: 1px solid var(--secondary-bright);
+        box-shadow: 0 0 5px var(--secondary-bright);
+    }
+
+}
+
+@keyframes transition-inverse{
+    0%{
+        border: 1px solid var(--secondary-bright);
+        box-shadow: 0 0 5px var(--secondary-bright);
+    }
+    100%{
+        border: 1px solid var(--pastel-red);
+        box-shadow: 0 0 5px var(--pastel-red);
+    }
+}
+
+input:valid {
+    border: 1px solid var(--secondary-bright);
+    box-shadow: 0 0 5px var(--secondary-bright);
+    animation: transition 0.5s ease;
+}
+input:invalid {
+    border: 1px solid var(--pastel-red);
+    box-shadow: 0 0 5px var(--pastel-red);
+    animation: transition-inverse 0.5s ease;
+}
+.field{
+    margin:10px 0;
+    color: var(--secondary-bright);
+}
+
+form label{
+    display:inline-block;
+    min-width:200px;
+
+    margin-bottom:5px;
+}
+
+.champ{
+    background-color: var(--outline);
+    border-radius: 48px  48px ;
+    height: clamp(26px, 2.5vw, 36px);
+}
+
+button {
+
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+button:hover {
+
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
+
+.button{
+    position:relative;
+    border:1px solid var(--secondary);
+    background: var(--white);
+    border-radius:10px;
+    padding:10px 20px;
+
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.radio{
+    display:none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="text"], button {
+    font-size: 1.2rem;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance:none;
+}
+
+
+input[type=number]{
+    -moz-appearance:textfield;
+}
+.field label[for^="radio"] {
+  display: inline;
+  cursor: pointer;
+  padding: 5px 5px;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  color: var(--secondary);
+  font-weight: bold;
+  transition:  0.4s ease;
+}
+
+
+.field label[for^="radio"]:hover {
+  background: var(--secondary-cold-highlight);
+  border-color: var(--secondary-cold-bright);
+  color: var(--white);
+}
+
+input[type="radio"]:checked + label {
+  background: var(--secondary);
+  color: var(--primary-dark);
+  border-color: var(--secondary-bright);
+  animation: radioSelect 0.35s ease ;
+}
+
+@keyframes radioSelect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+fieldset{
+    margin: 2rem auto;
+}

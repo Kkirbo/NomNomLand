@@ -1,14 +1,10 @@
 :root{
-  --outline: #1e1e1f;
-  --details: #008000;
-  --neon: #39ff14;
-
-  --basic-dark: #0655cc;          
-  --basic-shadow: #074dbf;        
-  --basic: #0a86ff;               
-  --basic-highlight: #3aa0ff;     
-  --basic-bright: #7fc5ff; 
-  --basic-dark-04: #0655cc66;    
+  --basic-dark: #0655cc;
+  --basic-shadow: #074dbf;
+  --basic: #0a86ff;
+  --basic-highlight: #3aa0ff;
+  --basic-bright: #7fc5ff;
+  --basic-dark-04: #0655cc66;
   --basic-shadow-04: #074dbf66;
   --basic-highlight-04: #3aa0ff66;
   --basic-bright-04: #7fc5ff66;
@@ -93,7 +89,7 @@ a{
     flex-direction: column;
     gap: 1rem;
     padding: 3rem;
-    max-height: 80vh;      
+    max-height: 80vh;
     overflow-y: auto;
     max-width: 90%;
     color: var(--white);
@@ -237,7 +233,7 @@ ul li:last-child {
 }
 
 .menu-img {
-    width: 200px; 
+    width: 200px;
     height: auto;
     display: block;
 }

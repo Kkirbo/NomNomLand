@@ -1,11 +1,26 @@
+.error-message {
+    color: #ffffff;
+    background-color: #e74c3c;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 1px solid #c0392b;
+}
 
-main>form{
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centre le form verticalement */
+}
 
+main>form {
     display: flex;
     flex-direction: column;
     margin: auto;
     gap: 1rem;
-    width: 320px;
 }
 
 .field {
@@ -18,13 +33,13 @@ main>form{
     padding: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid var(--secondary);
-    caret-color: var(--details);
-    color: var(--details);
+    caret-color: var(--secondary-bright);
+    color: var(--secondary-bright);
 }
 
 .buttons-container {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -46,7 +61,6 @@ main>form{
 
 .signup-link {
     text-align: center;
-    font-size: 0.8rem;
     margin-top: 0.5rem;
     color: var(--secondary);
     text-decoration: none;
@@ -55,91 +69,4 @@ main>form{
 .signup-link:hover {
     text-decoration: underline;
     color: var(--secondary-bright);
-}
-@media screen and (max-width: 500px) {
-    main > form {
-        width: 90%;
-        gap: 0.8rem;
-    }
-
-    .field {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .field label {
-        width: 100%;
-        text-align: left;
-        font-size: 0.85rem;
-        margin-bottom: 0.2rem;
-    }
-
-    .champ {
-        width: 100%;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem;
-    }
-
-    .buttons-container {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .button {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .signup-link {
-        font-size: 0.7rem;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    main > form {
-        width: 400px;
-    }
-
-    .field label {
-        font-size: 1.1rem;
-    }
-
-    .champ {
-        font-size: 1.1rem;
-        padding: 0.6rem;
-    }
-
-    .button {
-        padding: 0.6rem 1.2rem;
-        font-size: 1.1rem;
-    }
-}
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* centre le form verticalement */
-}
-
-.error-message {
-    color: #ffffff;
-    background-color: #e74c3c;  
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 10px;
-    margin: 20px auto;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid #c0392b;
 }
