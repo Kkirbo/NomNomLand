@@ -1,4 +1,9 @@
-<?php require '../../private/php/session.php';?>
+<?php 
+require '../../private/php/session.php';
+require_login();
+$user = get_user_by_session();
+if ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['role'] !== 'delivery') redirect_url();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
