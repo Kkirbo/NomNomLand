@@ -17,6 +17,9 @@
           "Cooling: Liquid",
           "Power draw: 450W",
           "Target: 4K Ultra Gaming"
+        ],
+        "Price": [
+          "3739 €"
         ]
       },
       "comment": "Overclocked for extreme gamers"
@@ -39,6 +42,9 @@
           "Build: 7 min",
           "Battery life: +4h",
           "Compatible: Vegan / Gluten-free"
+        ],
+        "Price": [
+          "12 €"
         ]
       },
       "comment": "No network required. Natural recharge guaranteed."
@@ -64,6 +70,9 @@
         "Security": [
           "Thermal isolation",
           "Anti-cheese crash"
+        ],
+        "Price": [
+          "15 €"
         ]
       },
       "comment": "Autonomous container"
@@ -86,6 +95,9 @@
           "Serving: Family size",
           "Layers: 5+",
           "Stability: High cohesion"
+        ],
+        "Price": [
+          "18 €"
         ]
       },
       "comment": "Zero cloud dependency"
@@ -108,6 +120,9 @@
           "Complexity: Low",
           "Popularity: High",
           "Mode: Idle"
+        ],
+        "Price": [
+          "10 €"
         ]
       },
       "comment": "Production stable"
@@ -129,6 +144,9 @@
           "API latency: Low",
           "Portions: 1-2",
           "Compatibility: Universal"
+        ],
+        "Price": [
+          "14 €"
         ]
       },
       "comment": "Open taste API"
@@ -149,6 +167,9 @@
           "State: Filled / Empty",
           "License: Open-source",
           "Efficiency: High density"
+        ],
+        "Price": [
+          "13 €"
         ]
       },
       "comment": "Stuffed code"
@@ -170,6 +191,9 @@
           "Async handling: Enabled",
           "Error rate: Low",
           "Threads: Single pan"
+        ],
+        "Price": [
+          "16 €"
         ]
       },
       "comment": "No deadlock detected"
@@ -190,6 +214,9 @@
           "Refactor cost: High",
           "Readability: Poor",
           "Execution: Unpredictable"
+        ],
+        "Price": [
+          "11 €"
         ]
       },
       "comment": "Refactoring recommended"
@@ -212,6 +239,9 @@
           "Bits: Crunchy/Soft",
           "Serving: Starter",
           "Throughput: Fast"
+        ],
+        "Price": [
+          "8 €"
         ]
       },
       "comment": "Local flavor guaranteed"
@@ -233,6 +263,9 @@
           "Garlic intensity: High",
           "Response time: Instant",
           "Side dish: Yes"
+        ],
+        "Price": [
+          "7 €"
         ]
       },
       "comment": "No garlic bugs"
@@ -254,6 +287,9 @@
           "Refresh rate: High",
           "Temperature: Cold",
           "Energy boost: Medium"
+        ],
+        "Price": [
+          "9 €"
         ]
       },
       "comment": "Refreshing endpoint"
@@ -275,6 +311,9 @@
           "Layers: Multiple",
           "Sweetness: Balanced",
           "Execution: Deferred"
+        ],
+        "Price": [
+          "10 €"
         ]
       },
       "comment": "Smooth deployment"
@@ -296,6 +335,9 @@
           "Latency: Zero",
           "Flavors: Scalable",
           "Concurrency: Multi-scoop"
+        ],
+        "Price": [
+          "11 €"
         ]
       },
       "comment": "Zero latency"
@@ -316,6 +358,9 @@
           "Foam level: High",
           "Debug mode: ON",
           "Warmth: Stable"
+        ],
+        "Price": [
+          "5 €"
         ]
       },
       "comment": "Caffeinated debug"
@@ -337,6 +382,9 @@
           "Temperature: 80°C",
           "Health boost: High",
           "Deployment: Smooth"
+        ],
+        "Price": [
+          "4 €"
         ]
       },
       "comment": "Natural deployment"
@@ -357,6 +405,9 @@
           "Execution time: Instant",
           "Crash risk: Elevated",
           "Recovery: Required"
+        ],
+        "Price": [
+          "6 €"
         ]
       },
       "comment": "Restart required"
