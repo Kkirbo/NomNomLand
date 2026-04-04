@@ -109,22 +109,22 @@
             "lastLogin": null
         },
         {
-            "id": "69d17c5e22c20",
-            "email": "123@gmail.com",
-            "password": "$2y$10$86EHI2bbphf.C3CesQA5fu437jWTtpRSujIYLozL\/aNelnTomk6oG",
-            "role": "client",
+            "id": "69d159435b844",
+            "email": "tomjedusor@email.com",
+            "password": "$2y$12$kV60FdbKb63.DUpxNWYOqeX6j9l9\/flvroNxp.MKyp6naMOU6EOZK",
+            "role": "admin",
             "status": "Free",
             "fidelity": 0,
             "newsletter": false,
             "profile": {
-                "firstName": "kkkirbo",
-                "lastName": "Ben Kassem",
-                "username": "kkkirbo.Ben Kassem",
-                "age": 18,
-                "address": "2 rue de Rivoli",
-                "gender": "male"
+                "firstName": "Tom",
+                "lastName": "Jedusor",
+                "username": "Tom.Jedusor",
+                "age": 95,
+                "address": "",
+                "gender": "other"
             },
-            "createdAt": "2026-04-04 21:02:22",
+            "createdAt": "2026-04-04 18:32:35",
             "lastLogin": null
         }
     ]

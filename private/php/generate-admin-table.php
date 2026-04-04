@@ -2,17 +2,16 @@
 
 function generateAdminTable($users)
 {
-    foreach ($users as $u) {
-        $isAdmin = $u['role'] === 'admin';
+    foreach ($users as $user) {
+        $isAdmin = $user['role'] === 'admin';
 
         echo '<tr>';
 
-        echo '<td><span>' . htmlspecialchars($u['id']) . '</span></td>';
-        echo '<td><span>' . htmlspecialchars($u['profile']['lastName']) . ' ' . htmlspecialchars($u['profile']['firstName']) . '</span></td>';
-        echo '<td><span>' . htmlspecialchars($u['profile']['username']) . '</span></td>';
-        echo '<td><span>' . htmlspecialchars($u['email']) . '</span></td>';
+        echo '<td><span>' . htmlspecialchars($user['id']) . '</span></td>';
+        echo '<td><span>' . htmlspecialchars($user['profile']['lastName']) . ' ' . htmlspecialchars($user['profile']['firstName']) . '</span></td>';
+        echo '<td><span>' . htmlspecialchars($user['profile']['username']) . '</span></td>';
+        echo '<td><span>' . htmlspecialchars($user['email']) . '</span></td>';
 
-        // ROLE
         echo '<td>';
         if ($isAdmin) {
             echo '<select class="pastel-red" disabled>';
@@ -20,42 +19,39 @@ function generateAdminTable($users)
             echo '</select>';
         } else {
             echo '<select>';
-            echo '<option value="client"' . ($u['role'] === 'client' ? ' selected' : '') . '>Client</option>';
-            echo '<option value="delivery"' . ($u['role'] === 'delivery' ? ' selected' : '') . '>Delivery</option>';
-            echo '<option value="cook"' . ($u['role'] === 'cook' ? ' selected' : '') . '>Cook</option>';
+            echo '<option value="client"' . ($user['role'] === 'client' ? ' selected' : '') . '>Client</option>';
+            echo '<option value="delivery"' . ($user['role'] === 'delivery' ? ' selected' : '') . '>Delivery</option>';
+            echo '<option value="cook"' . ($user['role'] === 'cook' ? ' selected' : '') . '>Cook</option>';
             echo '</select>';
         }
         echo '</td>';
 
-        // STATUS
         echo '<td>';
         if ($isAdmin) {
             echo '<select class="pastel-red" disabled>';
-            echo '<option selected>' . ucfirst(htmlspecialchars($u['status'])) . '</option>';
+            echo '<option selected>' . ucfirst(htmlspecialchars($user['status'])) . '</option>';
             echo '</select>';
         } else {
             echo '<select>';
-            echo '<option value="free"' . ($u['status'] === 'free' ? ' selected' : '') . '>Free</option>';
-            echo '<option value="premium"' . ($u['status'] === 'premium' ? ' selected' : '') . '>Premium</option>';
-            echo '<option value="vip"' . ($u['status'] === 'vip' ? ' selected' : '') . '>VIP</option>';
-            echo '<option value="blocked"' . ($u['status'] === 'blocked' ? ' selected' : '') . '>Blocked</option>';
-            echo '<option value="deactivated"' . ($u['status'] === 'deactivated' ? ' selected' : '') . '>Deactivated</option>';
+            echo '<option value="free"' . ($user['status'] === 'free' ? ' selected' : '') . '>Free</option>';
+            echo '<option value="premium"' . ($user['status'] === 'premium' ? ' selected' : '') . '>Premium</option>';
+            echo '<option value="vip"' . ($user['status'] === 'vip' ? ' selected' : '') . '>VIP</option>';
+            echo '<option value="blocked"' . ($user['status'] === 'blocked' ? ' selected' : '') . '>Blocked</option>';
+            echo '<option value="deactivated"' . ($user['status'] === 'deactivated' ? ' selected' : '') . '>Deactivated</option>';
             echo '</select>';
         }
         echo '</td>';
 
-        // POINTS
         echo '<td>';
         echo '<div class="points-control">';
-        if (!$isAdmin) echo '<button id="minusfidelity">−</button>';
+        if (!$isAdmin) echo '<button class="minusfidelity">−</button>';
 
-        echo '<span class="points">' . (isset($u['points']) ? intval($u['points']) : 0) . '</span>';
+        echo '<span class="points">' . (isset($user['points']) ? intval($user['points']) : 0) . '</span>';
 
-        if (!$isAdmin) echo '<button id="plusfidelity">+</button>';
+        if (!$isAdmin) echo '<button class="plusfidelity">+</button>';
         echo '</div>';
         echo '</td>';
 
-        // ACTIONS
         echo '<td class="actions">';
         if (!$isAdmin) {
             echo '<button class="pastel-red">Block</button>';
@@ -68,3 +64,4 @@ function generateAdminTable($users)
         echo '</tr>';
     }
 }
+?>

@@ -1,9 +1,15 @@
 <?php 
 require '../../private/php/session.php';
+require '../../private/php/generate-nav.php';
 require_login();
 $user = get_user_by_session();
 if (!$user || $user['role'] !== 'admin') redirect_url();
 $users = get_users();
+
+$visibleUsers = 5;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$pagesCount = computePages($users, $visibleUsers);
+$users = sliceArrayToPage($users, $visibleUsers, $page, $pagesCount);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +52,9 @@ $users = get_users();
                         ?>
                     </tbody>
                 </table>
+                <?php
+                    generateNavbar($page, $pagesCount);
+                ?>
             </article>
         </section>
     </main>
