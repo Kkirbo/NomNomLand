@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 //Redirects the user based on the redirect parameter of the url (useful for going back to a page after login)
 function redirect_url($default="/public/views/index.php") {
     $redirect = $_GET['redirect'] ?? $default;
-    if (!str_starts_with($redirect, '/')) {
+    if (!is_string($redirect) || !str_starts_with($redirect, '/')) {
         $redirect = '/public/views/index.php';
     }
     header("Location: " . $redirect);
@@ -69,7 +69,7 @@ function get_user_by_session() {
 
 function require_login() {
     if (!is_logged_in()) {
-        header("Location: /public/views/login.php");
+        header("Location: /public/views/login.php?redirect=" . urlencode($_SERVER['REQUEST_URI']));
         exit();
     }
 }

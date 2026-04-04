@@ -12,6 +12,7 @@ label {
 }
 
 form {
+    background: var(--primary-04);
     border: solid var(--secondary);
     border-radius: 10px;
     margin: 3rem;

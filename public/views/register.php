@@ -76,7 +76,8 @@ function retype($key) {
         </div>
       </div>
 
-      <a href="login.php">Already have an account? Sign in</a>
+      <?php $redirect = $_GET['redirect'] ?? null; ?>
+      <a href="login.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">Already have an account? Sign in</a>
 
       <?php
         if ($error!='') echo"<p class=error-message>" . $error . "</p>";
