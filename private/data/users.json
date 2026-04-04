@@ -1,136 +1,111 @@
 {
     "users": [
         {
-            "id": "69d068d7504ef",
-            "email": "julien@email.com",
-            "password": "$2y$10$y3eaUc3JBrHRE8pX1UhY6ORRNeRJed\/U0nI9SsC9mrKg4e56pf1T6",
-            "role": "client",
-            "status": "VIP",
-            "fidelity": 0,
-            "newsletter": false,
-            "profile": {
-                "firstName": "Julien",
-                "lastName": "Dupont",
-                "username": "Julien.Dupont",
-                "age": 18,
-                "address": "1 rue Versailles",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-03 10:41:56",
-            "lastLogin": null
-        },
-        {
-            "id": "69d0695633b68",
-            "email": "martin@email.com",
-            "password": "$2y$10$xaYwVj\/ybavq\/nvFwVwlsu.GtHNl.i.in4gmCWllFc\/Rzm8JnaRJG",
-            "role": "delivery",
-            "status": "Free",
-            "fidelity": 0,
-            "newsletter": false,
-            "profile": {
-                "firstName": "Lelivreur",
-                "lastName": "Martin",
-                "username": "Lelivreur.Martin",
-                "age": 21,
-                "address": "2 rue Versailles",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-03 10:44:10",
-            "lastLogin": null
-        },
-        {
-            "id": "69d06a9cc8e68",
-            "email": "jean@email.com",
-            "password": "$2y$10$9lY.Ox6mB22wH7SaYC7y3euDAqdWGL\/1LakJjPjIVGIgN2MjktFAC",
-            "role": "cook",
-            "status": "Free",
-            "fidelity": 0,
-            "newsletter": false,
-            "profile": {
-                "firstName": "Lecuisinier",
-                "lastName": "Jean",
-                "username": "Lecuisinier.Jean",
-                "age": 30,
-                "address": "3 rue Versailles",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-03 10:45:57",
-            "lastLogin": null
-        },
-        {
-            "id": "69d06ff609d0e",
+            "id": "69d1542a648a0",
             "email": "gregoire@email.com",
-            "password": "$2y$10$\/ShY8eyrNEevYqQT.8ppu.IDBDzEshlpa\/D8c7TwMKHHwr6Eke4B2",
-            "role": "admin",
-            "status": "VIP",
+            "password": "$2y$12$aL\/gU9WP4UUCxnLbVRGmb.S\/TRcr9m3zpELIFEptzGhrArJLfnM0W",
+            "role": "client",
+            "status": "Free",
             "fidelity": 0,
-            "newsletter": false,
             "profile": {
                 "firstName": "Leadmin",
                 "lastName": "Gregoire",
                 "username": "Leadmin.Gregoire",
-                "age": 34,
-                "address": "4 rue Versailles",
-                "gender": "unspecified"
-            },
-            "createdAt": "2026-04-03 10:49:40",
-            "lastLogin": null
-        },
-        {
-            "id": 1775206360,
-            "email": "eva@email.com",
-            "password": "$2y$10$1lNLWAOlP0LAMSznXgn80.eoBYA\/VZuq3Ylbq8GqOuyVUWxVb5Z\/C",
-            "role": "client",
-            "status": "Blocked",
-            "fidelity": 0,
-            "newsletter": false,
-            "profile": {
-                "firstName": "Lacliente",
-                "lastName": "Eva",
-                "username": "Lacliente.Eva",
-                "age": 32,
-                "address": "6 rue Versailles",
-                "gender": "female"
-            },
-            "createdAt": "2026-04-03 10:52:40",
-            "lastLogin": null
-        },
-        {
-            "id": 1775208196,
-            "email": "jade@email.com",
-            "password": "$2y$10$EvVhPfomHppzPm305XjqUuS9eKNNS5HkznvatX\/X2E2jZd2GsidM6",
-            "role": "delivery",
-            "status": "Premium",
-            "fidelity": 0,
-            "newsletter": false,
-            "profile": {
-                "firstName": "Lalivreuse",
-                "lastName": "Jade",
-                "username": "Lalivreuse.Jade",
-                "age": 54,
-                "address": "7 rue Versailles",
-                "gender": "female"
-            },
-            "createdAt": "2026-04-03 11:23:16",
-            "lastLogin": null
-        },
-        {
-            "id": "69d1252a50e15",
-            "email": "tomjedusor@email.com",
-            "password": "$2y$12$7kjQ9IyfdAbgzAdz\/cSjr.Bx92kOpCO2xpofXV5M4jK89ApFvpNiu",
-            "role": "admin",
-            "status": "Free",
-            "fidelity": 0,
-            "newsletter": false,
-            "profile": {
-                "firstName": "Tom",
-                "lastName": "Jedusor",
-                "username": "Tom.Jedusor",
-                "age": 18,
-                "address": "",
+                "age": 43,
+                "address": "1 Avenue Versailles",
                 "gender": "male"
             },
-            "createdAt": "2026-04-04 14:50:18",
+            "createdAt": "2026-04-04 18:10:50",
+            "lastLogin": null
+        },
+        {
+            "id": "69d15476ac40e",
+            "email": "eva@email.com",
+            "password": "$2y$12$dtOYErvtSxMETBTB9G8Bpul50UqETrrYu.8hPr0zkap5I8VnYHmSe",
+            "role": "delivery",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Lalivreuse",
+                "lastName": "Eva",
+                "username": "Lalivreuse.Eva",
+                "age": 23,
+                "address": "2 Avenue de Versailles",
+                "gender": "female"
+            },
+            "createdAt": "2026-04-04 18:12:07",
+            "lastLogin": null
+        },
+        {
+            "id": "69d154ddcc706",
+            "email": "jean@email.com",
+            "password": "$2y$12$BIpt.GrAzmUkDf92ivulQOBQX4wHHUv0ClmAGC70\/2GO1mW91xfzi",
+            "role": "delivery",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Lelivreur",
+                "lastName": "Jean",
+                "username": "Lelivreur.Jean",
+                "age": 34,
+                "address": "3 Avenue Versailles",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-04 18:13:50",
+            "lastLogin": null
+        },
+        {
+            "id": "69d155185e2a5",
+            "email": "julien@email.com",
+            "password": "$2y$12$0Q.MfVfIBu45eNbUv.9rsub\/oAmBHtv8nIARA1\/..jwUbrujtCH8i",
+            "role": "cook",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Lecuisinier",
+                "lastName": "Julien",
+                "username": "Lecuisinier.Julien",
+                "age": 19,
+                "address": "4 Avenue Versailles",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-04 18:14:48",
+            "lastLogin": null
+        },
+        {
+            "id": "69d1556b00742",
+            "email": "lea@email.com",
+            "password": "$2y$12$8FvNjcPhbIt53zlBiLuYruQiocLPySlSrm8iomzwcc6H4G6Mc5WXa",
+            "role": "client",
+            "status": "VIP",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Lacliente",
+                "lastName": "Lea",
+                "username": "Lacliente.Lea",
+                "age": 34,
+                "address": "5 Avenue Versailles",
+                "gender": "female"
+            },
+            "createdAt": "2026-04-04 18:16:11",
+            "lastLogin": null
+        },
+        {
+            "id": "69d155a80d1ec",
+            "email": "tom@email.com",
+            "password": "$2y$12$EqPaDzjvrfObW7Jah5j5COfos1lwsrxWsILfD\/Gk8c\/0lpd6wsT9q",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Leclient",
+                "lastName": "Tom",
+                "username": "Leclient.Tom",
+                "age": 39,
+                "address": "6 Avenue Versailles",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-04 18:17:12",
             "lastLogin": null
         }
     ]
