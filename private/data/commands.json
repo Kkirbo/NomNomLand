@@ -1,0 +1,22 @@
+{
+    "soloItems": [
+        {
+            "id": "lasagna",
+            "user": "unknown",
+            "quantity": 1,
+            "timestamp": "2026-04-04 22:57:41"
+        },
+        {
+            "id": "calzone",
+            "user": "unknown",
+            "quantity": 1,
+            "timestamp": "2026-04-04 22+2:58:09"
+        },
+        {
+            "id": "calzone",
+            "user": "unknown",
+            "quantity": 1,
+            "timestamp": "2026-04-05 00:59:58"
+        }
+    ]
+}

@@ -1,5 +1,6 @@
 <?php
 require '../../private/php/session.php';
+require_login();
 $dataPath    = realpath(__DIR__ . '/../../private/data');
 $dishesFile  = $dataPath . '/dishes.json';
 $menusFile   = $dataPath . '/menus.json';
@@ -89,7 +90,7 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<h2 class="dish-title">' . $dish["title"] . '</h2>';
     echo '<img src="' . $dish["image"] . '" class="dish-img" alt="' . $dish["title"] . '">';
 
-    echo '<form method="POST" action="panier.php">';
+    echo '<form method="POST" action="../views/panier.php">';
     echo '<input type="hidden" name="dish_id" value="' . $dish["id"] . '">';
     echo '<button type="submit" class="add-to-cart">Ajouter au panier</button>';
     echo '</form>';
