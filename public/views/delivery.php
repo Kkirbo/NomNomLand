@@ -26,28 +26,29 @@
     <input type="checkbox" id="toggle" hidden>
     <section class="popup">
       <dl id="delivery-info" class="modernNeonBox">
-        <dt>Adresse</dt>
-        <dd>Tour Eiffel</dd>
+        <dt>Address</dt>
+        <dd>Eiffel Tower</dd>
 
-        <dt>Code interphone</dt>
-        <dd>Rien</dd>
+        <dt>Intercom code</dt>
+        <dd>None</dd>
 
-        <dt>Étage</dt>
-        <dd>Rez de chaussé</dd>
+        <dt>Floor</dt>
+        <dd>Ground floor</dd>
 
-        <dt>Téléphone</dt>
+        <dt>Phone</dt>
         <dd>
             <a href="tel:+33612345678">06 12 34 56 78</a>
         </dd>
-        <dt>Ouvrir sur Maps:</dt>
+
+        <dt>Open in Maps:</dt>
         <dd>
-            <a href="https://maps.app.goo.gl/gvG1JYQCssCRfnDK9" target="_blank">Tour Eiffel</a>
+            <a href="https://maps.app.goo.gl/gvG1JYQCssCRfnDK9" target="_blank">Eiffel Tower</a>
         </dd>
 
-        <dt>Commentaires</dt>
-        <dd>JE VEUX DES PIZZAS CHAUDES !</dd>
+        <dt>Comments</dt>
+        <dd>I WANT HOT PIZZAS!</dd>
 
-        <label for="toggle" class="close">Fermer</label>
+        <label for="toggle" class="close">Close</label>
       </dl>
     </section>
 </body>

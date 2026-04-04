@@ -24,6 +24,9 @@ body {
   font-weight: bold;
   margin-top: 1rem;
 }
+#delivery-info {
+  font-size: 1.4rem;
+}
 
 .popup {
   height: 100%;
