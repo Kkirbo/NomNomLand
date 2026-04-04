@@ -1,7 +1,7 @@
 <?php
+require_login();
 session_start();
 require __DIR__ . '/../../private/php/session.php';
-require_login();
 $user = get_user_by_session();
 $dataPath = realpath(__DIR__ . '/../../private/data');
 $commandsFile = $dataPath . '/commands.json';
