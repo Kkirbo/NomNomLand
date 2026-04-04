@@ -88,6 +88,7 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $dish["title"] . '</h2>';
     echo '<img src="' . $dish["image"] . '" class="dish-img" alt="' . $dish["title"] . '">';
+
     echo '<form method="POST" action="add_to_cart.php">';
     echo '<input type="hidden" name="dish_id" value="' . $dish["id"] . '">';
     echo '<button type="submit" class="add-to-cart">Ajouter au panier</button>';
@@ -116,9 +117,10 @@ foreach ($categories as $cat => $list) {
     foreach ($list as $dishId) {
         $title = $dishesById[$dishId]["title"] ?? "Unknown";
         echo '<li class="texte"><a href="#' . $dishId . '" class="link">' . $title . '</a></li>';
-    echo '</ul></div></div>';
     }
-}
+echo '</ul></div></div>';
+    }
+
 
 ?>
 <?php include __DIR__ . '/footer.html'; ?>

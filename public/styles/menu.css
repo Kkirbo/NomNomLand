@@ -116,7 +116,8 @@ a{
     transition: background 0.2s ease;
 }
 .add-to-cart:hover {
-    background: var(--basic-box-shadow); 
+    color: var(--white);
+    background: var(--secondary-cold-highlight); 
 }
 .add-to-cart:active {
     background: var(--neon);
