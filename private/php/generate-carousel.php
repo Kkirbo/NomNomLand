@@ -9,9 +9,9 @@ function generateCarousel()
     $json = file_get_contents('../../private/data/dishes.json');
     $data = json_decode($json, true);
 
-    if ($data && isset($data['dishes'])) {
+    if ($data && isset($data['plats'])) {
 
-        foreach ($data['dishes'] as $meal) {
+        foreach ($data['plats'] as $meal) {
             $carouselNumber = intval($meal['carousel']);
             if ($carouselNumber > 0) {
                 $tag = $carouselTags[$carouselNumber] ?? "Recommanded";
