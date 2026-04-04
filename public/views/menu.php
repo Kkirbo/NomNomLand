@@ -1,6 +1,5 @@
 <?php
 require '../../private/php/session.php';
-
 $dataPath    = realpath(__DIR__ . '/../../private/data');
 $dishesFile  = $dataPath . '/dishes.json';
 $menusFile   = $dataPath . '/menus.json';
@@ -67,7 +66,7 @@ foreach ($categories as $catId => $list) {
 ?>
 </div>
 </div>
-<a href="index.php" class="return0">End of the menu: return 0;</a>
+<a href="panier.php" class="return0">End of the menu: return 0;</a>
 <?php
 foreach ($menusData["menus"] ?? [] as $menu) {
     echo '<div id="' . $menu["id"] . '" class="modal">';
@@ -89,6 +88,10 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $dish["title"] . '</h2>';
     echo '<img src="' . $dish["image"] . '" class="dish-img" alt="' . $dish["title"] . '">';
+    echo '<form method="POST" action="add_to_cart.php">';
+    echo '<input type="hidden" name="dish_id" value="' . $dish["id"] . '">';
+    echo '<button type="submit" class="add-to-cart">Ajouter au panier</button>';
+    echo '</form>';
     echo '<p class="dish-version">' . ($dish["version"] ?? "") . '</p>';
     foreach ($dish["sections"] ?? [] as $section => $items) {
         echo '<div class="dish-section">';
@@ -113,9 +116,10 @@ foreach ($categories as $cat => $list) {
     foreach ($list as $dishId) {
         $title = $dishesById[$dishId]["title"] ?? "Unknown";
         echo '<li class="texte"><a href="#' . $dishId . '" class="link">' . $title . '</a></li>';
-    }
     echo '</ul></div></div>';
+    }
 }
+
 ?>
 <?php include __DIR__ . '/footer.html'; ?>
 </body>

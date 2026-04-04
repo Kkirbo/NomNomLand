@@ -105,6 +105,22 @@ a{
     padding: 0;
     width: 100%;
 }
+.add-to-cart {
+    margin-left: 40%;
+    bottom: 30px; 
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: var(--secondary-cold);
+    color: var(--white);
+    transition: background 0.2s ease;
+}
+.add-to-cart:hover {
+    background: var(--basic-box-shadow); 
+}
+.add-to-cart:active {
+    background: var(--neon);
+}
 .modal_close{
     position: absolute;
     top: 10px;
