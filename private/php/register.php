@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "email" => $email,
         "password" => password_hash($password, PASSWORD_DEFAULT),
         "role" => "client",
+        "status" => "Free",
+        "fidelity" => 0,
         "profile" => [
             "firstName" => $firstName,
             "lastName" => $lastName,

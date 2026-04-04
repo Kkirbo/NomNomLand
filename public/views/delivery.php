@@ -2,7 +2,7 @@
 require '../../private/php/session.php';
 require_login();
 $user = get_user_by_session();
-if ($user['role'] !== 'delivery') redirect_url();
+if (!$user || $user['role'] !== 'delivery') redirect_url();
 ?>
 <!DOCTYPE html>
 <html lang="en">
