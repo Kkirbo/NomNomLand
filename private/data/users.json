@@ -1,7 +1,7 @@
 {
     "users": [
         {
-            "id": 1775205716,
+            "id": "69d068d7504ef",
             "email": "julien@email.com",
             "password": "$2y$10$y3eaUc3JBrHRE8pX1UhY6ORRNeRJed\/U0nI9SsC9mrKg4e56pf1T6",
             "role": "client",
@@ -9,7 +9,7 @@
                 "firstName": "Julien",
                 "lastName": "Dupont",
                 "username": "Julien.Dupont",
-                "age": "18",
+                "age": 18,
                 "address": "1 rue Versailles",
                 "gender": "male"
             },
@@ -17,7 +17,7 @@
             "lastLogin": null
         },
         {
-            "id": 1775205850,
+            "id": "69d0695633b68",
             "email": "martin@email.com",
             "password": "$2y$10$xaYwVj\/ybavq\/nvFwVwlsu.GtHNl.i.in4gmCWllFc\/Rzm8JnaRJG",
             "role": "delivery",
@@ -25,7 +25,7 @@
                 "firstName": "Lelivreur",
                 "lastName": "Martin",
                 "username": "Lelivreur.Martin",
-                "age": "21",
+                "age": 21,
                 "address": "2 rue Versailles",
                 "gender": "male"
             },
@@ -33,7 +33,7 @@
             "lastLogin": null
         },
         {
-            "id": 1775205957,
+            "id": "69d06a9cc8e68",
             "email": "jean@email.com",
             "password": "$2y$10$9lY.Ox6mB22wH7SaYC7y3euDAqdWGL\/1LakJjPjIVGIgN2MjktFAC",
             "role": "cook",
@@ -41,7 +41,7 @@
                 "firstName": "Lecuisinier",
                 "lastName": "Jean",
                 "username": "Lecuisinier.Jean",
-                "age": "30",
+                "age": 30,
                 "address": "3 rue Versailles",
                 "gender": "male"
             },
@@ -57,7 +57,7 @@
                 "firstName": "Leadmin",
                 "lastName": "Gregoire",
                 "username": "Leadmin.Gregoire",
-                "age": "34",
+                "age": 34,
                 "address": "4 rue Versailles",
                 "gender": "unspecified"
             },
@@ -73,7 +73,7 @@
                 "firstName": "Lacliente",
                 "lastName": "Eva",
                 "username": "Lacliente.Eva",
-                "age": "32",
+                "age": 32,
                 "address": "6 rue Versailles",
                 "gender": "female"
             },
@@ -89,27 +89,11 @@
                 "firstName": "Lalivreuse",
                 "lastName": "Jade",
                 "username": "Lalivreuse.Jade",
-                "age": "54",
+                "age": 54,
                 "address": "7 rue Versailles",
                 "gender": "female"
             },
             "createdAt": "2026-04-03 11:23:16",
-            "lastLogin": null
-        },
-        {
-            "id": 1775243008,
-            "email": "tomjedusor@email.com",
-            "password": "$2y$12$tFla3ZCncEc\/TQJI7aeU5uxQOVCKwqm\/Sn\/dQn2vhSZchsmFCJkCK",
-            "role": "admin",
-            "profile": {
-                "firstName": "Tom",
-                "lastName": "Jedusor",
-                "username": "Tom.Jedusor",
-                "age": "",
-                "address": "",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-03 19:03:28",
             "lastLogin": null
         }
     ]

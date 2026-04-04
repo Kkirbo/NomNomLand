@@ -1,5 +1,11 @@
-<?php require '../../private/php/session.php';?>
-<?php include '../../private/php/register.php'; ?>
+<?php 
+require '../../private/php/session.php';
+include '../../private/php/register.php'; 
+
+function retype($key) {
+    return htmlspecialchars($_POST[$key] ?? '');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,19 +29,19 @@
 
       <div class="field">
           <label for="name">Last Name:</label>
-          <input id="name" name="name" type="text" placeholder="Last Name" required>
+          <input id="name" name="name" type="text" placeholder="Last Name" required value="<?= retype('name') ?>">
       </div>
       <div class="field">
           <label for="firstname">First name:</label>
-          <input id="firstname" name="firstname" type="text" placeholder="First Name" required>
+          <input id="firstname" name="firstname" type="text" placeholder="First Name" required value="<?= retype('firstname') ?>">
       </div>
       <div class="field">
           <label for="age">Age:</label>
-          <input id="age" name="age" type="number" min="18" max="120" placeholder="18">
+          <input id="age" name="age" type="number" min="18" max="120" placeholder="18" required value="<?= retype('age') ?>">
       </div>
       <div class="field">
           <label for="email">E-mail:</label>
-          <input id="email" name="email" type="email" placeholder="example@email.com" required>
+          <input id="email" name="email" type="email" placeholder="example@email.com" required value="<?= retype('email') ?>">
       </div>
       <div class="field">
           <label for="email-confirm">Password:</label>
@@ -44,19 +50,19 @@
       <div class="field">
           <label>Gender:</label>
           <div class="radioInputs">
-            <input id="radio-male" type="radio" name="gender" value="male" checked>
+            <input id="radio-male" type="radio" name="gender" value="male" <?= retype('gender') === 'male' ? 'checked' : '' ?>>
             <label class="button" for="radio-male">Male</label>
-            <input id="radio-female" type="radio" name="gender" value="female">
+
+            <input id="radio-female" type="radio" name="gender" value="female" <?= retype('gender') === 'female' ? 'checked' : '' ?>>
             <label class="button" for="radio-female">Female</label>
-            <input id="radio-other" type="radio" name="gender" value="other">
+
+            <input id="radio-other" type="radio" name="gender" value="other" <?= retype('gender') === 'other' ? 'checked' : '' ?>>
             <label class="button" for="radio-other">Other</label>
           </div>
       </div>
       <div class="field">
           <label for="address">Address:</label>
-          <input id="address" name="address" type="text"
-              pattern="^[0-9]+[ ]?[A-Za-zÀ-ÿ' -]+$"
-              placeholder="12 Rivoli Street Paris">
+          <input id="address" name="address" type="text" pattern="^[0-9]+[ ]?[A-Za-zÀ-ÿ' -]+$" placeholder="12 Rivoli Street Paris" value="<?= retype('address') ?>">
       </div>
 
       <div class="field buttons">
@@ -69,6 +75,8 @@
           <button type="reset" class="button" id="reset">Reset</button>
         </div>
       </div>
+
+      <a href="login.php">Already have an account? Sign in</a>
 
       <?php
         if ($error!='') echo"<p class=error-message>" . $error . "</p>";

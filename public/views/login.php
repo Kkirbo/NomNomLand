@@ -1,5 +1,11 @@
-<?php include '../../private/php/session.php'; ?>
-<?php include '../../private/php/login.php'; ?>
+<?php 
+require '../../private/php/session.php';
+include '../../private/php/login.php'; 
+
+function retype($key) {
+    return htmlspecialchars($_POST[$key] ?? '');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +26,7 @@
         <fieldset>
             <div class="field">
                 <label for="email">E-mail:</label>
-                <input id="email" name="email" type="email" placeholder="example@email.com" required>
+                <input id="email" name="email" type="email" placeholder="example@email.com" required value="<?= retype('email') ?>">
             </div>
 
             <div class="field">
