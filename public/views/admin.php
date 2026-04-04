@@ -49,7 +49,6 @@ $users = get_users();
                             <td><span><?= htmlspecialchars($u['profile']['username']) ?></span></td>
                             <td><span><?= htmlspecialchars($u['email']) ?></span></td>
 
-                            <!-- ROLE -->
                             <td>
                                 <?php if ($isAdmin): ?>
                                     <select class="role-select pastel-red" disabled>
@@ -64,7 +63,6 @@ $users = get_users();
                                 <?php endif; ?>
                             </td>
 
-                            <!-- STATUS -->
                             <td>
                                 <?php if ($isAdmin): ?>
                                     <select class="status-select pastel-red" disabled>
@@ -81,7 +79,6 @@ $users = get_users();
                                 <?php endif; ?>
                             </td>
 
-                            <!-- POINTS (editable UI) -->
                             <td>
                                 <div class="points-control">
                                     <?php if (!$isAdmin): ?>
@@ -98,7 +95,6 @@ $users = get_users();
                                 </div>
                             </td>
 
-                            <!-- ACTIONS -->
                             <td class="actions">
                                 <?php if (!$isAdmin): ?>
                                     <button class="pastel-red">Block</button>

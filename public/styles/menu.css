@@ -63,6 +63,7 @@ a{
 }
 
 .modal{
+    z-index: 2;
     display:none;
     visibility: hidden;
     opacity: 0;

@@ -7,6 +7,7 @@
             "role": "client",
             "status": "VIP",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Julien",
                 "lastName": "Dupont",
@@ -25,6 +26,7 @@
             "role": "delivery",
             "status": "Free",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Lelivreur",
                 "lastName": "Martin",
@@ -43,6 +45,7 @@
             "role": "cook",
             "status": "Free",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Lecuisinier",
                 "lastName": "Jean",
@@ -61,6 +64,7 @@
             "role": "admin",
             "status": "VIP",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Leadmin",
                 "lastName": "Gregoire",
@@ -79,6 +83,7 @@
             "role": "client",
             "status": "Blocked",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Lacliente",
                 "lastName": "Eva",
@@ -97,6 +102,7 @@
             "role": "delivery",
             "status": "Premium",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Lalivreuse",
                 "lastName": "Jade",
@@ -115,6 +121,7 @@
             "role": "admin",
             "status": "Free",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
                 "firstName": "Tom",
                 "lastName": "Jedusor",

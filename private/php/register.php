@@ -1,6 +1,6 @@
 <?php
-$error = false;
-
+if (isset($_SESSION["user_email"])) header("Location: index.php");
+$error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']) ?? '';
     if (get_user_by_email($email) !== null) {
@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "role" => "client",
         "status" => "Free",
         "fidelity" => 0,
+        "newsletter" => false,
         "profile" => [
             "firstName" => $firstName,
             "lastName" => $lastName,

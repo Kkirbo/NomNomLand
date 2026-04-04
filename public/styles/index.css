@@ -64,6 +64,12 @@ html, body {
   box-sizing: border-box;
 }
 
+/*Custom elements*/
+a {
+    color: var(--pastel-blue);
+    text-decoration: none;
+}
+
 /*--Buttons--*/
 button {
   background: var(--primary);
@@ -367,7 +373,6 @@ input.togglesidebar:checked ~ aside.sidebar {
 aside.sidebar a {
   width: 100%;
   height: 100%;
-  text-decoration: none;
   color: var(--secondary-highlight);
   display: flex;
   align-items: center;
@@ -381,7 +386,6 @@ aside.sidebar ul {
 aside.sidebar li {
   cursor: pointer;
   padding: 10px;
-  text-decoration: none;
   color: var(--secondary-highlight);
   display: flex;
   align-items: center;
@@ -616,7 +620,6 @@ section.menus article ul li {
 }
 section.menus article a {
   margin: 1rem;
-  text-decoration: none;
 }
 section.menus article a:has(button) {
   margin-top: auto;
@@ -642,10 +645,6 @@ section.infos h2 {
   border: 0.2rem solid var(--secondary-shadow);
   border-radius: 3rem;
 }
-section.infos a {
-  color: var(--pastel-blue);
-  text-decoration: none;
-}
 
 section.infos article {
   padding: 2rem;
@@ -663,7 +662,6 @@ section.infos article p:last-of-type {
   font-size: 1.2rem;
   font-weight: 600;
 }
-
 
 section.infos details {
   width: 100%;
@@ -715,6 +713,9 @@ footer a {
   color: var(--white);
   text-decoration: none;
   anchor-name: --location-link;
+}
+footer a:hover {
+  color: var(--pastel-blue);
 }
 footer li:has(iframe) {
   position: relative;

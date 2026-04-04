@@ -8,12 +8,6 @@ main section {
     padding: 3rem;
     font-size: 1.2rem;
 }
-
-main section a {
-    color: var(--pastel-blue);
-    text-decoration: none;
-}
-
 div:has(table) {
     overflow-x: auto;
     margin: 2rem 0;
