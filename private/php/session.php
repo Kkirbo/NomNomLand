@@ -32,6 +32,15 @@ function get_user_by_email($email) {
     return null;
 }
 
+function get_user_by_id($id) {
+    foreach (get_users() as $user) {
+        if ($user["id"] === $id) {
+            return $user;
+        }
+    }
+    return null;
+}
+
 //Authentication and session creation
 function login($email, $password) {
     if (empty($email) || empty($password)) {
