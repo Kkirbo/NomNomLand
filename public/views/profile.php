@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require '../../private/php/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +22,13 @@
 
   <section class="card modernNeonBox">
     <div class="card-header">
-      <h2>Informations personnelles</h2>
+      <h2>Personal Information</h2>
     </div>
 
     <div class="info-row">
-      <span>Nom</span>
+      <span>Last Name</span>
       <span>Jean Dupont
-        <button class="edit-btn" title="Modifier">✏️</button>
+        <button class="edit-btn" title="Edit">✏️</button>
       </span>
     </div>
 
@@ -36,65 +36,65 @@
       <span>Email</span>
       <span>
         jean.dupont@email.com
-        <button class="edit-btn" title="Modifier">✏️</button>
+        <button class="edit-btn" title="Edit">✏️</button>
     </span>
     </div>
 
     <div class="info-row">
-      <span>Téléphone</span>
+      <span>Phone</span>
       <span>
         06 45 78 21 39
-        <button class="edit-btn" title="Modifier">✏️</button>
+        <button class="edit-btn" title="Edit">✏️</button>
       </span>
     </div>
 
     <div class="info-row">
-        <span>Adresse</span>
+        <span>Address</span>
         <span>
         12 rue des Lilas, 75010 Paris
-        <button class="edit-btn" title="Modifier">✏️</button>
+        <button class="edit-btn" title="Edit">✏️</button>
         </span>
     </div>
   </section>
 
   <section class="card modernNeonBox">
-    <h2>Mes commandes</h2>
+    <h2>My Orders</h2>
 
     <div class="order">
       <span>#5482</span>
-      <span>14 Jan 2026</span>
-      <span>24,90 €</span>
-      <span class="status delivered">Livrée</span>
+      <span>Jan 14, 2026</span>
+      <span>€24.90</span>
+      <span class="status delivered">Delivered</span>
     </div>
 
     <div class="order">
       <span>#5411</span>
-      <span>03 Jan 2026</span>
-      <span>18,50 €</span>
-      <span class="status failed">Echoue</span>
+      <span>Jan 03, 2026</span>
+      <span>€18.50</span>
+      <span class="status failed">Failed</span>
     </div>
 
     <div class="order">
       <span>#5328</span>
-      <span>22 Déc 2025</span>
-      <span>31,20 €</span>
-      <span class="status delivered">Livrée</span>
+      <span>Dec 22, 2025</span>
+      <span>€31.20</span>
+      <span class="status delivered">Delivered</span>
     </div>
 
-    <button class="link-button">Voir toutes les commandes</button>
+    <button class="link-button">View All Orders</button>
   </section>
 
   <section class="card modernNeonBox">
-    <h2>Fidélité</h2>
+    <h2>Loyalty</h2>
 
-    <p><strong>Points actuels :</strong> 120 pts</p>
-    <p><strong>Prochaine récompense :</strong> -5€ à 150 pts</p>
+    <p><strong>Current Points:</strong> 120 pts</p>
+    <p><strong>Next Reward:</strong> €5 off at 150 pts</p>
 
     <div class="progress-bar">
       <div class="progress"></div>
     </div>
 
-    <button class="link-button">Voir mes récompenses</button>
+    <button class="link-button">View My Rewards</button>
   </section>
 
   <section class="card modernNeonBox">
@@ -124,7 +124,7 @@
     </form>
   </section>
 
-  <button class="logout">Se déconnecter</button>
+  <button class="logout">Log Out</button>
 
 </section>
 

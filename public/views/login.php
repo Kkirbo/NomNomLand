@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include '../../private/php/session.php'; ?>
 <?php include '../../private/php/login.php'; ?>
 <!DOCTYPE html>
 <html lang="en">

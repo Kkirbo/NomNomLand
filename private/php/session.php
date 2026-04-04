@@ -1,17 +1,29 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) session_start();
 
-function start_session() {
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+//Redirects the user based on the redirect parameter of the url (useful for going back to a page after login)
+function redirect_url($default="/public/views/index.php") {
+    $redirect = $_GET['redirect'] ?? $default;
+    if (!str_starts_with($redirect, '/')) {
+        $redirect = '/public/views/index.php';
     }
+    header("Location: " . $redirect);
+    exit();
 }
 
 function get_users() {
     $file = file_get_contents(__DIR__ . "/../data/users.json");
-    return json_decode($file, true)["users"] ?? [];
+    if (!$file) {
+        return [];
+    }
+    $data = json_decode($file, true);
+    if (!$data || !isset($data["users"])) {
+        return [];
+    }
+    return $data['users'];
 }
 
-function find_user_by_email($email) {
+function get_user_by_email($email) {
     foreach (get_users() as $user) {
         if ($user["email"] === $email) {
             return $user;
@@ -20,43 +32,44 @@ function find_user_by_email($email) {
     return null;
 }
 
+//Authentication and session creation
 function login($email, $password) {
-    start_session();
-
-    $user = find_user_by_email($email);
+    if (empty($email) || empty($password)) {
+        return 1; //at least 1 empty field
+    }
+    $user = get_user_by_email($email);
 
     if ($user && password_verify($password, $user["password"])) {
         $_SESSION["user_email"] = $user["email"];
-        return true;
+        redirect_url();
+        return 0; //Logged in successfully
     }
 
-    return false;
+    return 2; //Invalid Credentials
 }
 
 function logout() {
-    start_session();
     session_unset();
     session_destroy();
+    redirect_url("/public/views/login.php");
+    exit();
 }
 
 function is_logged_in() {
-    start_session();
     return isset($_SESSION["user_email"]);
 }
 
 function get_user_by_session() {
-    start_session();
-
     if (!isset($_SESSION["user_email"])) {
         return null;
     }
 
-    return find_user_by_email($_SESSION["user_email"]);
+    return get_user_by_email($_SESSION["user_email"]);
 }
 
 function require_login() {
     if (!is_logged_in()) {
-        header("Location: /login.php");
+        header("Location: /public/views/login.php");
         exit();
     }
 }

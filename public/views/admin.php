@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+require '../../private/php/session.php';
+require_login();
+$user = get_user_by_session();
+if ($user['role'] !== 'admin') redirect_url();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

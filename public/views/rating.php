@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require '../../private/php/session.php';?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

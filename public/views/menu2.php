@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require '../../private/php/session.php';?>
 <?php
 $dataDishes = json_decode(file_get_contents("../data/dishes.json"), true);
 $dataMenus  = json_decode(file_get_contents("../data/menus.json"), true);

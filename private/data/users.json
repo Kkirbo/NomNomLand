@@ -100,7 +100,7 @@
             "id": 1775243008,
             "email": "tomjedusor@email.com",
             "password": "$2y$12$tFla3ZCncEc\/TQJI7aeU5uxQOVCKwqm\/Sn\/dQn2vhSZchsmFCJkCK",
-            "role": "client",
+            "role": "admin",
             "profile": {
                 "firstName": "Tom",
                 "lastName": "Jedusor",
