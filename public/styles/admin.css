@@ -53,31 +53,25 @@ select:disabled {
   font-size: 1.4rem;
   min-width: 5rem;
 }
-
-/* POINTS CONTROL */
 .points-control {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
 }
-
-.points-btn {
+.points-control button {
   font-size: 1.2rem;
   padding: 0.3rem 0.8rem;
   border-radius: 50%;
   cursor: pointer;
 }
 
-/* ACTIONS */
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
 }
-
-/* BUTTONS */
 .actions button {
   font-size: 1.15rem;
   padding: 0.7rem 1.4rem;
