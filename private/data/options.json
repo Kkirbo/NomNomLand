@@ -1,14 +1,30 @@
-  "Option": {
-    "id": "number",
-    "type": "string (ingredient_modification | coupon)",
-    "description": "string",
-    "priceImpact": "number",
-    "couponCode": "string",
-    "discountPercentage": "number"
-  },
 {
-"plats":["Oeufs","+ de sel"],
-"taille":["Atto-sized","Normal","Tera-portion"],
-"nombre": "number",
-"id":"number",
+  "options": [
+    {
+      "id": 1,
+      "type": "ingredient_modification",
+      "description": "+ de sel",
+      "priceImpact": 0.5
+    },
+    {
+      "id": 2,
+      "type": "ingredient_modification",
+      "description": "Sans oignon",
+      "priceImpact": 0
+    },
+    {
+      "id": 3,
+      "type": "coupon",
+      "couponCode": "DEV10",
+      "discountPercentage": 10
+    }
+  ],
+
+  "formats": {
+    "taille": ["Atto-sized", "Normal", "Tera-portion"],
+    "nombre": {
+      "min": 1,
+      "max": 10
+    }
+  }
 }
