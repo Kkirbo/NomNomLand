@@ -107,6 +107,25 @@
             },
             "createdAt": "2026-04-04 18:17:12",
             "lastLogin": null
+        },
+        {
+            "id": "69d159435b844",
+            "email": "tomjedusor@email.com",
+            "password": "$2y$12$kV60FdbKb63.DUpxNWYOqeX6j9l9\/flvroNxp.MKyp6naMOU6EOZK",
+            "role": "admin",
+            "status": "Free",
+            "fidelity": 0,
+            "newsletter": false,
+            "profile": {
+                "firstName": "Tom",
+                "lastName": "Jedusor",
+                "username": "Tom.Jedusor",
+                "age": 95,
+                "address": "",
+                "gender": "other"
+            },
+            "createdAt": "2026-04-04 18:32:35",
+            "lastLogin": null
         }
     ]
 }

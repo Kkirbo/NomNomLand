@@ -64,7 +64,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/*Custom elements*/
+/*--Custom elements--*/
 a {
     color: var(--pastel-blue);
     text-decoration: none;
@@ -203,6 +203,37 @@ select.pastel-red {
 }
 select:focus {
   outline: 0.2rem solid var(--secondary-bright);
+}
+
+/*--Nav bar for multiple pages--*/
+nav.pageNav {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+nav.pageNav a {
+  text-decoration: none;
+  
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  padding: 0.5rem 1.1rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+nav.pageNav a:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
+nav.pageNav a.current {
+  color: var(--primary);
+  background: var(--secondary);
+  border: 0.2rem solid var(--secondary);
 }
 
 /*--Animate--*/
