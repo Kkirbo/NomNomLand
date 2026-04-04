@@ -4,10 +4,10 @@ require '../../private/php/session.php';
 $dataPath    = realpath(__DIR__ . '/../../private/data');
 $dishesFile  = $dataPath . '/dishes.json';
 $menusFile   = $dataPath . '/menus.json';
-$dishesData = file_exists($dishesFile) ? json_decode(file_get_contents($dishesFile), true) : ["plats" => []];
+$dishesData = file_exists($dishesFile) ? json_decode(file_get_contents($dishesFile), true) : ["dishes" => []];
 $menusData  = file_exists($menusFile) ? json_decode(file_get_contents($menusFile), true) : ["menus" => []];
 $dishesById = [];
-foreach ($dishesData["plats"] ?? [] as $dish) {
+foreach ($dishesData["dishes"] ?? [] as $dish) {
     $dishesById[$dish["id"]] = $dish;
 }
 
@@ -83,7 +83,7 @@ foreach ($menusData["menus"] ?? [] as $menu) {
 }
 ?>
 <?php
-foreach ($dishesData["plats"] ?? [] as $dish) {
+foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<div id="' . $dish["id"] . '" class="modal">';
     echo '<div class="modal_content modernNeonBox">';
     echo '<a href="#" class="modal_close">&times;</a>';
@@ -99,7 +99,7 @@ foreach ($dishesData["plats"] ?? [] as $dish) {
         }
         echo '</ul></div>';
     }
-    echo '<div class="dish-footer"><p>' . ($dish["footer"] ?? "") . '</p></div>';
+    echo '<div class="dish-footer"><p>' . ($dish["comment"] ?? "") . '</p></div>';
     echo '</div></div>';
 }
 ?>

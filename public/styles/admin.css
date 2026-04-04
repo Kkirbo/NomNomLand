@@ -1,55 +1,57 @@
-.admin-panel {
-  width: clamp(300px, 95%, 1500px);
-  margin: 2rem auto;
-  padding: 2rem;
+article {
+  overflow-x: auto;
 }
 
-/* TABLE */
-.admin-table {
+table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
-.admin-table th,
-.admin-table td {
-  padding: 1.3rem;
+table th,
+table td {
+  padding: 1.2rem;
+  border-bottom: 0.1rem solid var(--primary-highlight);
   text-align: center;
-  border-bottom: 1px solid var(--primary-highlight);
 }
 
-.admin-table th {
-  font-size: 1.25rem;
-  color: var(--secondary-bright);
+table th {
+  color: var(--secondary);
 }
 
-.admin-table tr:hover {
-  background: var(--primary-04);
+table tr:hover {
+  background: var(--primary);
 }
 
-/* BADGES */
-.badge {
-  padding: 0.4rem 1rem;
-  border-radius: 2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
+table td span {
+  cursor: pointer;
 }
 
-/* ONLY ADMIN COLOR */
-.role-admin {
-  color: #ff4d4d;
-  border: 1px solid #ff4d4d;
-  background: #ff4d4d22;
+button.admin-locked {
+  cursor: not-allowed;
+}
+button.admin-locked:hover {
+  cursor: not-allowed;
+  background: var(--primary);
+  color: var(--pastel-red);
+  border: 0.2rem solid var(--pastel-red);
+  box-shadow: none;
+}
+select {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.7rem;
+  padding-right: 2rem;
+}
+select:disabled {
+  cursor: not-allowed;
 }
 
-/* POINTS */
 .points {
+  color: var(--secondary);
+  text-shadow: 0 0 0.3rem var(--secondary-hot);
   font-weight: 700;
-  font-size: 1.3rem;
-  color: var(--secondary-bright);
-  text-shadow: 0 0 6px var(--secondary-hot);
-  min-width: 50px;
-  text-align: center;
+  font-size: 1.4rem;
+  min-width: 5rem;
 }
 
 /* POINTS CONTROL */
@@ -79,33 +81,4 @@
 .actions button {
   font-size: 1.15rem;
   padding: 0.7rem 1.4rem;
-}
-
-/* SELECTS */
-.role-select,
-.status-select {
-  font-size: 1rem;
-  padding: 0.5rem 0.7rem;
-  border-radius: 1rem;
-  background: var(--primary);
-  color: var(--secondary);
-  border: 1px solid var(--secondary);
-  cursor: pointer;
-}
-
-/* DISABLED SELECT */
-select:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-/* BUTTON VARIANTS */
-button.danger {
-  border-color: var(--pastel-red);
-  color: var(--pastel-red);
-}
-
-button.warning {
-  border-color: var(--pastel-orange);
-  color: var(--pastel-orange);
 }

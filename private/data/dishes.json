@@ -1,279 +1,279 @@
 {
-  "plats": [
+  "dishes": [
     {
       "id": "RTX",
-      "title": "RTX5090 Aymane signature",
+      "title": "RTX5090 Aymane Signature",
       "image": "../assets/images/meals/RTX.png",
       "carousel": 1,
       "version": "Version 1.0",
       "sections": {
         "Architecture": [
-          "GPU NVIDIA RTX 5090",
+          "NVIDIA RTX 5090 GPU",
           "Ray Tracing & AI cores",
           "16GB GDDR7 VRAM"
         ]
       },
-      "footer": "Overclocké pour les gamers extrêmes"
+      "comment": "Overclocked for extreme gamers"
     },
     {
       "id": "salad",
-      "title": "Salade sans 5G",
+      "title": "5G-Free Salad",
       "image": "../assets/images/meals/Salade.jpeg",
       "carousel": 2,
-      "version": "Version Nature Stable 1.0 — 100% Offline",
+      "version": "Nature Stable Version 1.0 — 100% Offline",
       "sections": {
         "Architecture": [
-          "Roquette, jeunes pousses",
-          "Avocat, concombre, tomates",
-          "Quinoa, graines, noix",
-          "Citron & huile d'olive"
+          "Arugula, baby greens",
+          "Avocado, cucumber, tomatoes",
+          "Quinoa, seeds, nuts",
+          "Lemon & olive oil"
         ],
-        "Spécifications": [
-          "Exécution : Fraîche",
-          "Build : 7 min",
-          "Autonomie : +4h",
-          "Compatible : Vegan / Sans gluten"
+        "Specifications": [
+          "Execution: Fresh",
+          "Build: 7 min",
+          "Battery life: +4h",
+          "Compatible: Vegan / Gluten-free"
         ]
       },
-      "footer": "Aucun réseau requis. Recharge naturelle garantie."
+      "comment": "No network required. Natural recharge guaranteed."
     },
     {
       "id": "calzone",
       "title": "Calzone Container",
       "image": "../assets/images/meals/Calzone-Container.webp",
       "carousel": 3,
-      "version": "Version Dockerisée 2.3 - Hot Deploy Edition",
+      "version": "Dockerized Version 2.3 - Hot Deploy Edition",
       "sections": {
         "Architecture": [
-          "Pâte double couche",
-          "Sauce tomate",
+          "Double-layer dough",
+          "Tomato sauce",
           "Mozzarella",
-          "Jambon, champignons, poivrons"
+          "Ham, mushrooms, peppers"
         ],
-        "Spécifications": [
-          "Cuisson : 12 min",
-          "Format : Solo / Duo",
-          "Tolérance aux pannes élevée"
+        "Specifications": [
+          "Cooking: 12 min",
+          "Format: Solo / Duo",
+          "High fault tolerance"
         ],
-        "Sécurité": [
-          "Isolation thermique",
-          "Anti-crash fromage"
+        "Security": [
+          "Thermal isolation",
+          "Anti-cheese crash"
         ]
       },
-      "footer": "Conteneur autonome"
+      "comment": "Autonomous container"
     },
     {
       "id": "lasagna",
       "title": "Full Stack Lasagna",
       "image": "../assets/images/meals/lasagna.jpg",
-      "carousel": 4,
-      "version": "Version Beta-1.0",
+      "carousel": 0,
+      "version": "Beta Version 1.0",
       "sections": {
         "Architecture": [
-          "Pâte",
-          "Ragoût bœuf",
+          "Pasta",
+          "Beef ragù",
           "Béchamel",
-          "Fromage"
+          "Cheese"
         ],
-        "Spécifications": [
-          "Cuisson : 25 min",
-          "Format familial"
+        "Specifications": [
+          "Cooking: 25 min",
+          "Family size"
         ]
       },
-      "footer": "Zéro dépendance cloud"
+      "comment": "Zero cloud dependency"
     },
     {
       "id": "margherita",
       "title": "NPC Margherita",
       "image": "../assets/images/meals/Margherita Pizza.jpg",
-      "carousel": 5,
-      "version": "Version Passive 1.4",
+      "carousel": 0,
+      "version": "Passive Version 1.4",
       "sections": {
         "Architecture": [
-          "Pâte fine",
-          "Sauce tomate",
+          "Thin crust",
+          "Tomato sauce",
           "Mozzarella",
-          "Basilic"
+          "Basil"
         ]
       },
-      "footer": "Stable en production"
+      "comment": "Production stable"
     },
     {
       "id": "penne",
       "title": "Penne.js Bolognese",
       "image": "../assets/images/meals/Penne.jpg",
-      "carousel": 6,
+      "carousel": 0,
       "version": "Version 3.2",
       "sections": {
         "Architecture": [
           "Penne",
-          "Sauce bolognaise",
+          "Bolognese sauce",
           "Parmesan"
         ]
       },
-      "footer": "API gustative ouverte"
+      "comment": "Open taste API"
     },
     {
       "id": "ravioli",
       "title": "Boolean Ravioli Open-Source",
       "image": "../assets/images/meals/ravioli.webp",
-      "carousel": 7,
+      "carousel": 0,
       "version": "Version 1.1",
       "sections": {
         "Architecture": [
-          "Pâte",
-          "Ricotta & épinards"
+          "Pasta",
+          "Ricotta & spinach"
         ]
       },
-      "footer": "Code farci"
+      "comment": "Stuffed code"
     },
     {
       "id": "carbonara",
       "title": "Callback Carbonara",
       "image": "../assets/images/meals/Carbonara.jpg",
-      "carousel": 8,
+      "carousel": 0,
       "version": "Version 2.0",
       "sections": {
         "Architecture": [
           "Spaghetti",
-          "Œuf & parmesan",
-          "Lardons"
+          "Egg & parmesan",
+          "Bacon bits"
         ]
       },
-      "footer": "Aucun deadlock détecté"
+      "comment": "No deadlock detected"
     },
     {
       "id": "spaghetti",
       "title": "Spaghetti Code",
       "image": "../assets/images/meals/spaghetti.jpg",
-      "carousel": 9,
-      "version": "Version Legacy 0.9",
+      "carousel": 0,
+      "version": "Legacy Version 0.9",
       "sections": {
         "Architecture": [
-          "Nouilles entremêlées",
-          "Sauce inconnue"
+          "Entangled noodles",
+          "Unknown sauce"
         ]
       },
-      "footer": "Refactoring conseillé"
+      "comment": "Refactoring recommended"
     },
     {
       "id": "bruschetta",
       "title": "Bruschetta Binary",
       "image": "../assets/images/meals/Bruschetta.jpg",
-      "carousel": 10,
+      "carousel": 0,
       "version": "Version 1.0",
       "sections": {
         "Architecture": [
-          "Pain grillé",
-          "Tomates",
-          "Ail",
-          "Huile d'olive"
+          "Grilled bread",
+          "Tomatoes",
+          "Garlic",
+          "Olive oil"
         ]
       },
-      "footer": "Saveur locale garantie"
+      "comment": "Local flavor guaranteed"
     },
     {
       "id": "garlic",
       "title": "Garlic Bread API",
       "image": "../assets/images/meals/garlic_bread.jpg",
-      "carousel": 11,
+      "carousel": 0,
       "version": "Version 2.1",
       "sections": {
         "Architecture": [
           "Baguette",
-          "Beurre à l'ail",
-          "Persil"
+          "Garlic butter",
+          "Parsley"
         ]
       },
-      "footer": "Sans bug d'ail"
+      "comment": "No garlic bugs"
     },
     {
       "id": "smoothie",
       "title": "Smoothie API",
       "image": "../assets/images/meals/smoothie.jpg",
-      "carousel": 12,
+      "carousel": 0,
       "version": "Version 1.2",
       "sections": {
         "Architecture": [
-          "Fruits mixés",
-          "Jus",
-          "Glaçons"
+          "Blended fruits",
+          "Juice",
+          "Ice cubes"
         ]
       },
-      "footer": "Endpoint rafraîchissant"
+      "comment": "Refreshing endpoint"
     },
     {
       "id": "tiramisu",
       "title": "Tiramisu Async",
       "image": "../assets/images/meals/tiramisu.jpg",
-      "carousel": 13,
+      "carousel": 0,
       "version": "Version 1.0",
       "sections": {
         "Architecture": [
-          "Biscuits café",
+          "Coffee biscuits",
           "Mascarpone",
-          "Cacao"
+          "Cocoa"
         ]
       },
-      "footer": "Déploiement doux"
+      "comment": "Smooth deployment"
     },
     {
       "id": "gelato",
       "title": "Gelato Node.js",
       "image": "../assets/images/meals/gelato.jpg",
-      "carousel": 14,
+      "carousel": 0,
       "version": "Version 2.2",
       "sections": {
         "Architecture": [
-          "Crème",
+          "Cream",
           "Fruits",
-          "Chocolat"
+          "Chocolate"
         ]
       },
-      "footer": "Zéro latence"
+      "comment": "Zero latency"
     },
     {
       "id": "latte",
       "title": "Latte Debug",
       "image": "../assets/images/meals/cat-latte.jpg",
-      "carousel": 15,
+      "carousel": 0,
       "version": "Version 3.0",
       "sections": {
         "Architecture": [
-          "Lait",
+          "Milk",
           "Espresso"
         ]
       },
-      "footer": "Debug caféiné"
+      "comment": "Caffeinated debug"
     },
     {
       "id": "the",
-      "title": "Thé Green Deployment",
+      "title": "Green Tea Deployment",
       "image": "../assets/images/meals/tea.jpg",
-      "carousel": 16,
+      "carousel": 0,
       "version": "Version 2.5",
       "sections": {
         "Architecture": [
-          "Thé vert",
+          "Green tea",
           "Infusion",
-          "Miel & citron"
+          "Honey & lemon"
         ]
       },
-      "footer": "Déploiement naturel"
+      "comment": "Natural deployment"
     },
     {
       "id": "espresso",
       "title": "Espresso Kernel Panic",
       "image": "../assets/images/meals/Espresso.jpg",
-      "carousel": 17,
+      "carousel": 0,
       "version": "Version 1.9",
       "sections": {
         "Architecture": [
           "Espresso",
-          "Micro mousse"
+          "Micro foam"
         ]
       },
-      "footer": "Redémarrage requis"
+      "comment": "Restart required"
     }
   ]
 }

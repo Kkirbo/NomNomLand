@@ -9,15 +9,15 @@ function generateCarousel()
     $json = file_get_contents('../../private/data/dishes.json');
     $data = json_decode($json, true);
 
-    if ($data && isset($data['plats'])) {
+    if ($data && isset($data['dishes'])) {
 
-        foreach ($data['plats'] as $meal) {
+        foreach ($data['dishes'] as $meal) {
             $carouselNumber = intval($meal['carousel']);
             if ($carouselNumber > 0) {
                 $tag = $carouselTags[$carouselNumber] ?? "Recommanded";
                 $id = htmlspecialchars($meal['id']);
                 $title = htmlspecialchars($meal['title']);
-                $desc = htmlspecialchars($meal['description']);
+                $desc = htmlspecialchars($meal['version']);
                 $image = htmlspecialchars($meal['image']);
 
                 echo "

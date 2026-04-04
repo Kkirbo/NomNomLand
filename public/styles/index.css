@@ -79,6 +79,34 @@ button:hover {
   border: 0.2rem solid var(--secondary-bright);
   box-shadow: 0 0 1rem var(--secondary-hot);
 }
+button.pastel-red {
+  background: var(--primary);
+  color: var(--pastel-red);
+  border: 0.2rem solid var(--pastel-red);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+button.pastel-red:hover {
+  color: var(--primary);
+  background: var(--pastel-red);
+  border: 0.2rem solid var(--pastel-red);
+  box-shadow: 0 0 1rem var(--pastel-red);
+}
+button.pastel-orange {
+  background: var(--primary);
+  color: var(--pastel-orange);
+  border: 0.2rem solid var(--pastel-orange);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+button.pastel-orange:hover {
+  color: var(--primary);
+  background: var(--pastel-orange);
+  border: 0.2rem solid var(--pastel-orange);
+  box-shadow: 0 0 1rem var(--pastel-orange);
+}
 input[type="submit"] {
   background: var(--primary);
   color: var(--secondary);
@@ -143,6 +171,32 @@ input[type="email"]::placeholder,
 input[type="password"]::placeholder,
 input[type="number"]::placeholder {
   color: var(--secondary-cold-shadow);
+}
+
+select {
+  background: var(--primary);
+  color: var(--secondary-highlight);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  cursor: pointer;
+  padding-right: 1.5rem;
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23126700\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.1rem center;
+  background-size: 2rem;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select.pastel-red {
+  background: var(--primary);
+  color: var(--pastel-red);
+  border: 0.2rem solid var(--pastel-red);
+}
+select:focus {
+  outline: 0.2rem solid var(--secondary-bright);
 }
 
 /*--Animate--*/

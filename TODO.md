@@ -11,7 +11,6 @@ Cahier des charges:
 -Panier
 -CY Bank
 -Recherche plats/menus
--Page Admin
 -Delivery/Orders afficher seulement le bon contenu
 -Page Menu
 -Structure données cahier des charges (pdf)
