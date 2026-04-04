@@ -27,9 +27,9 @@ function generateNavbar($page, $pagesCount)
     $start = max(1, $page - 2);
     $end = min($pagesCount, $page + 2);
     for ($i = $start; $i <= $end; $i++) {
-        $class = ($i == $page) ? 'class="current"' : '';
+        $class = ($i == $page) ? ' class="current"' : '';
         echo '
-            <a href="?page=' . ($i) . '" ' . $class . '>' . $i . '</a>
+            <a href="?page=' . ($i) . '"' . $class . '>' . $i . '</a>
         ';
     }
     if ($page < $pagesCount) {
