@@ -1,4 +1,8 @@
-<?php require '../../private/php/session.php';?>
+<?php 
+require '../../private/php/session.php';
+require_login();
+$user = get_user_by_session();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
