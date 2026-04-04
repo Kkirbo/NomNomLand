@@ -1,27 +1,40 @@
 TODO:
-La Funzione
 
-Commander et panier (menu)
-Design des cartes menu à revoir
-Cliquer en dehors des cartes pour les fermer
+Structure données cahier des charges (sur le pdf mais on le fait pas?)
+-Menus 
+  -créneaux limités
+  -personnes max
 
-Cahier des charges:
--Carte du restaurant (15 plats)
--Rating (backend)
+-----------------------------------------Cahier des charges----------------------------------------
+
+-Recherche plats/menus
+-Allergènes (page et recherche en fonction)
+
 -Panier
 -CY Bank
--Recherche plats/menus
--Delivery/Orders afficher seulement le bon contenu
--Page Menu
--Structure données cahier des charges (pdf)
 -Réductions/Coupons/fidélité
--Page profil (notamment Historique des commandes)
--Suivi d'une commande pour client
--Allergènes
 -Les commandes ne sont pas instantanémment préparées lorsqu'elles sont payées.
--Scripts PHP dans dossier php pas dans les pages
+
+-Delivery/Orders
+  -Ajouter commande sur place
+-Page profil (notamment Historique des commandes)
+  -Suivi d'une commande pour client (page orders ou page profil)
+
 -Valeurs RGB à noter sur doc à rendre
 -Rapport de projet à jour
+
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------Optionel----------------------------------------------
+-Design des cartes menu à revoir
+-Cliquer en dehors des cartes pour les fermer
+---------------------------------------------------------------------------------------------------
+
+
+
+Phase 3/4:
+-Rating (backend)
+-Admin (backend)
 
 Phase 4:
 -Inovation:
