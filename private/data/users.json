@@ -107,6 +107,25 @@
             },
             "createdAt": "2026-04-04 18:17:12",
             "lastLogin": null
+        },
+        {
+            "id": "69d17c5e22c20",
+            "email": "123@gmail.com",
+            "password": "$2y$10$86EHI2bbphf.C3CesQA5fu437jWTtpRSujIYLozL\/aNelnTomk6oG",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "newsletter": false,
+            "profile": {
+                "firstName": "kkkirbo",
+                "lastName": "Ben Kassem",
+                "username": "kkkirbo.Ben Kassem",
+                "age": 18,
+                "address": "2 rue de Rivoli",
+                "gender": "male"
+            },
+            "createdAt": "2026-04-04 21:02:22",
+            "lastLogin": null
         }
     ]
 }
