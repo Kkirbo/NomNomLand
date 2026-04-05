@@ -13,7 +13,7 @@ $order = get_user_last_order($user);
 require '../../private/php/getapikey.php';
 
 if ($order && user_last_order_unpaid($user)) {
-  $transaction = substr(md5($order['id'] . time()), 0, 20);
+  $transaction = $order['id'];
   $amount = number_format($order['price'], 2, '.', '');
   $vendor = "MI-4_C";//Our group (MI-4_K) isn't valid
   $api_key = getAPIKey($vendor);
@@ -35,27 +35,23 @@ if ($order && user_last_order_unpaid($user)) {
       foreach ($orders as &$o) {
           if ($o['id'] == $orderId) {
               $status = $_GET['status'] ?? '';
-              $retMontant = $_GET['montant'] ?? '';
-              $retTransaction = $_GET['transaction'] ?? '';
-              $retVendeur = $_GET['vendeur'] ?? '';
-              $retControl = $_GET['control'] ?? '';
-
-              if (!$api_key) $api_key = getAPIKey($vendor);
-
-              $expectedControl = md5(
+              $transaction = $_GET['transaction'] ?? '';
+              $amount = $_GET['montant'] ?? '';
+              $vendor = $_GET['vendeur'] ?? '';
+              $controlCheck = $_GET['control'] ?? '';
+              $api_key = getAPIKey($vendor);
+              $control = md5(
                   $api_key . "#" .
-                  $retTransaction . "#" .
-                  $retMontant . "#" .
-                  $retVendeur . "#" .
-                  "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($orderId) . "#"
+                  $transaction . "#" .
+                  $amount . "#" .
+                  $vendor . "#" .
+                  $status . "#"
               );
 
-              if ($status === 'accepted' && $retControl === $expectedControl) {
-                  echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+              if ($status === 'accepted' && $controlCheck === $control) {
                   $message = "Payment successful";
                   $o['paymentStatus'] = 'success';
               } else {
-                  echo 's: ' . $status . " c: " . (($retControl === $expectedControl) ? "t" : "f");
                   $message = "Payment failed";
                   $o['paymentStatus'] = 'failed';
               }

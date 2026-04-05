@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $orders = loadJson($ordersFile);
 
         $orders[] = [
-            'id' => strval(count($orders)),
+            'id' => uniqid(),
             'email' => $username,
             'phone' => $user['phone'] ?? '',
             'content' => $orderContent,
