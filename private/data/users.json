@@ -3,7 +3,7 @@
         {
             "id": "69d1542a648a0",
             "email": "gregoire@email.com",
-            "phone" : "06 26 26 26 26",
+            "phone": "0626262626",
             "password": "$2y$12$aL\/gU9WP4UUCxnLbVRGmb.S\/TRcr9m3zpELIFEptzGhrArJLfnM0W",
             "role": "admin",
             "status": "Free",
@@ -22,7 +22,7 @@
         {
             "id": "69d15476ac40e",
             "email": "eva@email.com",
-            "phone" : "06 26 26 26 26",
+            "phone": "0626262626",
             "password": "$2y$12$dtOYErvtSxMETBTB9G8Bpul50UqETrrYu.8hPr0zkap5I8VnYHmSe",
             "role": "delivery",
             "status": "Free",
@@ -41,7 +41,7 @@
         {
             "id": "69d154ddcc706",
             "email": "jean@email.com",
-            "phone" : "06 26 26 26 26",
+            "phone": "0626262626",
             "password": "$2y$12$BIpt.GrAzmUkDf92ivulQOBQX4wHHUv0ClmAGC70\/2GO1mW91xfzi",
             "role": "delivery",
             "status": "Free",
@@ -60,7 +60,7 @@
         {
             "id": "69d155185e2a5",
             "email": "julien@email.com",
-            "phone" : "06 26 26 26 26",
+            "phone": "0626262626",
             "password": "$2y$12$0Q.MfVfIBu45eNbUv.9rsub\/oAmBHtv8nIARA1\/..jwUbrujtCH8i",
             "role": "cook",
             "status": "Free",
@@ -79,7 +79,7 @@
         {
             "id": "69d1556b00742",
             "email": "lea@email.com",
-            "phone" : "06 26 26 26 26",
+            "phone": "0626262626",
             "password": "$2y$12$8FvNjcPhbIt53zlBiLuYruQiocLPySlSrm8iomzwcc6H4G6Mc5WXa",
             "role": "client",
             "status": "VIP",
@@ -98,7 +98,7 @@
         {
             "id": "69d155a80d1ec",
             "email": "tom@email.com",
-            "phone" : "06 26 26 26 26",
+            "phone": "0626262626",
             "password": "$2y$12$EqPaDzjvrfObW7Jah5j5COfos1lwsrxWsILfD\/Gk8c\/0lpd6wsT9q",
             "role": "client",
             "status": "Free",
@@ -115,11 +115,11 @@
             "lastLogin": null
         },
         {
-            "id": "69d159435b844",
+            "id": "69d25dd654bc1",
             "email": "tomjedusor@email.com",
-            "phone" : "06 26 26 26 26",
-            "password": "$2y$12$kV60FdbKb63.DUpxNWYOqeX6j9l9\/flvroNxp.MKyp6naMOU6EOZK",
-            "role": "admin",
+            "phone": "0895643221",
+            "password": "$2y$12$BzGF9xgffk00cnpXSyKqyeF1Ksw0jdnr8GXswuoF\/z\/r9Bp0rkBra",
+            "role": "client",
             "status": "Free",
             "fidelity": 0,
             "newsletter": false,
@@ -127,11 +127,11 @@
                 "firstName": "Tom",
                 "lastName": "Jedusor",
                 "username": "Tom.Jedusor",
-                "age": 95,
+                "age": 18,
                 "address": "",
                 "gender": "other"
             },
-            "createdAt": "2026-04-04 18:32:35",
+            "createdAt": "2026-04-05 13:04:22",
             "lastLogin": null
         }
     ]
