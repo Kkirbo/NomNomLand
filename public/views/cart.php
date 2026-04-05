@@ -1,10 +1,16 @@
 <?php
-session_start();
+$error = '';
 require '../../private/php/session.php';
 require_login();
 date_default_timezone_set('Europe/Paris');
 $user = get_user_by_session();
 if (!$user) exit();
+
+require '../../private/php/payment.php';
+if (user_last_order_unpaid($user)) {
+    header("Location: payment.php");
+    exit();
+}
 
 $username = $user['email'];
 

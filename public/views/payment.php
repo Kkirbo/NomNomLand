@@ -1,0 +1,91 @@
+<?php 
+require '../../private/php/session.php';
+require_login();
+$user = get_user_by_session();
+
+$error = '';
+
+$isReturn = isset($_GET['bank_return']) && $_GET['bank_return'] == 1;
+$orderId = $_GET['order_id'] ?? null;
+
+require '../../private/php/payment.php';
+$order = get_user_last_order($user);
+
+if ($order && user_last_order_unpaid($user)) {
+  $transaction = substr(md5($order['id'] . time()), 0, 20);
+  $amount = number_format($order['price'], 2, '.', '');
+  $vendor = "MI-4_C";//Our group (MI-4_K) isn't valid
+  require '../../private/php/getapikey.php';
+  $api_key = getAPIKey($vendor);
+  $return = "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($order['id']);
+  $control = md5(
+      $api_key . "#" .
+      $transaction . "#" .
+      $amount . "#" .
+      $vendor . "#" .
+      $return . "#"
+  );
+}
+
+if ($isReturn) {
+  $message = "Payment successful";
+  $message = "Payment failed";
+}
+
+/*
+Cardholder: Any
+Card Number: 5555 1234 5678 9000
+Crypto: 555
+Expiry Date: Any
+*/
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="icon" href="../assets/icons/logo.ico">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/form.css">
+</head>
+<body>
+
+  <?php include 'header.html'; ?>
+
+  <?php include 'sidebar.php'; ?>
+
+  <main>
+    <?php if ($isReturn): ?>
+        <p><?= htmlspecialchars($message ?? "Payment processed") ?></p>
+        <a href="cart.php" class="button">Back to cart</a>
+    <?php elseif (!$hasUnpaid): ?>
+        <p>You have no unpaid order.</p>
+        <a href="cart.php" class="button">Back to cart</a>
+    <?php else: ?>
+      <form method="post" action="https://www.plateforme-smc.fr/cybank/">
+        <fieldset>
+            <h2>Confirm your payment</h2>
+              <input type="hidden" name="transaction" value="<?= htmlspecialchars($transaction) ?>">
+              <input type="hidden" name="montant" value="<?= htmlspecialchars($amount) ?>">
+              <input type="hidden" name="vendeur" value="<?= htmlspecialchars($vendor) ?>">
+              <input type="hidden" name="retour" value="<?= htmlspecialchars($return) ?>">
+              <input type="hidden" name="control" value="<?= htmlspecialchars($control) ?>">
+
+              <div class="field buttons">
+                  <div>
+                      <label>Proceed to payment</label>
+                      <button type="submit" class="button">Pay now</button>
+                  </div>
+              </div>
+
+              <?php
+                if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
+              ?>
+          </fieldset>
+      </form>
+    <?php endif; ?>
+  </main>
+
+  <?php include 'footer.html'; ?>
+</body>
+</html>
