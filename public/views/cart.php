@@ -192,78 +192,81 @@ foreach ($cartData['items'] ?? [] as $item) {
 <?php include 'sidebar.php'; ?>
 
 <main class="cart-container">
-    <h1 class="cart-title">Your Cart</h1>
+    <section class="infos">
+        <h2>Your Cart</h2>
+        <article class="modernNeonBoxGlass">
+            <?php if(isset($_GET['ordered'])): ?>
+                <p class="success-message">Your order has been placed!</p>
+            <?php endif; ?>
 
-    <?php if(isset($_GET['ordered'])): ?>
-        <p class="success-message">Your order has been placed!</p>
-    <?php endif; ?>
+            <?php if(isset($_GET['error']) && $_GET['error'] === 'empty'): ?>
+                <p class="error-message">Your cart is empty!</p>
+            <?php endif; ?>
 
-    <?php if(isset($_GET['error']) && $_GET['error'] === 'empty'): ?>
-        <p class="error-message">Your cart is empty!</p>
-    <?php endif; ?>
+            <h1>Solo Items</h1>
+            <ul class="cart-list">
+                <?php foreach($cartData['soloItems'] ?? [] as $item):
+                    if ($item['user'] !== $username) continue;
 
-    <h2>Solo Items</h2>
-    <ul class="cart-list">
-        <?php foreach($cartData['soloItems'] ?? [] as $item):
-            if ($item['user'] !== $username) continue;
+                    $dish = $dishesById[$item['id']] ?? null;
+                    if (!$dish || !isset($dish['price'])) continue;
+                ?>
+                <li class="cart-item">
+                    <span><?= htmlspecialchars($dish['title']) ?></span>
+                    <span>Quantity: <?= $item['quantity'] ?></span>
+                    <span><?= number_format($dish['price'] * $item['quantity'], 2) ?> €</span>
 
-            $dish = $dishesById[$item['id']] ?? null;
-            if (!$dish || !isset($dish['price'])) continue;
-        ?>
-        <li class="cart-item">
-            <span><?= htmlspecialchars($dish['title']) ?></span>
-            <span>Quantity: <?= $item['quantity'] ?></span>
-            <span><?= number_format($dish['price'] * $item['quantity'], 2) ?> €</span>
-
-            <form method="post" class="inline-form">
-                <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                <input type="hidden" name="type" value="solo">
-                <button type="submit" name="remove">Remove</button>
-            </form>
-        </li>
-        <?php endforeach; ?>
-    </ul>
-
-    <h2>Menus</h2>
-    <ul class="cart-list">
-        <?php foreach($cartData['items'] ?? [] as $item):
-            if ($item['user'] !== $username) continue;
-
-            $menu = $menusById[$item['id']] ?? null;
-            if (!$menu || !isset($menu['price'])) continue;
-        ?>
-        <li class="cart-item">
-            <span><?= htmlspecialchars($menu['title']) ?></span>
-            <span>Quantity: <?= $item['quantity'] ?></span>
-
-            <div class="cart-item-options">
-                <?php foreach($optionsData as $opt): ?>
-                    <?php if($opt['type']==='ingredient_modification' || $opt['type']==='coupon'): ?>
-                        <label>
-                            <input type="checkbox" name="options[<?= $item['id'] ?>][]" value="<?= $opt['id'] ?>">
-                            <?= htmlspecialchars($opt['description'] ?? $opt['couponCode']) ?>
-                        </label>
-                    <?php endif; ?>
+                    <form method="post" class="inline-form">
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <input type="hidden" name="type" value="solo">
+                        <button type="submit" name="remove">Remove</button>
+                    </form>
+                </li>
                 <?php endforeach; ?>
-            </div>
+            </ul>
 
-            <form method="post" class="inline-form">
-                <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                <input type="hidden" name="type" value="menu">
-                <button type="submit" name="remove">Remove</button>
+            <h1>Menus</h1>
+            <ul class="cart-list">
+                <?php foreach($cartData['items'] ?? [] as $item):
+                    if ($item['user'] !== $username) continue;
+
+                    $menu = $menusById[$item['id']] ?? null;
+                    if (!$menu || !isset($menu['price'])) continue;
+                ?>
+                <li class="cart-item">
+                    <span><?= htmlspecialchars($menu['title']) ?></span>
+                    <span>Quantity: <?= $item['quantity'] ?></span>
+
+                    <div class="cart-item-options">
+                        <?php foreach($optionsData as $opt): ?>
+                            <?php if($opt['type']==='ingredient_modification' || $opt['type']==='coupon'): ?>
+                                <label>
+                                    <input type="checkbox" name="options[<?= $item['id'] ?>][]" value="<?= $opt['id'] ?>">
+                                    <?= htmlspecialchars($opt['description'] ?? $opt['couponCode']) ?>
+                                </label>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <form method="post" class="inline-form">
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <input type="hidden" name="type" value="menu">
+                        <button type="submit" name="remove">Remove</button>
+                    </form>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+
+            <!-- FORM COMMANDE (séparé) -->
+            <form method="post">
+                <?php if ($totalItems > 0): ?>
+                    <button type="submit" name="place_order" class="button">Order</button>
+                <?php else: ?>
+                    <a href="menu.php">Go to the menu</a>
+                <?php endif; ?>
             </form>
-        </li>
-        <?php endforeach; ?>
-    </ul>
-
-    <!-- FORM COMMANDE (séparé) -->
-    <form method="post">
-        <?php if ($totalItems > 0): ?>
-            <button type="submit" name="place_order" class="button">Commander</button>
-        <?php else: ?>
-            <a href="menu.php" class="button">Go to menu</a>
-        <?php endif; ?>
-    </form>
+        </article>
+    </section>
 
 </main>
 

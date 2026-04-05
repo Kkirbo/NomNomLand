@@ -1,5 +1,5 @@
 <script defer src="../scripts/searchbar.js"></script>
-<form action="menusearch.php" method="get" class="searchbar" autocomplete="off">
+<form action="menu.php" method="get" class="searchbar" autocomplete="off">
     <div>
         <span>$ls</span>
         <input type="text" name="search" placeholder="Search for your favorite meal..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">

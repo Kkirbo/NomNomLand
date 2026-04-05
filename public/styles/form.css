@@ -100,8 +100,9 @@ input[type="radio"]:checked + label {
   border-color: var(--secondary-bright);
 }
 
-button {
-  padding: 0.5rem;
+form button {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
 }
 
 form a {

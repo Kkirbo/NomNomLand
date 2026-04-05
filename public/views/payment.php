@@ -86,35 +86,40 @@ Expiry Date: Any
   <?php include 'sidebar.php'; ?>
 
   <main>
-    <?php if ($isReturn): ?>
-        <p><?= htmlspecialchars($message ?? "Payment processed") ?></p>
-        <a href="cart.php" class="button">Back to cart</a>
-    <?php elseif (!user_last_order_unpaid($user)): ?>
-        <p>You have no unpaid order.</p>
-        <a href="cart.php" class="button">Back to cart</a>
-    <?php else: ?>
-      <form method="post" action="https://www.plateforme-smc.fr/cybank/">
-        <fieldset>
-            <h2>Confirm your payment</h2>
-              <input type="hidden" name="transaction" value="<?= htmlspecialchars($transaction) ?>">
-              <input type="hidden" name="montant" value="<?= htmlspecialchars($amount) ?>">
-              <input type="hidden" name="vendeur" value="<?= htmlspecialchars($vendor) ?>">
-              <input type="hidden" name="retour" value="<?= htmlspecialchars($return) ?>">
-              <input type="hidden" name="control" value="<?= htmlspecialchars($control) ?>">
+    <section class="infos">
+        <h2>Payment</h2>
+        <article class="modernNeonBoxGlass">
+            <?php if ($isReturn): ?>
+                <h3><?= htmlspecialchars($message ?? "Payment processed") ?></h3>
+                <a href="cart.php">Back to cart</a>
+            <?php elseif (!user_last_order_unpaid($user)): ?>
+                <h3>You have no unpaid order.</h3>
+                <a href="cart.php">Back to cart</a>
+            <?php else: ?>
+            <form method="post" action="https://www.plateforme-smc.fr/cybank/">
+                <fieldset>
+                    <h1>Confirm your payment</h1>
+                    <input type="hidden" name="transaction" value="<?= htmlspecialchars($transaction) ?>">
+                    <input type="hidden" name="montant" value="<?= htmlspecialchars($amount) ?>">
+                    <input type="hidden" name="vendeur" value="<?= htmlspecialchars($vendor) ?>">
+                    <input type="hidden" name="retour" value="<?= htmlspecialchars($return) ?>">
+                    <input type="hidden" name="control" value="<?= htmlspecialchars($control) ?>">
 
-              <div class="field buttons">
-                  <div>
-                      <label>Proceed to payment</label>
-                      <button type="submit" class="button">Pay now</button>
-                  </div>
-              </div>
+                    <div class="field buttons">
+                        <div>
+                            <label>Proceed to payment</label>
+                            <button type="submit" class="button">Pay now</button>
+                        </div>
+                    </div>
 
-              <?php
-                if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
-              ?>
-          </fieldset>
-      </form>
-    <?php endif; ?>
+                    <?php
+                        if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
+                    ?>
+                </fieldset>
+            </form>
+            <?php endif; ?>
+        </article>
+    </section>
   </main>
 
   <?php include 'footer.html'; ?>
