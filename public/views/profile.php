@@ -14,6 +14,10 @@ $address = $user["profile"]["address"];
 $fidelityPoints = $user["fidelity"];
 $ordersHistory = getOrdersByEmail($email);
 
+$essentialCookiesChecked = $user['cookies']['essentialCookies'];
+$analyticsCookiesChecked = $user['cookies']['analyticsCookies'];
+$functionalCookiesChecked = $user['cookies']['functionalCookies'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,19 +115,33 @@ $ordersHistory = getOrdersByEmail($email);
 
     <p>You can manage your cookie preferences below.</p>
 
-    <form class="cookie-settings">
+    <form class="cookie-settings" action="../../private/php/update_user_cookies.php" method="post">
+      <input type="hidden" name="userId" value="<?= $user['id'] ?>">
       <label>
-        <input type="checkbox" checked disabled>
+        <input
+          type="checkbox"
+          name="essentialCookies"
+          disabled
+          <?php if ($essentialCookiesChecked) echo 'checked'; ?>
+        >
         Essential Cookies (Required)
       </label>
 
       <label>
-        <input type="checkbox" name="analytics">
+        <input 
+        type="checkbox" 
+        name="analyticsCookies"
+        <?php if ($analyticsCookiesChecked) echo 'checked'; ?>
+      >
         Analytics Cookies
       </label>
 
       <label>
-        <input type="checkbox" name="functional">
+        <input 
+        type="checkbox" 
+        name="functionalCookies" 
+        <?php if ($functionalCookiesChecked) echo 'checked'; ?>
+      >
         Functional Cookies
       </label>
 
@@ -133,7 +151,10 @@ $ordersHistory = getOrdersByEmail($email);
     </form>
   </section>
 
-  <button class="logout">Log Out</button>
+  <form action="logout.php">
+    <input type="submit" value="Log out"/>
+  </form>
+
 
 </section>
 
