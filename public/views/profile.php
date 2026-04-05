@@ -14,9 +14,9 @@ $address = $user["profile"]["address"];
 $fidelityPoints = $user["fidelity"];
 $ordersHistory = getOrdersByEmail($email);
 
-$essentialCookiesChecked = $user['cookies']['essentialCookies'];
-$analyticsCookiesChecked = $user['cookies']['analyticsCookies'];
-$functionalCookiesChecked = $user['cookies']['functionalCookies'];
+$essentialCookiesChecked = $user['cookies']['essentialCookies'] ?? null;
+$analyticsCookiesChecked = $user['cookies']['analyticsCookies'] ?? null;
+$functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
 
 ?>
 <!DOCTYPE html>
@@ -122,7 +122,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'];
           type="checkbox"
           name="essentialCookies"
           disabled
-          <?php if ($essentialCookiesChecked) echo 'checked'; ?>
+          checked
         >
         Essential Cookies (Required)
       </label>
