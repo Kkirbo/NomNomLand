@@ -45,4 +45,15 @@ function getOrderByDeliveryId($delivery_id) {
     return null;
 }
 
+function getOrdersByEmail($email) {
+    $orders = array();
+    foreach(getOrders() as $order) {
+        if ($order["email"] === $email) {
+            array_push($orders, $order);
+        }
+    }
+
+    return $orders;
+}
+
 ?>
