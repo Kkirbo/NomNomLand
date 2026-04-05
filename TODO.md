@@ -7,16 +7,9 @@ Structure données cahier des charges (sur le pdf mais on le fait pas?)
 
 -----------------------------------------Cahier des charges----------------------------------------
 
--CY Bank
-
--Panier
 -Réductions/Coupons/fidélité
-
 -Delivery/Orders
   -Ajouter commande sur place
-
--Valeurs RGB à noter sur doc à rendre
--Rapport de projet à jour
 
 ---------------------------------------------------------------------------------------------------
 
