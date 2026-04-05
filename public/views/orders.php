@@ -19,7 +19,6 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
     <?php
 
     require_once "../../private/php/data_loader.php";
-    require_once "../../private/php/helper.php";
 
     $deliveryPeople = getDeliveryPeople();
     $orders = getOrders();
@@ -70,7 +69,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                     <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
 
                     <p><strong>Delivery person:</strong>
-                        <?= getDeliveryName($order["delivery"]["delivery_person_id"] ?? null, $deliveryPeople) ?>
+                        <?= getDeliveryName($order["delivery"]["delivery_person_id"] ?? null, ) ?>
                     </p>
 
                     <form action="../../private/php/update_order_status.php" method="POST">
@@ -87,9 +86,9 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                         <button type="submit">Send to Delivery</button>
                         
                         <select name="delivery_person_id" required>
-                            <?php foreach ($deliveryPeople as $person): ?>
-                                <option value="<?= $person['id'] ?>">
-                                    <?= $person['name'] ?>
+                            <?php foreach ($deliveryPeople as $user): ?>
+                                <option value="<?= $user['id'] ?>">
+                                    <?= getDeliveryName($user['id']) ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
