@@ -51,11 +51,13 @@ if ($order && user_last_order_unpaid($user)) {
               );
 
               if ($status === 'accepted' && $retControl === $expectedControl) {
-                  $o['paymentStatus'] = 'paid';
+                  echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
                   $message = "Payment successful";
+                  $o['paymentStatus'] = 'success';
               } else {
-                  $o['paymentStatus'] = 'failed';
+                  echo 's: ' . $status . " c: " . (($retControl === $expectedControl) ? "t" : "f");
                   $message = "Payment failed";
+                  $o['paymentStatus'] = 'failed';
               }
 
               break;
@@ -91,7 +93,7 @@ Expiry Date: Any
     <?php if ($isReturn): ?>
         <p><?= htmlspecialchars($message ?? "Payment processed") ?></p>
         <a href="cart.php" class="button">Back to cart</a>
-    <?php elseif (!$hasUnpaid): ?>
+    <?php elseif (!user_last_order_unpaid($user)): ?>
         <p>You have no unpaid order.</p>
         <a href="cart.php" class="button">Back to cart</a>
     <?php else: ?>
