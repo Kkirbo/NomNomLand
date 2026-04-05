@@ -43,6 +43,11 @@ $latestOrderId = $latestOrder['id'];
 foreach ($orders as &$order) {
     if (isset($order['id']) && $order['id'] === $latestOrderId) {
 
+        if ($order["delivery"]["status"] != "success") {
+            header("Location: ../../public/views/index.php");
+            exit();
+        }
+
         $order['rating'] = $ratingData;
         break;
     }
