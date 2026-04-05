@@ -103,6 +103,15 @@ foreach ($menusData["menus"] ?? [] as $menu) {
     echo '</div></div>';
 }
 ?>
+<script>
+  const modal_content = document.querySelectorAll('.modal_content');
+
+  //Hide modal when clicking outside
+  document.addEventListener('click', (e) => {
+    for (const content of modal_content) if (content.contains(e.target)) return;
+    window.location.href = "#"
+  });
+</script>
 <?php
 foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<div id="' . $dish["id"] . '" class="modal">';
