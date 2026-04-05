@@ -1,4 +1,20 @@
-<?php require '../../private/php/session.php';?>
+<?php 
+require '../../private/php/session.php';
+require '../../private/php/data_loader.php';
+require '../../private/php/generate-nav.php';
+require_login();
+$user = get_user_by_session();
+
+$email = $user["email"];
+$firstName = $user["profile"]["firstName"];
+$lastName = $user["profile"]["lastName"];
+$fullName = $firstName . " " . $lastName;
+$phone = $user["phone"];
+$address = $user["profile"]["address"];
+$fidelityPoints = $user["fidelity"];
+$ordersHistory = getOrdersByEmail($email);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +33,8 @@
 
   <header class="profile-header">
     <div class="avatar"></div>
-    <h1>Jean Dupont</h1>
-    <p class="email">jean.dupont@email.com</p>
+    <h1><?= $fullName ?></h1>
+    <p class="email"><?= $email ?></p>
   </header>
 
   <section class="card modernNeonBox">
@@ -28,7 +44,7 @@
 
     <div class="info-row">
       <span>Last Name</span>
-      <span>Jean Dupont
+      <span><?= $fullName ?>
         <button class="edit-btn" title="Edit">✏️</button>
       </span>
     </div>
@@ -36,7 +52,7 @@
     <div class="info-row">
       <span>Email</span>
       <span>
-        jean.dupont@email.com
+        <?= $email ?>
         <button class="edit-btn" title="Edit">✏️</button>
     </span>
     </div>
@@ -44,7 +60,7 @@
     <div class="info-row">
       <span>Phone</span>
       <span>
-        06 45 78 21 39
+        <?= $phone ?>
         <button class="edit-btn" title="Edit">✏️</button>
       </span>
     </div>
@@ -52,7 +68,7 @@
     <div class="info-row">
         <span>Address</span>
         <span>
-        12 rue des Lilas, 75010 Paris
+        <?= $address ?>
         <button class="edit-btn" title="Edit">✏️</button>
         </span>
     </div>
@@ -61,26 +77,18 @@
   <section class="card modernNeonBox">
     <h2>My Orders</h2>
 
-    <div class="order">
-      <span>#5482</span>
-      <span>Jan 14, 2026</span>
-      <span>€24.90</span>
-      <span class="status delivered">Delivered</span>
-    </div>
+    <?php foreach($ordersHistory as $order):
+    ?>
 
-    <div class="order">
-      <span>#5411</span>
-      <span>Jan 03, 2026</span>
-      <span>€18.50</span>
-      <span class="status failed">Failed</span>
-    </div>
+      <div class="order">
+        <span><?= $order['id'] ?></span>
+        <span><?= $order['date'] ?></span>
+        <span><?= $order['price'] ?> $</span>
+        <span class="status <?= $order['delivery']['status'] ?>"><?= $order['delivery']['status'] ?></span>
+      </div>
+    
 
-    <div class="order">
-      <span>#5328</span>
-      <span>Dec 22, 2025</span>
-      <span>€31.20</span>
-      <span class="status delivered">Delivered</span>
-    </div>
+    <?php endforeach ?>
 
     <button class="link-button">View All Orders</button>
   </section>
@@ -88,11 +96,11 @@
   <section class="card modernNeonBox">
     <h2>Loyalty</h2>
 
-    <p><strong>Current Points:</strong> 120 pts</p>
+    <p><strong>Current Points:</strong> <?= $fidelityPoints ?> pts</p>
     <p><strong>Next Reward:</strong> €5 off at 150 pts</p>
 
     <div class="progress-bar">
-      <div class="progress"></div>
+      <div class="progress" style="width: <?php echo ($fidelityPoints / 150) * 100; ?>%;"></div>
     </div>
 
     <button class="link-button">View My Rewards</button>
