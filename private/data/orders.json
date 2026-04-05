@@ -12,7 +12,7 @@
             "Option"
         ],
         "delivery": {
-            "status": "success",
+            "status": "delivery",
             "address": "1 rue C.D.G Paris",
             "delivery_person_id": "69d15476ac40e"
         },

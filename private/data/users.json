@@ -117,6 +117,7 @@
         {
             "id": "69d159435b844",
             "email": "tomjedusor@email.com",
+            "phone" : "06 26 26 26 26",
             "password": "$2y$12$kV60FdbKb63.DUpxNWYOqeX6j9l9\/flvroNxp.MKyp6naMOU6EOZK",
             "role": "admin",
             "status": "Free",
