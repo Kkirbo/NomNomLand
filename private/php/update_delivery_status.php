@@ -5,8 +5,6 @@ require "./data_loader.php";
 $orderId = $_POST["orderId"];
 $orders = getOrders();
 
-echo $orderId;
-
 if ($_POST['action'] === 'complete') {
     $newStatus = "success";
 } else if ($_POST['action'] === 'giveup') {

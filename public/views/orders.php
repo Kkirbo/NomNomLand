@@ -32,6 +32,13 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
         <h2>Pending Orders</h2>
 
         <?php foreach ($orders as $order): ?>
+        <?php if (!in_array($order["delivery"]["status"], array("success", "failed"))): ?>
+
+        <?php
+        $isReady = $order["delivery"]["status"] == "ready";
+        $isPreparing = $order["delivery"]["status"] == "preparing";
+        $isdelivery = $order["delivery"]["status"] == "delivery";
+        ?>
 
         <article class="menu modernNeonBoxGlassAdmin orderCard">
 
@@ -71,29 +78,33 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                     <p><strong>Delivery person:</strong>
                         <?= getDeliveryName($order["delivery"]["delivery_person_id"] ?? null, ) ?>
                     </p>
+                    
+                    <?php if ($isReady): ?>
+                        <form action="../../private/php/update_order_status.php" method="POST">
+                            <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
+                            <input type="hidden" name="status" value="preparing">
+                            <button type="submit">Start Preparation</button>
+                        </form>
+                    <?php endif ?>
 
-                    <form action="../../private/php/update_order_status.php" method="POST">
-                        <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
-                        <input type="hidden" name="status" value="preparing">
-                        <button type="submit">Start Preparation</button>
-                    </form>
+                    <?php if ($isPreparing): ?>
+                        <form action="../../private/php/update_order_status.php" method="POST">
+                            <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
+                            
+                            
+                            <input type="hidden" name="status" value="delivery">
+                            <button type="submit">Send to Delivery</button>
+                            
+                            <select name="delivery_person_id" required>
+                                <?php foreach ($deliveryPeople as $user): ?>
+                                    <option value="<?= $user['id'] ?>">
+                                        <?= getDeliveryName($user['id']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
 
-                    <form action="../../private/php/update_order_status.php" method="POST">
-                        <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
-                        
-                        
-                        <input type="hidden" name="status" value="delivery">
-                        <button type="submit">Send to Delivery</button>
-                        
-                        <select name="delivery_person_id" required>
-                            <?php foreach ($deliveryPeople as $user): ?>
-                                <option value="<?= $user['id'] ?>">
-                                    <?= getDeliveryName($user['id']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-
-                    </form>
+                        </form>
+                    <?php endif ?>
 
                     <label for="<?= $toggleId ?>" class="closeBtn">
                         Close
@@ -103,6 +114,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
             </div>
 
         </article>
+        <?php endif; ?>
         <?php endforeach; ?>
 
 </body>
