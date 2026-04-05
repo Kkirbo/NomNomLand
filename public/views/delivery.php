@@ -3,7 +3,7 @@ require '../../private/php/session.php';
 require '../../private/php/data_loader.php';
 require_login();
 $user = get_user_by_session();
-if (!$user || $user['role'] !== 'delivery') redirect_url();
+if (!$user || ($user['role'] !== 'delivery' && $user['role'] !== 'admin')) redirect_url();
 
 $delivery_id = $user['id'];
 $order = getOrderByDeliveryId($delivery_id);
@@ -14,7 +14,7 @@ if ($order) {
     $phone = $client["phone"] ?? null;
     $name = $client["profile"]["lastName"] . " " . $client["profile"]["firstName"] ?? null;
     $address = $order["delivery"]["address"] ?? null;
-} else {
+} else if ($user['role'] === 'delivery') {//Admins can stay on page even if not working
     header("Location: orders.php");
     exit();
 }

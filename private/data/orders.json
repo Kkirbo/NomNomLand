@@ -236,12 +236,19 @@
         ],
         "options": [],
         "delivery": {
-            "status": "pending",
-            "address": "",
-            "delivery_person_id": ""
+            "status": "success",
+            "address": "shangai",
+            "delivery_person_id": "69d25dd654bc1"
         },
         "price": 18.99,
         "paymentStatus": "success",
-        "date": "2026-04-06 01:02"
+        "date": "2026-04-06 01:02",
+        "rating": {
+            "q1": 2,
+            "q2": 4,
+            "q3": 4,
+            "q4": 3,
+            "q5": 3
+        }
     }
 ]

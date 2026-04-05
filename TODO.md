@@ -1,15 +1,21 @@
 TODO:
 
-Structure données cahier des charges (sur le pdf mais on le fait pas?)
 -Menus 
   -créneaux limités
   -personnes max
+-Orders
+  -Cook bouton pour pending > préparation > ready
+  -vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
+  -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs)
+-Profil
+  -"view all orders" et "view my rewards"
+-Payement/Profil
+  -Implémenter points fidélité
+-Rating
+  -Message qui dit merci de nous avoir noté si dernière commande déjà notée
+
 
 -----------------------------------------Cahier des charges----------------------------------------
-
--Réductions/Coupons/fidélité
--Delivery/Orders
-  -Ajouter commande sur place
 
 ---------------------------------------------------------------------------------------------------
 
