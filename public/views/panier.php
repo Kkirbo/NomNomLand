@@ -26,7 +26,8 @@ if (isset($_POST['dish_id'])) {
         "id" => $_POST['dish_id'],
         "user" => $username,
         "quantity" => 1,
-        "timestamp" => date('Y-m-d H:i:s')
+        "timestamp" => date('Y-m-d H:i:s'),
+        "status" => "commanded"
     ];
     $cartData['soloItems'][] = $item;
 }
@@ -54,7 +55,8 @@ if (isset($_POST['menu_id'])) {
         "drinks" => $drinks,
         "user" => $username,
         "quantity" => 1,
-        "timestamp" => date('Y-m-d H:i:s')
+        "timestamp" => date('Y-m-d H:i:s'),
+        "status" => "commanded"
     ];
     $cartData['items'][] = $item;
 }
