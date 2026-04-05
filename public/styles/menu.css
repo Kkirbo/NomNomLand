@@ -228,9 +228,11 @@ a.link:visited {
 
 #menuheader,#sousmenuheader{
     margin: auto;
-    margin-bottom: 2%;
-
 }
+#menuheader {
+    margin: 4rem auto 1rem auto;
+}
+
 button{
     margin:auto;
 }
@@ -275,7 +277,7 @@ ul li:last-child {
   margin: auto;
   gap: 5px;
   padding: 20px;
-  width: 220px;
+  width: 15rem;
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
@@ -331,6 +333,13 @@ ul li:last-child {
 .menu-card h3:hover {
   color: var(--neon);
   text-shadow: 0 0 5px var(--neon);
+}
+.menu-card img {
+  border-radius: 3rem;
+  object-fit: cover;
+  display: block;
+  width: 90%;
+  height: 10rem;
 }
 .menu-card:last-child{
     margin-bottom: 15px;

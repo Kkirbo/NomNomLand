@@ -192,6 +192,7 @@ input[type="number"]::placeholder {
   color: var(--secondary-cold-shadow);
 }
 
+/*--Select--*/
 select {
   background: var(--primary);
   color: var(--secondary-highlight);
@@ -218,6 +219,13 @@ select:focus {
   outline: 0.2rem solid var(--secondary-bright);
 }
 
+span.pastel-orange {
+  color: var(--pastel-orange);
+}
+span.pastel-red {
+  color: var(--pastel-red);
+}
+
 /*--Nav bar for multiple pages--*/
 nav.pageNav {
     margin-top: 1rem;
@@ -225,10 +233,8 @@ nav.pageNav {
     gap: 0.5rem;
     justify-content: center;
 }
-
 nav.pageNav a {
   text-decoration: none;
-  
   background: var(--primary);
   color: var(--secondary);
   border: 0.2rem solid var(--secondary);
@@ -247,6 +253,37 @@ nav.pageNav a.current {
   color: var(--primary);
   background: var(--secondary);
   border: 0.2rem solid var(--secondary);
+}
+
+/*--Details--*/
+details {
+  border-radius: 1rem;
+  background: var(--primary);
+  border: 0.2rem solid var(--secondary);
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+details summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+  position: relative;
+}
+details summary::after {
+  content: "+";
+  position: absolute;
+  top: -25%;
+  right: 0;
+  font-size: 1.5rem;
+  font-weight: 100;
+  transition: all 0.2s ease;
+}
+details[open] summary::after {
+  transform: rotate(45deg) translateX(-0.1rem);
+}
+details p {
+  margin-left: 1rem;
+  text-align: left;
 }
 
 /*--Animate--*/
@@ -597,6 +634,12 @@ section.carousel article ul button {
 }
 
 form.searchbar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+}
+form.searchbar div {
   padding: 10px;
   width: clamp(300px, 50%, 800px);
   height: auto;
@@ -608,11 +651,11 @@ form.searchbar {
   margin: 1rem auto;
   transition: all 0.5s;
 }
-form.searchbar span {
+form.searchbar div span {
   width: 10%;
   color: var(--secondary);
 }
-form.searchbar input[type="text"] {
+form.searchbar div input[type="text"] {
   caret-color: var(--secondary-bright);
   padding: 10px 0 10px 0;
   width: 90%;
@@ -624,8 +667,11 @@ form.searchbar input[type="text"] {
   border: none;
   border-radius: 0;
 }
-form.searchbar input[type="text"]::placeholder {
+form.searchbar div input[type="text"]::placeholder {
   color: var(--secondary-cold-shadow);
+}
+form.searchbar details {
+  width: 50%;
 }
 
 section.menus {
@@ -715,32 +761,7 @@ section.infos article p:last-of-type {
 section.infos details {
   width: 100%;
   border: 0.2rem solid var(--secondary-shadow);
-  border-radius: 1rem;
-  padding: 1rem;
-  font-size: 1.1rem;
   background: var(--primary-04);
-}
-section.infos details summary {
-  cursor: pointer;
-  font-weight: 700;
-  list-style: none;
-  position: relative;
-}
-section.infos details summary::after {
-  content: "+";
-  position: absolute;
-  top: -25%;
-  right: 0;
-  font-size: 1.5rem;
-  font-weight: 100;
-  transition: all 0.2s ease;
-}
-section.infos details[open] summary::after {
-  transform: rotate(45deg) translateX(-0.1rem);
-}
-section.infos details p {
-  margin-left: 1rem;
-  text-align: left;
 }
 
 footer {

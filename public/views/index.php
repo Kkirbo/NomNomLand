@@ -28,10 +28,7 @@
           <article class="modernNeonBoxGlass"></article>
       </section>
 
-      <form action="menu.php" method="get" class="searchbar"autocomplete=off>
-        <span>$ls</span>
-        <input type="text" name="search" placeholder="Search for your favorite meal...">
-      </form>
+      <?php include 'searchbar.php'; ?>
 
       <section class="menus">
         <?php include '../../private/php/generate-menu-list.php'; ?>

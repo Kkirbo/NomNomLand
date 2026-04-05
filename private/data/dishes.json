@@ -6,20 +6,19 @@
       "image": "../assets/images/meals/RTX.png",
       "carousel": 1,
       "version": "Version 1.0",
+      "price": 3739,
+      "allergens": [],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "NVIDIA RTX 5090 GPU",
           "Ray Tracing & AI cores",
           "16GB GDDR7 VRAM"
         ],
-        "Specifications": [
+        "specifications": [
           "Clock: 3.2 GHz boost",
           "Cooling: Liquid",
           "Power draw: 450W",
           "Target: 4K Ultra Gaming"
-        ],
-        "Price": [
-          "3739 €"
         ]
       },
       "comment": "Overclocked for extreme gamers"
@@ -30,21 +29,20 @@
       "image": "../assets/images/meals/Salade.jpeg",
       "carousel": 2,
       "version": "Nature Stable Version 1.0 — 100% Offline",
+      "price": 12,
+      "allergens": ["nuts"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Arugula, baby greens",
           "Avocado, cucumber, tomatoes",
           "Quinoa, seeds, nuts",
           "Lemon & olive oil"
         ],
-        "Specifications": [
+        "specifications": [
           "Execution: Fresh",
           "Build: 7 min",
           "Battery life: +4h",
           "Compatible: Vegan / Gluten-free"
-        ],
-        "Price": [
-          "12 €"
         ]
       },
       "comment": "No network required. Natural recharge guaranteed."
@@ -55,24 +53,19 @@
       "image": "../assets/images/meals/Calzone-Container.webp",
       "carousel": 3,
       "version": "Dockerized Version 2.3 - Hot Deploy Edition",
+      "price": 15,
+      "allergens": ["gluten", "milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Double-layer dough",
           "Tomato sauce",
           "Mozzarella",
           "Ham, mushrooms, peppers"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 12 min",
           "Format: Solo / Duo",
           "High fault tolerance"
-        ],
-        "Security": [
-          "Thermal isolation",
-          "Anti-cheese crash"
-        ],
-        "Price": [
-          "15 €"
         ]
       },
       "comment": "Autonomous container"
@@ -83,21 +76,20 @@
       "image": "../assets/images/meals/lasagna.jpg",
       "carousel": 0,
       "version": "Beta Version 1.0",
+      "price": 18,
+      "allergens": ["gluten", "milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Pasta",
           "Beef ragù",
           "Béchamel",
           "Cheese"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 25 min",
           "Serving: Family size",
           "Layers: 5+",
           "Stability: High cohesion"
-        ],
-        "Price": [
-          "18 €"
         ]
       },
       "comment": "Zero cloud dependency"
@@ -108,21 +100,20 @@
       "image": "../assets/images/meals/Margherita Pizza.jpg",
       "carousel": 0,
       "version": "Passive Version 1.4",
+      "price": 10,
+      "allergens": ["gluten", "milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Thin crust",
           "Tomato sauce",
           "Mozzarella",
           "Basil"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 10 min",
           "Complexity: Low",
           "Popularity: High",
           "Mode: Idle"
-        ],
-        "Price": [
-          "10 €"
         ]
       },
       "comment": "Production stable"
@@ -133,20 +124,19 @@
       "image": "../assets/images/meals/Penne.jpg",
       "carousel": 0,
       "version": "Version 3.2",
+      "price": 14,
+      "allergens": ["gluten", "milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Penne",
           "Bolognese sauce",
           "Parmesan"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 15 min",
           "API latency: Low",
           "Portions: 1-2",
           "Compatibility: Universal"
-        ],
-        "Price": [
-          "14 €"
         ]
       },
       "comment": "Open taste API"
@@ -157,19 +147,18 @@
       "image": "../assets/images/meals/ravioli.webp",
       "carousel": 0,
       "version": "Version 1.1",
+      "price": 13,
+      "allergens": ["gluten", "milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Pasta",
           "Ricotta & spinach"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 8 min",
           "State: Filled / Empty",
           "License: Open-source",
           "Efficiency: High density"
-        ],
-        "Price": [
-          "13 €"
         ]
       },
       "comment": "Stuffed code"
@@ -180,20 +169,19 @@
       "image": "../assets/images/meals/Carbonara.jpg",
       "carousel": 0,
       "version": "Version 2.0",
+      "price": 16,
+      "allergens": ["gluten", "milk", "eggs"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Spaghetti",
           "Egg & parmesan",
           "Bacon bits"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 12 min",
           "Async handling: Enabled",
           "Error rate: Low",
           "Threads: Single pan"
-        ],
-        "Price": [
-          "16 €"
         ]
       },
       "comment": "No deadlock detected"
@@ -204,19 +192,18 @@
       "image": "../assets/images/meals/spaghetti.jpg",
       "carousel": 0,
       "version": "Legacy Version 0.9",
+      "price": 11,
+      "allergens": ["gluten"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Entangled noodles",
           "Unknown sauce"
         ],
-        "Specifications": [
+        "specifications": [
           "Maintainability: Very low",
           "Refactor cost: High",
           "Readability: Poor",
           "Execution: Unpredictable"
-        ],
-        "Price": [
-          "11 €"
         ]
       },
       "comment": "Refactoring recommended"
@@ -227,21 +214,20 @@
       "image": "../assets/images/meals/Bruschetta.jpg",
       "carousel": 0,
       "version": "Version 1.0",
+      "price": 8,
+      "allergens": ["gluten"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Grilled bread",
           "Tomatoes",
           "Garlic",
           "Olive oil"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 5 min",
           "Bits: Crunchy/Soft",
           "Serving: Starter",
           "Throughput: Fast"
-        ],
-        "Price": [
-          "8 €"
         ]
       },
       "comment": "Local flavor guaranteed"
@@ -252,20 +238,19 @@
       "image": "../assets/images/meals/garlic_bread.jpg",
       "carousel": 0,
       "version": "Version 2.1",
+      "price": 7,
+      "allergens": ["gluten", "milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Baguette",
           "Garlic butter",
           "Parsley"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooking: 6 min",
           "Garlic intensity: High",
           "Response time: Instant",
           "Side dish: Yes"
-        ],
-        "Price": [
-          "7 €"
         ]
       },
       "comment": "No garlic bugs"
@@ -276,20 +261,19 @@
       "image": "../assets/images/meals/smoothie.jpg",
       "carousel": 0,
       "version": "Version 1.2",
+      "price": 9,
+      "allergens": [],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Blended fruits",
           "Juice",
           "Ice cubes"
         ],
-        "Specifications": [
+        "specifications": [
           "Build: 3 min",
           "Refresh rate: High",
           "Temperature: Cold",
           "Energy boost: Medium"
-        ],
-        "Price": [
-          "9 €"
         ]
       },
       "comment": "Refreshing endpoint"
@@ -300,20 +284,19 @@
       "image": "../assets/images/meals/tiramisu.jpg",
       "carousel": 0,
       "version": "Version 1.0",
+      "price": 10,
+      "allergens": ["gluten", "milk", "eggs"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Coffee biscuits",
           "Mascarpone",
           "Cocoa"
         ],
-        "Specifications": [
+        "specifications": [
           "Cooling: 2h",
           "Layers: Multiple",
           "Sweetness: Balanced",
           "Execution: Deferred"
-        ],
-        "Price": [
-          "10 €"
         ]
       },
       "comment": "Smooth deployment"
@@ -324,20 +307,19 @@
       "image": "../assets/images/meals/gelato.jpg",
       "carousel": 0,
       "version": "Version 2.2",
+      "price": 11,
+      "allergens": ["milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Cream",
           "Fruits",
           "Chocolate"
         ],
-        "Specifications": [
+        "specifications": [
           "Serving temp: -10°C",
           "Latency: Zero",
           "Flavors: Scalable",
           "Concurrency: Multi-scoop"
-        ],
-        "Price": [
-          "11 €"
         ]
       },
       "comment": "Zero latency"
@@ -348,19 +330,18 @@
       "image": "../assets/images/meals/cat-latte.jpg",
       "carousel": 0,
       "version": "Version 3.0",
+      "price": 5,
+      "allergens": ["milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Milk",
           "Espresso"
         ],
-        "Specifications": [
+        "specifications": [
           "Caffeine: Medium",
           "Foam level: High",
           "Debug mode: ON",
           "Warmth: Stable"
-        ],
-        "Price": [
-          "5 €"
         ]
       },
       "comment": "Caffeinated debug"
@@ -371,20 +352,19 @@
       "image": "../assets/images/meals/tea.jpg",
       "carousel": 0,
       "version": "Version 2.5",
+      "price": 4,
+      "allergens": [],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Green tea",
           "Infusion",
           "Honey & lemon"
         ],
-        "Specifications": [
+        "specifications": [
           "Infusion time: 3 min",
           "Temperature: 80°C",
           "Health boost: High",
           "Deployment: Smooth"
-        ],
-        "Price": [
-          "4 €"
         ]
       },
       "comment": "Natural deployment"
@@ -395,19 +375,18 @@
       "image": "../assets/images/meals/Espresso.jpg",
       "carousel": 0,
       "version": "Version 1.9",
+      "price": 6,
+      "allergens": ["milk"],
       "sections": {
-        "Architecture": [
+        "architecture": [
           "Espresso",
           "Micro foam"
         ],
-        "Specifications": [
+        "specifications": [
           "Caffeine: Very high",
           "Execution time: Instant",
           "Crash risk: Elevated",
           "Recovery: Required"
-        ],
-        "Price": [
-          "6 €"
         ]
       },
       "comment": "Restart required"

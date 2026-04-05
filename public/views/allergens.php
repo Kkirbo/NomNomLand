@@ -35,7 +35,7 @@
           The following allergens are identified in accordance with EU Regulation No. 1169/2011:
         </p>
         <ul>
-          <li>Gluten (wheat)</li>
+          <li>Gluten</li>
           <li>Milk</li>
           <li>Eggs</li>
           <li>Soy</li>

@@ -79,6 +79,16 @@
             "user": "tomjedusor@email.com",
             "quantity": 1,
             "timestamp": "2026-04-05 15:23:34"
+        },
+        {
+            "type": "menu",
+            "id": "menu2",
+            "dishes": "lasagna",
+            "desserts": null,
+            "drinks": "latte",
+            "user": "tomjedusor@email.com",
+            "quantity": 1,
+            "timestamp": "2026-04-05 16:03:14"
         }
     ]
 }
