@@ -11,6 +11,11 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = "Invalid email format.";
     return;
 }
+$phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+if (!preg_match('/^\+?[0-9]{10,15}$/', $phone)) {
+    $error = "Invalid phone number format.";
+    return;
+}
 $password = $_POST['password'] ?? '';
 if (strlen($password) < 8) {
     $error = "Password must be at least 8 characters long.";
@@ -31,6 +36,7 @@ $username = $firstName . '.' . $lastName;
 $user = [
     "id" => uniqid(),
     "email" => $email,
+    "phone" => $phone,
     "password" => password_hash($password, PASSWORD_DEFAULT),
     "role" => "client",
     "status" => "Free",
