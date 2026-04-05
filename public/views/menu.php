@@ -36,6 +36,11 @@ $categories = [
 <?php include __DIR__ . '/header.html'; ?>
 <?php include __DIR__ . '/sidebar.php'; ?>
 
+<?php 
+    include 'searchbar.php'; 
+    include '../../private/php/searchbar.php';
+?>
+
 <h1 id="menuheader">Restaurant Menu</h1>
 <div class="menu-left">
 
@@ -91,7 +96,9 @@ foreach ($menusData["menus"] ?? [] as $menu) {
             echo '<select name="' . $key . '" required>';
 
             foreach ($menu[$key] as $dishId) {
-                $title = $dishesById[$dishId]["title"] ?? "Unknown";
+                $dish = $dishesById[$dishId] ?? null;
+                $title = $dish["title"] ?? "Unknown";
+                if (!empty(allergensContained($dishesById[$dishId], $allergensFilter))) $title = '⚠ '. $title;
                 echo '<option value="' . $dishId . '">' . $title . '</option>';
             }
 
@@ -135,6 +142,11 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
         }
         echo '</ul></div>';
     }
+    echo '<div class="dish-section">';
+    echo '<h3>Price</h3>';
+    echo '<ul>';
+    echo '<li>' . $dish["price"] . '€</li>';
+    echo '</ul></div>';
     echo '<div class="dish-footer"><p>' . ($dish["comment"] ?? "") . '</p></div>';
     echo '</div></div>';
 }
