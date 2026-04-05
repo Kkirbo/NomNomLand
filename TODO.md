@@ -19,6 +19,7 @@ Structure données cahier des charges (sur le pdf mais on le fait pas?)
   -Ajouter commande sur place
 -Page profil (notamment Historique des commandes)
   -Suivi d'une commande pour client (page orders ou page profil)
+  -Rating
 
 -Valeurs RGB à noter sur doc à rendre
 -Rapport de projet à jour
@@ -31,7 +32,6 @@ Structure données cahier des charges (sur le pdf mais on le fait pas?)
 
 
 Phase 3/4:
--Rating (backend)
 -Admin (backend)
 
 Phase 4:
