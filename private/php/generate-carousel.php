@@ -21,7 +21,7 @@ function generateCarousel()
                 $image = htmlspecialchars($meal['image']);
 
                 echo "
-                <article class='Meal modernNeonBoxGlass'>
+                <article class='modernNeonBoxGlass'>
                     <a href='menu.php#$id' class='imageLink'>
                         <img draggable='false' src='$image' alt='$title Image'>
                     </a>

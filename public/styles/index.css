@@ -501,7 +501,7 @@ section.carousel::scroll-button(left):hover, section.carousel::scroll-button(rig
   opacity: 0.5;
 }
 section.carousel::scroll-marker-group {
-  transform: translateY(-1.2rem);
+  transform: translateY(-1rem);
   display: flex;
   justify-content: center;
   gap: .5em;
@@ -524,8 +524,9 @@ section.carousel article::scroll-marker:target-current {
 }
 
 section.carousel article {
-  flex: 0 0 clamp(14rem, 60vw, 80rem);
-  aspect-ratio: 7 / 5;
+  flex: 0 0 clamp(18rem, 60vw, 80rem);
+  height: clamp(60vh, 60vw * 5 / 7, 75vh);
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
@@ -536,9 +537,13 @@ section.carousel article {
 
   scroll-snap-align: center;
 
-  /*animation: viewCard ease both; Animation uses features incompatible with Mozilla*/
+  /*Animation uses animation-timeline and view(x): 
+    incompatible with Firefox for android and need to be manually enabled on Firefox
+    -> replaced with javascript
+  */
+  /*animation: viewCard ease both;
   animation-timeline: view(x);
-  animation-range: entry 10% exit 90%;
+  animation-range: entry 10% exit 90%;*/
 }
 section.carousel article a.imageLink {
   width: min(30rem, 100%);
@@ -843,10 +848,13 @@ footer ul li form#newsletter input {
   header > h2 {
     font-size: 1.2rem;
   }
-  section.searchbar {
-    font-size: 1rem;
+  section.carousel article {
+    padding: 1rem;
   }
-  section.searchbar input[type="text"]{
-    font-size: 1rem;
+  form.searchbar {
+    font-size: max(1rem, 2vw);
+  }
+  form.searchbar input[type="text"]{
+    font-size: max(1rem, 2vw);
   }
 }

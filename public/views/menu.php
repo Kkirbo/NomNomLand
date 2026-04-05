@@ -74,12 +74,33 @@ foreach ($menusData["menus"] ?? [] as $menu) {
     echo '<div class="modal_content modernNeonBox">';
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $menu["title"] . '</h2>';
-    echo '<ul class="liste">';
-    foreach ($menu["dishes"] ?? [] as $dishId) {
-        $title = $dishesById[$dishId]["title"] ?? "Unknown dish";
-        echo '<li><a href="#' . $dishId . '" class="link">' . $title . '</a></li>';
+    echo '<form method="POST" action="../views/cart.php">';
+
+    echo '<input type="hidden" name="menu_id" value="' . $menu["id"] . '">';
+    $sections = [
+        "dishes" => "Main dish",
+        "desserts" => "Dessert",
+        "drinks" => "Drink"
+    ];
+    foreach ($sections as $key => $label) {
+        if (!empty($menu[$key])) {
+            echo '<div>';
+            echo '<label>' . $label . '</label>';
+            echo '<select name="' . $key . '" required>';
+
+            foreach ($menu[$key] as $dishId) {
+                $title = $dishesById[$dishId]["title"] ?? "Unknown";
+                echo '<option value="' . $dishId . '">' . $title . '</option>';
+            }
+
+            echo '</select>';
+            echo '</div>';
+        }
     }
-    echo '</ul></div></div>';
+    echo '<button type="submit">Add menu to cart</button>';
+
+    echo '</form>';
+    echo '</div></div>';
 }
 ?>
 <?php
@@ -90,9 +111,9 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<h2 class="dish-title">' . $dish["title"] . '</h2>';
     echo '<img src="' . $dish["image"] . '" class="dish-img" alt="' . $dish["title"] . '">';
 
-    echo '<form method="POST" action="../views/panier.php">';
+    echo '<form method="POST" action="../views/cart.php">';
     echo '<input type="hidden" name="dish_id" value="' . $dish["id"] . '">';
-    echo '<button type="submit" class="add-to-cart">Ajouter au panier</button>';
+    echo '<button type="submit">Add to cart</button>';
     echo '</form>';
     echo '<p class="dish-version">' . ($dish["version"] ?? "") . '</p>';
     foreach ($dish["sections"] ?? [] as $section => $items) {
