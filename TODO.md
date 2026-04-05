@@ -14,9 +14,6 @@ Structure données cahier des charges (sur le pdf mais on le fait pas?)
 
 -Delivery/Orders
   -Ajouter commande sur place
--Page profil (notamment Historique des commandes)
-  -Suivi d'une commande pour client (page orders ou page profil)
-  -Rating
 
 -Valeurs RGB à noter sur doc à rendre
 -Rapport de projet à jour
