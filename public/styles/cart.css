@@ -1,0 +1,89 @@
+.cart-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Titres */
+.cart-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.cart-section-title {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-bright);
+}
+
+/* Listes */
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    background: var(--primary-04);
+    border: 0.2rem solid var(--secondary-shadow);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--secondary);
+}
+
+.cart-item-qty {
+    font-size: 0.95rem;
+    color: var(--secondary-cold-bright);
+}
+
+.cart-item-detail {
+    font-size: 0.9rem;
+    color: var(--secondary-highlight);
+}
+
+/* Formulaire de suppression */
+.cart-item-form {
+    margin-top: 0.5rem;
+}
+
+.cart-btn-remove {
+    background: var(--primary);
+    color: var(--pastel-red);
+    border: 0.2rem solid var(--pastel-red);
+    border-radius: 3rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.cart-btn-remove:hover {
+    background: var(--pastel-red);
+    color: var(--primary);
+    box-shadow: 0 0 1rem var(--pastel-red-dark);
+}
+
+/* Messages vides */
+.cart-empty-msg {
+    color: var(--secondary-cold-shadow);
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+/* Infos null (sans boisson / dessert) */
+.cart-empty-detail {
+    font-style: italic;
+    color: var(--secondary-cold-shadow);
+}
