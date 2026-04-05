@@ -124,14 +124,3 @@ form a:hover {
 .field.buttons div button {
   margin-bottom: 1rem;
 }
-
-.error-message {
-  color: #ffffff;
-  background-color: #e74c3c;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 10px;
-  margin: 20px auto;
-  border-radius: 5px;
-  border: 1px solid #c0392b;
-}

@@ -80,7 +80,7 @@ function retype($key) {
       <a href="login.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">Already have an account? Sign in</a>
 
       <?php
-        if ($error!='') echo"<p class=error-message>" . $error . "</p>";
+        if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
       ?>
     </fieldset>
   </form>

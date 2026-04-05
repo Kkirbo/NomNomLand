@@ -7,6 +7,7 @@
   --white: #ffffff;
   --pastel-blue: #58b5e0;
   --pastel-red: #ff4d4d;
+  --pastel-red-dark: #d13743;
   --pastel-orange: #ffcc00;
 
   --background: #303030;
@@ -157,6 +158,16 @@ input[type="submit"]:hover {
   box-shadow: 0 0 10px #004C29;
   border-radius: 3rem;
   font-weight: 1;
+}
+.error-message {
+  color: var(--white);
+  background-color: var(--pastel-red);
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  border-radius: 3rem;
+  border: 0.2rem solid var(--pastel-red-dark);
 }
 
 /*--Input--*/

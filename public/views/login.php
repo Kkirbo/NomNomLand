@@ -49,7 +49,7 @@ function retype($key) {
             <a href="register.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">No account? Sign up</a>
 
             <?php
-              if ($error!='') echo"<p class=error-message>" . $error . "</p>";
+              if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
             ?>
         </fieldset>
     </form>

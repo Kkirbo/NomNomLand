@@ -41,3 +41,7 @@ table tbody tr:hover {
 .trace {
   color: var(--pastel-orange);
 }
+form#newsletter input {
+  margin: 0.3rem;
+  font-size: 1.2rem;
+}
