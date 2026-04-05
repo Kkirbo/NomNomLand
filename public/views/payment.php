@@ -10,12 +10,12 @@ $orderId = $_GET['order_id'] ?? null;
 
 require '../../private/php/payment.php';
 $order = get_user_last_order($user);
+require '../../private/php/getapikey.php';
 
 if ($order && user_last_order_unpaid($user)) {
   $transaction = substr(md5($order['id'] . time()), 0, 20);
   $amount = number_format($order['price'], 2, '.', '');
   $vendor = "MI-4_C";//Our group (MI-4_K) isn't valid
-  require '../../private/php/getapikey.php';
   $api_key = getAPIKey($vendor);
   $return = "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($order['id']);
   $control = md5(
@@ -25,11 +25,44 @@ if ($order && user_last_order_unpaid($user)) {
       $vendor . "#" .
       $return . "#"
   );
-}
 
-if ($isReturn) {
-  $message = "Payment successful";
-  $message = "Payment failed";
+  if ($isReturn && $orderId) {
+      $path = __DIR__ . "/../../private/data/orders.json";
+      if (!file_exists($path)) return;
+      $content = file_get_contents($path);
+      $orders = json_decode($content, true);
+
+      foreach ($orders as &$o) {
+          if ($o['id'] == $orderId) {
+              $status = $_GET['status'] ?? '';
+              $retMontant = $_GET['montant'] ?? '';
+              $retTransaction = $_GET['transaction'] ?? '';
+              $retVendeur = $_GET['vendeur'] ?? '';
+              $retControl = $_GET['control'] ?? '';
+
+              if (!$api_key) $api_key = getAPIKey($vendor);
+
+              $expectedControl = md5(
+                  $api_key . "#" .
+                  $retTransaction . "#" .
+                  $retMontant . "#" .
+                  $retVendeur . "#" .
+                  "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($orderId) . "#" // same retour as original
+              );
+
+              if ($status === 'accepted' && $retControl === $expectedControl) {
+                  $o['paymentStatus'] = 'paid';
+                  $message = "Payment successful";
+              } else {
+                  $o['paymentStatus'] = 'failed';
+                  $message = "Payment failed";
+              }
+
+              break;
+          }
+      }
+      file_put_contents($path, json_encode($orders, JSON_PRETTY_PRINT));
+  }
 }
 
 /*
