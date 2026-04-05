@@ -10,6 +10,7 @@ if (!$user || ($user['role'] !== 'delivery' && $user['role'] !== 'admin')) redir
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery</title>
+    <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/delivery.css">
 </head>

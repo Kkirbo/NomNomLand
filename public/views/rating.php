@@ -9,6 +9,7 @@ $user = get_user_by_session();
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Rate us</title>
+      <link rel="icon" href="../assets/icons/logo.ico">
       <link rel="stylesheet" href="../styles/index.css">
       <link rel="stylesheet" href="../styles/rating.css">
   </head>
