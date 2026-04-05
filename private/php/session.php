@@ -32,7 +32,15 @@ function get_users_by_role($role) {
     }
     return $users;
 }
-
+function get_users_by_firstname($firstname) {
+    $users = [];
+    foreach (get_users() as $user) {
+        if ($user["profile"]["firstname"] === $firstname) {
+            $users[] = $user;
+        }
+    }
+    return $users;
+}
 function get_user_by_email($email) {
     foreach (get_users() as $user) {
         if ($user["email"] === $email) {

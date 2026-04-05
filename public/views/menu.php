@@ -6,6 +6,8 @@ $dishesFile  = $dataPath . '/dishes.json';
 $menusFile   = $dataPath . '/menus.json';
 $dishesData = file_exists($dishesFile) ? json_decode(file_get_contents($dishesFile), true) : ["dishes" => []];
 $menusData  = file_exists($menusFile) ? json_decode(file_get_contents($menusFile), true) : ["menus" => []];
+$user = get_user_by_session();
+$username = $user["profile"]["firstName"] or "Guest";
 $dishesById = [];
 foreach ($dishesData["dishes"] ?? [] as $dish) {
     $dishesById[$dish["id"]] = $dish;
@@ -15,7 +17,8 @@ $categories = [
     "menuentrees"  => ["salad","bruschetta","garlic"],
     "menuplats"    => ["calzone","lasagna","margherita","penne","ravioli","carbonara","spaghetti"],
     "menudesserts" => ["tiramisu","gelato"],
-    "menudrinks"   => ["latte","espresso","the","smoothie"]
+    "menudrinks"   => ["latte","espresso","the","smoothie"],
+    "others" => ["RTX"]
 ];
 ?>
 
@@ -67,14 +70,13 @@ foreach ($categories as $catId => $list) {
 ?>
 </div>
 </div>
-<a href="panier.php" class="return0">End of the menu: return 0;</a>
 <?php
 foreach ($menusData["menus"] ?? [] as $menu) {
     echo '<div id="' . $menu["id"] . '" class="modal">';
     echo '<div class="modal_content modernNeonBox">';
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $menu["title"] . '</h2>';
-    echo '<form method="POST" action="../views/cart.php">';
+    echo '<form method="POST" action="../views/panier.php">';
 
     echo '<input type="hidden" name="menu_id" value="' . $menu["id"] . '">';
     $sections = [
@@ -119,8 +121,7 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $dish["title"] . '</h2>';
     echo '<img src="' . $dish["image"] . '" class="dish-img" alt="' . $dish["title"] . '">';
-
-    echo '<form method="POST" action="../views/cart.php">';
+    echo '<form method="POST" action="../views/panier.php">';
     echo '<input type="hidden" name="dish_id" value="' . $dish["id"] . '">';
     echo '<button type="submit">Add to cart</button>';
     echo '</form>';
@@ -151,9 +152,8 @@ foreach ($categories as $cat => $list) {
     }
 echo '</ul></div></div>';
     }
-
-
 ?>
+<?php echo'<a href="cart.php" class="return0">Return 0: Check your cart '. $username . '</a>';?>
 <?php include __DIR__ . '/footer.html'; ?>
 </body>
 </html>
