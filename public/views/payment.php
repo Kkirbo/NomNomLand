@@ -47,7 +47,7 @@ if ($order && user_last_order_unpaid($user)) {
                   $retTransaction . "#" .
                   $retMontant . "#" .
                   $retVendeur . "#" .
-                  "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($orderId) . "#" // same retour as original
+                  "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($orderId) . "#"
               );
 
               if ($status === 'accepted' && $retControl === $expectedControl) {
