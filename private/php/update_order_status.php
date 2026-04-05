@@ -5,7 +5,7 @@ require_once "./data_loader.php";
 
 $orders = getOrders();
 
-$orderId = $_POST['order_id'];
+$orderId = $_POST['orderId'];
 $newStatus = $_POST['status'];
 $deliveryPersonId = $_POST['delivery_person_id'] ?? null;
 
@@ -13,6 +13,7 @@ $deliveryPersonId = $_POST['delivery_person_id'] ?? null;
 foreach($orders as &$order){
 
     if ($order["id"] == $orderId) {
+        
         $order["delivery"]["status"] = $newStatus;
 
         if ($newStatus == "delivery" && $deliveryPersonId != null) {
