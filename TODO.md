@@ -7,13 +7,10 @@ Structure données cahier des charges (sur le pdf mais on le fait pas?)
 
 -----------------------------------------Cahier des charges----------------------------------------
 
--Recherche plats/menus
--Allergènes (page et recherche en fonction)
+-CY Bank
 
 -Panier
--CY Bank
 -Réductions/Coupons/fidélité
--Les commandes ne sont pas instantanémment préparées lorsqu'elles sont payées.
 
 -Delivery/Orders
   -Ajouter commande sur place

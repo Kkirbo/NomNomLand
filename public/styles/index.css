@@ -335,7 +335,7 @@ header {
   border: 0.2rem solid var(--secondary-shadow);
   box-shadow: 0 0 10px #004C29;
   border-radius: 15px;
-  width: clamp(300px, 50%, 1000px);
+  width: clamp(19rem, 50%, 50rem);
   font-weight: 1;
   padding: 15px;
   margin: 10px auto;
@@ -634,14 +634,15 @@ section.carousel article ul button {
 }
 
 form.searchbar {
+  margin: 2rem auto;
+  width: clamp(19rem, 50%, 50rem);
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 2rem;
 }
 form.searchbar div {
+  width: 100%;
   padding: 10px;
-  width: clamp(300px, 50%, 800px);
   height: auto;
   font-size: 1.5rem;
   color: var(--secondary);
@@ -671,7 +672,7 @@ form.searchbar div input[type="text"]::placeholder {
   color: var(--secondary-cold-shadow);
 }
 form.searchbar details {
-  width: 50%;
+  width: 100%;
 }
 
 section.menus {
@@ -874,10 +875,10 @@ footer ul li form#newsletter input {
   section.carousel article {
     padding: 1rem;
   }
-  form.searchbar {
+  form.searchbar div {
     font-size: max(1rem, 2vw);
   }
-  form.searchbar input[type="text"]{
+  form.searchbar div input[type="text"]{
     font-size: max(1rem, 2vw);
   }
 }
