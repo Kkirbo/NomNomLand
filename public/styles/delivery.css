@@ -84,6 +84,12 @@ section input[type="submit"] {
   padding: 1rem;
 }
 
+section button[type="submit"] {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
 .close {
   position: fixed;
   bottom: 2.5vh;
