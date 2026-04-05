@@ -2,6 +2,8 @@
 require '../../private/php/session.php';
 require_login();
 $user = get_user_by_session();
+
+$email = $user["email"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +21,9 @@ $user = get_user_by_session();
 
     <?php include 'sidebar.php'; ?>
 
-    <form method="post" name="rating" action="https://formtester.goodbytes.be/post.php">
+    <form method="post" name="rating" action="../../private/php/update_rating.php">
+
+
 
         <div class="question">
             <span class="question-title">Ponctualité de la livraison</span>
