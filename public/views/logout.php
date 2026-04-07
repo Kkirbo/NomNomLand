@@ -1,6 +1,6 @@
 <?php
   require '../../private/php/session.php';
-
+  require_login();
   logout();
 ?>
 <!DOCTYPE html>
