@@ -35,6 +35,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
         <?php if (!in_array($order["delivery"]["status"], array("success", "failed"))): ?>
 
         <?php
+        $isPending = $order["delivery"]["status"] == "pending";
         $isReady = $order["delivery"]["status"] == "ready";
         $isPreparing = $order["delivery"]["status"] == "preparing";
         $isdelivery = $order["delivery"]["status"] == "delivery";
@@ -78,6 +79,14 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                     <p><strong>Delivery person:</strong>
                         <?= getDeliveryName($order["delivery"]["delivery_person_id"] ?? null, ) ?>
                     </p>
+
+                    <?php if ($isPending): ?>
+                        <form action="../../private/php/update_order_status.php" method="POST">
+                            <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
+                            <input type="hidden" name="status" value="ready">
+                            <button type="submit">Put command as ready</button>
+                        </form>
+                    <?php endif ?>
                     
                     <?php if ($isReady): ?>
                         <form action="../../private/php/update_order_status.php" method="POST">
