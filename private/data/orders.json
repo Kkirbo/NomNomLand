@@ -12,9 +12,9 @@
             "Option"
         ],
         "delivery": {
-            "status": "delivery",
+            "status": "preparing",
             "address": "1 rue C.D.G Paris",
-            "delivery_person_id": "69d15476ac40e"
+            "delivery_person_id": "69d154ddcc706"
         },
         "price": 17.1,
         "paymentStatus": "failed",
@@ -74,7 +74,7 @@
             "Option"
         ],
         "delivery": {
-            "status": "delivery",
+            "status": "success",
             "address": "1 rue C.D.G Paris",
             "delivery_person_id": "69d15476ac40e"
         },
@@ -95,7 +95,7 @@
             "Option"
         ],
         "delivery": {
-            "status": "delivery",
+            "status": "success",
             "address": "1 rue C.D.G Paris",
             "delivery_person_id": "69d15476ac40e"
         },
@@ -189,66 +189,5 @@
         "price": 39.98,
         "paymentStatus": "pending",
         "date": "2026-04-05 17:44"
-    },
-    {
-        "id": "69d2e182b0c44",
-        "email": "tomjedusor@email.com",
-        "phone": "0895643221",
-        "content": [
-            "SegFault Rushed Menu"
-        ],
-        "options": [],
-        "delivery": {
-            "status": "pending",
-            "address": "",
-            "delivery_person_id": ""
-        },
-        "price": 19.99,
-        "paymentStatus": "success",
-        "date": "2026-04-05 22:38"
-    },
-    {
-        "id": "69d2e53f7fa13",
-        "email": "tomjedusor@email.com",
-        "phone": "0895643221",
-        "content": [
-            "Smoothie API",
-            "Gelato Node.js",
-            "Aymane Menu"
-        ],
-        "options": [],
-        "delivery": {
-            "status": "pending",
-            "address": "",
-            "delivery_person_id": ""
-        },
-        "price": 3999.99,
-        "paymentStatus": "success",
-        "date": "2026-04-06 00:42"
-    },
-    {
-        "id": "69d2e9f9b5989",
-        "email": "tomjedusor@email.com",
-        "phone": "0895643221",
-        "content": [
-            "Penne.js Bolognese",
-            "Sweet BlueStacks"
-        ],
-        "options": [],
-        "delivery": {
-            "status": "success",
-            "address": "shangai",
-            "delivery_person_id": "69d25dd654bc1"
-        },
-        "price": 18.99,
-        "paymentStatus": "success",
-        "date": "2026-04-06 01:02",
-        "rating": {
-            "q1": 2,
-            "q2": 4,
-            "q3": 4,
-            "q4": 3,
-            "q5": 3
-        }
     }
 ]
