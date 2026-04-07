@@ -17,7 +17,12 @@
                 "gender": "male"
             },
             "createdAt": "2026-04-04 18:10:50",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69d15476ac40e",
@@ -36,7 +41,12 @@
                 "gender": "female"
             },
             "createdAt": "2026-04-04 18:12:07",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69d154ddcc706",
@@ -55,7 +65,12 @@
                 "gender": "male"
             },
             "createdAt": "2026-04-04 18:13:50",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69d155185e2a5",
@@ -74,7 +89,12 @@
                 "gender": "male"
             },
             "createdAt": "2026-04-04 18:14:48",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69d1556b00742",
@@ -93,7 +113,12 @@
                 "gender": "female"
             },
             "createdAt": "2026-04-04 18:16:11",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69d155a80d1ec",
@@ -112,7 +137,12 @@
                 "gender": "male"
             },
             "createdAt": "2026-04-04 18:17:12",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69d25dd654bc1",
@@ -132,7 +162,12 @@
                 "gender": "other"
             },
             "createdAt": "2026-04-05 13:04:22",
-            "lastLogin": null
+            "lastLogin": null,
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": false,
+                "functionalCookies": true
+            }
         }
     ]
 }
