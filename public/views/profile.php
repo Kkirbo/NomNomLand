@@ -1,4 +1,4 @@
-<?php 
+<?php
 require '../../private/php/session.php';
 require '../../private/php/data_loader.php';
 require '../../private/php/generate-nav.php';
@@ -14,9 +14,8 @@ $address = $user["profile"]["address"];
 $fidelityPoints = $user["fidelity"];
 $ordersHistory = getOrdersByEmail($email);
 
-$essentialCookiesChecked = $user['cookies']['essentialCookies'] ?? null;
-$analyticsCookiesChecked = $user['cookies']['analyticsCookies'] ?? null;
-$functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
+$analyticsCookiesChecked = $user['cookies']['analyticsCookies'] ?? false;
+$functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 
 ?>
 <!DOCTYPE html>
@@ -90,11 +89,9 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
         <span><?= $order['price'] ?> $</span>
         <span class="status <?= $order['delivery']['status'] ?>"><?= $order['delivery']['status'] ?></span>
       </div>
-    
+
 
     <?php endforeach ?>
-
-    <button class="link-button">View All Orders</button>
   </section>
 
   <section class="card modernNeonBox">
@@ -106,8 +103,6 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
     <div class="progress-bar">
       <div class="progress" style="width: <?php echo ($fidelityPoints / 150) * 100; ?>%;"></div>
     </div>
-
-    <button class="link-button">View My Rewards</button>
   </section>
 
   <section class="card modernNeonBox">
@@ -116,7 +111,6 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
     <p>You can manage your cookie preferences below.</p>
 
     <form class="cookie-settings" action="../../private/php/update_user_cookies.php" method="post">
-      <input type="hidden" name="userId" value="<?= $user['id'] ?>">
       <label>
         <input
           type="checkbox"
@@ -128,8 +122,8 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
       </label>
 
       <label>
-        <input 
-        type="checkbox" 
+        <input
+        type="checkbox"
         name="analyticsCookies"
         <?php if ($analyticsCookiesChecked) echo 'checked'; ?>
       >
@@ -137,9 +131,9 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? null;
       </label>
 
       <label>
-        <input 
-        type="checkbox" 
-        name="functionalCookies" 
+        <input
+        type="checkbox"
+        name="functionalCookies"
         <?php if ($functionalCookiesChecked) echo 'checked'; ?>
       >
         Functional Cookies
