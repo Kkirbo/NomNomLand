@@ -8,6 +8,7 @@
       "version": "Version 1.0",
       "price": 3739,
       "allergens": [],
+      "trace": ["nuts"],
       "sections": {
         "architecture": [
           "NVIDIA RTX 5090 GPU",
@@ -31,6 +32,7 @@
       "version": "Nature Stable Version 1.0 — 100% Offline",
       "price": 12,
       "allergens": ["nuts"],
+      "trace": ["nuts"],
       "sections": {
         "architecture": [
           "Arugula, baby greens",
@@ -55,6 +57,7 @@
       "version": "Dockerized Version 2.3 - Hot Deploy Edition",
       "price": 15,
       "allergens": ["gluten", "milk"],
+      "trace": ["gluten", "milk"],
       "sections": {
         "architecture": [
           "Double-layer dough",
@@ -78,6 +81,7 @@
       "version": "Beta Version 1.0",
       "price": 18,
       "allergens": ["gluten", "milk"],
+      "trace": ["gluten", "milk"],
       "sections": {
         "architecture": [
           "Pasta",
@@ -102,6 +106,7 @@
       "version": "Passive Version 1.4",
       "price": 10,
       "allergens": ["gluten", "milk"],
+      "trace": ["gluten", "milk"],
       "sections": {
         "architecture": [
           "Thin crust",
@@ -126,6 +131,7 @@
       "version": "Version 3.2",
       "price": 14,
       "allergens": ["gluten", "milk"],
+      "trace": ["gluten", "milk"],
       "sections": {
         "architecture": [
           "Penne",
@@ -149,6 +155,7 @@
       "version": "Version 1.1",
       "price": 13,
       "allergens": ["gluten", "milk"],
+      "trace": ["gluten", "milk"],
       "sections": {
         "architecture": [
           "Pasta",
@@ -171,6 +178,7 @@
       "version": "Version 2.0",
       "price": 16,
       "allergens": ["gluten", "milk", "eggs"],
+      "trace": ["gluten", "milk", "eggs"],
       "sections": {
         "architecture": [
           "Spaghetti",
@@ -194,6 +202,7 @@
       "version": "Legacy Version 0.9",
       "price": 11,
       "allergens": ["gluten"],
+      "trace": ["gluten"],
       "sections": {
         "architecture": [
           "Entangled noodles",
@@ -216,6 +225,7 @@
       "version": "Version 1.0",
       "price": 8,
       "allergens": ["gluten"],
+      "trace": ["gluten", "sesame"],
       "sections": {
         "architecture": [
           "Grilled bread",
@@ -240,6 +250,7 @@
       "version": "Version 2.1",
       "price": 7,
       "allergens": ["gluten", "milk"],
+      "trace": ["gluten", "milk"],
       "sections": {
         "architecture": [
           "Baguette",
@@ -263,6 +274,7 @@
       "version": "Version 1.2",
       "price": 9,
       "allergens": [],
+      "trace": [],
       "sections": {
         "architecture": [
           "Blended fruits",
@@ -286,6 +298,7 @@
       "version": "Version 1.0",
       "price": 10,
       "allergens": ["gluten", "milk", "eggs"],
+      "trace": ["gluten", "milk", "eggs"],
       "sections": {
         "architecture": [
           "Coffee biscuits",
@@ -309,6 +322,7 @@
       "version": "Version 2.2",
       "price": 11,
       "allergens": ["milk"],
+      "trace": ["milk", "sulphites", "eggs"],
       "sections": {
         "architecture": [
           "Cream",
@@ -332,6 +346,7 @@
       "version": "Version 3.0",
       "price": 5,
       "allergens": ["milk"],
+      "trace": ["milk"],
       "sections": {
         "architecture": [
           "Milk",
@@ -354,6 +369,7 @@
       "version": "Version 2.5",
       "price": 4,
       "allergens": [],
+      "trace": [],
       "sections": {
         "architecture": [
           "Green tea",
@@ -377,6 +393,7 @@
       "version": "Version 1.9",
       "price": 6,
       "allergens": ["milk"],
+      "trace": ["milk"],
       "sections": {
         "architecture": [
           "Espresso",
