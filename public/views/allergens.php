@@ -1,4 +1,34 @@
-<?php require '../../private/php/session.php';?>
+<?php
+require '../../private/php/session.php';
+
+$path = __DIR__ . "/../../private/data/dishes.json";
+if (file_exists($path)) {
+    $content = file_get_contents($path);
+    $data = json_decode($content, true);
+
+    if (!isset($data['dishes']) || !is_array($data['dishes'])) {
+        $data['dishes'] = [];
+    }
+} else {
+    $data = ["dishes" => []];
+}
+
+$dishes = $data['dishes'] ?? [];
+
+$allergenMap = [
+  "gluten" => "Gluten (wheat)",
+  "milk" => "Milk",
+  "eggs" => "Eggs",
+  "soy" => "Soy",
+  "nuts" => "Tree nuts",
+  "fish" => "Fish",
+  "crustaceans" => "Crustaceans",
+  "celery" => "Celery",
+  "mustard" => "Mustard",
+  "sesame" => "Sesame",
+  "sulphites" => "Sulphites"
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +97,35 @@
               </tr>
             </thead>
             <tbody>
+<?php foreach ($dishes as $dish): ?>
+
+  <?php
+    if (!isset($dish['allergens'])) continue;
+
+    $dishAllergens = array_map('strtolower', $dish['allergens'] ?? []);
+    $dishTrace = array_map('strtolower', $dish['trace'] ?? []);
+  ?>
+
+  <tr>
+    <td><?= htmlspecialchars($dish['title']) ?></td>
+
+    <?php foreach ($allergenMap as $key => $label): ?>
+      <td>
+        <?php if (in_array($key, $dishAllergens)): ?>
+          <span class="contains">◉</span>
+        <?php elseif (in_array($key, $dishTrace)): ?>
+          <span class="trace">◐</span>
+        <?php else: ?>
+          <span class="none">—</span>
+        <?php endif; ?>
+      </td>
+    <?php endforeach; ?>
+
+  </tr>
+
+<?php endforeach; ?>
+</tbody>
+            <!--<tbody>
               <tr>
                 <td>Salade sans 5G</td>
                 <td></td>
@@ -179,7 +238,7 @@
                 <td></td>
                 <td></td>
               </tr>
-            </tbody>
+            </tbody>-->
           </table>
         </div>
 
