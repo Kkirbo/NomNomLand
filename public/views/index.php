@@ -11,9 +11,8 @@
     <script defer src="../scripts/index.js"></script>
 </head>
 <body>
-    <!-- Background animation not yet implemented
-    <canvas class="background"></canvas>
-    -->
+    <?php include 'background.html'; ?>
+
     <?php include 'header.html'; ?>
 
     <?php include 'sidebar.php'; ?>
