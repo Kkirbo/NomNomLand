@@ -14,6 +14,7 @@ function retype($key) {
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
+    <script defer src="../scripts/password.js"></script>
 </head>
 <body>
 
@@ -32,6 +33,7 @@ function retype($key) {
             <div class="field">
                 <label for="password">Password:</label>
                 <input id="password" name="password" type="password" placeholder="password" required>
+                <button id="togglePassword" onclick="togglePassword();" img src=
             </div>
 
             <div class="field buttons">
