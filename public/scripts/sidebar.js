@@ -20,11 +20,11 @@ document.addEventListener('keydown', (e) => {
 
 //Change theme when toggling button in sidebar
 const changeThemeButton = document.querySelector('#holo-toggle');
-changeThemeButton.checked = getCookie("theme") == "dataTheme";
+changeThemeButton.checked = getCookie("theme") == "richTheme";
 function changeTheme() {
   if (changeThemeButton.checked) htmlElement.classList.remove("richTheme");
   else htmlElement.classList.add("richTheme");
-  setCookie("theme", changeThemeButton.checked ? "dataTheme" : "richTheme", 60*60*24*365);
+  setCookie("theme", changeThemeButton.checked ? "richTheme" : "dataTheme", 60*60*24*365);
 }
 changeTheme();
 changeThemeButton.addEventListener('change', changeTheme);
