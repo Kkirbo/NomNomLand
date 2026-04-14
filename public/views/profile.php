@@ -46,9 +46,21 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     </div>
 
     <div class="info-row">
-      <span>Last Name</span>
+      <span>Last Namessssssssssssssssssssss</span>
       <span><?= $fullName ?>
-        <button class="edit-btn" title="Edit">✏️</button>
+        <button class="edit-btn" title="Edit" >✏️</button>
+      </span>
+    </div>
+
+    <div class="info-row">
+      <span>Last Name</span>
+
+      <span class="field" data-field="last_name">
+        <span class="value"><?= $fullName ?></span>
+
+        <input type="text" class="edit-input" value="<?= $fullName ?>" hidden>
+
+        <button class="edit-btn">✏️</button>
       </span>
     </div>
 
@@ -153,4 +165,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 </section>
 
 </body>
+
+<script defer type="module" src="../scripts/profile.js"></script>
+
 </html>
