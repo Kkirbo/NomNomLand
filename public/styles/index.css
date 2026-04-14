@@ -59,27 +59,24 @@
   --pastel-red-dark: #c94a4a;
   --pastel-orange: #ffd166;
 
-  --background: #0f172a; /* deep navy */
+  --background: #0f172a;
 
-  /* 🔵 PRIMARY (Blue-based) */
   --primary-dark: #020617;
   --primary-shadow: #0b1220;
-  --primary: #1e3a8a;           /* main blue */
-  --primary-highlight: #2563eb; /* brighter blue */
+  --primary: #1e3a8a;
+  --primary-highlight: #2563eb;
   --primary-bright: #3b82f6;
 
   --primary-shadow-04: #0b122066;
   --primary-04: #1e3a8a66;
   --primary-highlight-04: #2563eb66;
 
-  /* 🟡 SECONDARY (Gold-based) */
   --secondary-dark: #5c3b00;
   --secondary-shadow: #7a4a00;
-  --secondary: #d4af37;          /* gold */
+  --secondary: #d4af37;
   --secondary-highlight: #facc15;
   --secondary-bright: #fde047;
 
-  /* Optional variations (keeping your structure) */
   --secondary-cold-dark: #1e3a8a;
   --secondary-cold-shadow: #1d4ed8;
   --secondary-cold: #2563eb;
@@ -92,7 +89,6 @@
   --secondary-hot-highlight: #f59e0b;
   --secondary-hot-bright: #fbbf24;
 
-  /* Glass effect (slightly bluish dark) */
   --shaded-glass-dark: #02061780;
   --shaded-glass-shadow: #0b122080;
   --shaded-glass: #1e293b80;
@@ -100,7 +96,7 @@
   --shaded-glass-bright: #47556980;
 
   --outline: #1e293b;
-  --neon: #3b82f6; /* blue neon instead of green */
+  --neon: #3b82f6;
 }
 
 html, body {
@@ -619,6 +615,7 @@ section.carousel article {
   flex: 0 0 clamp(18rem, 60vw, 80rem);
   height: clamp(60vh, 60vw * 5 / 7, 75vh);
   box-sizing: border-box;
+  box-shadow: none;
 
   display: flex;
   flex-direction: column;
