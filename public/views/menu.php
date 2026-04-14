@@ -36,8 +36,8 @@ $categories = [
 <?php include __DIR__ . '/header.html'; ?>
 <?php include __DIR__ . '/sidebar.php'; ?>
 
-<?php 
-    include 'searchbar.php'; 
+<?php
+    include 'searchbar.php';
     include '../../private/php/searchbar.php';
 ?>
 
@@ -60,13 +60,23 @@ foreach ($menusData["menus"] ?? [] as $menu) {
 <div class="cards-container">
 <?php
 foreach ($categories as $catId => $list) {
-    $label = match ($catId) {
-        "menuentrees" => "Entries",
-        "menuplats" => "Main meals",
-        "menudesserts" => "Desserts",
-        "menudrinks" => "Drinks",
-        default => ucfirst($catId)
-    };
+    switch ($catId) {
+        case "menuentrees":
+            $label = "Entries";
+            break;
+        case "menuplats":
+            $label = "Main meals";
+            break;
+        case "menudesserts":
+            $label = "Desserts";
+            break;
+        case "menudrinks":
+            $label = "Drinks";
+            break;
+        default:
+            $label = ucfirst($catId);
+    }
+
     echo '<article class="menu-card modernNeonBoxGlass basic">';
     echo '<h3>' . $label . '</h3>';
     echo '<a href="#' . $catId . '" class="card-btn card-btn-basic">More info...</a>';
