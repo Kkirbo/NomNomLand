@@ -1,5 +1,6 @@
-<?php 
+<?php
 require '../../private/php/session.php';
+require '../../private/php/generate-nav.php';
 require_login();
 $user = get_user_by_session();
 if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['role'] !== 'delivery')) redirect_url();
@@ -23,6 +24,24 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
     $deliveryPeople = getDeliveryPeople();
     $orders = getOrders();
 
+
+    if ($user['role'] === 'cook') {
+      $orders = array_filter($orders, function($order) {
+        return $order["delivery"]['status'] !== 'delivery';
+      });
+    }
+    if ($user['role'] === 'delivery') {
+      $orders = array_filter($orders, function($order) {
+        return in_array($order["delivery"]['status'], array("ready", "delivery"));
+      });
+    }
+
+    $orders = array_reverse($orders);
+
+    $visibleOrders = 3;
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $pagesCount = computePages($orders, $visibleOrders);
+    $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
     ?>
 
     <?php include 'sidebar.php'; ?>
@@ -32,7 +51,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
         <h2>Pending Orders</h2>
 
         <?php foreach ($orders as $order): ?>
-        <?php if (!in_array($order["delivery"]["status"], array("success", "failed"))): ?>
+        <?php /*if (!in_array($order["delivery"]["status"], array("success", "failed"))):*/ ?>
 
         <?php
         $isPending = $order["delivery"]["status"] == "pending";
@@ -71,7 +90,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                         <?php endforeach; ?>
 
                     </ul>
-                    
+
                     <p><strong>Status:</strong> <?= $order['delivery']['status'] ?></p>
                     <p><strong>Adress:</strong> <?= $order['delivery']['address'] ?></p>
                     <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
@@ -87,7 +106,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                             <button type="submit">Put command as ready</button>
                         </form>
                     <?php endif ?>
-                    
+
                     <?php if ($isReady): ?>
                         <form action="../../private/php/update_order_status.php" method="POST">
                             <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
@@ -99,11 +118,11 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                     <?php if ($isPreparing): ?>
                         <form action="../../private/php/update_order_status.php" method="POST">
                             <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
-                            
-                            
+
+
                             <input type="hidden" name="status" value="delivery">
                             <button type="submit">Send to Delivery</button>
-                            
+
                             <select name="delivery_person_id" required>
                                 <?php foreach ($deliveryPeople as $user): ?>
                                     <option value="<?= $user['id'] ?>">
@@ -123,8 +142,11 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
             </div>
 
         </article>
-        <?php endif; ?>
+        <?php /*endif;*/ ?>
         <?php endforeach; ?>
+        <?php
+            generateNavbar($page, $pagesCount);
+        ?>
 
 </body>
 </html>
