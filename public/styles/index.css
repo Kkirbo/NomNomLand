@@ -250,7 +250,7 @@ select {
   cursor: pointer;
   padding-right: 1.5rem;
 
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23126700\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill='currentColor'><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
   background-repeat: no-repeat;
   background-position: right 0.1rem center;
   background-size: 2rem;
