@@ -50,6 +50,59 @@
   --neon: #39ff14;
 }
 
+.richTheme {
+  --black: #000000;
+  --white: #ffffff;
+
+  --pastel-blue: #6ec1ff;
+  --pastel-red: #ff6b6b;
+  --pastel-red-dark: #c94a4a;
+  --pastel-orange: #ffd166;
+
+  --background: #0f172a; /* deep navy */
+
+  /* 🔵 PRIMARY (Blue-based) */
+  --primary-dark: #020617;
+  --primary-shadow: #0b1220;
+  --primary: #1e3a8a;           /* main blue */
+  --primary-highlight: #2563eb; /* brighter blue */
+  --primary-bright: #3b82f6;
+
+  --primary-shadow-04: #0b122066;
+  --primary-04: #1e3a8a66;
+  --primary-highlight-04: #2563eb66;
+
+  /* 🟡 SECONDARY (Gold-based) */
+  --secondary-dark: #5c3b00;
+  --secondary-shadow: #7a4a00;
+  --secondary: #d4af37;          /* gold */
+  --secondary-highlight: #facc15;
+  --secondary-bright: #fde047;
+
+  /* Optional variations (keeping your structure) */
+  --secondary-cold-dark: #1e3a8a;
+  --secondary-cold-shadow: #1d4ed8;
+  --secondary-cold: #2563eb;
+  --secondary-cold-highlight: #3b82f6;
+  --secondary-cold-bright: #60a5fa;
+
+  --secondary-hot-dark: #78350f;
+  --secondary-hot-shadow: #92400e;
+  --secondary-hot: #d97706;
+  --secondary-hot-highlight: #f59e0b;
+  --secondary-hot-bright: #fbbf24;
+
+  /* Glass effect (slightly bluish dark) */
+  --shaded-glass-dark: #02061780;
+  --shaded-glass-shadow: #0b122080;
+  --shaded-glass: #1e293b80;
+  --shaded-glass-highlight: #33415580;
+  --shaded-glass-bright: #47556980;
+
+  --outline: #1e293b;
+  --neon: #3b82f6; /* blue neon instead of green */
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -147,7 +200,7 @@ input[type="submit"]:hover {
 .modernNeonBox {
   background: var(--primary);
   border: 0.2rem solid var(--secondary-shadow);
-  box-shadow: 0 0 10px #004C29;
+  box-shadow: 0 0 10px var(--secondary-cold-dark);
   border-radius: 3rem;
   font-weight: 1;
 }
@@ -155,7 +208,7 @@ input[type="submit"]:hover {
   background: var(--primary-04);
   border: 0.2rem solid var(--secondary-shadow);
   backdrop-filter: blur(6px);
-  box-shadow: 0 0 10px #004C29;
+  box-shadow: 0 0 10px var(--secondary-cold-dark);
   border-radius: 3rem;
   font-weight: 1;
 }
@@ -333,7 +386,7 @@ header {
   color: var(--secondary);
   background: var(--primary);
   border: 0.2rem solid var(--secondary-shadow);
-  box-shadow: 0 0 10px #004C29;
+  box-shadow: 0 0 10px var(--secondary-cold-dark);
   border-radius: 15px;
   width: clamp(19rem, 50%, 50rem);
   font-weight: 1;
@@ -576,7 +629,7 @@ section.carousel article {
 
   scroll-snap-align: center;
 
-  /*Animation uses animation-timeline and view(x): 
+  /*Animation uses animation-timeline and view(x):
     incompatible with Firefox for android and need to be manually enabled on Firefox
     -> replaced with javascript
   */
