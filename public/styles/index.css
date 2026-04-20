@@ -875,8 +875,10 @@ footer ul li form#newsletter input {
   margin: 0.3rem;
   font-size: 1.1rem;
 }
-
-/*--Scrollbar--*/
+.input-error {
+    border: 1px solid var(--pastel-red) !important;
+    box-shadow: 0 0 5px var(--pastel-red) !important;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
