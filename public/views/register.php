@@ -14,6 +14,7 @@ function retype($key) {
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
+    <script defer src="../scripts/form.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,7 @@ function retype($key) {
   <?php include 'sidebar.php'; ?>
 
   <main>
-    <form method="post">
+    <form method="post" onsubmit="return validateForm()" novalidate>
     <fieldset>
 
       <div class="field">
@@ -65,7 +66,7 @@ function retype($key) {
       </div>
       <div class="field">
           <label for="address">Address:</label>
-          <input id="address" name="address" type="text" pattern="^[0-9]+[ ]?[A-Za-zÀ-ÿ' -]+$" placeholder="12 Rivoli Street Paris" value="<?= retype('address') ?>">
+          <input id="address" name="address" type="text" placeholder="12 Rivoli Street Paris" value="<?= retype('address') ?>">
       </div>
 
       <div class="field buttons">

@@ -99,6 +99,14 @@ input[type="radio"]:checked + label {
   color: var(--primary-dark);
   border-color: var(--secondary-bright);
 }
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+}
 
 form button {
   font-size: 1.2rem;
