@@ -20,7 +20,7 @@ function retype($key) {
   <?php include 'header.html'; ?>
   <?php include 'sidebar.php'; ?>
   <main>
-    <form method="post">
+    <form method="post" onsubmit="return checkLogin()" novalidate>
         <fieldset>
             <div class="field">
                 <label for="email">E-mail:</label>
@@ -50,6 +50,7 @@ function retype($key) {
             <?php
               if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
             ?>
+            
         </fieldset>
     </form>
   </main>

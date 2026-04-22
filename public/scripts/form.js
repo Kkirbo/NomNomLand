@@ -21,7 +21,7 @@ function checkLength(input) {
     }
 }
 function validateEmail(email) {
-    let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/;
+    let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/; /*Une chaîne de caractère, suivi de l'@ forcé, et les domaines autorisés, avec ou .com, ou .fr à la fin */
     if (regex.test(email)) {
         return {
             success: true,
@@ -35,7 +35,7 @@ function validateEmail(email) {
     }
 }
 function validateAddress(address) {
-    let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/;
+    let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier strictement positif, suivies éventuellement d’un espace, puis d’un texte alphabétique (avec accents, espaces, tirets, apostrophes)*/
     if (regex.test(address)) {
         return {
             success: true,
@@ -48,7 +48,7 @@ function validateAddress(address) {
     }
 }
 function validatePhone(phone) {
-    let regex = /^0[0-9]{9}$/;
+    let regex = /^0[0-9]{9}$/; /*0 obligatoire en début de numéro, puis 9 chiffres*/
     if (regex.test(phone)) {
         return {
             success: true,
@@ -61,7 +61,7 @@ function validatePhone(phone) {
     }
 }
 function validatePassword(password) {
-    let regex = /^[0-9]{10}$/;
+    let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/    /*au moins 1 majuscule, 1 chiffre, et 5 caractères min*/
     if (regex.test(password)) {
         return {
             success: true,
@@ -81,6 +81,46 @@ function markSuccess(el) {
     el.classList.remove("input-error");
     el.classList.add("input-success");
 }
+function checkLogin(){
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let errors = [];
+    let valid = true;
+    let errorBox = document.querySelector(".error-message");
+    if (!errorBox) {
+    errorBox = document.createElement("p");
+    errorBox.className = "error-message";
+    document.querySelector("form fieldset").appendChild(errorBox);
+}
+    let fields = [email, password];
+    for (let i = 0; i < fields.length; i++) {
+        if (fields[i]) {
+            fields[i].classList.remove("input-error");
+            fields[i].classList.remove("input-success");
+        }
+    }
+    if (!validateEmail(email.value).success) {
+        markError(email);
+        errors.push("INVALID_EMAIL");
+        valid = false;
+    } else {
+        markSuccess(email);
+    }
+    if (!validatePassword(password.value).success) {
+        markError(password);
+        errors.push("INCORRECT_PASSWORD");
+        valid = false;
+    } else {
+        markSuccess(password);
+    }
+    if (valid === false) {
+        errorBox.textContent = errors.join(" | ");
+    } else {
+        errorBox.textContent = "";
+    }
+    return valid;
+}
+
 function validateForm() {
     let email = document.getElementById("email");
     let password = document.getElementById("password");
