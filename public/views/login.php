@@ -14,14 +14,11 @@ function retype($key) {
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
-    <script defer src="../scripts/password.js"></script>
+    <script defer src="../scripts/form.js"></script>
 </head>
 <body>
-
   <?php include 'header.html'; ?>
-
   <?php include 'sidebar.php'; ?>
-
   <main>
     <form method="post">
         <fieldset>
@@ -33,8 +30,8 @@ function retype($key) {
             <div class="field">
                 <label for="password">Password:</label>
                 <input id="password" name="password" type="password" placeholder="password" required>
-                <button id="togglePassword" onclick="togglePassword();" img src=
-            </div>
+                <button type="button" id="togglePassword" onclick="togglePassword();">
+</div>
 
             <div class="field buttons">
               <div>

@@ -1,78 +1,167 @@
 
-function TogglePassword(){
-    let a=document.getElementById("password");
-    a.getAttribute("type") == "text" ? a.setAttribute("type","password") : a.setAttribute("type","text");
+function TogglePassword() {
+    let a = document.getElementById("password");
+    if (a.type === "text") {
+        a.type = "password";
+    } else {
+        a.type = "text";
+    }
 }
-
 function checkLength(input) {
     if (input.length > 100) {
         return {
             success: false,
             error: "TOO_LONG"
         };
+    } else {
+        return {
+            success: true,
+            error: null
+        };
     }
-    return {
-        success: true,
-        error: null
-    };
 }
-/*let result = checkLength("mon texte");
-if (!result.success) {
-    console.log(result.error);
-}*/
 function validateEmail(email) {
-    const regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/;
-    if (!regex.test(email)) {
+    let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/;
+    if (regex.test(email)) {
+        return {
+            success: true,
+            error: null
+        };
+    } else {
         return {
             success: false,
             error: "INVALID_EMAIL"
         };
     }
-    return {
-        success: true,
-        error: null
-    };
 }
 function validateAddress(address) {
-    const regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/;
-
-    if (!regex.test(address)) {
+    let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/;
+    if (regex.test(address)) {
+        return {
+            success: true,
+            error: null
+        };
+    } else {
         return {
             success: false,
             error: "INVALID_ADDRESS"
         };
     }
-
-    return {
-        success: true,
-        error: null
-    };
+}
+function validatePhone(phone) {
+    let regex = /^0[0-9]{9}$/;
+    if (regex.test(phone)) {
+        return {
+            success: true,
+            error: null
+        };
+    } else {
+        return {
+            success: false,
+            error: "INVALID_PHONE"
+        };
+    }
+}
+function validatePassword(password) {
+    let regex = /^[0-9]{10}$/;
+    if (regex.test(password)) {
+        return {
+            success: true,
+            error: null
+        };
+    } else {
+        return {
+            success: false,
+            error: "INVALID_PASSWORD"
+        };
+    }
+}
+function markError(el) {
+    el.classList.remove("input-success");
+    el.classList.add("input-error");
+}
+function markSuccess(el) {
+    el.classList.remove("input-error");
+    el.classList.add("input-success");
 }
 function validateForm() {
     let email = document.getElementById("email");
-    let password = document.getElementById("email-confirm");
+    let password = document.getElementById("password");
     let name = document.getElementById("name");
+    let firstname = document.getElementById("firstname");
+    let age = document.getElementById("age");
+    let phone = document.getElementById("phone");
+    let address = document.getElementById("address");
+    let errorBox = document.querySelector(".error-message");
+    if (!errorBox) {
+        errorBox = document.createElement("p");
+        errorBox.className = "error-message";
+        document.querySelector("form fieldset").appendChild(errorBox);
+    }
+    let errors = [];
     let valid = true;
-    [email, password, name].forEach(el => el.classList.remove("input-error"));
+    let fields = [email, password, name, firstname, age, phone, address];
+    for (let i = 0; i < fields.length; i++) {
+        if (fields[i]) {
+            fields[i].classList.remove("input-error");
+            fields[i].classList.remove("input-success");
+        }
+    }
     if (!checkLength(name.value).success) {
-        name.classList.add("input-error");
+        markError(name);
+        errors.push("Nom trop long");
         valid = false;
+    } else {
+        markSuccess(name);
     }
-    if (!checkLength(email.value).success) {
-        email.classList.add("input-error");
+    if (!checkLength(firstname.value).success) {
+        markError(firstname);
+        errors.push("Prénom trop long");
         valid = false;
+    } else {
+        markSuccess(firstname);
     }
-    if (!checkLength(password.value).success) {
-        password.classList.add("input-error");
+    if (age.value < 18 || age.value > 120) {
+        markError(age);
+        errors.push("Âge invalide (18-120)");
         valid = false;
+    } else {
+        markSuccess(age);
     }
     if (!validateEmail(email.value).success) {
-        email.classList.add("input-error");
+        markError(email);
+        errors.push("Email invalide");
         valid = false;
+    } else {
+        markSuccess(email);
     }
-    if (address.value !== "" && !validateAddress(address.value).success) {
-        address.classList.add("input-error");
+    if (!validatePassword(password.value).success) {
+        markError(password);
+        errors.push("Mot de passe = 10 chiffres uniquement");
         valid = false;
+    } else {
+        markSuccess(password);
+    }
+    if (!validatePhone(phone.value).success) {
+        markError(phone);
+        errors.push("Téléphone invalide (10 chiffres, commence par 0)");
+        valid = false;
+    } else {
+        markSuccess(phone);
+    }
+    if (address.value !== "") {
+        if (!validateAddress(address.value).success) {
+            markError(address);
+            errors.push("Adresse invalide");
+            valid = false;
+        } else {
+            markSuccess(address);
+        }
+    }
+    if (valid === false) {
+        errorBox.textContent = errors.join(" | ");
+    } else {
+        errorBox.textContent = "";
     }
     return valid;
 }

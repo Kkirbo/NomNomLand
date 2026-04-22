@@ -56,15 +56,16 @@ fieldset {
   padding: 0.2rem;
 }
 
-input:valid {
-    border: 1px solid var(--secondary-bright);
-    box-shadow: 0 0 5px var(--secondary-bright);
-    animation: transition 0.5s ease;
-}
-input:invalid {
+.input-error {
     border: 1px solid var(--pastel-red);
     box-shadow: 0 0 5px var(--pastel-red);
     animation: transition-inverse 0.5s ease;
+}
+
+.input-success {
+    border: 1px solid var(--secondary-bright);
+    box-shadow: 0 0 5px var(--secondary-bright);
+    animation: transition 0.5s ease;
 }
 
 .field{
