@@ -45,7 +45,7 @@ function retype($key) {
       </div>
       <div class="field">
           <label for="phone">Phone number:</label>
-          <input id="phone" name="phone" type="tel" placeholder="001122334455" required value="<?= retype('phone') ?>">
+          <input id="phone" name="phone" type="tel" placeholder="0011223344" required value="<?= retype('phone') ?>">
       </div>
       <div class="field">
           <label for="password">Password:</label>

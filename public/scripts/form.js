@@ -16,7 +16,7 @@ function checkLength(input) {
     } else {
         return {
             success: true,
-            error: null
+            
         };
     }
 }
@@ -25,7 +25,7 @@ function validateEmail(email) {
     if (regex.test(email)) {
         return {
             success: true,
-            error: null
+            
         };
     } else {
         return {
@@ -39,7 +39,6 @@ function validateAddress(address) {
     if (regex.test(address)) {
         return {
             success: true,
-            error: null
         };
     } else {
         return {
@@ -53,7 +52,6 @@ function validatePhone(phone) {
     if (regex.test(phone)) {
         return {
             success: true,
-            error: null
         };
     } else {
         return {
@@ -67,7 +65,6 @@ function validatePassword(password) {
     if (regex.test(password)) {
         return {
             success: true,
-            error: null
         };
     } else {
         return {

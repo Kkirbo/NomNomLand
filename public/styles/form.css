@@ -134,3 +134,17 @@ form a:hover {
 .field.buttons div button {
   margin-bottom: 1rem;
 }
+
+.field.password-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#togglePassword {
+  padding: 0;
+  border: none;
+  background: none;
+}
+#togglePassword svg {
+  display: block;
+}
