@@ -1,8 +1,10 @@
+const searchForm = document.querySelector('form.searchbar');
+const searchinput = searchForm.querySelector('div input[type="text"]');
+const filtersButton = searchForm.querySelector('button.tune');
+
 /**
  * Searchbar Animation
  */
-const searchbar = document.querySelector('.searchbar');
-const searchinput = searchbar.querySelector('input');
 searchinput.placeholder = "";
 const placeholderText = "Search for your favorite meal...";
 function animatePlaceholder() {
@@ -17,4 +19,12 @@ const searchBarEntersView = new IntersectionObserver(() => {
 {
   threshold: 1
 });
-searchBarEntersView.observe(searchbar);
+searchBarEntersView.observe(searchForm);
+
+/**
+ * Searchbar Filters
+ */
+const dropdown = document.querySelector("div.dropdown#filters");
+filtersButton.addEventListener("click", (e) => {
+  dropdown.classList.toggle("active");
+})

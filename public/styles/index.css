@@ -196,6 +196,14 @@ input[type="submit"]:hover {
   border: 0.2rem solid var(--secondary-bright);
   box-shadow: 0 0 1rem var(--secondary-hot);
 }
+button svg {
+  width: 100%;
+  height: auto;
+  fill: var(--secondary);
+}
+button:hover svg {
+  fill: var(--primary);
+}
 
 /*--Boxes--*/
 .modernNeonBox {
@@ -692,48 +700,6 @@ section.carousel article ul button {
   padding: 0.8rem 1.2rem;
 }
 
-form.searchbar {
-  margin: 2rem auto;
-  width: clamp(19rem, 50%, 50rem);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-form.searchbar div {
-  width: 100%;
-  padding: 10px;
-  height: auto;
-  font-size: 1.5rem;
-  color: var(--secondary);
-  background: var(--primary);
-  border: 0.2rem solid var(--secondary-shadow);
-  border-radius: 15px;
-  margin: 1rem auto;
-  transition: all 0.5s;
-}
-form.searchbar div span {
-  width: 10%;
-  color: var(--secondary);
-}
-form.searchbar div input[type="text"] {
-  caret-color: var(--secondary-bright);
-  padding: 10px 0 10px 0;
-  width: 90%;
-  height: auto;
-  outline: none;
-  color: var(--secondary);
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  border-radius: 0;
-}
-form.searchbar div input[type="text"]::placeholder {
-  color: var(--secondary-cold-shadow);
-}
-form.searchbar details {
-  width: 100%;
-}
-
 section.menus {
   width: 100vw;
   height: auto;
@@ -751,6 +717,10 @@ section.menus article {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  transition: 0.5s;
+}
+section.menus article:hover {
+  transform: translateY(-0.5rem);
 }
 section.menus article img {
   display: block;

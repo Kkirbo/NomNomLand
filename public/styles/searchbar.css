@@ -1,0 +1,64 @@
+form.searchbar {
+    position: relative;
+    width: clamp(19rem, 50%, 50rem);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: row;
+    margin: 2rem auto;
+}
+form.searchbar div {
+    width: 100%;
+    padding: 10px;
+    height: auto;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    background: var(--primary);
+    border: 0.2rem solid var(--secondary-shadow);
+    border-radius: 15px;
+    transition: all 0.5s;
+}
+form.searchbar div span {
+  width: 10%;
+  color: var(--secondary);
+}
+form.searchbar div input[type="text"] {
+  caret-color: var(--secondary-bright);
+  padding: 10px 0 10px 0;
+  width: 90%;
+  height: auto;
+  outline: none;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+form.searchbar div input[type="text"]::placeholder {
+  color: var(--secondary-cold-shadow);
+}
+form.searchbar button.tune {
+    flex: 1;
+    height: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border: 0.2rem solid var(--secondary-shadow);
+    border-radius: 1rem;
+}
+form.searchbar details {
+  width: 100%;
+}
+
+div.dropdown {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 110%;
+}
+div.dropdown.active {
+    display: flex;
+}
