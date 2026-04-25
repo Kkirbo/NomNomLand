@@ -5,49 +5,52 @@
 :root{
   --black: #000000;
   --white: #ffffff;
+
   --pastel-blue: #58b5e0;
   --pastel-red: #ff4d4d;
   --pastel-red-dark: #d13743;
   --pastel-orange: #ffcc00;
 
   --background: #303030;
-
+  
   --primary-dark: #010101;
   --primary-shadow: #121212;
   --primary: #1c1c1c;
   --primary-highlight: #333333;
   --primary-bright: #484848;
-
+  
   --primary-shadow-04: #12121266;
   --primary-04: #1c1c1c66;
   --primary-highlight-04: #33333366;
-
+  
   --secondary-dark: #0C4400;
   --secondary-shadow: #0E5000;
   --secondary: #105C00;
   --secondary-highlight: #126700;
   --secondary-bright: #187305;
-
+  
   --secondary-cold-dark: #004C29;
   --secondary-cold-shadow: #004224;
   --secondary-cold: #004C29;
   --secondary-cold-highlight: #00562F;
   --secondary-cold-bright: #045F36;
-
+  
   --secondary-hot-dark: #2B4B00;
   --secondary-hot-shadow: #335800;
   --secondary-hot: #3A6500;
   --secondary-hot-highlight: #427200;
   --secondary-hot-bright: #4B7E05;
-
+  
   --shaded-glass-dark: #0f0f0f80;
   --shaded-glass-shadow: #1d1d1d80;
   --shaded-glass: #29292980;
   --shaded-glass-highlight: #36363680;
   --shaded-glass-bright: #58585880;
-
+  
   --outline: #1e1e1f;
   --neon: #39ff14;
+
+  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23126700\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
 }
 
 .richTheme {
@@ -97,6 +100,8 @@
 
   --outline: #1e293b;
   --neon: #3b82f6;
+
+  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23facc15\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
 }
 
 html, body {
@@ -218,6 +223,10 @@ input[type="submit"]:hover {
   border-radius: 3rem;
   border: 0.2rem solid var(--pastel-red-dark);
 }
+.input-error {
+  border: 1px solid var(--pastel-red) !important;
+  box-shadow: 0 0 5px var(--pastel-red) !important;
+}
 
 /*--Input--*/
 input[type="text"],
@@ -250,7 +259,7 @@ select {
   cursor: pointer;
   padding-right: 1.5rem;
 
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill='currentColor'><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+  background-image: var(--select-arrow-url);
   background-repeat: no-repeat;
   background-position: right 0.1rem center;
   background-size: 2rem;
@@ -874,10 +883,6 @@ footer ul li:has(form#newsletter) {
 footer ul li form#newsletter input {
   margin: 0.3rem;
   font-size: 1.1rem;
-}
-.input-error {
-    border: 1px solid var(--pastel-red) !important;
-    box-shadow: 0 0 5px var(--pastel-red) !important;
 }
 
 ::-webkit-scrollbar {

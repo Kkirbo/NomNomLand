@@ -182,7 +182,7 @@
         ],
         "options": [],
         "delivery": {
-            "status": "pending",
+            "status": "preparing",
             "address": "",
             "delivery_person_id": ""
         },

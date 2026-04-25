@@ -145,11 +145,11 @@
             }
         },
         {
-            "id": "69d25dd654bc1",
-            "email": "tomjedusor@email.com",
-            "phone": "0895643221",
-            "password": "$2y$12$BzGF9xgffk00cnpXSyKqyeF1Ksw0jdnr8GXswuoF\/z\/r9Bp0rkBra",
-            "role": "client",
+            "id": "69ed07973daf3",
+            "email": "admin@email.com",
+            "phone": "0011223344",
+            "password": "$2y$12$w8sKH3Zv887KrL3MCade8OpQ6ljgb97a6MRLXdkX5h.VTqvETrTb2",
+            "role": "admin",
             "status": "Free",
             "fidelity": 0,
             "newsletter": false,
@@ -158,16 +158,11 @@
                 "lastName": "Jedusor",
                 "username": "Tom.Jedusor",
                 "age": 18,
-                "address": "",
+                "address": "13 Tour de Tokyo",
                 "gender": "other"
             },
-            "createdAt": "2026-04-05 13:04:22",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": false,
-                "functionalCookies": true
-            }
+            "createdAt": "2026-04-25 18:27:35",
+            "lastLogin": null
         }
     ]
 }
