@@ -1,4 +1,3 @@
-
 function TogglePassword() {
     let a = document.getElementById("password");
     if (a.type === "text") {
@@ -201,4 +200,10 @@ function validateForm() {
         errorBox.textContent = "";
     }
     return valid;
+}
+function updateCounter(input, counterId) {
+    let max = input.maxLength;
+    let current = input.value.length;
+    let counter = document.getElementById(counterId);
+    counter.textContent = current + " / " + max;
 }
