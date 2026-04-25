@@ -48,6 +48,10 @@ form.searchbar button.tune {
     border: 0.2rem solid var(--secondary-shadow);
     border-radius: 1rem;
 }
+form.searchbar button.tune:hover {
+    border: 0.2rem solid var(--secondary-bright);
+}
+
 form.searchbar details {
   width: 100%;
 }

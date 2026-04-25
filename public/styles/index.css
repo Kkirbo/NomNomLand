@@ -200,6 +200,7 @@ button svg {
   width: 100%;
   height: auto;
   fill: var(--secondary);
+  transition: all 0.1s;
 }
 button:hover svg {
   fill: var(--primary);
