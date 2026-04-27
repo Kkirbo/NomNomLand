@@ -70,6 +70,10 @@ form.searchbar section.dropdown {
 form.searchbar section.dropdown.active {
   display: flex;
 }
+
+form.searchbar section.dropdown input[type="checkbox"]{
+  display: none;
+}
 form.searchbar section.dropdown details {
   width: 100%;
 }

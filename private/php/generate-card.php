@@ -2,7 +2,7 @@
 function generateCard($id="", $image="../assets/images/default.png", $title="unknown", $description=[], $price=0)
 {
     echo '<article class="menu modernNeonBoxGlass">';
-    $href = basename($_SERVER['PHP_SELF']) === 'menu.php' ? '#' : 'menu.php#';
+    $href = (basename($_SERVER['PHP_SELF']) === 'menu.php' || basename($_SERVER['PHP_SELF']) === 'generate-search-result.php') ? '#' : 'menu.php#';
     echo '<a href="' . $href . htmlspecialchars($id) . '" class="imageLink">';
     echo '<img draggable="false" src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($title) . ' Image">';
     echo '</a>';
