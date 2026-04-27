@@ -216,7 +216,7 @@ foreach ($cartData['items'] ?? [] as $item) {
                     <span>Quantity: <?= $item['quantity'] ?></span>
                     <span><?= number_format($dish['price'] * $item['quantity'], 2) ?> €</span>
 
-                    <form method="post" class="inline-form">
+                    <form method="post">
                         <input type="hidden" name="id" value="<?= $item['id'] ?>">
                         <input type="hidden" name="type" value="solo">
                         <button type="submit" name="remove">Remove</button>
@@ -248,7 +248,7 @@ foreach ($cartData['items'] ?? [] as $item) {
                         <?php endforeach; ?>
                     </div>
 
-                    <form method="post" class="inline-form">
+                    <form method="post">
                         <input type="hidden" name="id" value="<?= $item['id'] ?>">
                         <input type="hidden" name="type" value="menu">
                         <button type="submit" name="remove">Remove</button>
