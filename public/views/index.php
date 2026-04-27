@@ -11,7 +11,7 @@
     <script defer src="../scripts/index.js"></script>
 </head>
 <body>
-    <?php include 'background.html'; ?>
+    <!--<?php include 'background.html'; ?>-->
 
     <?php include 'header.html'; ?>
 

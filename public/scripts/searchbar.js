@@ -1,6 +1,9 @@
+import { sendDataAsync } from "./asyncForm.js";
+
 const searchForm = document.querySelector('form.searchbar');
-const searchinput = searchForm.querySelector('div input[type="text"]');
-const filtersButton = searchForm.querySelector('button.tune');
+const searchResults = document.querySelector('section.search-results');
+const searchinput = searchForm.querySelector('section input[type="text"]');
+const tuneButton = searchForm.querySelector('button.tune');
 
 /**
  * Searchbar Animation
@@ -22,9 +25,19 @@ const searchBarEntersView = new IntersectionObserver(() => {
 searchBarEntersView.observe(searchForm);
 
 /**
+ * Block search submit when on menu page
+ */
+searchForm.addEventListener("submit", async (e) => {
+  if (!window.location.pathname.endsWith("/menu.php") || !searchResults) return;
+  e.preventDefault();
+  const response = await sendDataAsync(searchForm);
+  searchResults.innerHTML = response;
+});
+
+/**
  * Searchbar Filters
  */
-const dropdown = document.querySelector("div.dropdown#filters");
-filtersButton.addEventListener("click", (e) => {
+const dropdown = searchForm.querySelector("section.dropdown");
+tuneButton.addEventListener("click", (e) => {
   dropdown.classList.toggle("active");
-})
+});

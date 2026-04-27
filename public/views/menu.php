@@ -36,10 +36,10 @@ $categories = [
 <?php include __DIR__ . '/header.html'; ?>
 <?php include __DIR__ . '/sidebar.php'; ?>
 
-<?php
-    include 'searchbar.php';
-    include '../../private/php/searchbar.php';
-?>
+<?php include 'searchbar.php'; ?>
+<section class="search-results">
+    <?php include '../../private/php/generate-search-result.php'; ?>
+</section>
 
 <h1 id="menuheader">Restaurant Menu</h1>
 <div class="menu-left">
