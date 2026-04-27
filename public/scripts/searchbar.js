@@ -27,12 +27,19 @@ searchBarEntersView.observe(searchForm);
 /**
  * Block search submit when on menu page
  */
+async function updateSearchResults() {
+  const response = await sendDataAsync(searchForm);
+  searchResults.innerHTML = response;
+}
 searchForm.addEventListener("submit", async (e) => {
   if (!window.location.pathname.endsWith("/menu.php") || !searchResults) return;
   e.preventDefault();
-  const response = await sendDataAsync(searchForm);
-  searchResults.innerHTML = response;
+  updateSearchResults();
 });
+searchinput.addEventListener("input", updateSearchResults);
+for (const label of searchForm.querySelectorAll("section.dropdown label")) {
+  label.addEventListener("input", updateSearchResults);
+}
 
 /**
  * Searchbar Filters
