@@ -1,0 +1,130 @@
+form.searchbar {
+  position: relative;
+  width: clamp(34rem, 50%, 50rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row;
+  margin: 2rem auto;
+}
+form.searchbar section {
+  width: 100%;
+  padding: 0.5rem;
+  height: auto;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  background: var(--primary);
+  border: 0.2rem solid var(--secondary-shadow);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 0.1rem;
+}
+form.searchbar section span {
+  display: block;
+  padding: 0.5rem 0 0.5rem 0;
+  margin-right: 0.5rem;
+  color: var(--secondary);
+}
+form.searchbar section input[type="text"] {
+  caret-color: var(--secondary-bright);
+  padding: 0.5rem 0 0.5rem 0;
+  flex: 1;
+  height: auto;
+  outline: none;
+  color: var(--secondary);
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+form.searchbar section input[type="text"]::placeholder {
+  color: var(--secondary-cold-shadow);
+}
+form.searchbar button.tune {
+  flex: 1;
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border: 0.2rem solid var(--secondary-shadow);
+  border-radius: 1rem;
+}
+form.searchbar button.tune:hover {
+  border: 0.2rem solid var(--secondary-bright);
+}
+
+form.searchbar section.dropdown {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+form.searchbar section.dropdown.active {
+  display: flex;
+}
+form.searchbar section.dropdown h3 {
+  margin: 0;
+  margin-top: 1.2rem;
+}
+form.searchbar section.dropdown article {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+form.searchbar section.dropdown article button {
+  padding: 0.1rem 0.5rem;
+  font-size: 1.5rem;
+}
+form.searchbar section.dropdown input[type="checkbox"] {
+  display: none;
+}
+form.searchbar section.dropdown label {
+  padding: 0.1rem 0.5rem;
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+form.searchbar section.dropdown label:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
+form.searchbar section.dropdown label:has(input[type="checkbox"]:checked) {
+  color: var(--primary);
+  background: var(--secondary);
+}
+form.searchbar section.dropdown details {
+  width: 100%;
+}
+form.searchbar section.dropdown details input[type="checkbox"] {
+  display: inline-flex;
+}
+
+
+@media screen and (max-width: 600px) {
+  form.searchbar {
+    width: clamp(18rem, 90%, 50rem);
+    gap: 0.2rem;
+  }
+  form.searchbar section {
+    font-size: max(1rem, 2vw);
+  }
+  form.searchbar section input[type="text"]{
+    font-size: max(1rem, 2vw);
+  }
+}

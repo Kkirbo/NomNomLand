@@ -45,47 +45,44 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
       <h2>Personal Information</h2>
     </div>
 
-    <div class="info-row">
-      <span>Last Namessssssssssssssssssssss</span>
-      <span><?= $fullName ?>
-        <button class="edit-btn" title="Edit" >✏️</button>
-      </span>
-    </div>
-
-    <div class="info-row">
-      <span>Last Name</span>
-
-      <span class="field" data-field="last_name">
-        <span class="value"><?= $fullName ?></span>
-
-        <input type="text" class="edit-input" value="<?= $fullName ?>" hidden>
-
+    <div class="info-row" data-field="firstName">
+      <span>First Name</span>
+      <span class="value">
+        <?= $firstName ?>
         <button class="edit-btn">✏️</button>
       </span>
     </div>
 
-    <div class="info-row">
-      <span>Email</span>
-      <span>
-        <?= $email ?>
-        <button class="edit-btn" title="Edit">✏️</button>
-    </span>
-    </div>
-
-    <div class="info-row">
-      <span>Phone</span>
-      <span>
-        <?= $phone ?>
-        <button class="edit-btn" title="Edit">✏️</button>
+    <div class="info-row" data-field="lastName">
+      <span>Last Name</span>
+      <span class="value">
+        <?= $lastName ?>
+        <button class="edit-btn">✏️</button>
       </span>
     </div>
 
-    <div class="info-row">
-        <span>Address</span>
-        <span>
+    <div class="info-row" data-field="email">
+      <span>Email</span>
+      <span class="value">
+        <?= $email ?>
+        <button class="edit-btn">✏️</button>
+      </span>
+    </div>
+
+    <div class="info-row" data-field="phone">
+      <span>Phone</span>
+      <span class="value">
+        <?= $phone ?>
+        <button class="edit-btn">✏️</button>
+      </span>
+    </div>
+
+    <div class="info-row" data-field="address">
+      <span>Address</span>
+      <span class="value">
         <?= $address ?>
-        <button class="edit-btn" title="Edit">✏️</button>
-        </span>
+        <button class="edit-btn">✏️</button>
+      </span>
     </div>
   </section>
 

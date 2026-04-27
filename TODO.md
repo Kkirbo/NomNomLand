@@ -3,9 +3,10 @@ TODO:
 -Menus 
   -créneaux limités
   -personnes max
+  -Pas besoin de requireLogin()
 -Orders
   -Cook bouton pour pending > préparation > ready
-  -vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
+  -Vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
   -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs)
 -Profil
   -"view all orders" et "view my rewards"
@@ -13,6 +14,13 @@ TODO:
   -Implémenter points fidélité
 -Rating
   -Message qui dit merci de nous avoir noté si dernière commande déjà notée
+
+
+
+Carousel:
+  -Infinite auto scroll
+Searchbar:
+  -Filters dropdown
 
 
 -----------------------------------------Cahier des charges----------------------------------------
