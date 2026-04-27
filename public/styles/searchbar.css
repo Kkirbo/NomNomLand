@@ -66,16 +66,53 @@ form.searchbar section.dropdown {
   display: none;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
 }
 form.searchbar section.dropdown.active {
   display: flex;
 }
-
-form.searchbar section.dropdown input[type="checkbox"]{
+form.searchbar section.dropdown h3 {
+  margin: 0;
+  margin-top: 1.2rem;
+}
+form.searchbar section.dropdown article {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+form.searchbar section.dropdown article button {
+  padding: 0.1rem 0.5rem;
+  font-size: 1.5rem;
+}
+form.searchbar section.dropdown input[type="checkbox"] {
   display: none;
+}
+form.searchbar section.dropdown label {
+  padding: 0.1rem 0.5rem;
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+form.searchbar section.dropdown label:hover {
+  color: var(--primary);
+  background: var(--secondary-bright);
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
+form.searchbar section.dropdown label:has(input[type="checkbox"]:checked) {
+  color: var(--primary);
+  background: var(--secondary);
 }
 form.searchbar section.dropdown details {
   width: 100%;
+}
+form.searchbar section.dropdown details input[type="checkbox"] {
+  display: inline-flex;
 }
 
 
