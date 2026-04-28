@@ -10,9 +10,7 @@
         "No gluten dishes included",
         "Available 24/7"
       ],
-      "dishes": ["salad", "bruschetta", "garlic"],
-      "desserts": [],
-      "drinks": [],
+      "contents": ["salad", "bruschetta", "garlic"],
       "price": 8.99
     },
     {
@@ -25,9 +23,7 @@
         "The choice of our clients",
         "Heavy full-stack meal"
       ],
-      "dishes": ["calzone", "lasagna", "margherita"],
-      "desserts": [],
-      "drinks": ["latte"],
+      "contents": ["calzone", "lasagna", "margherita", "latte"],
       "price": 15.99
     },
     {
@@ -40,9 +36,7 @@
         "For a quick meal",
         "Affordable and Fast"
       ],
-      "dishes": ["penne", "ravioli", "carbonara", "spaghetti"],
-      "desserts": [],
-      "drinks": ["espresso"],
+      "contents": ["penne", "ravioli", "carbonara", "spaghetti", "espresso"],
       "price": 19.99
     },
     {
@@ -55,9 +49,7 @@
         "Perfect for afternoon snacks",
         "Low effort, high flavor"
       ],
-      "dishes": [],
-      "desserts": ["tiramisu", "gelato"],
-      "drinks": ["smoothie", "latte"],
+      "contents": ["tiramisu", "gelato", "smoothie", "latte"],
       "price": 4.99
     },
     {
@@ -70,9 +62,7 @@
         "Enjoy a calm moment",
         "Rich aroma guaranteed"
       ],
-      "dishes": [],
-      "desserts": [],
-      "drinks": ["latte", "espresso", "the"],
+      "contents": ["latte", "espresso", "the"],
       "price": 4.99
     },
     {
@@ -85,7 +75,7 @@
         "Our most complete menu",
         "The best experience"
       ],
-      "dishes": [
+      "contents": [
         "salad",
         "bruschetta",
         "calzone",
@@ -94,10 +84,13 @@
         "penne",
         "ravioli",
         "carbonara",
-        "spaghetti"
+        "spaghetti",
+        "tiramisu",
+        "gelato",
+        "latte",
+        "espresso",
+        "smoothie"
       ],
-      "desserts": ["tiramisu", "gelato"],
-      "drinks": ["latte", "espresso", "smoothie"],
       "price": 24.99
     },
     {
@@ -105,14 +98,11 @@
       "title": "Aymane Menu",
       "image": "../assets/images/menus/aymanemenu.png",
       "description": [
-        "Meal",
         "The best meal of the restaurant",
         "It's fast, very fast.",
         "Not cheap, but high quality"
       ],
-      "dishes": ["margherita", "RTX"],
-      "desserts": [],
-      "drinks": ["latte"],
+      "contents": ["margherita", "RTX", "latte"],
       "price": 3979.99
     }
   ]

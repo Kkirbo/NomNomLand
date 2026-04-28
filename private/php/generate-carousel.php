@@ -22,14 +22,14 @@ function generateCarousel()
 
                 echo "
                 <article class='modernNeonBoxGlass'>
-                    <a href='menu.php#$id' class='imageLink'>
-                        <img draggable='false' src='$image' alt='$title Image'>
+                    <a href='menu.php#dish-$id' class='imageLink'>
+                        <img draggable='false' src='$image' alt='$title Image' class='background'>
                     </a>
                     <ul>
                         <li><h3>$tag</h3></li>
                         <li>$title</li>
                         <li>$desc</li>
-                        <li><a href='menu.php#$id'><button>Order</button></a></li>
+                        <li><a href='menu.php#dish-$id'><button>Order</button></a></li>
                     </ul>
                 </article>
                 ";

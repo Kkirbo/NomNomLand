@@ -1,9 +1,9 @@
 <?php
-function generateCard($id="", $image="../assets/images/default.png", $title="unknown", $description=[], $price=0)
+function generateCard($type="menu", $id="menu1", $image="../assets/images/default.png", $title="unknown", $description=[], $price=0)
 {
     echo '<article class="menu modernNeonBoxGlass">';
     $href = (basename($_SERVER['PHP_SELF']) === 'menu.php' || basename($_SERVER['PHP_SELF']) === 'generate-search-result.php') ? '#' : 'menu.php#';
-    echo '<a href="' . $href . htmlspecialchars($id) . '" class="imageLink">';
+    echo '<a href="' . $href . htmlspecialchars($type) . "-" . htmlspecialchars($id) . '" class="imageLink">';
     echo '<img draggable="false" src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($title) . ' Image">';
     echo '</a>';
     echo '<h3>' . htmlspecialchars($title) . '</h3>';
@@ -12,7 +12,7 @@ function generateCard($id="", $image="../assets/images/default.png", $title="unk
         echo '<li>' . $desc . '</li>';
     }
     echo '</ul>';
-    echo '<a href="' . $href . htmlspecialchars($id) . '"><button>' . htmlspecialchars($price) . '€</button></a>';
+    echo '<a href="' . $href . htmlspecialchars($type) . "-" . htmlspecialchars($id) . '"><button>' . htmlspecialchars($price) . '€</button></a>';
     echo '</article>';
 }
 ?>

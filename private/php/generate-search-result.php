@@ -14,7 +14,7 @@ if (!isset($dishesData) || !isset($menusData)) {
 require '../../private/php/generate-card.php';
 $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 $allergensFilter = $_GET['allergens'] ?? [];
-if ($search == '' && empty($allergensFilter)) return;
+//if ($search == '' && empty($allergensFilter)) return;
 
 function allergensContained($dish, $allergensFilter) {
     $allergensContained = [];
@@ -38,24 +38,32 @@ foreach ($dishesData["dishes"] as $dish) {
 
 $filteredMenus = [];
 foreach ($menusData["menus"] as $menu) {
-    if (str_contains(strtolower(json_encode($menu)), $search)) {
+    $validMenu = false;
+    foreach ($menu["contents"] as $dishId) {
+        if (isset($dishesById[$dishId])) {
+            $allergensContained = allergensContained($dishesById[$dishId], $allergensFilter);
+            if (empty($allergensContained)) {
+                $validMenu = true;
+                break;
+            }
+        }
+    }
+    if ($validMenu && str_contains(strtolower(json_encode($menu)), $search)) {
         $filteredMenus[] = $menu;
     }
 }
 
-echo "<h2>Search results for: " . htmlspecialchars($search) . "</h2>";
+if ($search != '') echo "<h2>Search results for: " . htmlspecialchars($search) . "</h2>";
 
 if (empty($filteredMenus) && empty($filteredDishes)) {
     echo "<p>No results found.</p>";
     return;
 }
 if (!empty($filteredMenus)) echo "<h2 class=\"search-result\">Menus</h2>";
-//echo '<div class="cards-container">';
 echo '<section class="menus">';
 foreach ($filteredMenus as $menu) {
     $containedAllergens = [];
-    $menuDishIds = array_merge($menu["dishes"] ?? [], $menu["desserts"] ?? [], $menu["drinks"] ?? []);
-    foreach ($menuDishIds as $dishId) {
+    foreach ($menu["contents"] as $dishId) {
         if (isset($dishesById[$dishId])) {
             $allergensContained = allergensContained($dishesById[$dishId], $allergensFilter);
             if (empty($allergensContained)) continue;
@@ -67,29 +75,13 @@ foreach ($filteredMenus as $menu) {
     if (!empty($containedAllergens)) {
         array_push($description, '<span class="pastel-orange">⚠ ' . implode(', ', $containedAllergens) . '</span>');
     }
-    generateCard($menu['id'], $menu['image'], $menu['title'], $description, $menu['price']);
-    /*echo '<article class="menu-card modernNeonBoxGlass">';
-    echo '<img src="' . $menu["image"] . '" class="menu-img">';
-    echo '<h3>' . $menu["title"] . '</h3>';
-    if (!empty($containedAllergens)) {
-        echo '<span class="pastel-orange">⚠ ' . implode(', ', $containedAllergens) . '</span>';
-    }
-    echo '<a href="#' . $menu["id"] . '" class="card-btn">' . $menu["price"] . '€</a>';
-    echo '</article>';*/
+    generateCard("menu", $menu['id'], $menu['image'], $menu['title'], $description, $menu['price']);
 }
 echo '</section>';
-//echo '</div>';
 if (!empty($filteredDishes)) echo "<h2 class=\"search-result\">Dishes</h2>";
-//echo '<div class="cards-container">';
 echo '<section class="menus">';
 foreach ($filteredDishes as $dish) {
-    generateCard($dish['id'], $dish['image'], $dish['title'], [], $dish['price']);
-    /*echo '<article class="menu-card modernNeonBoxGlass">';
-    echo '<img src="' . $dish["image"] . '" class="menu-img">';
-    echo '<h3>' . $dish["title"] . '</h3>';
-    echo '<a href="#' . $dish["id"] . '" class="card-btn">' . $dish["price"] . '€</a>';
-    echo '</article>';*/
+    generateCard("dish", $dish['id'], $dish['image'], $dish['title'], [], $dish['price']);
 }
 echo '</section>';
-//echo '</div>';
 ?>

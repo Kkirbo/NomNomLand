@@ -35,7 +35,7 @@ carousel.addEventListener('scroll', () => {
   }
 
   /**
-   * Animate cards
+   * Animate Carousel Cards
    */
   cards.forEach(card => {
     const cardCenter = card.offsetLeft + card.offsetWidth / 2;

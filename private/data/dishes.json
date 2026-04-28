@@ -9,19 +9,18 @@
       "price": 3739,
       "allergens": [],
       "trace": ["nuts"],
-      "sections": {
-        "architecture": [
-          "NVIDIA RTX 5090 GPU",
-          "Ray Tracing & AI cores",
-          "16GB GDDR7 VRAM"
-        ],
-        "specifications": [
-          "Clock: 3.2 GHz boost",
-          "Cooling: Liquid",
-          "Power draw: 450W",
-          "Target: 4K Ultra Gaming"
-        ]
-      },
+      "definition": [
+        "NVIDIA RTX 5090 GPU",
+        "Ray Tracing & AI cores",
+        "16GB GDDR7 VRAM"
+      ],
+      "specifications": [
+        "Clock: 3.2 GHz boost",
+        "Cooling: Liquid",
+        "Power draw: 450W",
+        "Target: 4K Ultra Gaming"
+      ],
+      "tags": ["main course"],
       "comment": "Overclocked for extreme gamers"
     },
     {
@@ -33,20 +32,19 @@
       "price": 12,
       "allergens": ["nuts"],
       "trace": ["nuts"],
-      "sections": {
-        "architecture": [
-          "Arugula, baby greens",
-          "Avocado, cucumber, tomatoes",
-          "Quinoa, seeds, nuts",
-          "Lemon & olive oil"
-        ],
-        "specifications": [
-          "Execution: Fresh",
-          "Build: 7 min",
-          "Battery life: +4h",
-          "Compatible: Vegan / Gluten-free"
-        ]
-      },
+      "definition": [
+        "Arugula, baby greens",
+        "Avocado, cucumber, tomatoes",
+        "Quinoa, seeds, nuts",
+        "Lemon & olive oil"
+      ],
+      "specifications": [
+        "Execution: Fresh",
+        "Build: 7 min",
+        "Battery life: +4h",
+        "Compatible: Vegan / Gluten-free"
+      ],
+      "tags": ["starter", "vegan"],
       "comment": "No network required. Natural recharge guaranteed."
     },
     {
@@ -58,19 +56,18 @@
       "price": 15,
       "allergens": ["gluten", "milk"],
       "trace": ["gluten", "milk"],
-      "sections": {
-        "architecture": [
-          "Double-layer dough",
-          "Tomato sauce",
-          "Mozzarella",
-          "Ham, mushrooms, peppers"
-        ],
-        "specifications": [
-          "Cooking: 12 min",
-          "Format: Solo / Duo",
-          "High fault tolerance"
-        ]
-      },
+      "definition": [
+        "Double-layer dough",
+        "Tomato sauce",
+        "Mozzarella",
+        "Ham, mushrooms, peppers"
+      ],
+      "specifications": [
+        "Cooking: 12 min",
+        "Format: Solo / Duo",
+        "High fault tolerance"
+      ],
+      "tags": ["main course"],
       "comment": "Autonomous container"
     },
     {
@@ -82,20 +79,19 @@
       "price": 18,
       "allergens": ["gluten", "milk"],
       "trace": ["gluten", "milk"],
-      "sections": {
-        "architecture": [
-          "Pasta",
-          "Beef ragù",
-          "Béchamel",
-          "Cheese"
-        ],
-        "specifications": [
-          "Cooking: 25 min",
-          "Serving: Family size",
-          "Layers: 5+",
-          "Stability: High cohesion"
-        ]
-      },
+      "definition": [
+        "Pasta",
+        "Beef ragù",
+        "Béchamel",
+        "Cheese"
+      ],
+      "specifications": [
+        "Cooking: 25 min",
+        "Serving: Family size",
+        "Layers: 5+",
+        "Stability: High cohesion"
+      ],
+      "tags": ["main course"],
       "comment": "Zero cloud dependency"
     },
     {
@@ -107,20 +103,19 @@
       "price": 10,
       "allergens": ["gluten", "milk"],
       "trace": ["gluten", "milk"],
-      "sections": {
-        "architecture": [
-          "Thin crust",
-          "Tomato sauce",
-          "Mozzarella",
-          "Basil"
-        ],
-        "specifications": [
-          "Cooking: 10 min",
-          "Complexity: Low",
-          "Popularity: High",
-          "Mode: Idle"
-        ]
-      },
+      "definition": [
+        "Thin crust",
+        "Tomato sauce",
+        "Mozzarella",
+        "Basil"
+      ],
+      "specifications": [
+        "Cooking: 10 min",
+        "Complexity: Low",
+        "Popularity: High",
+        "Mode: Idle"
+      ],
+      "tags": ["main course"],
       "comment": "Production stable"
     },
     {
@@ -132,19 +127,18 @@
       "price": 14,
       "allergens": ["gluten", "milk"],
       "trace": ["gluten", "milk"],
-      "sections": {
-        "architecture": [
-          "Penne",
-          "Bolognese sauce",
-          "Parmesan"
-        ],
-        "specifications": [
-          "Cooking: 15 min",
-          "API latency: Low",
-          "Portions: 1-2",
-          "Compatibility: Universal"
-        ]
-      },
+      "definition": [
+        "Penne",
+        "Bolognese sauce",
+        "Parmesan"
+      ],
+      "specifications": [
+        "Cooking: 15 min",
+        "API latency: Low",
+        "Portions: 1-2",
+        "Compatibility: Universal"
+      ],
+      "tags": ["main course"],
       "comment": "Open taste API"
     },
     {
@@ -156,18 +150,17 @@
       "price": 13,
       "allergens": ["gluten", "milk"],
       "trace": ["gluten", "milk"],
-      "sections": {
-        "architecture": [
-          "Pasta",
-          "Ricotta & spinach"
-        ],
-        "specifications": [
-          "Cooking: 8 min",
-          "State: Filled / Empty",
-          "License: Open-source",
-          "Efficiency: High density"
-        ]
-      },
+      "definition": [
+        "Pasta",
+        "Ricotta & spinach"
+      ],
+      "specifications": [
+        "Cooking: 8 min",
+        "State: Filled / Empty",
+        "License: Open-source",
+        "Efficiency: High density"
+      ],
+      "tags": ["main course"],
       "comment": "Stuffed code"
     },
     {
@@ -179,19 +172,18 @@
       "price": 16,
       "allergens": ["gluten", "milk", "eggs"],
       "trace": ["gluten", "milk", "eggs"],
-      "sections": {
-        "architecture": [
-          "Spaghetti",
-          "Egg & parmesan",
-          "Bacon bits"
-        ],
-        "specifications": [
-          "Cooking: 12 min",
-          "Async handling: Enabled",
-          "Error rate: Low",
-          "Threads: Single pan"
-        ]
-      },
+      "definition": [
+        "Spaghetti",
+        "Egg & parmesan",
+        "Bacon bits"
+      ],
+      "specifications": [
+        "Cooking: 12 min",
+        "Async handling: Enabled",
+        "Error rate: Low",
+        "Threads: Single pan"
+      ],
+      "tags": ["main course"],
       "comment": "No deadlock detected"
     },
     {
@@ -203,18 +195,17 @@
       "price": 11,
       "allergens": ["gluten"],
       "trace": ["gluten"],
-      "sections": {
-        "architecture": [
-          "Entangled noodles",
-          "Unknown sauce"
-        ],
-        "specifications": [
-          "Maintainability: Very low",
-          "Refactor cost: High",
-          "Readability: Poor",
-          "Execution: Unpredictable"
-        ]
-      },
+      "definition": [
+        "Entangled noodles",
+        "Unknown sauce"
+      ],
+      "specifications": [
+        "Maintainability: Very low",
+        "Refactor cost: High",
+        "Readability: Poor",
+        "Execution: Unpredictable"
+      ],
+      "tags": ["main course"],
       "comment": "Refactoring recommended"
     },
     {
@@ -226,20 +217,19 @@
       "price": 8,
       "allergens": ["gluten"],
       "trace": ["gluten", "sesame"],
-      "sections": {
-        "architecture": [
-          "Grilled bread",
-          "Tomatoes",
-          "Garlic",
-          "Olive oil"
-        ],
-        "specifications": [
-          "Cooking: 5 min",
-          "Bits: Crunchy/Soft",
-          "Serving: Starter",
-          "Throughput: Fast"
-        ]
-      },
+      "definition": [
+        "Grilled bread",
+        "Tomatoes",
+        "Garlic",
+        "Olive oil"
+      ],
+      "specifications": [
+        "Cooking: 5 min",
+        "Bits: Crunchy/Soft",
+        "Serving: Starter",
+        "Throughput: Fast"
+      ],
+      "tags": ["starter", "vegan"],
       "comment": "Local flavor guaranteed"
     },
     {
@@ -251,19 +241,18 @@
       "price": 7,
       "allergens": ["gluten", "milk"],
       "trace": ["gluten", "milk"],
-      "sections": {
-        "architecture": [
-          "Baguette",
-          "Garlic butter",
-          "Parsley"
-        ],
-        "specifications": [
-          "Cooking: 6 min",
-          "Garlic intensity: High",
-          "Response time: Instant",
-          "Side dish: Yes"
-        ]
-      },
+      "definition": [
+        "Baguette",
+        "Garlic butter",
+        "Parsley"
+      ],
+      "specifications": [
+        "Cooking: 6 min",
+        "Garlic intensity: High",
+        "Response time: Instant",
+        "Side dish: Yes"
+      ],
+      "tags": ["starter"],
       "comment": "No garlic bugs"
     },
     {
@@ -275,19 +264,18 @@
       "price": 9,
       "allergens": [],
       "trace": [],
-      "sections": {
-        "architecture": [
-          "Blended fruits",
-          "Juice",
-          "Ice cubes"
-        ],
-        "specifications": [
-          "Build: 3 min",
-          "Refresh rate: High",
-          "Temperature: Cold",
-          "Energy boost: Medium"
-        ]
-      },
+      "definition": [
+        "Blended fruits",
+        "Juice",
+        "Ice cubes"
+      ],
+      "specifications": [
+        "Build: 3 min",
+        "Refresh rate: High",
+        "Temperature: Cold",
+        "Energy boost: Medium"
+      ],
+      "tags": ["drink", "vegan"],
       "comment": "Refreshing endpoint"
     },
     {
@@ -299,19 +287,18 @@
       "price": 10,
       "allergens": ["gluten", "milk", "eggs"],
       "trace": ["gluten", "milk", "eggs"],
-      "sections": {
-        "architecture": [
-          "Coffee biscuits",
-          "Mascarpone",
-          "Cocoa"
-        ],
-        "specifications": [
-          "Cooling: 2h",
-          "Layers: Multiple",
-          "Sweetness: Balanced",
-          "Execution: Deferred"
-        ]
-      },
+      "definition": [
+        "Coffee biscuits",
+        "Mascarpone",
+        "Cocoa"
+      ],
+      "specifications": [
+        "Cooling: 2h",
+        "Layers: Multiple",
+        "Sweetness: Balanced",
+        "Execution: Deferred"
+      ],
+      "tags": ["dessert"],
       "comment": "Smooth deployment"
     },
     {
@@ -323,19 +310,18 @@
       "price": 11,
       "allergens": ["milk"],
       "trace": ["milk", "sulphites", "eggs"],
-      "sections": {
-        "architecture": [
-          "Cream",
-          "Fruits",
-          "Chocolate"
-        ],
-        "specifications": [
-          "Serving temp: -10°C",
-          "Latency: Zero",
-          "Flavors: Scalable",
-          "Concurrency: Multi-scoop"
-        ]
-      },
+      "definition": [
+        "Cream",
+        "Fruits",
+        "Chocolate"
+      ],
+      "specifications": [
+        "Serving temp: -10°C",
+        "Latency: Zero",
+        "Flavors: Scalable",
+        "Concurrency: Multi-scoop"
+      ],
+      "tags": ["dessert"],
       "comment": "Zero latency"
     },
     {
@@ -347,18 +333,17 @@
       "price": 5,
       "allergens": ["milk"],
       "trace": ["milk"],
-      "sections": {
-        "architecture": [
-          "Milk",
-          "Espresso"
-        ],
-        "specifications": [
-          "Caffeine: Medium",
-          "Foam level: High",
-          "Debug mode: ON",
-          "Warmth: Stable"
-        ]
-      },
+      "definition": [
+        "Milk",
+        "Espresso"
+      ],
+      "specifications": [
+        "Caffeine: Medium",
+        "Foam level: High",
+        "Debug mode: ON",
+        "Warmth: Stable"
+      ],
+      "tags": ["drink"],
       "comment": "Caffeinated debug"
     },
     {
@@ -370,19 +355,18 @@
       "price": 4,
       "allergens": [],
       "trace": [],
-      "sections": {
-        "architecture": [
-          "Green tea",
-          "Infusion",
-          "Honey & lemon"
-        ],
-        "specifications": [
-          "Infusion time: 3 min",
-          "Temperature: 80°C",
-          "Health boost: High",
-          "Deployment: Smooth"
-        ]
-      },
+      "definition": [
+        "Green tea",
+        "Infusion",
+        "Honey & lemon"
+      ],
+      "specifications": [
+        "Infusion time: 3 min",
+        "Temperature: 80°C",
+        "Health boost: High",
+        "Deployment: Smooth"
+      ],
+      "tags": ["drink", "vegan"],
       "comment": "Natural deployment"
     },
     {
@@ -394,18 +378,17 @@
       "price": 6,
       "allergens": ["milk"],
       "trace": ["milk"],
-      "sections": {
-        "architecture": [
-          "Espresso",
-          "Micro foam"
-        ],
-        "specifications": [
-          "Caffeine: Very high",
-          "Execution time: Instant",
-          "Crash risk: Elevated",
-          "Recovery: Required"
-        ]
-      },
+      "definition": [
+        "Espresso",
+        "Micro foam"
+      ],
+      "specifications": [
+        "Caffeine: Very high",
+        "Execution time: Instant",
+        "Crash risk: Elevated",
+        "Recovery: Required"
+      ],
+      "tags": ["drink"],
       "comment": "Restart required"
     }
   ]

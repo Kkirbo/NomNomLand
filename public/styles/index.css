@@ -19,9 +19,9 @@
   --primary-highlight: #3d3d3d;
   --primary-bright: #505050;
   
-  --primary-shadow-04: #0e0e0e66;
-  --primary-04: #18181866;
-  --primary-highlight-04: #2f2f2f66;
+  --primary-dark-04: #16161666;
+  --primary-04: #2d2d2d66;
+  --primary-bright-04: #50505066;
   
   --secondary-dark: #226731;
   --secondary-shadow: #2e8533;
@@ -50,7 +50,7 @@
   --outline: #2a2a2a;
   --neon: #39ff14;
 
-  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23007408\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23369c2e\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
 }
 
 .richTheme {
@@ -70,9 +70,9 @@
   --primary-highlight: #2563eb;
   --primary-bright: #3b82f6;
 
-  --primary-shadow-04: #0b122066;
+  --primary-dark-04: #02061766;
   --primary-04: #1e3a8a66;
-  --primary-highlight-04: #2563eb66;
+  --primary-bright-04: #3b82f666;
 
   --secondary-dark: #9e8b1a;
   --secondary-shadow: #b5820f;
@@ -101,7 +101,7 @@
   --outline: #1e293b;
   --neon: #3b82f6;
 
-  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23facc15\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23cd8900\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
 }
 
 html, body {
@@ -220,6 +220,17 @@ button:hover svg {
   backdrop-filter: blur(6px);
   box-shadow: 0 0 10px var(--secondary-cold-dark);
   border-radius: 3rem;
+  font-weight: 1;
+}
+.background-blur {
+  z-index: 2;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-bright-04);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px var(--secondary-cold-dark);
   font-weight: 1;
 }
 .error-message {
@@ -383,8 +394,8 @@ body {
   flex-direction: column;
 }
 
-.background {
-  position: fixed;
+canvas.background {
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;
@@ -553,8 +564,8 @@ aside.sidebar li svg {
   fill: var(--secondary);
 }
 aside.sidebar li:hover {
-  box-shadow: 0 10px 5px var(--primary-shadow-04),
-  0 -8px 10px var(--primary-highlight-04);
+  box-shadow: 0 10px 5px var(--primary-dark-04),
+  0 -8px 10px var(--primary-bright-04);
   color: var(--secondary-highlight);
 }
 aside.sidebar li:hover svg {
@@ -630,6 +641,8 @@ section.carousel article::scroll-marker:target-current {
 }
 
 section.carousel article {
+  position: relative;
+
   flex: 0 0 clamp(18rem, 60vw, 80rem);
   height: clamp(60vh, 60vw * 5 / 7, 75vh);
   box-sizing: border-box;
@@ -661,17 +674,25 @@ section.carousel article a.imageLink {
 
   display: block;
   padding: 0;
-  margin: 1rem auto;
+  margin: auto;
 }
-section.carousel article img {
+section.carousel article img.background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
+  opacity: 0.2;
+
+  user-select: none;
+  pointer-events: none;
+  background: transparent;
+  
   display: block;
+  border-radius: 3rem;
   transition: all 0.3s ease;
-}
-section.carousel article img:hover {
-  opacity: 0.8;
 }
 section.carousel article ul {
   display: block;
@@ -679,6 +700,7 @@ section.carousel article ul {
   width: 90%;
   margin: 0 auto;
   padding: 0;
+  z-index: 1;
 }
 section.carousel article ul li {
   max-width: 100%;
@@ -710,7 +732,7 @@ section.menus {
   font-size: 1.1rem;
   border: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-columns: repeat(auto-fit, 18rem);
   gap: 2rem;
   justify-content: center;
 }
@@ -739,6 +761,7 @@ section.menus article h3 {
   margin: 0;
 }
 section.menus article ul {
+  text-align: left;
   margin: 0.5rem auto;
   width: 75%;
   list-style-position: outside;
@@ -831,7 +854,7 @@ footer li a + iframe{
   height: 300px;
   bottom: 0px;
   left: -40px;
-  z-index: 10;
+  z-index: 1;
   border: 0.2rem solid var(--secondary-shadow);
   border-radius: 3rem;
 }

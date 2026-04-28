@@ -38,7 +38,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
 
     $orders = array_reverse($orders);
 
-    $visibleOrders = 3;
+    $visibleOrders = 6;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $pagesCount = computePages($orders, $visibleOrders);
     $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
@@ -46,9 +46,9 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
 
     <?php include 'sidebar.php'; ?>
 
-    <section class="orders">
+    <h2>Pending Orders</h2>
 
-        <h2>Pending Orders</h2>
+    <section class="orders">
 
         <?php foreach ($orders as $order): ?>
         <?php /*if (!in_array($order["delivery"]["status"], array("success", "failed"))):*/ ?>
@@ -60,7 +60,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
         $isdelivery = $order["delivery"]["status"] == "delivery";
         ?>
 
-        <article class="menu modernNeonBoxGlassAdmin orderCard">
+        <article class="menu orderCard">
 
             <h3>Order #<?= $order['id'] ?></h3>
 
@@ -78,7 +78,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
             </label>
 
             <div class="modal">
-                <label for="<?= $toggleId ?>" class="overlay"></label>
+                <label for="<?= $toggleId ?>" class="background-blur"></label>
 
                 <div class="modalContent modernNeonBoxGlass">
 
@@ -144,9 +144,10 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
         </article>
         <?php /*endif;*/ ?>
         <?php endforeach; ?>
-        <?php
-            generateNavbar($page, $pagesCount);
-        ?>
+    </section>
+    <?php
+        generateNavbar($page, $pagesCount);
+    ?>
 
 </body>
 </html>

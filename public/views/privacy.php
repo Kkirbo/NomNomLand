@@ -9,11 +9,8 @@
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/textpage.css">
-    <script defer src="../scripts/index.js"></script>
 </head>
 <body>
-    <canvas class="background"></canvas>
-
     <?php include 'header.html'; ?>
 
     <?php include 'sidebar.php'; ?>

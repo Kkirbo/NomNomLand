@@ -23,7 +23,6 @@ $users = sliceArrayToPage($users, $visibleUsers, $page, $pagesCount);
     <link rel="stylesheet" href="../styles/admin.css">
 </head>
 <body>
-
     <?php include 'header.html'; ?>
 
     <?php include 'sidebar.php'; ?>

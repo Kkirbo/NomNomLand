@@ -8,7 +8,7 @@
 
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
-    <script defer src="../scripts/index.js"></script>
+    <script defer type="module" src="../scripts/index.js"></script>
 </head>
 <body>
     <!--<?php include 'background.html'; ?>-->

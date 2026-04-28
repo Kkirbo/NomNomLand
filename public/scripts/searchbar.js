@@ -28,11 +28,12 @@ searchBarEntersView.observe(searchForm);
  * Block search submit when on menu page
  */
 async function updateSearchResults() {
+  if (!searchResults || !window.location.pathname.endsWith("/menu.php")) return;
   const response = await sendDataAsync(searchForm);
   searchResults.innerHTML = response;
 }
 searchForm.addEventListener("submit", async (e) => {
-  if (!window.location.pathname.endsWith("/menu.php") || !searchResults) return;
+  if (!searchResults || !window.location.pathname.endsWith("/menu.php")) return;
   e.preventDefault();
   updateSearchResults();
 });

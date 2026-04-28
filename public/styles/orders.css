@@ -21,16 +21,6 @@
     display: block;
 }
 
-/* Overlay plein écran */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-}
-
 /* Contenu centré */
 .modalContent {
     position: fixed;
@@ -40,7 +30,20 @@
     width: 90%;
     max-width: 500px;
     padding: 30px;
-    z-index: 10;
+    z-index: 2;
+}
+
+.orders {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 18rem);
+    gap: 2rem;
+    justify-content: center;
 }
 
 /* Bouton fermer */
@@ -51,9 +54,13 @@
 }
 
 .orderCard {
-    padding: 20px;
+    padding: 1.2rem;
     box-sizing: border-box;
-    margin: 1.5rem;
+    background: var(--primary-04);
+    border: 0.2rem solid var(--secondary-shadow);
+    box-shadow: 0 0 0.6rem var(--secondary-cold-dark);
+    border-radius: 3rem;
+    font-weight: 1;
 }
 
 .orderCard ul,
@@ -61,15 +68,6 @@
     margin-bottom: 10px;
 }
 
-/* Overlay flou */
-.overlay {
-    position: absolute;
-    inset: 0;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.5);
-    height: 100vh;
-    z-index: 7;
-}
 
 @keyframes fadeIn {
     from {
@@ -86,21 +84,13 @@ h2 {
     text-align: center;
 }
 
-.modernNeonBoxGlassAdmin {
-  background: var(--primary-04);
-  border: 0.2rem solid var(--secondary-shadow);
-  box-shadow: 0 0 10px #004C29;
-  border-radius: 3rem;
-  font-weight: 1;
-}
-
 .orders button[type=submit]{
     margin: 1rem;
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
 }
 
-.orders label {
+.orders label:not(.background-blur) {
   background: var(--primary);
   color: var(--secondary);
   border: 0.2rem solid var(--secondary);
@@ -111,20 +101,11 @@ h2 {
   font-size: 1.2rem;
   z-index: 0;
 }
-.orders label:hover {
+.orders label:not(.background-blur):hover {
   color: var(--primary);
   background: var(--secondary-bright);
   border: 0.2rem solid var(--secondary-bright);
   box-shadow: 0 0 1rem var(--secondary-hot);
-}
-.orders label.overlay {
-  cursor: auto;
-}
-.orders label.overlay:hover {
-  background: var(--primary);
-  color: var(--secondary);
-  border: 0.2rem solid var(--secondary);
-  box-shadow: 0;
 }
 
 .orders select {

@@ -40,6 +40,43 @@ $categories = [
 <section class="search-results">
     <?php include '../../private/php/generate-search-result.php'; ?>
 </section>
+<section id="id" class="background-blur modal">
+    <article class="modal_content modernNeonBox">
+        <img src="../assets/images/default.png" class="background" alt="fork and knife default background">
+        <div class="header">
+            <a href="#" class="modal_close">&times;</a>
+            <h2 class="dish-title">Title</h2>
+        </div>
+        <div class="description">
+            <p class="dish-version">Version</p>
+            <div class="dish-section">
+                <h3>Architecture</h3>
+                <ul>
+                    <li>Information</li>
+                </ul>
+            </div>
+            <p class="dish-footer">Comment</p>
+        </div>
+        <div class="footer">
+            <div class="dish-section">
+                <h3>Price</h3>
+            </div>
+            <form method="POST" action="../views/panier.php">
+                <input type="hidden" name="dish_id" value="id">
+                <h3 class="hidden">Starter</h3>
+                <select name="starter" required disabled></select>
+                <h3 class="hidden">Main Course</h3>
+                <select name="main course" required disabled></select>
+                <h3 class="hidden">Drink</h3>
+                <select name="drink" required disabled></select>
+                <h3 class="hidden">Dessert</h3>
+                <select name="dessert" required disabled></select>
+                <button type="submit">Add to cart</button>
+            </form>
+        </div>
+    </article>
+</section>
+<script defer type="module" src="../scripts/menu-modal.js"></script>
 
 <h1 id="menuheader">Restaurant Menu</h1>
 <div class="menu-left">
@@ -51,7 +88,7 @@ foreach ($menusData["menus"] ?? [] as $menu) {
     echo '<article class="menu-card modernNeonBoxGlass">';
     echo '<img src="' . $menu["image"] . '" class="menu-img" alt="' . $menu["title"] . '">';
     echo '<h3>' . $menu["title"] . '</h3>';
-    echo '<a href="#' . $menu["id"] . '" class="card-btn">' . $menu["price"] . '€</a>';
+    echo '<a href="#menu-' . $menu["id"] . '" class="card-btn">' . $menu["price"] . '€</a>';
     echo '</article>';
 }
 ?>
@@ -87,8 +124,8 @@ foreach ($categories as $catId => $list) {
 </div>
 <?php
 foreach ($menusData["menus"] ?? [] as $menu) {
-    echo '<div id="' . $menu["id"] . '" class="modal">';
-    echo '<div class="modal_content modernNeonBox">';
+    echo '<section id="' . $menu["id"] . '" class="background-blur modal">';
+    echo '<article class="modal_content modernNeonBox">';
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $menu["title"] . '</h2>';
     echo '<form method="POST" action="../views/panier.php">';
@@ -119,22 +156,13 @@ foreach ($menusData["menus"] ?? [] as $menu) {
     echo '<button type="submit">Add menu to cart</button>';
 
     echo '</form>';
-    echo '</div></div>';
+    echo '</article></section>';
 }
 ?>
-<script>
-  const modal_content = document.querySelectorAll('.modal_content');
-
-  //Hide modal when clicking outside
-  document.addEventListener('click', (e) => {
-    for (const content of modal_content) if (content.contains(e.target)) return;
-    window.location.href = "#"
-  });
-</script>
 <?php
 foreach ($dishesData["dishes"] ?? [] as $dish) {
-    echo '<div id="' . $dish["id"] . '" class="modal">';
-    echo '<div class="modal_content modernNeonBox">';
+    echo '<section id="' . $dish["id"] . '" class="background-blur modal">';
+    echo '<article class="modal_content modernNeonBox">';
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title">' . $dish["title"] . '</h2>';
     echo '<img src="' . $dish["image"] . '" class="dish-img" alt="' . $dish["title"] . '">';
@@ -158,13 +186,13 @@ foreach ($dishesData["dishes"] ?? [] as $dish) {
     echo '<li>' . $dish["price"] . '€</li>';
     echo '</ul></div>';
     echo '<div class="dish-footer"><p>' . ($dish["comment"] ?? "") . '</p></div>';
-    echo '</div></div>';
+    echo '</article></section>';
 }
 ?>
 <?php
 foreach ($categories as $cat => $list) {
-    echo '<div id="' . $cat . '" class="modal">';
-    echo '<div class="modal_content modernNeonBox">';
+    echo '<section id="' . $cat . '" class="background-blur modal">';
+    echo '<article class="modal_content modernNeonBox">';
     echo '<a href="#" class="modal_close">&times;</a>';
     echo '<h2 class="dish-title basic">' . strtoupper($cat) . '</h2>';
     echo '<ul class="liste">';
@@ -172,7 +200,7 @@ foreach ($categories as $cat => $list) {
         $title = $dishesById[$dishId]["title"] ?? "Unknown";
         echo '<li class="texte"><a href="#' . $dishId . '" class="link">' . $title . '</a></li>';
     }
-echo '</ul></div></div>';
+echo '</ul></article></section>';
     }
 ?>
 <?php echo'<a href="cart.php" class="return0">Return 0: Check your cart '. $username . '</a>';?>

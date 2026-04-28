@@ -7,7 +7,7 @@ function generateMenuList($count=0)
   if ($count>0) $menus = array_slice($menus, 0, $count);
 
   foreach ($menus as $menu) {
-    generateCard($menu['id'], $menu['image'], $menu['title'], $menu['description'], $menu['price']);
+    generateCard("menu", $menu['id'], $menu['image'], $menu['title'], $menu['description'], $menu['price']);
   }
 }
 ?>
