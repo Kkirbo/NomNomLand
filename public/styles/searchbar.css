@@ -85,6 +85,11 @@ form.searchbar section.dropdown article {
 form.searchbar section.dropdown article button {
   padding: 0.1rem 0.5rem;
   font-size: 1.5rem;
+  text-transform: capitalize;
+}
+form.searchbar section.dropdown article button.active {
+  color: var(--primary);
+  background: var(--secondary);
 }
 form.searchbar section.dropdown input[type="checkbox"] {
   display: none;

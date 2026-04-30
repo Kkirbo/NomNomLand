@@ -54,14 +54,6 @@
 }
 
 .richTheme {
-  --black: #000000;
-  --white: #ffffff;
-
-  --pastel-blue: #6ec1ff;
-  --pastel-red: #ff6b6b;
-  --pastel-red-dark: #c94a4a;
-  --pastel-orange: #ffd166;
-
   --background: #0f172a;
 
   --primary-dark: #020617;
@@ -98,10 +90,68 @@
   --shaded-glass-highlight: #33415580;
   --shaded-glass-bright: #47556980;
 
-  --outline: #1e293b;
   --neon: #3b82f6;
 
   --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%23cd8900\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+}
+
+.discoTheme {
+  --pastel-blue: #6a5cff;
+  --pastel-red: #ff4df0;
+  --pastel-red-dark: #c23ad1;
+  --pastel-orange: #9d4dff;
+
+  --background: #0a0014;
+
+  --primary-dark: #0a001a;
+  --primary-shadow: #140033;
+  --primary: #3b00ff;
+  --primary-highlight: #6a00ff;
+  --primary-bright: #9d4dff;
+
+  --primary-dark-04: #0a001a66;
+  --primary-04: #3b00ff66;
+  --primary-bright-04: #9d4dff66;
+
+  --secondary-dark: #001a33;
+  --secondary-shadow: #003366;
+  --secondary: #0066ff;
+  --secondary-highlight: #00aaff;
+  --secondary-bright: #33ccff;
+
+  --secondary-cold-dark: #001f1f;
+  --secondary-cold-shadow: #003f3f;
+  --secondary-cold: #00ffff;
+  --secondary-cold-highlight: #33ffff;
+  --secondary-cold-bright: #66ffff;
+
+  --secondary-hot-dark: #33001a;
+  --secondary-hot-shadow: #660033;
+  --secondary-hot: #ff00aa;
+  --secondary-hot-highlight: #ff33cc;
+  --secondary-hot-bright: #ff66ff;
+
+  --shaded-glass-dark: #0a001a99;
+  --shaded-glass-shadow: #14003399;
+  --shaded-glass: #3b00ff99;
+  --shaded-glass-highlight: #6a00ff99;
+  --shaded-glass-bright: #9d4dff99;
+
+  --outline: #3b00ff;
+  --neon: #00ffff;
+
+  --select-arrow-url: url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 -960 960 960\" fill=\"%230066ff\"><path d=\"M480-360 280-560h400L480-360Z\"/></svg>");
+
+  text-shadow: 0 0 0.3rem var(--neon), 0 0 0.6rem var(--neon), 0 0 1.2rem var(--neon);
+  animation: hueSpin 2s linear infinite;
+}
+@keyframes hueSpin {
+  from {
+    filter: hue-rotate(0deg) saturate(2);
+  }
+  to { 
+    filter: hue-rotate(360deg) saturate(3);
+  }
 }
 
 html, body {
@@ -766,6 +816,9 @@ section.menus article ul {
   width: 75%;
   list-style-position: outside;
   padding: 0;
+}
+section.menus article ul.hidden {
+  display: none;
 }
 section.menus article ul li {
   border-bottom: 0.1rem solid var(--primary-highlight);

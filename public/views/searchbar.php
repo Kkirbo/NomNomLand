@@ -10,8 +10,9 @@
     </button>
     <section class="dropdown">
         <article>
-            <button type="button">Price ↓</button>
-            <button type="button">Most bought ↓</button>
+            <button type="button" <?= (!isset($_GET['sort']) || (isset($_GET['sort']) && $_GET['sort'] == "alphabetical")) ? 'class="active"' : '' ?>>alphabetical ↓</button>
+            <button type="button" <?= (isset($_GET['sort']) && $_GET['sort'] == "price") ? 'class="active"' : '' ?>>price ↓</button>
+            <button type="button" <?= (isset($_GET['sort']) && $_GET['sort'] == "type") ? 'class="active"' : '' ?>>type ↓</button>
         </article>
 
         <h3>Filters</h3>

@@ -28,3 +28,11 @@ function updateTheme() {
 }
 updateTheme();
 changeThemeButton.addEventListener('change', updateTheme);
+
+//Disco theme easter egg
+let clicksCounter = 0;
+setInterval(() => {
+  if (clicksCounter >= 12) htmlElement.classList.add("discoTheme");
+  clicksCounter = 0;
+}, 2000);
+changeThemeButton.addEventListener('click', () => clicksCounter++);

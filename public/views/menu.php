@@ -37,9 +37,7 @@ $categories = [
 <?php include __DIR__ . '/sidebar.php'; ?>
 
 <?php include 'searchbar.php'; ?>
-<section class="search-results">
-    <?php include '../../private/php/generate-search-result.php'; ?>
-</section>
+<section class="search-results"></section>
 <section id="id" class="background-blur modal">
     <article class="modal_content modernNeonBox">
         <img src="../assets/images/default.png" class="background" alt="fork and knife default background">

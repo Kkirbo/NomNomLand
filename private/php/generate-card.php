@@ -7,7 +7,7 @@ function generateCard($type="menu", $id="menu1", $image="../assets/images/defaul
     echo '<img draggable="false" src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($title) . ' Image">';
     echo '</a>';
     echo '<h3>' . htmlspecialchars($title) . '</h3>';
-    echo '<ul>';
+    echo '<ul ' . ($type == "dish" ? "class=\"hidden\"" : "") . '>';
     foreach ($description as $desc) {
         echo '<li>' . $desc . '</li>';
     }
