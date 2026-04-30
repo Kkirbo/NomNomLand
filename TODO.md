@@ -16,13 +16,6 @@ TODO:
   -Message qui dit merci de nous avoir noté si dernière commande déjà notée
 
 
-
-Carousel:
-  -Infinite auto scroll
-Searchbar:
-  -Filters dropdown
-
-
 -----------------------------------------Cahier des charges----------------------------------------
 
 ---------------------------------------------------------------------------------------------------

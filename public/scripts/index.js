@@ -6,6 +6,7 @@ const cards = [...carousel.children];
 const firstValidCard = 1;
 const lastValidCard = cards.length - 2;
 
+let lastUpdate = 0;
 carousel.addEventListener('scroll', () => {
   /**
    * Lock In Between Blank Elements
@@ -33,6 +34,32 @@ carousel.addEventListener('scroll', () => {
       behavior: 'smooth'
     });
   }
+ 
+ if (closestIndex === 1) {
+  if (Date.now() - lastUpdate > 500) {
+    const lastCard = carousel.children[lastValidCard];
+
+    const prevOffset = lastCard.offsetLeft;
+
+    carousel.insertBefore(lastCard, carousel.children[firstValidCard]);
+
+    carousel.scrollLeft += lastCard.clientWidth;
+    lastUpdate = Date.now();
+  }
+} 
+if (closestIndex === cards.length - 2) {
+  if (Date.now() - lastUpdate > 500) {
+    const firstCard = carousel.children[firstValidCard];
+
+    const prevOffset = firstCard.offsetLeft;
+
+    carousel.insertBefore(firstCard, carousel.children[lastValidCard + 1]);
+
+    carousel.scrollLeft -= firstCard.clientWidth;
+    lastUpdate = Date.now();
+  }
+}
+
 
   /**
    * Animate Carousel Cards
@@ -54,7 +81,7 @@ carousel.addEventListener('scroll', () => {
 
 window.addEventListener('load', () => {
   carousel.scrollTo({
-    left: cards[firstValidCard].offsetLeft - (carousel.clientWidth - cards[firstValidCard].clientWidth) / 2,
+    left: cards[firstValidCard+1].offsetLeft - (carousel.clientWidth - cards[firstValidCard+1].clientWidth) / 2,
     behavior: 'smooth'
   });
 });
