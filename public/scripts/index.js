@@ -2,15 +2,16 @@
  * Carousel
  */
 const carousel = document.querySelector('section.carousel');
-const cards = [...carousel.children];
+let cards = [...carousel.children];
 const firstValidCard = 1;
 const lastValidCard = cards.length - 2;
 
+let lastInteract = 0;
+
 let lastUpdate = 0;
-carousel.addEventListener('scroll', () => {
-  /**
-   * Lock In Between Blank Elements
-   */
+
+function updateCarousel() {
+  cards = [...carousel.children];
   const center = carousel.scrollLeft + carousel.clientWidth / 2;
   let closestIndex = firstValidCard;
   let closestDistance = Infinity;
@@ -23,6 +24,9 @@ carousel.addEventListener('scroll', () => {
     }
   });
 
+  /**
+   * Lock In Between Blank Elements
+   */
   if (closestIndex === 0) {
     carousel.scrollTo({
       left: cards[firstValidCard].offsetLeft - (carousel.clientWidth - cards[firstValidCard].clientWidth) / 2,
@@ -35,36 +39,64 @@ carousel.addEventListener('scroll', () => {
     });
   }
  
- if (closestIndex === 1) {
-  if (Date.now() - lastUpdate > 500) {
-    const lastCard = carousel.children[lastValidCard];
-
-    const prevOffset = lastCard.offsetLeft;
-
-    carousel.insertBefore(lastCard, carousel.children[firstValidCard]);
-
-    carousel.scrollLeft += lastCard.clientWidth;
-    lastUpdate = Date.now();
+  /**
+   * Infinite Scroll
+   */
+  if (closestIndex === 1) {
+    if (Date.now() - lastUpdate > 500) {
+      lastUpdate = Date.now();
+      let lastCard = carousel.children[cards.length - 2];
+      let firstCard = carousel.children[1];
+      carousel.insertBefore(lastCard, firstCard);
+      cards = [...carousel.children];
+      carousel.scrollTo({
+        left: cards[2].offsetLeft - (carousel.clientWidth - cards[2].clientWidth) / 2,
+        behavior: 'auto'
+      });
+    }
   }
-} 
-if (closestIndex === cards.length - 2) {
-  if (Date.now() - lastUpdate > 500) {
-    const firstCard = carousel.children[firstValidCard];
-
-    const prevOffset = firstCard.offsetLeft;
-
-    carousel.insertBefore(firstCard, carousel.children[lastValidCard + 1]);
-
-    carousel.scrollLeft -= firstCard.clientWidth;
-    lastUpdate = Date.now();
+  if (closestIndex === cards.length - 2) {
+    if (Date.now() - lastUpdate > 500) {
+      lastUpdate = Date.now();
+      let lastCard = carousel.children[cards.length - 1];
+      let firstCard = carousel.children[1];
+      carousel.insertBefore(firstCard, lastCard);
+      cards = [...carousel.children];
+      carousel.scrollTo({
+        left: cards[cards.length - 3].offsetLeft - (carousel.clientWidth - cards[cards.length - 3].clientWidth) / 2,
+        behavior: 'auto'
+      });
+    }
   }
 }
 
+document.addEventListener('keydown', (e) => {
+  if (e.keyCode === 37 || e.keyCode === 39) {
+    cards = [...carousel.children];
+    const center = carousel.scrollLeft + carousel.clientWidth / 2;
+    let closestIndex = firstValidCard;
+    let closestDistance = Infinity;
 
+    cards.forEach((card, index) => {
+      const distance = Math.abs(center - (card.offsetLeft + card.clientWidth / 2));
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+    if (e.keyCode === 37) carousel.scrollLeft -= cards[closestIndex].clientWidth;
+    if (e.keyCode === 39) carousel.scrollLeft += cards[closestIndex].clientWidth;
+  }
+});
+
+carousel.addEventListener('scroll', () => {
+  lastInteract = 5;
+  updateCarousel();
   /**
    * Animate Carousel Cards
    */
   cards.forEach(card => {
+    const center = carousel.scrollLeft + carousel.clientWidth / 2;
     const cardCenter = card.offsetLeft + card.offsetWidth / 2;
     const distance = Math.abs(center - cardCenter);
 
@@ -85,3 +117,22 @@ window.addEventListener('load', () => {
     behavior: 'smooth'
   });
 });
+
+setInterval(() => {
+  if (lastInteract > 0) lastInteract--;
+  else {
+    cards = [...carousel.children];
+    const center = carousel.scrollLeft + carousel.clientWidth / 2;
+    let closestIndex = firstValidCard;
+    let closestDistance = Infinity;
+
+    cards.forEach((card, index) => {
+      const distance = Math.abs(center - (card.offsetLeft + card.clientWidth / 2));
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+    carousel.scrollLeft += cards[closestIndex].clientWidth;
+  }
+}, 1000);
