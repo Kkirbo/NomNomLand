@@ -21,6 +21,7 @@ $users = sliceArrayToPage($users, $visibleUsers, $page, $pagesCount);
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/admin.css">
+    <script defer type="module" src="../scripts/admin.js"></script>
 </head>
 <body>
     <?php include 'header.html'; ?>
