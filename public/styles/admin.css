@@ -28,6 +28,7 @@ table td span {
 }
 
 button.admin-locked {
+  opacity: 0.7;
   cursor: not-allowed;
 }
 button.admin-locked:hover {
@@ -43,6 +44,7 @@ select {
   padding-right: 2rem;
 }
 select:disabled {
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
