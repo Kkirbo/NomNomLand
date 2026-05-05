@@ -1,167 +1,63 @@
 {
     "users": [
         {
-            "id": "69d1542a648a0",
-            "email": "gregoire@email.com",
-            "phone": "0626262626",
-            "password": "$2y$12$aL\/gU9WP4UUCxnLbVRGmb.S\/TRcr9m3zpELIFEptzGhrArJLfnM0W",
-            "role": "admin",
-            "status": "Free",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Leadmin",
-                "lastName": "Gregoire",
-                "username": "Leadmin.Gregoire",
-                "age": 43,
-                "address": "1 Avenue Versailles",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-04 18:10:50",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": true,
-                "functionalCookies": false
-            }
-        },
-        {
-            "id": "69d15476ac40e",
-            "email": "eva@email.com",
-            "phone": "0626262626",
-            "password": "$2y$12$dtOYErvtSxMETBTB9G8Bpul50UqETrrYu.8hPr0zkap5I8VnYHmSe",
-            "role": "delivery",
-            "status": "Free",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Lalivreuse",
-                "lastName": "Eva",
-                "username": "Lalivreuse.Eva",
-                "age": 23,
-                "address": "2 Avenue de Versailles",
-                "gender": "female"
-            },
-            "createdAt": "2026-04-04 18:12:07",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": true,
-                "functionalCookies": false
-            }
-        },
-        {
-            "id": "69d154ddcc706",
-            "email": "jean@email.com",
-            "phone": "0626262626",
-            "password": "$2y$12$BIpt.GrAzmUkDf92ivulQOBQX4wHHUv0ClmAGC70\/2GO1mW91xfzi",
-            "role": "delivery",
-            "status": "Free",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Lelivreur",
-                "lastName": "Jean",
-                "username": "Lelivreur.Jean",
-                "age": 34,
-                "address": "3 Avenue Versailles",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-04 18:13:50",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": true,
-                "functionalCookies": false
-            }
-        },
-        {
-            "id": "69d155185e2a5",
-            "email": "julien@email.com",
-            "phone": "0626262626",
-            "password": "$2y$12$0Q.MfVfIBu45eNbUv.9rsub\/oAmBHtv8nIARA1\/..jwUbrujtCH8i",
-            "role": "cook",
-            "status": "Free",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Lecuisinier",
-                "lastName": "Julien",
-                "username": "Lecuisinier.Julien",
-                "age": 19,
-                "address": "4 Avenue Versailles",
-                "gender": "male"
-            },
-            "createdAt": "2026-04-04 18:14:48",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": true,
-                "functionalCookies": false
-            }
-        },
-        {
-            "id": "69d1556b00742",
-            "email": "lea@email.com",
-            "phone": "0626262626",
-            "password": "$2y$12$8FvNjcPhbIt53zlBiLuYruQiocLPySlSrm8iomzwcc6H4G6Mc5WXa",
-            "role": "client",
-            "status": "VIP",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Lacliente",
-                "lastName": "Lea",
-                "username": "Lacliente.Lea",
-                "age": 34,
-                "address": "5 Avenue Versailles",
-                "gender": "female"
-            },
-            "createdAt": "2026-04-04 18:16:11",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": true,
-                "functionalCookies": false
-            }
-        },
-        {
-            "id": "69d155a80d1ec",
-            "email": "tom@email.com",
-            "phone": "0626262626",
-            "password": "$2y$12$EqPaDzjvrfObW7Jah5j5COfos1lwsrxWsILfD\/Gk8c\/0lpd6wsT9q",
+            "id": "69f9f3236014c",
+            "email": "vroum@email.com",
+            "phone": "0123456789",
+            "password": "$2y$10$nceDO5qoxCcFRfAG9elaWuW8SKbK86DmM96fntvJ0YzhZK7XxAyIe",
             "role": "client",
             "status": "Free",
             "fidelity": 0,
+            "newsletter": false,
             "profile": {
-                "firstName": "Leclient",
-                "lastName": "Tom",
-                "username": "Leclient.Tom",
-                "age": 39,
-                "address": "6 Avenue Versailles",
+                "firstName": "H\u00e9carim",
+                "lastName": "Benzema",
+                "username": "H\u00e9carim.Benzema",
+                "age": 101,
+                "address": "12 rue de Rivoli",
                 "gender": "male"
             },
-            "createdAt": "2026-04-04 18:17:12",
-            "lastLogin": null,
-            "cookies": {
-                "essentialCookies": true,
-                "analyticsCookies": true,
-                "functionalCookies": false
-            }
+            "createdAt": "2026-05-05 15:39:47",
+            "lastLogin": null
         },
         {
-            "id": "69ed07973daf3",
-            "email": "admin@email.com",
-            "phone": "0011223344",
-            "password": "$2y$12$w8sKH3Zv887KrL3MCade8OpQ6ljgb97a6MRLXdkX5h.VTqvETrTb2",
+            "id": "69f9f3e7e6e91",
+            "email": "tomjedusor@email.com",
+            "phone": "0132457898",
+            "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
             "role": "admin",
             "status": "Free",
             "fidelity": 0,
             "newsletter": false,
             "profile": {
-                "firstName": "Tom",
-                "lastName": "Jedusor",
-                "username": "Tom.Jedusor",
+                "firstName": "elvis",
+                "lastName": "Tom",
+                "username": "elvis.Tom",
                 "age": 18,
-                "address": "13 Tour de Tokyo",
-                "gender": "other"
+                "address": "12 rue de Rivoli",
+                "gender": "male"
             },
-            "createdAt": "2026-04-25 18:27:35",
+            "createdAt": "2026-05-05 15:43:04",
+            "lastLogin": null
+        },
+        {
+            "id": "69f9f4d7be1cc",
+            "email": "ninalalivreuse@email.com",
+            "phone": "0123456789",
+            "password": "$2y$10$s46N5PPYrPD.5eTCPV7bVut1gfq\/XFW.bsdJrY9\/BqYvvoINY77\/a",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "newsletter": false,
+            "profile": {
+                "firstName": "Lalivreuse",
+                "lastName": "Nina",
+                "username": "Lalivreuse.Nina",
+                "age": 19,
+                "address": "12 rue de Rivoli",
+                "gender": "female"
+            },
+            "createdAt": "2026-05-05 15:47:03",
             "lastLogin": null
         }
     ]

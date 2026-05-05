@@ -119,7 +119,11 @@ function checkLogin(){
     }
     return valid;
 }
-
+function CharLength(){
+    let i= document.getElementById("password");
+    let j= i.value.length;
+    document.getElementById("compteur").textContent = length;
+}
 function validateForm() {
     let email = document.getElementById("email");
     let password = document.getElementById("password");
