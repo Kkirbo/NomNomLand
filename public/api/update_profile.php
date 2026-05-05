@@ -3,7 +3,7 @@ require '../../private/php/session.php';
 require '../../private/php/data_loader.php';
 
 header('Content-Type: application/json');
-require_login();
+require_login(); 
 
 $loggedInUser = get_user_by_session();
 
@@ -29,7 +29,7 @@ if (!in_array($field, $allowedFields)) {
 }
 
 
-$path = __DIR__ . "/../data/users.json";
+$path = "../../private/data/users.json";
 $content = file_get_contents($path);
 $users_data = json_decode($content, true);
 
