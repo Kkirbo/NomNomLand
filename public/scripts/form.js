@@ -119,11 +119,19 @@ function checkLogin(){
     }
     return valid;
 }
-function CharLength(){
-    let i= document.getElementById("password");
-    let j= i.value.length;
+function CharLength() {
+    let input = document.getElementById("password");
+    let length = input.value.length;
     document.getElementById("compteur").textContent = length;
+    if (length > 100) {
+        input.classList.add("input-error");
+        input.classList.remove("input-success");
+    } else {
+        input.classList.add("input-success");
+        input.classList.remove("input-error");
+    }
 }
+
 function validateForm() {
     let email = document.getElementById("email");
     let password = document.getElementById("password");

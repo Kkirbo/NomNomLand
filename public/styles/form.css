@@ -148,3 +148,8 @@ form a:hover {
 #togglePassword svg {
   display: block;
 }
+#compteur {
+  white-space: nowrap;
+  font-size: 0.9rem;
+  color: var(--secondary-cold-shadow);
+}
