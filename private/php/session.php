@@ -22,7 +22,22 @@ function get_users() {
     }
     return $data['users'];
 }
-
+function IsAdmin($user) {
+    if $user["role"] === 'admin' {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function IsClient($user) {
+    if $user["role"] === 'client' {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 function get_users_by_role($role) {
     $users = [];
     foreach (get_users() as $user) {
