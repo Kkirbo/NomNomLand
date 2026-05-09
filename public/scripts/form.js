@@ -219,3 +219,10 @@ function updateCounter(input, counterId) {
     let counter = document.getElementById(counterId);
     counter.textContent = current + " / " + max;
 }
+function Autocorrect() {
+    let champs = document.getElementsByClassName("champ");
+    for (let i = 0; i < champs.length; i++) {
+        let texte = champs[i].value.toLowerCase();
+        champs[i].value = texte.charAt(0).toUpperCase()+texte.slice(1);
+    }
+}

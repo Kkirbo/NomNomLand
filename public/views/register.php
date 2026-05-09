@@ -29,11 +29,11 @@ function retype($key) {
 
       <div class="field">
           <label for="name">Last Name:</label>
-          <input id="name" name="name" type="text" placeholder="Last Name" required value="<?= retype('name') ?>">
+          <input id="name" class="champ" name="name" type="text"oninput="Autocorrect()" placeholder="Last Name" required value="<?= retype('name')  ?>">
         </div>
       <div class="field">
           <label for="firstname">First name:</label>
-          <input id="firstname" name="firstname" type="text" placeholder="First Name" required value="<?= retype('firstname') ?>">
+          <input id="firstname" class="champ" name="firstname" type="text"oninput="Autocorrect()" placeholder="First Name" required value="<?= retype('firstname') ?>">
       </div>
       <div class="field">
           <label for="age">Age:</label>
