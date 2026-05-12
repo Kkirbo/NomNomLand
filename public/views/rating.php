@@ -2,8 +2,10 @@
 require '../../private/php/session.php';
 require_login();
 $user = get_user_by_session();
-
+$userid= get_user_by_id($user["id"]);
 $email = $user["email"];
+$userlastdish = get_user_last_dish($userid);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

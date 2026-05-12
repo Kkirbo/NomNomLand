@@ -22,6 +22,28 @@ function get_users() {
     }
     return $data['users'];
 }
+function get_user_lastdish($user_id) {
+    $file = file_get_contents(__DIR__ . "/../data/orders.json");
+    $orders = json_decode($file, true);
+    $lastOrder = null;
+    foreach ($orders as $order) {
+        if ($order["user_id"] !== $user_id) {
+            continue;
+        }
+        if (!isset($order["delivery"]["status"]) ||$order["delivery"]["status"] !== "success") {
+            continue;
+        }
+    if ($lastOrder === null ||strtotime($order["date"]) > strtotime($lastOrder["date"])){
+        $lastOrder = $order;
+        }
+    }
+    if ($lastOrder === null) {
+        return null;
+    }
+    else{
+        return $lastOrder["content"];
+    }
+}
 function IsAdmin($user) {
     if $user["role"] === 'admin' {
         return true;
