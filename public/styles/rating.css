@@ -79,3 +79,71 @@ div.start-wrapper {
 .start-wrapper label:hover {
     transform: scale(1.15);
 }
+.order-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    width: fit-content;
+    max-width: 90vw;
+
+    margin: 1rem auto 2rem auto;
+    padding: 0.8rem 1.2rem;
+
+    background: var(--primary-04);
+    border: 0.2rem solid var(--secondary-shadow);
+    border-radius: 2rem;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+        0 0 12px var(--secondary-cold-dark),
+        inset 0 0 8px var(--primary-dark-04);
+
+    transition: all 0.2s ease;
+}
+
+.order-preview:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 18px var(--secondary-shadow),
+        0 0 28px var(--secondary-cold-dark);
+}
+
+.order-preview img {
+    width: 64px;
+    height: 64px;
+
+    object-fit: cover;
+
+    border-radius: 1rem;
+
+    border: 0.15rem solid var(--secondary);
+
+    box-shadow: 0 0 10px var(--secondary-cold-dark);
+
+    flex-shrink: 0;
+}
+
+.order-preview .infos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.order-preview .title {
+    color: var(--secondary-bright);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.order-preview .meta {
+    color: var(--white);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.order-preview .price {
+    color: var(--pastel-orange);
+    font-weight: 700;
+}

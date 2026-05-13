@@ -45,7 +45,7 @@ function get_user_lastdish($user_id) {
     }
 }
 function IsAdmin($user) {
-    if $user["role"] === 'admin' {
+    if ($user["role"] === 'admin') {
         return true;
     }
     else{
@@ -53,7 +53,7 @@ function IsAdmin($user) {
     }
 }
 function IsClient($user) {
-    if $user["role"] === 'client' {
+    if ($user["role"] === 'client') {
         return true;
     }
     else{
@@ -136,4 +136,36 @@ function require_login() {
         header("Location: /public/views/login.php?redirect=" . urlencode($_SERVER['REQUEST_URI']));
         exit();
     }
+}
+function get_dishes() {
+    $file = file_get_contents(__DIR__ . "/../data/meals.json");
+    if (!$file) {
+        return [];
+    }
+    $data = json_decode($file, true);
+    if (!$data || !isset($data["dishes"])) {
+        return [];
+    }
+    return $data["dishes"];
+}
+function get_dish_by_title($title) {
+    foreach (get_dishes() as $dish) {
+        if ($dish["title"] === $title) {
+            return $dish;
+        }
+    }
+    return null;
+}
+function count_dishes($contents) {
+
+    $counted = [];
+    foreach ($contents as $dish) {
+        if (!isset($counted[$dish])) {
+            $counted[$dish] = 1;
+        }
+        else {
+            $counted[$dish]++;
+        }
+    }
+    return $counted;
 }

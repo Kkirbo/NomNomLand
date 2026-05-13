@@ -19,3 +19,4 @@ async function updateOrderStatus(orderId, newStatus) {
     } catch (error) {
         console.error("Erreur réseau :", error);
     }
+}

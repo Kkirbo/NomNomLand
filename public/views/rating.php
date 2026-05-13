@@ -2,10 +2,9 @@
 require '../../private/php/session.php';
 require_login();
 $user = get_user_by_session();
-$userid= get_user_by_id($user["id"]);
 $email = $user["email"];
-$userlastdish = get_user_last_dish($userid);
-
+$userlastdish = get_user_lastdish($user["id"]);
+$countedDishes = count_dishes($userlastdish);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +17,25 @@ $userlastdish = get_user_last_dish($userid);
       <link rel="stylesheet" href="../styles/rating.css">
   </head>
   <body>
-
     <?php include 'header.html'; ?>
-
     <?php include 'sidebar.php'; ?>
 
+    
+
     <form method="post" name="rating" action="../../private/php/update_rating.php">
-
-
-
+<?php foreach ($countedDishes as $dishname => $quantity): ?>
+    <?php $dish = get_dish_by_title($dishname);
+        if (!$dish) continue;
+    ?>
+    <div class="order-preview">
+        <img src="<?= htmlspecialchars($dish["image"]) ?>" alt="<?= htmlspecialchars($dish["title"]) ?>">
+        <div class="infos">
+            <span class="title"><?= htmlspecialchars($dish["title"]) ?></span>
+            <span class="meta"><?= htmlspecialchars($dish["version"]) ?></span>
+            <span class="price">x<?= $quantity ?> • <?= htmlspecialchars($dish["price"]) ?>€</span>
+        </div>
+    </div>
+<?php endforeach; ?>
         <div class="question">
             <span class="question-title">Ponctualité de la livraison</span>
             <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>
