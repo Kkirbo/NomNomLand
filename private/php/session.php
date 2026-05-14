@@ -22,15 +22,15 @@ function get_users() {
     }
     return $data['users'];
 }
-function get_user_lastdish($user_id) {
+function get_user_lastdish($email) {
     $file = file_get_contents(__DIR__ . "/../data/orders.json");
     $orders = json_decode($file, true);
     $lastOrder = null;
     foreach ($orders as $order) {
-        if ($order["user_id"] !== $user_id) {
+        if ($order["email"] !== $email) {
             continue;
         }
-        if (!isset($order["delivery"]["status"]) ||$order["delivery"]["status"] !== "success") {
+        if (!isset($order["delivery"]["status"]) ||$order/*["delivery"]["status"]*/["paymentStatus"] !== "success") { 
             continue;
         }
     if ($lastOrder === null ||strtotime($order["date"]) > strtotime($lastOrder["date"])){
@@ -138,7 +138,7 @@ function require_login() {
     }
 }
 function get_dishes() {
-    $file = file_get_contents(__DIR__ . "/../data/meals.json");
+    $file = file_get_contents(__DIR__ . "/../data/dishes.json");
     if (!$file) {
         return [];
     }

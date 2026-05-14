@@ -1,4 +1,3 @@
-
 async function updateOrderStatus(orderId, newStatus) {
     try {
         const response = await fetch("../../private/php/update_order_status.php", {
@@ -12,7 +11,8 @@ async function updateOrderStatus(orderId, newStatus) {
             })
         });
         const data = await response.json();
-        if (data.success) {I
+        if (data.success) {
+            console.log("Commande mise à jour");
         } else {
             console.error("Erreur :", data.message);
         }

@@ -205,7 +205,7 @@
             "delivery_person_id": ""
         },
         "price": 23,
-        "paymentStatus": "pending",
+        "paymentStatus": "success",
         "date": "2026-05-13 23:04"
     }
 ]

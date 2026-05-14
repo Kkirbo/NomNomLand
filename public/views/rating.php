@@ -3,7 +3,7 @@ require '../../private/php/session.php';
 require_login();
 $user = get_user_by_session();
 $email = $user["email"];
-$userlastdish = get_user_lastdish($user["id"]);
+$userlastdish = get_user_lastdish($user["email"]);
 $countedDishes = count_dishes($userlastdish);
 ?>
 <!DOCTYPE html>
@@ -24,6 +24,7 @@ $countedDishes = count_dishes($userlastdish);
 
     <form method="post" name="rating" action="../../private/php/update_rating.php">
 <?php foreach ($countedDishes as $dishname => $quantity): ?>
+    
     <?php $dish = get_dish_by_title($dishname);
         if (!$dish) continue;
     ?>
@@ -36,6 +37,7 @@ $countedDishes = count_dishes($userlastdish);
         </div>
     </div>
 <?php endforeach; ?>
+
         <div class="question">
             <span class="question-title">Ponctualité de la livraison</span>
             <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>
