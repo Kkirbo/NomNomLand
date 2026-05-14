@@ -34,3 +34,6 @@ Fonctionnalités non implémentées en [Phase#2]:
 -pas de vérification des rôles pour les actions sur orders.json
 -pas de "commande sur place" qui empêche les livreurs de la prendre en charge
 -rating laisse renoter la dernière commande et pas de message de confirmation
+
+
+PENSER A EFFACER LE JSON (pour se débarasser du undefined array key email bug)
