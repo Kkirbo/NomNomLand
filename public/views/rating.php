@@ -4,7 +4,11 @@ require_login();
 $user = get_user_by_session();
 $email = $user["email"];
 $userlastdish = get_user_lastdish($user["email"]);
-$countedDishes = count_dishes($userlastdish);
+if (!$userlastdish) {
+    $countedDishes = [];
+} else {
+    $countedDishes = count_dishes($userlastdish);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +19,7 @@ $countedDishes = count_dishes($userlastdish);
       <link rel="icon" href="../assets/icons/logo.ico">
       <link rel="stylesheet" href="../styles/index.css">
       <link rel="stylesheet" href="../styles/rating.css">
+      <script defer src="../scripts/rating.js"></script>
   </head>
   <body>
     <?php include 'header.html'; ?>
@@ -23,21 +28,7 @@ $countedDishes = count_dishes($userlastdish);
     
 
     <form method="post" name="rating" action="../../private/php/update_rating.php">
-<?php foreach ($countedDishes as $dishname => $quantity): ?>
-    
-    <?php $dish = get_dish_by_title($dishname);
-        if (!$dish) continue;
-    ?>
-    <div class="order-preview">
-        <img src="<?= htmlspecialchars($dish["image"]) ?>" alt="<?= htmlspecialchars($dish["title"]) ?>">
-        <div class="infos">
-            <span class="title"><?= htmlspecialchars($dish["title"]) ?></span>
-            <span class="meta"><?= htmlspecialchars($dish["version"]) ?></span>
-            <span class="price">x<?= $quantity ?> • <?= htmlspecialchars($dish["price"]) ?>€</span>
-        </div>
-    </div>
-<?php endforeach; ?>
-
+    <div id="order-container"></div>
         <div class="question">
             <span class="question-title">Ponctualité de la livraison</span>
             <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>

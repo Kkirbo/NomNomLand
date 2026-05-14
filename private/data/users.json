@@ -18,7 +18,12 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:39:47",
-            "lastLogin": "2026-05-14 14:17:22"
+            "lastLogin": "2026-05-14 16:58:41",
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": false,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69f9f3e7e6e91",
