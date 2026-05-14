@@ -104,6 +104,15 @@ function login($email, $password) {
     $user = get_user_by_email($email);
 
     if ($user && password_verify($password, $user["password"])) {
+        $path = __DIR__ . "/../data/users.json";
+        $data = json_decode(file_get_contents($path), true);
+        foreach ($data['users'] as &$user) {
+            if ($user['email'] === $email) {
+                $user['lastLogin'] = date("Y-m-d H:i:s");
+                break;
+            }
+    }
+    file_put_contents($path, json_encode($data, JSON_PRETTY_PRINT));
         $_SESSION["user_email"] = $user["email"];
         redirect_url();
         return 0; //Logged in successfully
