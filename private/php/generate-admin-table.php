@@ -6,10 +6,10 @@ function generateAdminTable($users)
 
         echo '<tr>';
 
-        echo '<td><span id="id">' . htmlspecialchars($user['id']) . '</span></td>';
-        echo '<td><span>' . htmlspecialchars($user['profile']['lastName']) . ' ' . htmlspecialchars($user['profile']['firstName']) . '</span></td>';
-        echo '<td><span>' . htmlspecialchars($user['profile']['username']) . '</span></td>';
-        echo '<td><span>' . htmlspecialchars($user['email']) . '</span></td>';
+        echo '<td><span class="editable-user-text-info" id="id">' . htmlspecialchars($user['id']) . '</span></td>';
+        echo '<td><span class="editable-user-text-info">' . htmlspecialchars($user['profile']['lastName']) . ' ' . htmlspecialchars($user['profile']['firstName']) . '</span></td>';
+        echo '<td><span class="editable-user-text-info">' . htmlspecialchars($user['profile']['username']) . '</span></td>';
+        echo '<td><span class="editable-user-text-info">' . htmlspecialchars($user['email']) . '</span></td>';
 
         echo '<td>';
         if ($isAdmin) {
@@ -45,7 +45,7 @@ function generateAdminTable($users)
         echo '<div class="points-control">';
         if (!$isAdmin) echo '<button name="minusfidelity">−</button>';
 
-        echo '<span class="points">' . (isset($user['points']) ? intval($user['points']) : 0) . '</span>';
+        echo '<span class="points">' . (isset($user['fidelity']) ? intval($user['fidelity']) : 0) . '</span>';
 
         if (!$isAdmin) echo '<button name="plusfidelity">+</button>';
         echo '</div>';

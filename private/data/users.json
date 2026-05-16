@@ -6,8 +6,8 @@
             "phone": "0123456789",
             "password": "$2y$10$nceDO5qoxCcFRfAG9elaWuW8SKbK86DmM96fntvJ0YzhZK7XxAyIe",
             "role": "client",
-            "status": "Free",
-            "fidelity": 0,
+            "status": "free",
+            "fidelity": "904",
             "profile": {
                 "firstName": "H\u00e9carim",
                 "lastName": "Benzema",
