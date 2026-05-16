@@ -1,15 +1,9 @@
-import { getOrderInfo } from "../scripts/get-order-info.js";
-import { getUserId } from "../scripts/get-user-id.js";
-import { generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
+import { getLastOrderInfo, generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
 
 const ordersBox = document.querySelector('article.orders');
-let userId = await getUserId();
 (async function() {
-  if (!userId || userId.status != 200 || !userId.id) {
-    return;
-  }
-  userId = userId.id;
-  const lastOrderInfo = await getOrderInfo("user", userId);
+  const lastOrderInfo = await getLastOrderInfo();
+  if (!lastOrderInfo) return;
   const orderInfoBox = generateOrderInfoBox(lastOrderInfo);
   if (typeof orderInfoBox == typeof 1) {
     

@@ -8,11 +8,10 @@ $error = '';
 $isReturn = isset($_GET['bank_return']) && $_GET['bank_return'] == 1;
 $orderId = $_GET['order_id'] ?? null;
 
-//require '../../private/php/payment.php';
 $order = get_user_last_order($user);
 require '../../private/php/getapikey.php';
 
-if ($order && user_last_order_unpaid($user)) {
+if ($order && is_user_last_order_unpaid($user['id'])) {
   $transaction = $order['id'];
   $amount = number_format($order['price'], 2, '.', '');
   $vendor = "MI-4_C";//Our group (MI-4_K) isn't valid
@@ -92,7 +91,7 @@ Expiry Date: Any
             <?php if ($isReturn): ?>
                 <h3><?= htmlspecialchars($message ?? "Payment processed") ?></h3>
                 <a href="cart.php">Back to cart</a>
-            <?php elseif (!user_last_order_unpaid($user)): ?>
+            <?php elseif (!is_user_last_order_unpaid($user['id'])): ?>
                 <h3>You have no unpaid order.</h3>
                 <a href="cart.php">Back to cart</a>
             <?php else: ?>

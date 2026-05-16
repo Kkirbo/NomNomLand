@@ -1,5 +1,6 @@
 <?php
 require '../../private/php/session.php';
+require '../../private/php/cart.php';
 require_once "../../private/php/utilities/data.php";
 require_login();
 $user = get_user_by_session();
@@ -14,43 +15,12 @@ date_default_timezone_set('Pacific/Palau');
 
 $username = $user['email'];
 
-$dataPath = realpath(__DIR__ . '/../../private/data');
-$commandsFile = $dataPath . '/commands.json';
-$dishesFile   = $dataPath . '/dishes.json';
-$menusFile    = $dataPath . '/menus.json';
-$optionsFile  = $dataPath . '/options.json';
-$ordersFile   = $dataPath . '/orders.json';
+$cartData = get_cart();
 
-function loadJson($file) {
-    if (!file_exists($file)) return [];
-    $data = json_decode(file_get_contents($file), true);
-    return $data ?: [];
-}
-
-function saveJson($file, $data) {
-    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
-}
-
-$cartData = loadJson($commandsFile);
-$dishesData = loadJson($dishesFile)['dishes'] ?? [];
-$menusData  = loadJson($menusFile)['menus'] ?? [];
-$optionsData = loadJson($optionsFile)['options'] ?? [];
-
-// Indexation
-$dishesById = [];
-foreach ($dishesData as $d) $dishesById[$d['id']] = $d;
-
-$menusById = [];
-foreach ($menusData as $m) $menusById[$m['id']] = $m;
+$optionsData = load_data("options.json", "options")['options'] ?? [];
 
 $optionsById = [];
 foreach ($optionsData as $o) $optionsById[$o['id']] = $o;
-
-// Fonctions
-function removeFromCart(&$cart, $user, $id, $type='solo') {
-    $key = $type==='solo' ? 'soloItems' : 'items';
-    $cart[$key] = array_filter($cart[$key], fn($i)=>!($i['user']===$user && $i['id']===$id));
-}
 
 function calculateItemPrice($basePrice, $selectedOptions, $optionsById) {
     $price = $basePrice;
@@ -76,8 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Supprimer un item
     if (isset($_POST['remove'])) {
-        removeFromCart($cartData, $username, $_POST['id'], $_POST['type'] ?? 'solo');
-        saveJson($commandsFile, $cartData);
+        remove_cart_item($username, $_POST['id'], $_POST['type'] ?? 'solo');
         header('Location: cart.php');
         exit();
     }
@@ -92,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($cartData['soloItems'] ?? [] as $item) {
             if ($item['user'] !== $username) continue;
 
-            $dish = $dishesById[$item['id']] ?? null;
+            $dish = get_dish_by_id($item['id']);
             if (!$dish || !isset($dish['price'])) continue;
 
             $orderContent[] = $dish['title'];
@@ -102,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach ($cartData['items'] ?? [] as $item) {
             if ($item['user'] !== $username) continue;
 
-            $menu = $menusById[$item['id']] ?? null;
+            $menu = get_menu_by_id($item['id']);
             if (!$menu || !isset($menu['price'])) continue;
 
             $selectedOptions = $_POST['options'][$item['id']] ?? [];
@@ -125,11 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
 
-        $orders = loadJson($ordersFile);
-
-        $orders[] = [
+        $order = [
             'id' => uniqid(),
-            'email' => $username,
+            'user_id' => $user['id'],
             'phone' => $user['phone'] ?? '',
             'content' => $orderContent,
             'options' => $orderOptions,
@@ -143,13 +110,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'date' => date('Y-m-d H:i')
         ];
 
-        saveJson($ordersFile, $orders);
+        add_order($order);
 
-        // Vider panier utilisateur
-        $cartData['soloItems'] = array_filter($cartData['soloItems'] ?? [], fn($i)=>$i['user']!==$username);
-        $cartData['items'] = array_filter($cartData['items'] ?? [], fn($i)=>$i['user']!==$username);
-
-        saveJson($commandsFile, $cartData);
+        clear_user_cart($username);
 
         header('Location: cart.php?ordered=1');
         exit();
@@ -162,7 +125,7 @@ $totalItems = 0;
 foreach ($cartData['soloItems'] ?? [] as $item) {
     if ($item['user'] !== $username) continue;
 
-    $dish = $dishesById[$item['id']] ?? null;
+    $dish = get_dish_by_id($item['id']);
     if (!$dish || !isset($dish['price'])) continue;
 
     $totalItems += $item['quantity'];
@@ -171,7 +134,7 @@ foreach ($cartData['soloItems'] ?? [] as $item) {
 foreach ($cartData['items'] ?? [] as $item) {
     if ($item['user'] !== $username) continue;
 
-    $menu = $menusById[$item['id']] ?? null;
+    $menu = get_menu_by_id($item['id']);
     if (!$menu || !isset($menu['price'])) continue;
 
     $totalItems += $item['quantity'];
@@ -205,56 +168,56 @@ foreach ($cartData['items'] ?? [] as $item) {
 
             <h1>Solo Items</h1>
             <ul class="cart-list">
-                <?php foreach($cartData['soloItems'] ?? [] as $item):
-                    if ($item['user'] !== $username) continue;
+                <form method="post">
+                    <?php foreach($cartData['soloItems'] ?? [] as $item):
+                        if ($item['user'] !== $username) continue;
 
-                    $dish = $dishesById[$item['id']] ?? null;
-                    if (!$dish || !isset($dish['price'])) continue;
-                ?>
-                <li class="cart-item">
-                    <span><?= htmlspecialchars($dish['title']) ?></span>
-                    <span>Quantity: <?= $item['quantity'] ?></span>
-                    <span><?= number_format($dish['price'] * $item['quantity'], 2) ?> €</span>
+                        $dish = get_dish_by_id($item['id']);
+                        if (!$dish || !isset($dish['price'])) continue;
+                    ?>
+                    <li class="cart-item">
+                        <span><?= htmlspecialchars($dish['title']) ?></span>
+                        <span>Quantity: <?= $item['quantity'] ?></span>
+                        <span><?= number_format($dish['price'] * $item['quantity'], 2) ?> €</span>
 
-                    <form method="post">
                         <input type="hidden" name="id" value="<?= $item['id'] ?>">
                         <input type="hidden" name="type" value="solo">
                         <button type="submit" name="remove">Remove</button>
-                    </form>
-                </li>
-                <?php endforeach; ?>
+                    </li>
+                    <?php endforeach; ?>
+                </form>
             </ul>
 
             <h1>Menus</h1>
             <ul class="cart-list">
-                <?php foreach($cartData['items'] ?? [] as $item):
-                    if ($item['user'] !== $username) continue;
+                <form method="post">
+                    <?php foreach($cartData['items'] ?? [] as $item):
+                        if ($item['user'] !== $username) continue;
 
-                    $menu = $menusById[$item['id']] ?? null;
-                    if (!$menu || !isset($menu['price'])) continue;
-                ?>
-                <li class="cart-item">
-                    <span><?= htmlspecialchars($menu['title']) ?></span>
-                    <span>Quantity: <?= $item['quantity'] ?></span>
+                        $menu = get_menu_by_id($item['id']);
+                        if (!$menu || !isset($menu['price'])) continue;
+                    ?>
+                    <li class="cart-item">
+                        <span><?= htmlspecialchars($menu['title']) ?></span>
+                        <span>Quantity: <?= $item['quantity'] ?></span>
 
-                    <div class="cart-item-options">
-                        <?php foreach($optionsData as $opt): ?>
-                            <?php if($opt['type']==='ingredient_modification' || $opt['type']==='coupon'): ?>
-                                <label>
-                                    <input type="checkbox" name="options[<?= $item['id'] ?>][]" value="<?= $opt['id'] ?>">
-                                    <?= htmlspecialchars($opt['description'] ?? $opt['couponCode']) ?>
-                                </label>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
+                        <div class="cart-item-options">
+                            <?php foreach($optionsData as $opt): ?>
+                                <?php if($opt['type']==='ingredient_modification' || $opt['type']==='coupon'): ?>
+                                    <label>
+                                        <input type="checkbox" name="options[<?= $item['id'] ?>][]" value="<?= $opt['id'] ?>">
+                                        <?= htmlspecialchars($opt['description'] ?? $opt['couponCode']) ?>
+                                    </label>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
 
-                    <form method="post">
                         <input type="hidden" name="id" value="<?= $item['id'] ?>">
                         <input type="hidden" name="type" value="menu">
                         <button type="submit" name="remove">Remove</button>
-                    </form>
-                </li>
-                <?php endforeach; ?>
+                    </li>
+                    <?php endforeach; ?>
+                </form>
             </ul>
 
             <!-- FORM COMMANDE (séparé) -->

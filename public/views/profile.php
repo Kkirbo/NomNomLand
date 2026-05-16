@@ -91,7 +91,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <article class="orders"></article>
     <a href="orders.php">View my Orders</a>
 
-    <?php foreach($ordersHistory as $order):
+    <!--<?php foreach($ordersHistory as $order):
     ?>
 
       <div class="order">
@@ -102,7 +102,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
       </div>
 
 
-    <?php endforeach ?>
+    <?php endforeach ?>-->
   </section>
 
   <section class="card modernNeonBox">
