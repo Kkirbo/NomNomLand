@@ -166,7 +166,6 @@ function update_order($orderId, $newData) {
 function update_order_field($orderId, $fieldPath, $newValue) {
     $orderData = get_order_by_id($orderId);
     if (!$orderData) return false;
-    $orderData[$fieldPath] = $newValue;
 
     $fields = explode('->', $fieldPath);
     $currentField = &$orderData;
