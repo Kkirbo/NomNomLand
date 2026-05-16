@@ -23,7 +23,7 @@ $lastOrder = get_user_last_order($user["id"]);
 if (!$lastOrder) {
     $countedDishes = [];
 } else {
-    $countedDishes = count_dishes(($lastOrder["dishes"]) || []);
+    $countedDishes = count_dishes(($lastOrder["content"]) ?? []);
 }
 ?>
 <!DOCTYPE html>
