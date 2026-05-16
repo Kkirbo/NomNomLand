@@ -1,5 +1,6 @@
 <?php 
 require '../../private/php/session.php';
+require_once '../../private/php/utilities/data.php';
 require_login();
 $user = get_user_by_session();
 
@@ -8,7 +9,7 @@ $error = '';
 $isReturn = isset($_GET['bank_return']) && $_GET['bank_return'] == 1;
 $orderId = $_GET['order_id'] ?? null;
 
-$order = get_user_last_order($user);
+$order = get_user_last_order($user['id']);
 require '../../private/php/getapikey.php';
 
 if ($order && is_user_last_order_unpaid($user['id'])) {
@@ -26,39 +27,27 @@ if ($order && is_user_last_order_unpaid($user['id'])) {
   );
 
   if ($isReturn && $orderId) {
-      $path = __DIR__ . "/../../private/data/orders.json";
-      if (!file_exists($path)) return;
-      $content = file_get_contents($path);
-      $orders = json_decode($content, true);
+    $status = $_GET['status'] ?? '';
+    $transaction = $_GET['transaction'] ?? '';
+    $amount = $_GET['montant'] ?? '';
+    $vendor = $_GET['vendeur'] ?? '';
+    $controlCheck = $_GET['control'] ?? '';
+    $api_key = getAPIKey($vendor);
+    $control = md5(
+        $api_key . "#" .
+        $transaction . "#" .
+        $amount . "#" .
+        $vendor . "#" .
+        $status . "#"
+    );
 
-      foreach ($orders as &$o) {
-          if ($o['id'] == $orderId) {
-              $status = $_GET['status'] ?? '';
-              $transaction = $_GET['transaction'] ?? '';
-              $amount = $_GET['montant'] ?? '';
-              $vendor = $_GET['vendeur'] ?? '';
-              $controlCheck = $_GET['control'] ?? '';
-              $api_key = getAPIKey($vendor);
-              $control = md5(
-                  $api_key . "#" .
-                  $transaction . "#" .
-                  $amount . "#" .
-                  $vendor . "#" .
-                  $status . "#"
-              );
-
-              if ($status === 'accepted' && $controlCheck === $control) {
-                  $message = "Payment successful";
-                  $o['paymentStatus'] = 'success';
-              } else {
-                  $message = "Payment failed";
-                  $o['paymentStatus'] = 'failed';
-              }
-
-              break;
-          }
-      }
-      file_put_contents($path, json_encode($orders, JSON_PRETTY_PRINT));
+    if ($status === 'accepted' && $controlCheck === $control) {
+        $message = "Payment successful";
+        update_order_field($orderId, "paymentStatus", "success");
+    } else {
+        $message = "Payment failed";
+        update_order_field($orderId, "paymentStatus", "failed");
+    }
   }
 }
 
