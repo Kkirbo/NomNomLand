@@ -2,12 +2,12 @@
 require '../../private/php/session.php';
 require_login();
 $user = get_user_by_session();
-$email = $user["email"];
-$userlastdish = get_user_lastdish($user["email"]);
-if (!$userlastdish) {
+
+$lastOrder = get_user_last_order($user["id"]);
+if (!$lastOrder) {
     $countedDishes = [];
 } else {
-    $countedDishes = count_dishes($userlastdish);
+    $countedDishes = count_dishes(($lastOrder["dishes"]) || []);
 }
 ?>
 <!DOCTYPE html>

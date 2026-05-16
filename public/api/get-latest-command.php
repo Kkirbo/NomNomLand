@@ -5,38 +5,29 @@ require_login();
 
 $user = get_user_by_session();
 
-$userlastdish = get_user_lastdish($user["email"]);
+$lastOrder = get_user_last_order($user["id"]);
 
-if ($userlastdish === null) {
+if ($lastOrder === null) {
     $countedDishes = [];
 } else {
-    $countedDishes = count_dishes($userlastdish);
+    $countedDishes = count_dishes($lastOrder["dishes"]);
 }
-
-$dishesCatalog = get_dishes();
-$dishMap = [];
-
-foreach ($dishesCatalog as $dish) {
-    $dishMap[$dish["title"]] = $dish;
-}
-
 $enriched = [];
 
-foreach ($countedDishes as $title => $qty) {
+foreach ($countedDishes as $dishId => $qty) {
 
-    if (!isset($dishMap[$title])) continue;
+    $dish = get_dish_by_id($dishId);
 
-    $d = $dishMap[$title];
+    if (!$dish) continue;
 
     $enriched[] = [
-        "title" => $title,
+        "title" => $dish["title"],
         "quantity" => $qty,
-        "image" => $d["image"],
-        "version" => $d["version"],
-        "price" => $d["price"]
+        "image" => $dish["image"],
+        "version" => $dish["version"],
+        "price" => $dish["price"]
     ];
 }
-
 header('Content-Type: application/json');
 
 echo json_encode([
