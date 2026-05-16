@@ -41,10 +41,12 @@ export async function updateModal() {
     if (!type || !id) return;
     
     let modalInfo = await getModalInfo(type, id);
-    if (!modalInfo) {
+    if (!modalInfo || modalInfo.status != 200 || !modalInfo.data) {
         window.location.href = "#";
         return;
     }
+    modalInfo = modalInfo.data;
+
     backgroundBlur.classList.add("active");
     headerTitle.textContent = modalInfo.title;
     addToCartInput.value = modalInfo.id;
@@ -55,7 +57,14 @@ export async function updateModal() {
         descVersion.innerHTML = "";
         description.innerHTML = "Customize your menu";
         for (const dishID of modalInfo.contents) {
-            const dishInfo = await getModalInfo("dish", dishID);
+
+            let dishInfo = await getModalInfo("dish", dishID);
+            if (!dishInfo || dishInfo.status != 200 || !dishInfo.data) {
+                window.location.href = "#";
+                continue;
+            }
+            dishInfo = dishInfo.data;
+            
             const contains = dishInfo.allergens.some((allergen) => allergensFiltered.indexOf(allergen) != -1);
             if (contains) continue;
             const trace = dishInfo.trace.some((allergen) => allergensFiltered.indexOf(allergen) != -1);

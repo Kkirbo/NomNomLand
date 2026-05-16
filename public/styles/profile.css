@@ -199,13 +199,7 @@ button,
 }
 
 .profile a {
-  color: var(--secondary-bright);
-  text-decoration: none;
-}
-
-.profile a:hover {
-  color: var(--secondary-hot-bright);
-  text-decoration: none;
+  width: fit-content;
 }
 
 .card.modernNeonBox {

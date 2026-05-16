@@ -1,14 +1,19 @@
 <?php
-$id = $_GET['id'] ?? '';
+require_once "../../private/php/utilities/data.php";
 $type = $_GET['type'] ?? '';
+$id = $_GET['id'] ?? '';
 
-require '../../private/php/get-modal-info.php';
-$modalInfo = getModalInfo($type, $id);
+$modalInfo = null;
+if ($type === 'menu') {
+    $modalInfo = get_menu_by_id($id);
+} elseif ($type === 'dish') {
+    $modalInfo = get_dish_by_id($id);
+}
+
 header('Content-Type: application/json');
 if ($modalInfo) {
-    echo json_encode($modalInfo);
+    echo json_encode(['status' => 200, 'data' => $modalInfo]);
     exit;
 }
-http_response_code(404);
-echo json_encode(['error' => 'Item not found']);
+echo json_encode(['status' => 404]);
 ?>

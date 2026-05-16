@@ -8,7 +8,7 @@ $error = '';
 $isReturn = isset($_GET['bank_return']) && $_GET['bank_return'] == 1;
 $orderId = $_GET['order_id'] ?? null;
 
-require '../../private/php/payment.php';
+//require '../../private/php/payment.php';
 $order = get_user_last_order($user);
 require '../../private/php/getapikey.php';
 

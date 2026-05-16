@@ -8,6 +8,6 @@ $updated = update_order_field($orderId, $field, $value);
 
 header('Content-Type: application/json');
 if ($updated) echo json_encode([ 'status' => 200 ]);
-else echo json_encode([ 'status' => 400 ]);
+else echo json_encode([ 'status' => 404 ]);
 exit;
 ?>

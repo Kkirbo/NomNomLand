@@ -88,6 +88,8 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 
   <section class="card modernNeonBox">
     <h2>My Orders</h2>
+    <article class="orders"></article>
+    <a href="orders.php">View my Orders</a>
 
     <?php foreach($ordersHistory as $order):
     ?>
