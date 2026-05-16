@@ -1,22 +1,25 @@
 {
-    "commands": [],
-    "soloItems": [
-        {
-            "type": "dish",
-            "id": "bruschetta",
-            "user": "vroum@email.com",
-            "quantity": 1,
-            "timestamp": "2026-05-17 07:51:40",
-            "status": "pending"
-        },
-        {
-            "type": "dish",
-            "id": "latte",
-            "user": "vroum@email.com",
-            "quantity": 1,
-            "timestamp": "2026-05-17 07:51:55",
-            "status": "pending"
-        }
-    ],
-    "items": []
+  "soloItems": [
+    {
+      "type": "dish",
+      "id": "RTX",
+      "user_id": "69f9f3236014c",
+      "quantity": 1,
+      "timestamp": "2026-05-17 07:10:00",
+      "status": "pending"
+    }
+  ],
+  "items": [
+    {
+      "type": "menu",
+      "id": "menu1",
+      "user_id": "69f9f3236014c",
+      "quantity": 1,
+      "timestamp": "2026-05-17 07:11:00",
+      "status": "pending",
+      "dishes": [],
+      "desserts": [],
+      "drinks": []
+    }
+  ]
 }
