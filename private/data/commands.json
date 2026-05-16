@@ -1,25 +1,26 @@
 {
-  "soloItems": [
-    {
-      "type": "dish",
-      "id": "RTX",
-      "user_id": "69f9f3236014c",
-      "quantity": 1,
-      "timestamp": "2026-05-17 07:10:00",
-      "status": "pending"
-    }
-  ],
-  "items": [
-    {
-      "type": "menu",
-      "id": "menu1",
-      "user_id": "69f9f3236014c",
-      "quantity": 1,
-      "timestamp": "2026-05-17 07:11:00",
-      "status": "pending",
-      "dishes": [],
-      "desserts": [],
-      "drinks": []
-    }
-  ]
+    "soloItems": [
+        {
+            "type": "dish",
+            "id": "RTX",
+            "user_id": "69f9f3236014c",
+            "quantity": 1,
+            "timestamp": "2026-05-17 07:10:00",
+            "status": "pending"
+        }
+    ],
+    "items": [
+        {
+            "type": "menu",
+            "id": "menu1",
+            "user_id": "69f9f3236014c",
+            "quantity": 1,
+            "timestamp": "2026-05-17 07:11:00",
+            "status": "pending",
+            "dishes": [],
+            "desserts": [],
+            "drinks": []
+        }
+    ],
+    "commands": []
 }

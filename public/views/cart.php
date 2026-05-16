@@ -8,10 +8,10 @@ require_login();
 
 $user = get_user_by_session();
 
-if (is_user_last_order_unpaid($user['id'])) {
+/*if (is_user_last_order_unpaid($user['id'])) {
     header("Location: payment.php");
     exit();
-}
+}*/
 
 date_default_timezone_set('Pacific/Palau');
 
