@@ -1,7 +1,23 @@
 <?php 
 require '../../private/php/session.php';
+require_once "../../private/php/utilities/data.php";
+
 require_login();
 $user = get_user_by_session();
+
+function count_dishes($contents) {
+
+    $counted = [];
+    foreach ($contents as $dish) {
+        if (!isset($counted[$dish])) {
+            $counted[$dish] = 1;
+        }
+        else {
+            $counted[$dish]++;
+        }
+    }
+    return $counted;
+}
 
 $lastOrder = get_user_last_order($user["id"]);
 if (!$lastOrder) {
