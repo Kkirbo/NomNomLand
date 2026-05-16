@@ -145,7 +145,7 @@ function get_order_by_id($id) {
 }
 function get_order_by_delivery_id($user_id) {
     foreach (get_orders() as $order) {
-        if ($order["delivery"]["delivery_person_id"] === $user_id) {
+        if ($order["delivery"]["delivery_person_id"] === $user_id && $order["delivery"]["status"] == "delivery") {
             return $order;
         }
     }
