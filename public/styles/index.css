@@ -536,6 +536,9 @@ label.togglesidebar span.bot_line {
   width: 35px;
   transform: translate(-50%, -50%);
 }
+input.togglesidebar:checked ~ .togglesidebar {
+  box-shadow: none;
+}
 input.togglesidebar:checked ~ .togglesidebar .top_line {
   left: 5px;
   top: 30px;
@@ -974,7 +977,6 @@ footer ul li form#newsletter input {
 }
 
 /*--Mobile--*/
-
 @media screen and (max-width: 995px) {
   header > h2 {
     font-size: 1.2rem;

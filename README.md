@@ -3,29 +3,16 @@ La Funzione
 [Rapport phase 1-2.pdf](https://github.com/user-attachments/files/26491201/Rapport.phase.1-2.pdf)
 
 Comptes admin:
-
-"email": tomjedusor@email.com
-"password": 12345678
-
-"email": "gregoire@email.com"
-"password" : "Gregoire"
-
+email: "tomjedusor@email.com"
+password: "Aa12345678!"
 
 Comptes livreur:
-
-"email": "eva@email.com",
-"password" : "EvaEvaEva"
-
-"email": "jean@email.com"
-"password" : "JeanJean"
+email: "ninalalivreuse@email.com"
+password: "Aa12345678!"
 
 Comptes client:
-
-"email": "lea@email.com"
-"password" : "LeaLeaLea"
-
-"email": "tom@email.com"
-"password" : "TomTomTom"
+email: "vroum@email.com"
+password: "Aa12345678!"
 
 
 Fonctionnalités non implémentées en [Phase#2]:

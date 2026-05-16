@@ -1,5 +1,6 @@
 <?php
-if (isset($_SESSION["user_email"])) header("Location: index.php");
+require_once __DIR__ . "/utilities/data.php";
+if (is_logged_in()) redirect_url();
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
@@ -21,8 +22,8 @@ if (strlen($password) < 8) {
     $error = "Password must be at least 8 characters long.";
     return;
 }
-$firstName = $_POST['firstname'] ?? '';
-$lastName = $_POST['name'] ?? '';
+$firstName = ucfirst(strtolower($_POST['firstname'] ?? ''));
+$lastName = ucfirst(strtolower($_POST['name'] ?? ''));
 $age = $_POST['age'] ?? '';
 $age = (int) $age;
 if (!is_numeric($age) || $age < 18 || $age > 120) {
@@ -41,7 +42,6 @@ $user = [
     "role" => "client",
     "status" => "Free",
     "fidelity" => 0,
-    "newsletter" => false,
     "profile" => [
         "firstName" => $firstName,
         "lastName" => $lastName,
@@ -54,31 +54,5 @@ $user = [
     "lastLogin" => null
 ];
 
-$path = __DIR__ . "/../data/users.json";
-
-if (file_exists($path)) {
-    $content = file_get_contents($path);
-    $data = json_decode($content, true);
-
-    if (!isset($data['users']) || !is_array($data['users'])) {
-        $data['users'] = [];
-    }
-} else {
-    $data = ["users" => []];
-}
-
-$data['users'][] = $user;
-
-$json = json_encode($data, JSON_PRETTY_PRINT);
-
-if ($json === false) {
-    echo "JSON Error: " . json_last_error_msg();
-} else {
-    $result = file_put_contents($path, $json);
-    if ($result === false) {
-        $error = "Internal server error, please try again.";
-    } else {
-        login($email, $password);
-    }
-}
+if (register_user($user)) login($email, $password);
 ?>

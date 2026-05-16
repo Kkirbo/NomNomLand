@@ -1,16 +1,16 @@
 <?php
-$error = '';
 require '../../private/php/session.php';
+require_once "../../private/php/utilities/data.php";
 require_login();
-date_default_timezone_set('Europe/Paris');
 $user = get_user_by_session();
-if (!$user) exit();
 
-require '../../private/php/payment.php';
-if (user_last_order_unpaid($user)) {
+$error = '';
+if (is_user_last_order_unpaid($user['id'])) {
     header("Location: payment.php");
     exit();
 }
+
+date_default_timezone_set('Pacific/Palau');
 
 $username = $user['email'];
 

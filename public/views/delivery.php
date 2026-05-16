@@ -1,20 +1,20 @@
 <?php 
 require '../../private/php/session.php';
-require '../../private/php/data_loader.php';
+require_once "../../private/php/utilities/data.php";
 require_login();
 $user = get_user_by_session();
-if (!$user || ($user['role'] !== 'delivery' && $user['role'] !== 'admin')) redirect_url();
+if (!is_any_role($user, ["admin", "cook", "delivery"])) redirect_url();
 
 $delivery_id = $user['id'];
-$order = getOrderByDeliveryId($delivery_id);
+$order = get_order_by_delivery_id($delivery_id);
 
 if ($order) {
     $noOrder = false;
-    $client = get_user_by_email($order["email"]) ?? null;
+    $client = get_user_by_id($order["user_id"]) ?? null;
     $phone = $client["phone"] ?? null;
     $name = $client["profile"]["lastName"] . " " . $client["profile"]["firstName"] ?? null;
     $address = $order["delivery"]["address"] ?? null;
-} else if ($user['role'] === 'delivery') {//Admins can stay on page even if not working
+} else if (!is_role($user, "admin")) {//Admins can stay on page even if not working
     header("Location: orders.php");
     exit();
 }

@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/utilities/data.php";
 function generateCarousel()
 {
     $carouselTags = [
@@ -6,8 +7,7 @@ function generateCarousel()
         2 => "Customer favorite",
         3 => "Best seller"
     ];
-    $json = file_get_contents('../../private/data/dishes.json');
-    $data = json_decode($json, true);
+    $data = load_data("dishes.json", "dishes");
 
     if ($data && isset($data['dishes'])) {
 

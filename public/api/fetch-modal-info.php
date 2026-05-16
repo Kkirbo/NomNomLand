@@ -4,6 +4,7 @@ $type = $_GET['type'] ?? '';
 
 require '../../private/php/get-modal-info.php';
 $modalInfo = getModalInfo($type, $id);
+header('Content-Type: application/json');
 if ($modalInfo) {
     echo json_encode($modalInfo);
     exit;

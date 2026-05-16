@@ -8,7 +8,6 @@
             "role": "client",
             "status": "Free",
             "fidelity": 0,
-            "newsletter": false,
             "profile": {
                 "firstName": "H\u00e9carim",
                 "lastName": "Benzema",
@@ -33,7 +32,6 @@
             "role": "admin",
             "status": "Free",
             "fidelity": 0,
-            "newsletter": false,
             "profile": {
                 "firstName": "elvis",
                 "lastName": "Tom",
@@ -43,17 +41,16 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": null
+            "lastLogin": "2026-05-16 08:15:47"
         },
         {
             "id": "69f9f4d7be1cc",
             "email": "ninalalivreuse@email.com",
             "phone": "0123456789",
             "password": "$2y$10$s46N5PPYrPD.5eTCPV7bVut1gfq\/XFW.bsdJrY9\/BqYvvoINY77\/a",
-            "role": "client",
+            "role": "delivery",
             "status": "Free",
             "fidelity": 0,
-            "newsletter": false,
             "profile": {
                 "firstName": "Lalivreuse",
                 "lastName": "Nina",
@@ -63,7 +60,26 @@
                 "gender": "female"
             },
             "createdAt": "2026-05-05 15:47:03",
-            "lastLogin": null
+            "lastLogin": "2026-05-16 10:31:04"
+        },
+        {
+            "id": "6a07a0b009a8d",
+            "email": "newclient@email.com",
+            "phone": "0011223344",
+            "password": "$2y$12$90QV\/FcTOX7eyBGHZFfohufP7E5dxI0f2VzXQIBrxRnJD638QDL0a",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Client",
+                "lastName": "New",
+                "username": "Client.New",
+                "age": 88,
+                "address": "12 La grande roue de LA",
+                "gender": "other"
+            },
+            "createdAt": "2026-05-15 22:39:44",
+            "lastLogin": "2026-05-16 07:39:44"
         }
     ]
 }

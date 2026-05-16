@@ -1,9 +1,15 @@
 <?php
 require '../../private/php/session.php';
 require '../../private/php/generate-nav.php';
+require_once "../../private/php/utilities/data.php";
 require_login();
 $user = get_user_by_session();
-if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['role'] !== 'delivery')) redirect_url();
+if (!is_any_role($user, ["admin", "cook", "delivery"])) redirect_url();
+
+if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null) {
+    header('Location: delivery.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,22 +24,19 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
 <body>
 
     <?php
-
-    require_once "../../private/php/data_loader.php";
-
-    $deliveryPeople = getDeliveryPeople();
-    $orders = getOrders();
+    $deliveryPeople = get_users_by_role("delivery");
+    $orders = get_orders();
 
 
-    if ($user['role'] === 'cook') {
+    if (is_role($user, "cook")) {
       $orders = array_filter($orders, function($order) {
         return $order["delivery"]['status'] !== 'delivery';
       });
     }
-    if ($user['role'] === 'delivery') {
-      $orders = array_filter($orders, function($order) {
-        return in_array($order["delivery"]['status'], array("ready", "delivery"));
-      });
+    if (is_role($user, "delivery")) {
+        $orders = array_filter($orders, function($order) {
+            return in_array($order["delivery"]['status'], array("ready", "delivery"));
+        });
     }
 
     $orders = array_reverse($orders);
@@ -65,7 +68,7 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
             <h3>Order #<?= $order['id'] ?></h3>
 
             <ul>
-                <li><strong>Customer Email:</strong> <?= $order['email'] ?></li>
+                <li><strong>Customer Email:</strong> <? $orderUser = get_user_by_id($order['user_id']); echo ($orderUser ? $orderUser['email'] : "Undefined"); ?></li>
                 <li><strong>Arrival Date:</strong> <?= $order['date'] ?></li>
             </ul>
 
@@ -92,11 +95,11 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                     </ul>
 
                     <p><strong>Status:</strong> <?= $order['delivery']['status'] ?></p>
-                    <p><strong>Adress:</strong> <?= $order['delivery']['address'] ?></p>
+                    <p><strong>Address:</strong> <?= $order['delivery']['address'] ?></p>
                     <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
 
                     <p><strong>Delivery person:</strong>
-                        <?= getDeliveryName($order["delivery"]["delivery_person_id"] ?? null, ) ?>
+                        <?= get_user_full_name($order["delivery"]["delivery_person_id"] ?? null) ?>
                     </p>
 
                     <?php if ($isPending): ?>
@@ -124,9 +127,9 @@ if (!$user || ($user['role'] !== 'admin' && $user['role'] !== 'cook' && $user['r
                             <button type="submit">Send to Delivery</button>
 
                             <select name="delivery_person_id" required>
-                                <?php foreach ($deliveryPeople as $user): ?>
-                                    <option value="<?= $user['id'] ?>">
-                                        <?= getDeliveryName($user['id']) ?>
+                                <?php foreach ($deliveryPeople as $deliveryPerson): ?>
+                                    <option value="<?= $deliveryPerson['id'] ?>">
+                                        <?= get_user_full_name($deliveryPerson['id']) ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>

@@ -1,5 +1,4 @@
 <?php
-
 function generateAdminTable($users)
 {
     foreach ($users as $user) {

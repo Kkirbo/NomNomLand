@@ -3,7 +3,7 @@ require '../../private/php/session.php';
 require '../../private/php/generate-nav.php';
 require_login();
 $user = get_user_by_session();
-if (!$user || $user['role'] !== 'admin') redirect_url();
+if (!is_role($user, "admin")) redirect_url();
 $users = get_users();
 
 $visibleUsers = 5;

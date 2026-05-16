@@ -5,7 +5,7 @@ require_login();
 $user = get_user_by_session();
 $dataPath = realpath(__DIR__ . '/../../private/data');
 $commandsFile = $dataPath . '/commands.json';
-date_default_timezone_set('Europe/Paris');
+date_default_timezone_set('Pacific/Palau');
 if (file_exists($commandsFile)) {
     $cartData = json_decode(file_get_contents($commandsFile), true);
 } else {

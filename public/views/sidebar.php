@@ -1,3 +1,4 @@
+<?php require_once '../../private/php/session.php';?>
 <input type="checkbox" id="togglesidebar" class="togglesidebar">
 <label for="togglesidebar" class="togglesidebar">
   <span class="top_line"></span>
@@ -117,8 +118,8 @@
     <?php
       $logged_in = is_logged_in();
       if ($logged_in) {
-        $user = get_user_by_session();
-        if ($user && ($user['role'] === 'admin' || $user['role'] === 'cook' || $user['role'] === 'delivery'))
+        if (!isset($user) || !$user) $user = get_user_by_session();
+        if (is_any_role($user, ["admin", "cook", "delivery"]))
         echo '
           <li>
             <a href="orders.php">
@@ -127,7 +128,7 @@
             </a>
           </li>
         ';
-        if ($user && $user['role'] === 'admin')
+        if (is_role($user, "admin"))
         echo '
           <li>
             <a href="admin.php">

@@ -1,7 +1,7 @@
 <?php
 require '../../private/php/session.php';
-require '../../private/php/data_loader.php';
 require '../../private/php/generate-nav.php';
+require_once "../../private/php/utilities/data.php";
 require_login();
 $user = get_user_by_session();
 
@@ -12,7 +12,7 @@ $fullName = $firstName . " " . $lastName;
 $phone = $user["phone"];
 $address = $user["profile"]["address"];
 $fidelityPoints = $user["fidelity"];
-$ordersHistory = getOrdersByEmail($email);
+$ordersHistory = get_orders_by_user_id($user['id']);
 
 $analyticsCookiesChecked = $user['cookies']['analyticsCookies'] ?? false;
 $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;

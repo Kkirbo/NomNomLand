@@ -22,10 +22,10 @@ if (!$userlastdish) {
       <script defer src="../scripts/rating.js"></script>
   </head>
   <body>
-    <?php include 'header.html'; ?>
-    <?php include 'sidebar.php'; ?>
-
     
+    <?php include 'header.html'; ?>
+
+    <?php include 'sidebar.php'; ?>
 
     <form method="post" name="rating" action="../../private/php/update_rating.php">
     <div id="order-container"></div>

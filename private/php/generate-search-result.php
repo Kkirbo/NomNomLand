@@ -1,17 +1,15 @@
 <?php
+require_once __DIR__ . "/utilities/data.php";
 if (!isset($dishesData) || !isset($menusData)) {
-    $dataPath    = realpath(__DIR__ . '/../../private/data');
-    $dishesFile  = $dataPath . '/dishes.json';
-    $menusFile   = $dataPath . '/menus.json';
-    $dishesData = file_exists($dishesFile) ? json_decode(file_get_contents($dishesFile), true) : ["dishes" => []];
-    $menusData  = file_exists($menusFile) ? json_decode(file_get_contents($menusFile), true) : ["menus" => []];
+    $dishesData = load_data("dishes.json", "dishes");
+    $menusData = load_data("menus.json", "menus");
     $dishesById = [];
     foreach ($dishesData["dishes"] ?? [] as $dish) {
         $dishesById[$dish["id"]] = $dish;
     }
 }
 
-require '../../private/php/generate-card.php';
+require_once '../../private/php/generate-card.php';
 $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 $allergensFilter = $_GET['allergens'] ?? [];
 
@@ -107,24 +105,20 @@ foreach ($dishesData["dishes"] as $dish) {
 //Filter Menus
 $filteredMenus = [];
 foreach ($menusData["menus"] as $menu) {
-    if ((!empty($activeTypes) && !in_array('menu', $activeTypes)) || !matchesSearchMenu($menu, $search)) continue;
-    $validMenu = false;
+    if ((!empty($activeTypes) && !in_array('menu', $activeTypes))) continue;
+    $validMenu = matchesSearchMenu($menu, $search);
     foreach ($menu["contents"] as $dishId) {
+        if ($validMenu) break;
         $dish = $dishesById[$dishId];
         if (!isset($dishesById[$dishId]) || !empty(allergensContained($dish, $allergensFilter)) || !matchesTags($dish, $tagFilters)) continue;
 
         if (!empty($activeTypes)) {
             $menuOnly = (count($activeTypes) === 1 && in_array('menu', $activeTypes));
 
-            if (!$menuOnly) {
-                if (!matchesType($dish, $typeFilters)) continue;
-            }
+            if (!$menuOnly && !matchesType($dish, $typeFilters)) continue;
         }
-
-        $validMenu = true;
-        break;
+        if (matchesSearchDish($dish, $search)) $validMenu = true;
     }
-
     if ($validMenu) {
         $filteredMenus[] = $menu;
     }

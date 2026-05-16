@@ -1,13 +1,12 @@
 <?php
 require '../../private/php/session.php';
-require_login();
 $dataPath    = realpath(__DIR__ . '/../../private/data');
 $dishesFile  = $dataPath . '/dishes.json';
 $menusFile   = $dataPath . '/menus.json';
 $dishesData = file_exists($dishesFile) ? json_decode(file_get_contents($dishesFile), true) : ["dishes" => []];
 $menusData  = file_exists($menusFile) ? json_decode(file_get_contents($menusFile), true) : ["menus" => []];
 $user = get_user_by_session();
-$username = $user["profile"]["firstName"] or "Guest";
+$username = $user["profile"]["firstName"] ?? "Guest";
 $dishesById = [];
 foreach ($dishesData["dishes"] ?? [] as $dish) {
     $dishesById[$dish["id"]] = $dish;
@@ -75,7 +74,7 @@ $categories = [
     </article>
 </section>
 <script defer type="module" src="../scripts/menu-modal.js"></script>
-
+<!--
 <h1 id="menuheader">Restaurant Menu</h1>
 <div class="menu-left">
 
@@ -201,7 +200,8 @@ foreach ($categories as $cat => $list) {
 echo '</ul></article></section>';
     }
 ?>
-<?php echo'<a href="cart.php" class="return0">Return 0: Check your cart '. $username . '</a>';?>
+<?php echo'<a href="cart.php" class="return0">Return 0: Check your cart ' . $username . '</a>';?>
+-->
 <?php include __DIR__ . '/footer.html'; ?>
 </body>
 </html>

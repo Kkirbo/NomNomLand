@@ -1,34 +1,17 @@
 <?php
+require_once "../../private/php/utilities/data.php";
 
-
-require_once "./data_loader.php";
-
-$orders = getOrders();
+$orders = get_orders();
 
 $orderId = $_POST['orderId'];
 $newStatus = $_POST['status'];
 $deliveryPersonId = $_POST['delivery_person_id'] ?? null;
 
-
-foreach($orders as &$order){
-
-    if ($order["id"] == $orderId) {
-        
-        $order["delivery"]["status"] = $newStatus;
-
-        if ($newStatus == "delivery" && $deliveryPersonId != null) {
-            $order["delivery"]["delivery_person_id"] = $deliveryPersonId;
-        }
-
-        break;
-    }
+update_order_field($orderId, "delivery->status", $newStatus);
+if ($newStatus == "delivery" && $deliveryPersonId != null) {
+    update_order_field($orderId, "delivery->delivery_person_id", $deliveryPersonId);
 }
-
-unset($order);
-
-file_put_contents("../../private/data/orders.json", json_encode($orders, JSON_PRETTY_PRINT));
 
 header("Location: ../../public/views/orders.php");
 exit();
-
 ?>
