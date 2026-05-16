@@ -1,4 +1,4 @@
-export async function requestProfileOrderUpdate(orderId, field, value) {
+export async function requestOrderUpdate(orderId, field, value) {
   try {
     const response = await fetch(`../api/request-profile-update.php?orderId=${orderId}&field=${field}}&value=${value}`);
     return await response.json();
