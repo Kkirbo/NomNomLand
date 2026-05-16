@@ -10,6 +10,28 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
     header('Location: delivery.php');
     exit();
 }
+
+$deliveryPeople = get_users_by_role("delivery");
+$orders = get_orders();
+
+
+if (is_role($user, "cook")) {
+    $orders = array_filter($orders, function($order) {
+    return $order["delivery"]['status'] !== 'delivery';
+    });
+}
+if (is_role($user, "delivery")) {
+    $orders = array_filter($orders, function($order) {
+        return in_array($order["delivery"]['status'], array("ready", "delivery"));
+    });
+}
+
+$orders = array_reverse($orders);
+
+$visibleOrders = 6;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$pagesCount = computePages($orders, $visibleOrders);
+$orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,32 +42,12 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/orders.css">
+    <script>
+        const deliveryPeople = <?= json_encode($deliveryPeople) ?>;
+    </script>
+    <script defer src="../scripts/orders.js"></script>
 </head>
 <body>
-
-    <?php
-    $deliveryPeople = get_users_by_role("delivery");
-    $orders = get_orders();
-
-
-    if (is_role($user, "cook")) {
-      $orders = array_filter($orders, function($order) {
-        return $order["delivery"]['status'] !== 'delivery';
-      });
-    }
-    if (is_role($user, "delivery")) {
-        $orders = array_filter($orders, function($order) {
-            return in_array($order["delivery"]['status'], array("ready", "delivery"));
-        });
-    }
-
-    $orders = array_reverse($orders);
-
-    $visibleOrders = 6;
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $pagesCount = computePages($orders, $visibleOrders);
-    $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
-    ?>
 
     <?php include 'sidebar.php'; ?>
 
@@ -58,8 +60,8 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
 
         <?php
         $isPending = $order["delivery"]["status"] == "pending";
-        $isReady = $order["delivery"]["status"] == "ready";
         $isPreparing = $order["delivery"]["status"] == "preparing";
+        $isReady = $order["delivery"]["status"] == "ready";
         $isdelivery = $order["delivery"]["status"] == "delivery";
         ?>
 
@@ -101,32 +103,33 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
                     <p><strong>Delivery person:</strong>
                         <?= get_user_full_name($order["delivery"]["delivery_person_id"] ?? null) ?>
                     </p>
+                
+                    <div class="order-actions">
 
-                    <?php if ($isPending): ?>
-                        <form action="../../private/php/update_order_status.php" method="POST">
-                            <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
-                            <input type="hidden" name="status" value="ready">
-                            <button type="submit">Put command as ready</button>
-                        </form>
-                    <?php endif ?>
+                        <?php if ($isPending): ?>
+                            <button
+                                class="update-order-btn"
+                                data-order-id="<?= $order['id'] ?>"
+                                data-field="delivery->status"
+                                data-value="preparing"
+                            >
+                                Prepare command
+                            </button>
+                        <?php endif ?>
 
-                    <?php if ($isReady): ?>
-                        <form action="../../private/php/update_order_status.php" method="POST">
-                            <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
-                            <input type="hidden" name="status" value="preparing">
-                            <button type="submit">Start Preparation</button>
-                        </form>
-                    <?php endif ?>
+                        <?php if ($isPreparing): ?>
+                            <button
+                                class="update-order-btn"
+                                data-order-id="<?= $order['id'] ?>"
+                                data-field="delivery->status"
+                                data-value="ready"
+                            >
+                                Put command as ready
+                            </button>
+                        <?php endif ?>
 
-                    <?php if ($isPreparing): ?>
-                        <form action="../../private/php/update_order_status.php" method="POST">
-                            <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
-
-
-                            <input type="hidden" name="status" value="delivery">
-                            <button type="submit">Send to Delivery</button>
-
-                            <select name="delivery_person_id" required>
+                        <?php if ($isReady): ?>
+                            <select class="delivery-person-select">
                                 <?php foreach ($deliveryPeople as $deliveryPerson): ?>
                                     <option value="<?= $deliveryPerson['id'] ?>">
                                         <?= get_user_full_name($deliveryPerson['id']) ?>
@@ -134,8 +137,17 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
                                 <?php endforeach; ?>
                             </select>
 
-                        </form>
-                    <?php endif ?>
+                            <button
+                                class="update-order-btn"
+                                data-order-id="<?= $order['id'] ?>"
+                                data-field="delivery->status"
+                                data-value="delivery"
+                            >
+                                Send to Delivery
+                            </button>
+                        <?php endif ?>
+
+                    </div>
 
                     <label for="<?= $toggleId ?>" class="closeBtn">
                         Close
