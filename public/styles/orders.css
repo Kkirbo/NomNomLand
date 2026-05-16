@@ -84,7 +84,7 @@ h2 {
     text-align: center;
 }
 
-.orders button[type=submit]{
+.update-order-btn{
     margin: 1rem;
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
