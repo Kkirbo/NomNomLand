@@ -9,7 +9,7 @@ if (!isset($dishesData) || !isset($menusData)) {
     }
 }
 
-require_once '../../private/php/generate-card.php';
+require_once __DIR__ . '/generate-card.php';
 $search = isset($_GET['search']) ? strtolower(trim($_GET['search'])) : '';
 $allergensFilter = $_GET['allergens'] ?? [];
 

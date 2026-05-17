@@ -42,21 +42,21 @@ if (!$lastOrder) {
     <script defer type="module" src="../scripts/rating.js"></script>
   </head>
   <body>
+
     <?php include 'header.html'; ?>
+
     <?php include 'sidebar.php'; ?>
-    <main>
 
-
-    <div id="rating-form-wrapper">
+    <main id="rating-form-wrapper">
     <?php if (!is_null($lastOrder) && !isset($lastOrder["rating"])): ?>
 
-        <section class="card modernNeonBox">
+        <section class="card modernNeonBoxGlass">
             <h2>My Orders</h2>
             <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
             <a href="orders.php">View my Orders</a>
         </section>
 
-        <form name="rating" id="rating-form">
+        <form class="card modernNeonBoxGlass" name="rating" id="rating-form">
         <div id="order-container"></div>
             <div class="question">
                 <span class="question-title">Ponctualité de la livraison</span>
@@ -270,7 +270,6 @@ if (!$lastOrder) {
         </div>
     
     <?php endif ?>
-    </div>
     <main>
 
     <?php include 'footer.html'; ?>

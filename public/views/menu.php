@@ -17,6 +17,7 @@ $user = get_user_by_session();
 <?php include __DIR__ . '/header.html'; ?>
 <?php include __DIR__ . '/sidebar.php'; ?>
 
+<main>
 <?php include 'searchbar.php'; ?>
 <section class="search-results"></section>
 <section id="id" class="background-blur modal">
@@ -204,6 +205,8 @@ $user = get_user_by_session();
     ?>
     <?php echo'<a href="cart.php" class="return0">Return 0: Check your cart ' . $username . '</a>';?>
 -->
+</main>
+
 <?php include __DIR__ . '/footer.html'; ?>
 </body>
 </html>

@@ -1,3 +1,5 @@
+import "./display-latest-order.js";
+
 import { requestOrderUpdate } from "./request-order-update.js";
 
 async function refreshOrderPreview() {
@@ -66,10 +68,9 @@ function initRatingForm() {
         console.log(delivery_status_updated.status);
 
         const form = document.getElementById("rating-form-wrapper");
-        const message = document.getElementById("rating-success-message");
 
         form.innerHTML = `
-            <div id="rating-success-message">
+            <div>
                 <h3>Merci pour votre retour !</h3>
             </div>
         `;

@@ -1,4 +1,4 @@
-import { sendDataAsync } from "./asyncForm.js";
+import { getSearchResult } from "./get-search-results.js";
 
 const searchForm = document.querySelector('form.searchbar');
 const searchResults = document.querySelector('section.search-results');
@@ -49,11 +49,11 @@ const sortFunctions = {
 }
 
 /**
- * Block search submit when on menu page
+ * Generate the page based on search
  */
 async function updateSearchResults() {
   if (!searchResults || !window.location.pathname.endsWith("/menu.php")) return;
-  const response = await sendDataAsync(searchForm);
+  const response = await getSearchResult(searchForm);
   const GET_PARAMS = new URLSearchParams(window.location.search);
   let sort = GET_PARAMS.get("sort") ?? "alphabetical";
   if (sort != "alphabetical" && sort != "price" && sort != "type") sort = "alphabetical";
@@ -72,11 +72,13 @@ async function updateSearchResults() {
   
   searchResults.innerHTML = documentSections.body.innerHTML;
 }
+//Block search submit when on menu page
 searchForm.addEventListener("submit", async (e) => {
   if (!searchResults || !window.location.pathname.endsWith("/menu.php")) return;
   e.preventDefault();
   updateSearchResults();
 });
+//Optional refresh on input
 searchinput.addEventListener("input", updateSearchResults);
 for (const label of searchForm.querySelectorAll("section.dropdown label")) {
   label.addEventListener("input", updateSearchResults);
