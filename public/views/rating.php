@@ -25,237 +25,256 @@ if (!$lastOrder) {
 } else {
     $countedDishes = count_dishes(($lastOrder["content"]) ?? []);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Rate us</title>
-      <link rel="icon" href="../assets/icons/logo.ico">
-      <link rel="stylesheet" href="../styles/index.css">
-      <link rel="stylesheet" href="../styles/rating.css">
-      <script defer type="module" src="../scripts/display-latest-order.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate us</title>
+    <link rel="icon" href="../assets/icons/logo.ico">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/rating.css">
+    <script>
+        const lastOrder = <?= json_encode($lastOrder) ?>;
+    </script>
+    <script defer type="module" src="../scripts/rating.js"></script>
   </head>
   <body>
-    
     <?php include 'header.html'; ?>
-
     <?php include 'sidebar.php'; ?>
+    <main>
 
-    <section class="card modernNeonBox">
-        <h2>My Orders</h2>
-        <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
-        <a href="orders.php">View my Orders</a>
-    </section>
 
-    <form class="card modernNeonBox" method="post" name="rating" action="../../private/php/update_rating.php">
+    <div id="rating-form-wrapper">
+    <?php if (!is_null($lastOrder) && !isset($lastOrder["rating"])): ?>
+
+        <section class="card modernNeonBox">
+            <h2>My Orders</h2>
+            <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
+            <a href="orders.php">View my Orders</a>
+        </section>
+
+        <form name="rating" id="rating-form">
         <div id="order-container"></div>
-        <div class="question">
-            <span class="question-title">Ponctualité de la livraison</span>
-            <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>
+            <div class="question">
+                <span class="question-title">Ponctualité de la livraison</span>
+                <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>
 
-            <div class="start-wrapper">
+                <div class="start-wrapper">
 
-                <input type="radio" id="q1-star5" name="rating-q1" value="5">
-                <label for="q1-star5">★</label>
+                    <input type="radio" id="q1-star5" name="rating-q1" value="5">
+                    <label for="q1-star5">★</label>
 
-                <input type="radio" id="q1-star4" name="rating-q1" value="4">
-                <label for="q1-star4">★</label>
+                    <input type="radio" id="q1-star4" name="rating-q1" value="4">
+                    <label for="q1-star4">★</label>
 
-                <input type="radio" id="q1-star3" name="rating-q1" value="3">
-                <label for="q1-star3">★</label>
+                    <input type="radio" id="q1-star3" name="rating-q1" value="3">
+                    <label for="q1-star3">★</label>
 
-                <input type="radio" id="q1-star2" name="rating-q1" value="2">
-                <label for="q1-star2">★</label>
+                    <input type="radio" id="q1-star2" name="rating-q1" value="2">
+                    <label for="q1-star2">★</label>
 
-                <input type="radio" id="q1-star1" name="rating-q1" value="1">
-                <label for="q1-star1">★</label>
+                    <input type="radio" id="q1-star1" name="rating-q1" value="1">
+                    <label for="q1-star1">★</label>
 
-            </div>
-
-        </div>
-
-        <div class="question">
-            <span class="question-title">État de l’emballage</span>
-            <span class = "question-subtitle">→ L’emballage était-il propre, intact et adapté au transport ?</span>
-
-            <div class="start-wrapper">
-
-                <input type="radio" id="q2-star5" name="rating-q2" value="5">
-                <label for="q2-star5">★</label>
-
-                <input type="radio" id="q2-star4" name="rating-q2" value="4">
-                <label for="q2-star4">★</label>
-
-                <input type="radio" id="q2-star3" name="rating-q2" value="3">
-                <label for="q2-star3">★</label>
-
-                <input type="radio" id="q2-star2" name="rating-q2" value="2">
-                <label for="q2-star2">★</label>
-
-                <input type="radio" id="q2-star1" name="rating-q2" value="1">
-                <label for="q2-star1">★</label>
+                </div>
 
             </div>
 
-        </div>
+            <div class="question">
+                <span class="question-title">État de l’emballage</span>
+                <span class = "question-subtitle">→ L’emballage était-il propre, intact et adapté au transport ?</span>
 
-        <div class="question">
-            <span class="question-title">Température des plats à la réception</span>
-            <span class = "question-subtitle">→ Les plats étaient-ils à la bonne température (chauds/froids selon le cas) ?</span>
+                <div class="start-wrapper">
 
-            <div class="start-wrapper">
+                    <input type="radio" id="q2-star5" name="rating-q2" value="5">
+                    <label for="q2-star5">★</label>
 
-                <input type="radio" id="q3-star5" name="rating-q3" value="5">
-                <label for="q3-star5">★</label>
+                    <input type="radio" id="q2-star4" name="rating-q2" value="4">
+                    <label for="q2-star4">★</label>
 
-                <input type="radio" id="q3-star4" name="rating-q3" value="4">
-                <label for="q3-star4">★</label>
+                    <input type="radio" id="q2-star3" name="rating-q2" value="3">
+                    <label for="q2-star3">★</label>
 
-                <input type="radio" id="q3-star3" name="rating-q3" value="3">
-                <label for="q3-star3">★</label>
+                    <input type="radio" id="q2-star2" name="rating-q2" value="2">
+                    <label for="q2-star2">★</label>
 
-                <input type="radio" id="q3-star2" name="rating-q3" value="2">
-                <label for="q3-star2">★</label>
+                    <input type="radio" id="q2-star1" name="rating-q2" value="1">
+                    <label for="q2-star1">★</label>
 
-                <input type="radio" id="q3-star1" name="rating-q3" value="1">
-                <label for="q3-star1">★</label>
-
-            </div>
-
-        </div>
-
-        <div class="question">
-            <span class="question-title">Conformité de la commande</span>
-            <span class = "question-subtitle">→ La commande correspondait-elle exactement à ce que vous aviez demandé ?</span>
-
-            <div class="start-wrapper">
-
-                <input type="radio" id="q4-star5" name="rating-q4" value="5">
-                <label for="q4-star5">★</label>
-
-                <input type="radio" id="q4-star4" name="rating-q4" value="4">
-                <label for="q4-star4">★</label>
-
-                <input type="radio" id="q4-star3" name="rating-q4" value="3">
-                <label for="q4-star3">★</label>
-
-                <input type="radio" id="q4-star2" name="rating-q4" value="2">
-                <label for="q4-star2">★</label>
-
-                <input type="radio" id="q4-star1" name="rating-q4" value="1">
-                <label for="q4-star1">★</label>
+                </div>
 
             </div>
 
-        </div>
+            <div class="question">
+                <span class="question-title">Température des plats à la réception</span>
+                <span class = "question-subtitle">→ Les plats étaient-ils à la bonne température (chauds/froids selon le cas) ?</span>
 
-        <div class="question">
-            <span class="question-title">Qualité de la communication</span>
-            <span class = "question-subtitle">→ Les informations sur la livraison (confirmation, suivi, appel du livreur…) étaient-elles claires ?</span>
+                <div class="start-wrapper">
 
-            <div class="start-wrapper">
+                    <input type="radio" id="q3-star5" name="rating-q3" value="5">
+                    <label for="q3-star5">★</label>
 
-                <input type="radio" id="q5-star5" name="rating-q5" value="5">
-                <label for="q5-star5">★</label>
+                    <input type="radio" id="q3-star4" name="rating-q3" value="4">
+                    <label for="q3-star4">★</label>
 
-                <input type="radio" id="q5-star4" name="rating-q5" value="4">
-                <label for="q5-star4">★</label>
+                    <input type="radio" id="q3-star3" name="rating-q3" value="3">
+                    <label for="q3-star3">★</label>
 
-                <input type="radio" id="q5-star3" name="rating-q5" value="3">
-                <label for="q5-star3">★</label>
+                    <input type="radio" id="q3-star2" name="rating-q3" value="2">
+                    <label for="q3-star2">★</label>
 
-                <input type="radio" id="q5-star2" name="rating-q5" value="2">
-                <label for="q5-star2">★</label>
+                    <input type="radio" id="q3-star1" name="rating-q3" value="1">
+                    <label for="q3-star1">★</label>
 
-                <input type="radio" id="q5-star1" name="rating-q5" value="1">
-                <label for="q5-star1">★</label>
-
-            </div>
-
-        </div>
-
-        <div class="question">
-            <span class="question-title">Courtoisie du livreur</span>
-            <span class = "question-subtitle">→ Le livreur a-t-il été poli et professionnel ?</span>
-
-            <div class="start-wrapper">
-
-                <input type="radio" id="q6-star5" name="rating-q6" value="5">
-                <label for="q6-star5">★</label>
-
-                <input type="radio" id="q6-star4" name="rating-q6" value="4">
-                <label for="q6-star4">★</label>
-
-                <input type="radio" id="q6-star3" name="rating-q6" value="3">
-                <label for="q6-star3">★</label>
-
-                <input type="radio" id="q6-star2" name="rating-q6" value="2">
-                <label for="q6-star2">★</label>
-
-                <input type="radio" id="q6-star1" name="rating-q6" value="1">
-                <label for="q6-star1">★</label>
+                </div>
 
             </div>
 
-        </div>
+            <div class="question">
+                <span class="question-title">Conformité de la commande</span>
+                <span class = "question-subtitle">→ La commande correspondait-elle exactement à ce que vous aviez demandé ?</span>
 
-        <div class="question">
+                <div class="start-wrapper">
 
-            <span class="question-title">Facilité de réception de la commande</span>
-            <span class = "question-subtitle">→ La livraison s’est-elle déroulée sans difficulté (adresse, contact, accès…) ?</span>
+                    <input type="radio" id="q4-star5" name="rating-q4" value="5">
+                    <label for="q4-star5">★</label>
 
-            <div class="start-wrapper">
+                    <input type="radio" id="q4-star4" name="rating-q4" value="4">
+                    <label for="q4-star4">★</label>
 
-                <input type="radio" id="q7-star5" name="rating-q7" value="5">
-                <label for="q7-star5">★</label>
+                    <input type="radio" id="q4-star3" name="rating-q4" value="3">
+                    <label for="q4-star3">★</label>
 
-                <input type="radio" id="q7-star4" name="rating-q7" value="4">
-                <label for="q7-star4">★</label>
+                    <input type="radio" id="q4-star2" name="rating-q4" value="2">
+                    <label for="q4-star2">★</label>
 
-                <input type="radio" id="q7-star3" name="rating-q7" value="3">
-                <label for="q7-star3">★</label>
+                    <input type="radio" id="q4-star1" name="rating-q4" value="1">
+                    <label for="q4-star1">★</label>
 
-                <input type="radio" id="q7-star2" name="rating-q7" value="2">
-                <label for="q7-star2">★</label>
-
-                <input type="radio" id="q7-star1" name="rating-q7" value="1">
-                <label for="q7-star1">★</label>
-
-            </div>
-
-        </div>
-
-        <div class="question">
-            <span class="question-title">Satisfaction globale de la livraison</span>
-            <span class = "question-subtitle">→ Globalement, comment évaluez-vous la qualité de la livraison ?</span>
-
-            <div class="start-wrapper">
-
-                <input type="radio" id="q8-star5" name="rating-q8" value="5">
-                <label for="q8-star5">★</label>
-
-                <input type="radio" id="q8-star4" name="rating-q8" value="4">
-                <label for="q8-star4">★</label>
-
-                <input type="radio" id="q8-star3" name="rating-q8" value="3">
-                <label for="q8-star3">★</label>
-
-                <input type="radio" id="q8-star2" name="rating-q8" value="2">
-                <label for="q8-star2">★</label>
-
-                <input type="radio" id="q8-star1" name="rating-q8" value="1">
-                <label for="q8-star1">★</label>
+                </div>
 
             </div>
 
-        </div>
+            <div class="question">
+                <span class="question-title">Qualité de la communication</span>
+                <span class = "question-subtitle">→ Les informations sur la livraison (confirmation, suivi, appel du livreur…) étaient-elles claires ?</span>
 
-        <input type="submit" value="Submit" id="submit-button">
-    </form>
+                <div class="start-wrapper">
+
+                    <input type="radio" id="q5-star5" name="rating-q5" value="5">
+                    <label for="q5-star5">★</label>
+
+                    <input type="radio" id="q5-star4" name="rating-q5" value="4">
+                    <label for="q5-star4">★</label>
+
+                    <input type="radio" id="q5-star3" name="rating-q5" value="3">
+                    <label for="q5-star3">★</label>
+
+                    <input type="radio" id="q5-star2" name="rating-q5" value="2">
+                    <label for="q5-star2">★</label>
+
+                    <input type="radio" id="q5-star1" name="rating-q5" value="1">
+                    <label for="q5-star1">★</label>
+
+                </div>
+
+            </div>
+
+            <div class="question">
+                <span class="question-title">Courtoisie du livreur</span>
+                <span class = "question-subtitle">→ Le livreur a-t-il été poli et professionnel ?</span>
+
+                <div class="start-wrapper">
+
+                    <input type="radio" id="q6-star5" name="rating-q6" value="5">
+                    <label for="q6-star5">★</label>
+
+                    <input type="radio" id="q6-star4" name="rating-q6" value="4">
+                    <label for="q6-star4">★</label>
+
+                    <input type="radio" id="q6-star3" name="rating-q6" value="3">
+                    <label for="q6-star3">★</label>
+
+                    <input type="radio" id="q6-star2" name="rating-q6" value="2">
+                    <label for="q6-star2">★</label>
+
+                    <input type="radio" id="q6-star1" name="rating-q6" value="1">
+                    <label for="q6-star1">★</label>
+
+                </div>
+
+            </div>
+
+            <div class="question">
+
+                <span class="question-title">Facilité de réception de la commande</span>
+                <span class = "question-subtitle">→ La livraison s’est-elle déroulée sans difficulté (adresse, contact, accès…) ?</span>
+
+                <div class="start-wrapper">
+
+                    <input type="radio" id="q7-star5" name="rating-q7" value="5">
+                    <label for="q7-star5">★</label>
+
+                    <input type="radio" id="q7-star4" name="rating-q7" value="4">
+                    <label for="q7-star4">★</label>
+
+                    <input type="radio" id="q7-star3" name="rating-q7" value="3">
+                    <label for="q7-star3">★</label>
+
+                    <input type="radio" id="q7-star2" name="rating-q7" value="2">
+                    <label for="q7-star2">★</label>
+
+                    <input type="radio" id="q7-star1" name="rating-q7" value="1">
+                    <label for="q7-star1">★</label>
+
+                </div>
+
+            </div>
+
+            <div class="question">
+                <span class="question-title">Satisfaction globale de la livraison</span>
+                <span class = "question-subtitle">→ Globalement, comment évaluez-vous la qualité de la livraison ?</span>
+
+                <div class="start-wrapper">
+
+                    <input type="radio" id="q8-star5" name="rating-q8" value="5">
+                    <label for="q8-star5">★</label>
+
+                    <input type="radio" id="q8-star4" name="rating-q8" value="4">
+                    <label for="q8-star4">★</label>
+
+                    <input type="radio" id="q8-star3" name="rating-q8" value="3">
+                    <label for="q8-star3">★</label>
+
+                    <input type="radio" id="q8-star2" name="rating-q8" value="2">
+                    <label for="q8-star2">★</label>
+
+                    <input type="radio" id="q8-star1" name="rating-q8" value="1">
+                    <label for="q8-star1">★</label>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="Submit" id="submit-button">
+        </form>
+
+    <?php else: ?>
+
+        <div id="rating-success-message">
+            <h3>Commandez pour pouvoir nous notez !</h3>
+            <a href="./index.html">Se rendre à la page d'accueil</a>
+        </div>
+    
+    <?php endif ?>
+    </div>
+    <main>
 
     <?php include 'footer.html'; ?>
-    
+
+
   </body>
 </html>
