@@ -84,7 +84,7 @@ section input[type="submit"] {
   padding: 1rem;
 }
 
-section button[type="submit"] {
+section button[name="action"] {
   width: 100%;
   font-size: 1.6rem;
   padding: 1rem;
