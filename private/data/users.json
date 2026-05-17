@@ -44,7 +44,12 @@
             "lastLogin": "2026-05-17 22:45:53",
             "firstName": "elvis",
             "lastName": "Tom",
-            "address": "12 rue de Rivoli"
+            "address": "12 rue de Rivoli",
+            "cookies": {
+                "essentialCookies": true,
+                "analyticsCookies": true,
+                "functionalCookies": false
+            }
         },
         {
             "id": "69f9f4d7be1cc",

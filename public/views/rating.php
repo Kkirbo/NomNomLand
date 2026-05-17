@@ -57,7 +57,7 @@ if (!$lastOrder) {
         </section>
 
         <form class="card modernNeonBoxGlass" name="rating" id="rating-form">
-        <div id="order-container"></div>
+            <!--<div id="order-container"></div>-->
             <div class="question">
                 <span class="question-title">Ponctualité de la livraison</span>
                 <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>

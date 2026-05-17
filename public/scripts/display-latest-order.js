@@ -5,6 +5,6 @@ const ordersBox = document.querySelector('.ordersContainer');
   if (!ordersBox) return;
   const lastOrderInfo = await getLastOrderInfo();
   if (!lastOrderInfo || lastOrderInfo.status != 200) return;
-  const orderInfoBox = generateOrderInfoBox(lastOrderInfo.data, true);
+  const orderInfoBox = await generateOrderInfoBox(lastOrderInfo.data, true);
   ordersBox.replaceChildren(orderInfoBox);
 })();

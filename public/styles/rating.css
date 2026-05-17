@@ -106,8 +106,7 @@ div.start-wrapper {
   gap: 1rem;
   justify-content: center;
 }
-
-.order-preview {
+.ordersContainer.modernNeonBoxGlass .order-preview {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -130,15 +129,13 @@ div.start-wrapper {
 
     transition: all 0.2s ease;
 }
-
-.order-preview:hover {
+.ordersContainer.modernNeonBoxGlass .order-preview:hover {
     transform: translateY(-2px);
     box-shadow:
         0 0 18px var(--secondary-shadow),
         0 0 28px var(--secondary-cold-dark);
 }
-
-.order-preview img {
+.ordersContainer.modernNeonBoxGlass .order-preview img {
     width: 64px;
     height: 64px;
 
@@ -152,26 +149,22 @@ div.start-wrapper {
 
     flex-shrink: 0;
 }
-
-.order-preview .infos {
+.ordersContainer.modernNeonBoxGlass .order-preview .infos {
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
 }
-
-.order-preview .title {
+.ordersContainer.modernNeonBoxGlass .order-preview .title {
     color: var(--secondary-bright);
     font-size: 1.1rem;
     font-weight: 600;
 }
-
-.order-preview .meta {
+.ordersContainer.modernNeonBoxGlass .order-preview .meta {
     color: var(--white);
     opacity: 0.8;
     font-size: 0.9rem;
 }
-
-.order-preview .price {
+.ordersContainer.modernNeonBoxGlass .order-preview .price {
     color: var(--pastel-orange);
     font-weight: 700;
 }
