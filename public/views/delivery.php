@@ -28,6 +28,10 @@ if ($order) {
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/delivery.css">
+    <script>
+      window.orderId = <?= json_encode($order["id"]) ?>;
+    </script>
+    <script defer type="module" src="../scripts/delivery.js"></script>
 </head>
 <body>
 
@@ -45,16 +49,16 @@ if ($order) {
 
     <label for="toggle" class="btn">Informations</label>
 
-    <form action="../../private/php/update_delivery_status.php" method="post">
+    <form>
       <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
-        <button type="submit" name="action" value="complete">
+        <button type="button" name="action" value="complete" id="delivery-complete">
             Delivery complete
         </button>
     </form>
 
-    <form action="../../private/php/update_delivery_status.php" method="post">
+    <form>
       <input type="hidden" name="orderId" value="<?= $order['id'] ?>">
-        <button type="submit" name="action" value="giveup">
+        <button type="button" name="action" value="giveup" id="delivery-giveup">
             Give up delivery
         </button>
     </form>
