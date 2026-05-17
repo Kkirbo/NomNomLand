@@ -12,7 +12,7 @@
             "delivery": {
                 "status": "delivery",
                 "address": "",
-                "delivery_person_id": ""
+                "delivery_person_id": "69f9f4d7be1cc"
             },
             "price": 25,
             "paymentStatus": "pending",

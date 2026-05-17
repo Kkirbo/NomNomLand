@@ -131,9 +131,10 @@ input {
   border: none;
   padding: 0.8rem 1rem;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   width: 100%;
   color: var(--shaded-glass-bright);
+  margin-bottom: 2rem;
 }
 
 button,
