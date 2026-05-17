@@ -45,7 +45,7 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
     <script>
         const deliveryPeople = <?= json_encode($deliveryPeople) ?>;
     </script>
-    <script defer src="../scripts/orders.js"></script>
+    <script defer type="module" src="../scripts/orders.js"></script>
 </head>
 <body>
 

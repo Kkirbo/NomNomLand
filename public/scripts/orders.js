@@ -1,3 +1,5 @@
+import { requestOrderUpdate } from "./request-order-update.js";
+
 function renderActions(status, orderId) {
 
     switch(status) {
@@ -69,31 +71,12 @@ document.addEventListener('click', async (e) => {
     const field = button.dataset.field;
     const value = button.dataset.value;
 
-    try {
-
-        const response = await fetch(
-            `/public/api/request-order-update.php?orderId=${orderId}&field=${field}&value=${value}`
-        );
-
-        const data = await response.json();
-
-        if (data.status === 200) {
-
-            const actionsContainer = button.closest('.order-actions');
-
-            actionsContainer.innerHTML = renderActions(value, orderId);
-
-        } else {
-
-            alert('Update failed');
-
-        }
-
-    } catch (err) {
-
-        console.error(err);
-        alert('Server error');
-
+    const updated = await requestOrderUpdate(orderId, field, value);
+    console.log(updated);
+    
+    if (!updated || updated.status != 200) {
+        return;
     }
-
+    const actionsContainer = button.closest('.order-actions');
+    actionsContainer.innerHTML = renderActions(value, orderId);
 });
