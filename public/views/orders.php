@@ -100,8 +100,11 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                     <p><strong>Address:</strong> <?= $order['delivery']['address'] ?></p>
                     <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
 
-                    <p><strong>Delivery person:</strong>
-                        <?= get_user_full_name($order["delivery"]["delivery_person_id"] ?? null) ?>
+                    <p>
+                        <strong>Delivery person:</strong>
+                        <span class="delivery-person-name">
+                            <?= get_user_full_name($order["delivery"]["delivery_person_id"] ?? null) ?>
+                        </span>
                     </p>
                 
                     <div class="order-actions">
