@@ -7,14 +7,6 @@
             "quantity": 1,
             "timestamp": "2026-05-17 07:10:00",
             "status": "pending"
-        },
-        {
-            "type": "dish",
-            "id": "bruschetta",
-            "user_id": "69f9f3e7e6e91",
-            "quantity": 1,
-            "timestamp": "2026-05-18 06:13:18",
-            "status": "pending"
         }
     ],
     "items": [
