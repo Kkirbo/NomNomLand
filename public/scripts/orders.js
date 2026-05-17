@@ -71,12 +71,32 @@ document.addEventListener('click', async (e) => {
     const field = button.dataset.field;
     const value = button.dataset.value;
 
-    const updated = await requestOrderUpdate(orderId, field, value);
-    console.log(updated);
+    const delivery_status_updated = await requestOrderUpdate(orderId, field, value);
+    console.log(delivery_status_updated);
     
-    if (!updated || updated.status != 200) {
+    if (!delivery_status_updated || delivery_status_updated.status != 200) {
         return;
     }
+
     const actionsContainer = button.closest('.order-actions');
+
+    if (value == "delivery") {
+        const select = actionsContainer.querySelector('.delivery-person-select');
+        const deliveryPersonId = select.value;
+        const deliveryPersonName = select.options[select.selectedIndex].text;
+
+        const delivery_person_updated = await requestOrderUpdate(orderId, "delivery->delivery_person_id", deliveryPersonId);
+        console.log(delivery_person_updated);
+
+        if (!delivery_person_updated || delivery_person_updated.status != 200) {
+            return;
+        }
+
+        const modalContent = button.closest('.modalContent');
+        const deliveryPersonElement = modalContent.querySelector('.delivery-person-name');
+        deliveryPersonElement.textContent = deliveryPersonName;
+
+    }
+
     actionsContainer.innerHTML = renderActions(value, orderId);
 });
