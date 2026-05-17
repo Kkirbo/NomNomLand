@@ -35,7 +35,7 @@ if (!$lastOrder) {
       <link rel="icon" href="../assets/icons/logo.ico">
       <link rel="stylesheet" href="../styles/index.css">
       <link rel="stylesheet" href="../styles/rating.css">
-      <script defer src="../scripts/rating.js"></script>
+      <script defer type="module" src="../scripts/display-latest-order.js"></script>
   </head>
   <body>
     
@@ -43,8 +43,14 @@ if (!$lastOrder) {
 
     <?php include 'sidebar.php'; ?>
 
-    <form method="post" name="rating" action="../../private/php/update_rating.php">
-    <div id="order-container"></div>
+    <section class="card modernNeonBox">
+        <h2>My Orders</h2>
+        <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
+        <a href="orders.php">View my Orders</a>
+    </section>
+
+    <form class="card modernNeonBox" method="post" name="rating" action="../../private/php/update_rating.php">
+        <div id="order-container"></div>
         <div class="question">
             <span class="question-title">Ponctualité de la livraison</span>
             <span class = "question-subtitle">→ Le repas a-t-il été livré dans les délais annoncés ?</span>
@@ -248,5 +254,8 @@ if (!$lastOrder) {
 
         <input type="submit" value="Submit" id="submit-button">
     </form>
+
+    <?php include 'footer.html'; ?>
+    
   </body>
 </html>

@@ -1,4 +1,3 @@
-
 <?php
 require '../../private/php/session.php';
 require '../../private/php/cart.php';
@@ -233,6 +232,8 @@ foreach ($cartData['items'] ?? [] as $item) {
 
     <link rel="stylesheet" href="../styles/cart.css">
 
+    <script defer type="module" src="../scripts/display-latest-order.js"></script>
+
 </head>
 
 <body>
@@ -244,9 +245,7 @@ foreach ($cartData['items'] ?? [] as $item) {
 <main class="cart-container">
 
     <section class="infos">
-
         <h2>Your Cart</h2>
-
         <article class="modernNeonBoxGlass">
 
             <?php if(isset($_GET['ordered'])): ?>
@@ -432,7 +431,16 @@ foreach ($cartData['items'] ?? [] as $item) {
             </form>
 
         </article>
+    </section>
 
+    <section class="infos">
+        <h2>My Orders</h2>
+        <article class="modernNeonBoxGlass">
+            <div class="ordersContainer modernNeonBoxGlass">
+                <p>You have no past order.</p>
+            </div>
+            <a href="orders.php">View my Orders</a>
+        </article>
     </section>
 
 </main>

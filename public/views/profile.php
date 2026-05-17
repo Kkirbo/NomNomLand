@@ -28,6 +28,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <link rel="stylesheet" href="../styles/index.css"/>
     <link rel="stylesheet" href="../styles/profile.css"/>
     <title>Profile</title>
+    <script defer type="module" src="../scripts/profile.js"></script>
 </head>
 <body>
 
@@ -74,7 +75,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 
   <section class="card modernNeonBox">
     <h2>My Orders</h2>
-    <article class="orders modernNeonBox">You have no past order.</article>
+    <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
     <a href="orders.php">View my Orders</a>
 
     <!--<?php foreach($ordersHistory as $order):
@@ -150,7 +151,5 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 </section>
 
 </body>
-
-<script defer type="module" src="../scripts/profile.js"></script>
 
 </html>

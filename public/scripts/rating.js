@@ -1,4 +1,5 @@
-async function refreshOrderPreview() {
+
+/*async function refreshOrderPreview() {
 const res = await fetch("/public/api/get-latest-command.php");
     const data = await res.json();
     if (!data.success) return;
@@ -20,4 +21,4 @@ const res = await fetch("/public/api/get-latest-command.php");
     container.innerHTML = html;
 }
 setInterval(refreshOrderPreview, 3000);
-refreshOrderPreview();
+refreshOrderPreview();*/

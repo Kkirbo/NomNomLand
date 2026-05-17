@@ -98,16 +98,18 @@
   border-bottom: none;
 }
 
+.ordersContainer.modernNeonBoxGlass {
+  padding: 1.5rem;
+}
+.ordersContainer.modernNeonBoxGlass div{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 12rem);
+  gap: 1rem;
+  justify-content: center;
+}
+
 .status {
   font-weight: bold;
-}
-
-.success {
-  color: green;
-}
-
-.failed {
-  color: red;
 }
 
 .progress-bar {
@@ -208,7 +210,7 @@ button,
   box-shadow: 0 0 10px #004C29;
   border-radius: 3rem;
   font-weight: 500;
-  color: white;
+  color: var(--white);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;

@@ -1,15 +1,6 @@
 import "./editable-user-text-info.js";
 
-import { getLastOrderInfo, generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
-
-const ordersBox = document.querySelector('article.orders');
-(async function() {
-  const lastOrderInfo = await getLastOrderInfo();
-  if (!lastOrderInfo || lastOrderInfo.status != 200) return;
-  const orderInfoBox = generateOrderInfoBox(lastOrderInfo.data);
-  
-  ordersBox.replaceChildren(orderInfoBox);
-})();
+import "./display-latest-order.js";
 
 
 /*

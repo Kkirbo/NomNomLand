@@ -11,12 +11,22 @@ label {
     display: grid;
 }
 
-form {
-    background: var(--primary-04);
-    border: solid var(--secondary);
-    border-radius: 10px;
-    margin: 3rem;
-    padding: 3rem;
+.card.modernNeonBox {
+  width: clamp(18rem, 60vw, 50rem);
+  background: var(--primary);
+  border: 0.2rem solid var(--secondary-shadow);
+  box-shadow: 0 0 10px #004C29;
+  border-radius: 3rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-top: 2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form.card.modernNeonBox {
+    margin-bottom: 5rem;
 }
 form > h1{
     /*text-decoration: underline; */
@@ -25,9 +35,11 @@ form > h1{
 }
 
 #submit-button{
-    position: fixed;
+    z-index: 1;
+    position: sticky;
     bottom: 1.4rem;
-    left: calc(50vw - 150px);
+    box-sizing: border-box;
+    left: calc(50vw - 150px - 0.2rem);
     width: 300px;
     height: 50px;
     font-size: 1.5rem;
@@ -79,6 +91,17 @@ div.start-wrapper {
 .start-wrapper label:hover {
     transform: scale(1.15);
 }
+
+.ordersContainer.modernNeonBoxGlass {
+  padding: 1.5rem;
+}
+.ordersContainer.modernNeonBoxGlass div{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 12rem);
+  gap: 1rem;
+  justify-content: center;
+}
+
 .order-preview {
     display: flex;
     align-items: center;

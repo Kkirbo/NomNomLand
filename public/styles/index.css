@@ -258,6 +258,7 @@ button:hover svg {
 
 /*--Boxes--*/
 .modernNeonBox {
+  box-sizing: border-box;
   background: var(--primary);
   border: 0.2rem solid var(--secondary-shadow);
   box-shadow: 0 0 10px var(--secondary-cold-dark);
@@ -265,6 +266,7 @@ button:hover svg {
   font-weight: 1;
 }
 .modernNeonBoxGlass {
+  box-sizing: border-box;
   background: var(--primary-04);
   border: 0.2rem solid var(--secondary-shadow);
   backdrop-filter: blur(6px);

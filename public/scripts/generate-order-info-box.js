@@ -10,28 +10,30 @@ export async function getLastOrderInfo() {
     return getOrderInfo("user", userId);
 }
 
-export function generateOrderInfoBox(orderInfo) {
+export function generateOrderInfoBox(orderInfo, showRatingLink=false) {
     const box = document.createElement("article");
     box.className = "order-info-box";
 
     const items = orderInfo.content?.join(", ") || "No items";
-
+    
     box.innerHTML = `
-        <h3>Order #${orderInfo.id}</h3>
-        
-        <p><strong>User ID:</strong> ${orderInfo.user_id}</p>
-        <p><strong>Phone:</strong> ${orderInfo.phone}</p>
+        <h3>Latest Order: #${orderInfo.id}</h3>
         
         <p><strong>Items:</strong> ${items}</p>
+
+        <div>
+        <p><strong>User ID:</strong> ${orderInfo.user_id}</p>
+        <p><strong>Phone:</strong> ${orderInfo.phone}</p>
         
         <p><strong>Price:</strong> $${orderInfo.price}</p>
         <p><strong>Payment:</strong> ${orderInfo.paymentStatus}</p>
         
         <p><strong>Delivery Status:</strong> ${orderInfo.delivery.status}</p>
         <p><strong>Address:</strong> ${orderInfo.delivery.address || "N/A"}</p>
-        
+        </div>
         <p><strong>Date:</strong> ${orderInfo.date}</p>
-        <a href="rating.php">Rate this order</a>
+
+        ${showRatingLink ? '<a href="rating.php">Rate this order</a>' : ''}
     `;
 
     return box;

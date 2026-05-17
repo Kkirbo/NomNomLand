@@ -90,3 +90,22 @@ section h1 {
     font-style: italic;
     color: var(--secondary-cold-shadow);
 }
+
+.ordersContainer.modernNeonBoxGlass {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.ordersContainer.modernNeonBoxGlass strong {
+    font-weight: 500;
+}
+.ordersContainer.modernNeonBoxGlass .order-info-box p {
+    text-align: left;
+    font-weight: 500;
+}
+.ordersContainer.modernNeonBoxGlass div{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 12rem);
+  gap: 1rem;
+  justify-content: center;
+}
