@@ -28,6 +28,9 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <link rel="stylesheet" href="../styles/index.css"/>
     <link rel="stylesheet" href="../styles/profile.css"/>
     <title>Profile</title>
+    <script>
+      const user_id = <?= json_encode($id) ?>;
+    </script>
     <script defer type="module" src="../scripts/profile.js"></script>
 </head>
 <body>
@@ -108,7 +111,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 
     <p>You can manage your cookie preferences below.</p>
 
-    <form class="cookie-settings" action="../../private/php/update_user_cookies.php" method="post">
+    <form class="cookie-settings">
       <label>
         <input
           type="checkbox"
