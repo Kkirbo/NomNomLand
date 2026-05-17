@@ -32,9 +32,10 @@ function get_user_by_session() {
 //Authentication and session creation
 function login($email, $password) {
     if (empty($email) || empty($password)) {
-        return 1; //at least 1 empty field
+        return 1; //At least 1 empty field
     }
     $user = get_user_by_email($email);
+    if ($user['status'] == "deactivated") return 3; //Account deactivated
 
     if ($user && password_verify($password, $user["password"])) {
         date_default_timezone_set('Pacific/Palau');

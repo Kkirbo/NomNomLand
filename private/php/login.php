@@ -9,4 +9,5 @@ if (!isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['password
 $login = login($_POST['email'], $_POST['password']);
 if ($login == 1) $error = "Please fill in all fields.";
 else if ($login == 2) $error = "Invalid credentials, please try again.";
+else if ($login == 3) $error = "This account is deactivated, use a different account.";
 ?>

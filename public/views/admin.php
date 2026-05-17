@@ -36,7 +36,8 @@ $users = sliceArrayToPage($users, $visibleUsers, $page, $pagesCount);
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
                             <th>Username</th>
                             <th>Email</th>
                             <th>Role</th>

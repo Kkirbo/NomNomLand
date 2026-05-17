@@ -23,7 +23,7 @@ table tr:hover {
   background: var(--primary);
 }
 
-table td span {
+table td span:not([name="id"]) {
   cursor: pointer;
 }
 
@@ -70,11 +70,13 @@ select:disabled {
 
 .actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.6rem;
   justify-content: center;
+  align-items: center;
 }
 .actions button {
+  width: 100%;
   font-size: 1.15rem;
   padding: 0.7rem 1.4rem;
 }

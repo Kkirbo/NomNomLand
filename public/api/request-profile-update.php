@@ -4,7 +4,10 @@ $userId = $_GET['userId'] ?? '';
 $field = $_GET['field'] ?? '';
 $value = $_GET['value'] ?? '';
 
-$updated = update_user_field($userId, $field, $value);
+$unauthorized = false;
+$updated = false;
+if (!$value || $value == "") $unauthorized = true;
+else if (!$unauthorized) $updated = update_user_field($userId, $field, $value);
 
 header('Content-Type: application/json');
 if ($updated) echo json_encode([ 'status' => 200 ]);

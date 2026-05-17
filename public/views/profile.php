@@ -5,6 +5,7 @@ require_once "../../private/php/utilities/data.php";
 require_login();
 $user = get_user_by_session();
 
+$id = $user["id"];
 $email = $user["email"];
 $firstName = $user["profile"]["firstName"];
 $lastName = $user["profile"]["lastName"];
@@ -30,7 +31,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 </head>
 <body>
 
-  <?php include 'sidebar.php'; ?>
+<?php include 'sidebar.php'; ?>
 
 <section class="profile">
 
@@ -47,42 +48,27 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 
     <div class="info-row" data-field="firstName">
       <span>First Name</span>
-      <span class="value">
-        <?= $firstName ?>
-        <button class="edit-btn">✏️</button>
-      </span>
+      <span data-id="<?=htmlspecialchars($id)?>" data-name="firstName" class="editable-user-text-info"><?= htmlspecialchars($firstName) ?></span>
     </div>
 
     <div class="info-row" data-field="lastName">
       <span>Last Name</span>
-      <span class="value">
-        <?= $lastName ?>
-        <button class="edit-btn">✏️</button>
-      </span>
+      <span data-id="<?=htmlspecialchars($id)?>" data-name="lastName" class="editable-user-text-info"><?= htmlspecialchars($lastName) ?></span>
     </div>
 
     <div class="info-row" data-field="email">
       <span>Email</span>
-      <span class="value">
-        <?= $email ?>
-        <button class="edit-btn">✏️</button>
-      </span>
+      <span data-id="<?=htmlspecialchars($id)?>" data-name="email" class="editable-user-text-info"><?= htmlspecialchars($email) ?></span>
     </div>
 
     <div class="info-row" data-field="phone">
       <span>Phone</span>
-      <span class="value">
-        <?= $phone ?>
-        <button class="edit-btn">✏️</button>
-      </span>
+      <span data-id="<?=htmlspecialchars($id)?>" data-name="phone" class="editable-user-text-info"><?= htmlspecialchars($phone) ?></span>
     </div>
 
     <div class="info-row" data-field="address">
       <span>Address</span>
-      <span class="value">
-        <?= $address ?>
-        <button class="edit-btn">✏️</button>
-      </span>
+      <span data-id="<?=htmlspecialchars($id)?>" data-name="address" class="editable-user-text-info"><?= htmlspecialchars($address) ?></span>
     </div>
   </section>
 

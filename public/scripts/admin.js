@@ -5,7 +5,7 @@ const tbody = document.querySelector('section.infos article table tbody');
 const users = tbody.querySelectorAll('tr');
 
 for (const user of users) {
-    const userId = user.querySelector('td:first-child span#id')?.textContent.trim().toLowerCase();
+    const userId = user.querySelector('td:first-child span[data-name="id"]')?.textContent.trim().toLowerCase();
     if (!userId) continue;
     
     const roleSelect = user.querySelector('select[name="role"]');
@@ -19,24 +19,33 @@ for (const user of users) {
         roleSelectOldValue = roleSelect.value;
     });
 
-    const statusSelect = user.querySelector('select[name="status"]');
-    let statusSelectOldValue = statusSelect ? statusSelect.value : undefined;
-    if (statusSelect) statusSelect.addEventListener('change', async (e) => {
-        const updated = await requestProfileUpdate(userId, "status", e.target.value);
+    async function statusChange() {
+        const updated = await requestProfileUpdate(userId, "status", statusSelect.value);
         if (!updated || updated.status != 200) {
             statusSelect.value = statusSelectOldValue;
             return;
         }
         statusSelectOldValue = statusSelect.value;
+    }
+    const statusSelect = user.querySelector('select[name="status"]');
+    let statusSelectOldValue = statusSelect ? statusSelect.value : undefined;
+    if (statusSelect) statusSelect.addEventListener('change', async (e) => {
+        statusChange();
     });
 
     const block = user.querySelector('td:last-child.actions button[name="block"]');
     if (block) block.addEventListener('click', (e) => {
-        if (statusSelect) statusSelect.value = "blocked";
+        if (statusSelect) {
+            statusSelect.value = "blocked";
+            statusChange();
+        }
     });
     const deactivate = user.querySelector('td:last-child.actions button[name="deactivate"]');
     if (deactivate) deactivate.addEventListener('click', (e) => {
-        if (statusSelect) statusSelect.value = "deactivated";
+        if (statusSelect) {
+            statusSelect.value = "deactivated";
+            statusChange();
+        }
     });
 
     const pointsController = user.querySelector('div.points-control');

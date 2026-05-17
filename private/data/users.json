@@ -6,10 +6,10 @@
             "phone": "0123456789",
             "password": "$2y$10$nceDO5qoxCcFRfAG9elaWuW8SKbK86DmM96fntvJ0YzhZK7XxAyIe",
             "role": "client",
-            "status": "free",
+            "status": "premium",
             "fidelity": "904",
             "profile": {
-                "firstName": "H\u00e9carim",
+                "firstName": "Hecarim",
                 "lastName": "Benzema",
                 "username": "H\u00e9carim.Benzema",
                 "age": 101,
@@ -17,7 +17,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:39:47",
-            "lastLogin": "2026-05-17 08:15:39",
+            "lastLogin": "2026-05-17 03:16:38",
             "cookies": {
                 "essentialCookies": true,
                 "analyticsCookies": false,
@@ -27,13 +27,13 @@
         {
             "id": "69f9f3e7e6e91",
             "email": "tomjedusor@email.com",
-            "phone": "0132457898",
+            "phone": "0132457891",
             "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
             "role": "admin",
             "status": "Free",
             "fidelity": 0,
             "profile": {
-                "firstName": "elvis",
+                "firstName": "Jedusor",
                 "lastName": "Tom",
                 "username": "elvis.Tom",
                 "age": 18,
@@ -41,7 +41,10 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-05-16 08:15:47"
+            "lastLogin": "2026-05-16 08:15:47",
+            "firstName": "elvis",
+            "lastName": "Tom",
+            "address": "12 rue de Rivoli"
         },
         {
             "id": "69f9f4d7be1cc",
@@ -49,7 +52,7 @@
             "phone": "0123456789",
             "password": "$2y$10$s46N5PPYrPD.5eTCPV7bVut1gfq\/XFW.bsdJrY9\/BqYvvoINY77\/a",
             "role": "delivery",
-            "status": "Free",
+            "status": "vip",
             "fidelity": 0,
             "profile": {
                 "firstName": "Lalivreuse",
@@ -80,6 +83,25 @@
             },
             "createdAt": "2026-05-15 22:39:44",
             "lastLogin": "2026-05-16 07:39:44"
+        },
+        {
+            "id": "6a0918f48825f",
+            "email": "aaa@email.com",
+            "phone": "0011223344",
+            "password": "$2y$12$IjQnwKf4qm7uh0SEvaVllegXX6RK6D4tLbI1t8p8z5jaYttfHVtXW",
+            "role": "client",
+            "status": "deactivated",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Leo",
+                "lastName": "Adil moki",
+                "username": "Leo.Adil moki",
+                "age": 18,
+                "address": "12 rue de ara",
+                "gender": "other"
+            },
+            "createdAt": "2026-05-17 01:25:08",
+            "lastLogin": null
         }
     ]
 }

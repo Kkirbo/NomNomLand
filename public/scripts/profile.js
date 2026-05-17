@@ -1,3 +1,5 @@
+import "./editable-user-text-info.js";
+
 import { getLastOrderInfo, generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
 
 const ordersBox = document.querySelector('article.orders');
@@ -11,6 +13,7 @@ const ordersBox = document.querySelector('article.orders');
 })();
 
 
+/*
 document.addEventListener("click", async (e) => {
   // CLICK SUR EDIT
   if (e.target.classList.contains("edit-btn")) {
@@ -66,3 +69,4 @@ document.addEventListener("click", async (e) => {
     `;
   }
 });
+*/

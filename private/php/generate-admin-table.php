@@ -6,10 +6,11 @@ function generateAdminTable($users)
 
         echo '<tr>';
 
-        echo '<td><span class="editable-user-text-info" id="id">' . htmlspecialchars($user['id']) . '</span></td>';
-        echo '<td><span class="editable-user-text-info">' . htmlspecialchars($user['profile']['lastName']) . ' ' . htmlspecialchars($user['profile']['firstName']) . '</span></td>';
-        echo '<td><span class="editable-user-text-info">' . htmlspecialchars($user['profile']['username']) . '</span></td>';
-        echo '<td><span class="editable-user-text-info">' . htmlspecialchars($user['email']) . '</span></td>';
+        echo '<td><span data-id="' . htmlspecialchars($user['id']) . '" data-name="id">' . htmlspecialchars($user['id']) . '</span></td>';
+        echo '<td><span data-id="' . htmlspecialchars($user['id']) . '" data-name="profile->lastName" class="editable-user-text-info">' . htmlspecialchars($user['profile']['lastName']) . '</span></td>';
+        echo '<td><span data-id="' . htmlspecialchars($user['id']) . '" data-name="profile->firstName" class="editable-user-text-info">' . htmlspecialchars($user['profile']['firstName']) . '</span></td>';
+        echo '<td><span data-id="' . htmlspecialchars($user['id']) . '" data-name="profile->username" class="editable-user-text-info">' . htmlspecialchars($user['profile']['username']) . '</span></td>';
+        echo '<td><span data-id="' . htmlspecialchars($user['id']) . '" data-name="email" class="editable-user-text-info">' . htmlspecialchars($user['email']) . '</span></td>';
 
         echo '<td>';
         if ($isAdmin) {

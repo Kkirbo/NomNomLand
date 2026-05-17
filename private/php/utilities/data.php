@@ -121,10 +121,20 @@ function register_user($user) {
 function update_user($userId, $newData) {
     return update_data_entry($userId, $newData, "users.json", "users");
 }
-function update_user_field($userId, $field, $newValue) {
+function update_user_field($userId, $fieldPath, $newValue) {
     $userData = get_user_by_id($userId);
     if (!$userData) return false;
-    $userData[$field] = $newValue;
+
+    $fields = explode('->', $fieldPath);
+    $currentField = &$userData;
+    foreach ($fields as $field) {
+        if (!isset($currentField[$field]) || !is_array($currentField[$field]) && $field !== end($fields)) {
+            $currentField[$field] = [];
+        }
+        $currentField = &$currentField[$field];
+    }
+    $currentField = $newValue;
+
     return update_user($userId, $userData);
 }
 
