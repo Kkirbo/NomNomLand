@@ -14,7 +14,10 @@ function retype($key) {
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
-    <script defer src="../scripts/form.js"></script>
+    <script defer type="module" src="../scripts/form.js"></script>
+    <script>
+      import { checkLogin, CharLength, TogglePassword } from "../scripts/form.js";
+    </script>
 </head>
 <body>
   <?php include 'header.html'; ?>

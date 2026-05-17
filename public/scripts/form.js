@@ -1,4 +1,4 @@
-function TogglePassword() {
+export function TogglePassword() {
     let a = document.getElementById("password");
     if (a.type === "text") {
         a.type = "password";
@@ -6,8 +6,8 @@ function TogglePassword() {
         a.type = "text";
     }
 }
-function checkLength(input) {
-    if (input.length > 100) {
+export function checkLength(input) {
+    if (input.length > 100 || input.length < 4) {
         return {
             success: false,
             error: "TOO_LONG"
@@ -19,7 +19,7 @@ function checkLength(input) {
         };
     }
 }
-function validateEmail(email) {
+export function validateEmail(email) {
     let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/; /*Une chaîne de caractère, suivi de l'@ forcé, et les domaines autorisés, avec ou .com, ou .fr à la fin */
     if (regex.test(email)) {
         return {
@@ -33,7 +33,7 @@ function validateEmail(email) {
         };
     }
 }
-function validateAddress(address) {
+export function validateAddress(address) {
     let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier strictement positif, suivies éventuellement d’un espace, puis d’un texte alphabétique (avec accents, espaces, tirets, apostrophes)*/
     if (regex.test(address)) {
         return {
@@ -46,7 +46,7 @@ function validateAddress(address) {
         };
     }
 }
-function validatePhone(phone) {
+export function validatePhone(phone) {
     let regex = /^0[0-9]{9}$/; /*0 obligatoire en début de numéro, puis 9 chiffres*/
     if (regex.test(phone)) {
         return {
@@ -59,7 +59,7 @@ function validatePhone(phone) {
         };
     }
 }
-function validatePassword(password) {
+export function validatePassword(password) {
     let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/    /*au moins 1 majuscule, 1 chiffre, et 5 caractères min*/
     if (regex.test(password)) {
         return {
@@ -72,15 +72,15 @@ function validatePassword(password) {
         };
     }
 }
-function markError(el) {
+export function markError(el) {
     el.classList.remove("input-success");
     el.classList.add("input-error");
 }
-function markSuccess(el) {
+export function markSuccess(el) {
     el.classList.remove("input-error");
     el.classList.add("input-success");
 }
-function checkLogin(){
+export function checkLogin(){
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let errors = [];
@@ -119,7 +119,7 @@ function checkLogin(){
     }
     return valid;
 }
-function CharLength() {
+export function CharLength() {
     let input = document.getElementById("password");
     let length = input.value.length;
     document.getElementById("compteur").textContent = length;
@@ -132,7 +132,7 @@ function CharLength() {
     }
 }
 
-function validateForm() {
+export function validateForm() {
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let name = document.getElementById("name");
@@ -213,13 +213,13 @@ function validateForm() {
     }
     return valid;
 }
-function updateCounter(input, counterId) {
+export function updateCounter(input, counterId) {
     let max = input.maxLength;
     let current = input.value.length;
     let counter = document.getElementById(counterId);
     counter.textContent = current + " / " + max;
 }
-function Autocorrect() {
+export function Autocorrect() {
     let champs = document.getElementsByClassName("champ");
     for (let i = 0; i < champs.length; i++) {
         let texte = champs[i].value.toLowerCase();

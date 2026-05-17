@@ -1,5 +1,6 @@
 import { getUserId } from "../scripts/get-user-id.js";
 import { requestProfileUpdate } from "./request-profile-update.js";
+import { checkLength, validateEmail, validatePhone, validateAddress } from "./form.js";
 
 document.addEventListener("click", async (e) => {
     const activeInputs = document.querySelectorAll("input.editing-user-text-info");
@@ -10,6 +11,25 @@ document.addEventListener("click", async (e) => {
         span.dataset.id = activeInput.dataset.id;
         span.dataset.name = activeInput.dataset.name;
         span.textContent = activeInput.placeholder;
+
+        let inputValid = checkLength(activeInput.value).success;
+        switch (span.dataset.name) {
+            case "email":
+                inputValid = inputValid && validateEmail(activeInput.value).success;
+                break;
+            case "phone":
+                inputValid = inputValid && validatePhone(activeInput.value).success;
+                break;
+            case "address":
+                inputValid = inputValid && validateAddress(activeInput.value).success;
+                break;
+            default:
+                break;
+        }
+        if (!inputValid) {
+            activeInput.replaceWith(span);
+            continue;
+        }
 
         let userId = {status: 200, id: activeInput?.dataset?.id};
         if (!userId) userId = await getUserId();
