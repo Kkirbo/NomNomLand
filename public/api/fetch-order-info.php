@@ -15,5 +15,5 @@ if ($orderInfo) {
     echo json_encode(['status' => 200, 'data' => $orderInfo]);
     exit;
 }
-echo json_encode(['status' => 404]);
+echo json_encode(['status' => 404, 'data' => $id]);
 ?>

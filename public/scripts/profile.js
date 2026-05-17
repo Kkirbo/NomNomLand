@@ -5,11 +5,10 @@ import { getLastOrderInfo, generateOrderInfoBox } from "../scripts/generate-orde
 const ordersBox = document.querySelector('article.orders');
 (async function() {
   const lastOrderInfo = await getLastOrderInfo();
-  if (!lastOrderInfo) return;
-  const orderInfoBox = generateOrderInfoBox(lastOrderInfo);
-  if (typeof orderInfoBox == typeof 1) {
-    
-  }
+  if (!lastOrderInfo || lastOrderInfo.status != 200) return;
+  const orderInfoBox = generateOrderInfoBox(lastOrderInfo.data);
+  
+  ordersBox.replaceChildren(orderInfoBox);
 })();
 
 
