@@ -4,6 +4,10 @@ $userId = $_GET['userId'] ?? '';
 $field = $_GET['field'] ?? '';
 $value = $_GET['value'] ?? '';
 
+if ($field === "cookies") {
+    $value = json_decode($value, true);
+}
+
 $unauthorized = false;
 $updated = false;
 if (!$value || $value == "") $unauthorized = true;
