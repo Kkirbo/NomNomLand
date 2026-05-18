@@ -16,6 +16,7 @@ password: "Aa12345678!"
 
 
 Fonctionnalités non implémentées en [Phase#3]:
+
 -refonte logique de la partie commande
 
 -Phase 4
