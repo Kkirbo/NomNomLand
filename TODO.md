@@ -26,7 +26,7 @@ Phase 4 prio:
 
 Fix:
 -Lien conditions sur register
--Carousel
+-Carousel | Julien
 -Compte bloqués sont pas bloqués
 -Menus
   -Fix les menus (stocker données des plats choisis)
@@ -35,7 +35,7 @@ Fix:
   -Vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
   -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs)
 -Form.js
-  -Régler login/register export/module
+  -Régler login/register export/module | Julien
   -Message d'erreur sur admin/profil + touche entrée
   -Regex email
   -Messages d'erreur
