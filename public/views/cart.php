@@ -436,7 +436,7 @@ foreach ($cartData['items'] ?? [] as $item) {
 
     <section class="infos">
         <h2>My Orders</h2>
-        <article class="modernNeonBoxGlass">
+        <article class="card modernNeonBoxGlass">
             <div class="ordersContainer modernNeonBoxGlass">
                 <p>You have no past order.</p>
             </div>
