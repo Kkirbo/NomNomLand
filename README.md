@@ -20,3 +20,5 @@ Fonctionnalités non implémentées en [Phase#3]:
 -refonte logique de la partie commande
 
 -Phase 4
+
+(Le numéro de port est le 8080)
