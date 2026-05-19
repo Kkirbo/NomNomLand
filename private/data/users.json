@@ -29,7 +29,7 @@
             "email": "tomjedusor@email.com",
             "phone": "0132457890",
             "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
-            "role": "admin",
+            "role": "client",
             "status": "Free",
             "fidelity": 0,
             "profile": {

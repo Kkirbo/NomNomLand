@@ -27,6 +27,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css"/>
     <link rel="stylesheet" href="../styles/profile.css"/>
+    <link rel="stylesheet" href="../styles/order-preview.css">
     <title>Profile</title>
     <script>
       const user_id = <?= json_encode($id) ?>;
@@ -40,12 +41,11 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 <section class="profile">
 
   <header class="profile-header">
-    <div class="avatar"></div>
     <h1><?= $fullName ?></h1>
     <p class="email"><?= $email ?></p>
   </header>
 
-  <section class="card modernNeonBox">
+  <section class="card modernNeonBoxGlass">
     <div class="card-header">
       <h2>Personal Information</h2>
     </div>
@@ -76,7 +76,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     </div>
   </section>
 
-  <section class="card modernNeonBox">
+  <section class="card modernNeonBoxGlass">
     <h2>My Orders</h2>
     <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
     <a href="orders.php">View my Orders</a>
@@ -95,7 +95,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <?php endforeach ?>-->
   </section>
 
-  <section class="card modernNeonBox">
+  <section class="card modernNeonBoxGlass">
     <h2>Loyalty</h2>
 
     <p><strong>Current Points:</strong> <?= $fidelityPoints ?> pts</p>
@@ -106,7 +106,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     </div>
   </section>
 
-  <section class="card modernNeonBox">
+  <section class="card modernNeonBoxGlass">
     <h2>Cookie Settings</h2>
 
     <p>You can manage your cookie preferences below.</p>

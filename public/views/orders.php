@@ -4,7 +4,7 @@ require '../../private/php/generate-nav.php';
 require_once "../../private/php/utilities/data.php";
 require_login();
 $user = get_user_by_session();
-if (!is_any_role($user, ["admin", "cook", "delivery"])) redirect_url();
+//if (!is_any_role($user, ["admin", "cook", "delivery"])) redirect_url();
 
 if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null) {
     header('Location: delivery.php');
@@ -12,7 +12,8 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
 }
 
 $deliveryPeople = get_users_by_role("delivery");
-$orders = get_orders();
+if (is_role($user, "client")) $orders = get_orders_by_user_id($user['id']);
+else $orders = get_orders();
 
 
 if (is_role($user, "cook")) {

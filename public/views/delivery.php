@@ -66,7 +66,7 @@ if ($order) {
 
   <input type="checkbox" id="toggle" hidden>
   <section class="popup">
-    <dl id="delivery-info" class="modernNeonBox">
+    <dl id="delivery-info" class="modernNeonBoxGlass">
       <dt>Address</dt>
       <dd><?= $address ?></dd>
 

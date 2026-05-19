@@ -23,7 +23,7 @@ table tr:hover {
   background: var(--primary);
 }
 
-table td span:not([name="id"]) {
+table td span.editable-user-text-info {
   cursor: pointer;
 }
 
