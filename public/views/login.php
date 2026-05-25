@@ -20,6 +20,7 @@ function retype($key) {
     </script>
 </head>
 <body>
+  <?php include 'cookiebanner.php'; ?>
   <?php include 'header.html'; ?>
   <?php include 'sidebar.php'; ?>
   <main>

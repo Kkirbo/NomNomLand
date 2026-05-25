@@ -13,6 +13,8 @@
 <body>
     <!--<?php include 'background.html'; ?>-->
 
+    <?php include 'cookiebanner.php'; ?>
+    
     <?php include 'header.html'; ?>
 
     <?php include 'sidebar.php'; ?>

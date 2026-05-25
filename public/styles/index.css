@@ -459,6 +459,31 @@ canvas.background {
   background: transparent;
 }
 
+section#cookiesBanner {
+  z-index: 12;
+  position: fixed;
+  box-sizing: border-box;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+section#cookiesBanner p {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  gap: 1rem;
+}
+section#cookiesBanner p:last-of-type {
+  justify-content: right;
+}
+section#cookiesBanner button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+
 header {
   color: var(--secondary);
   background: var(--primary);
@@ -867,7 +892,7 @@ section.infos article p {
 section.infos article strong {
   font-weight: 600;
 }
-section.infos article p:last-of-type {
+section.infos article > p:last-child {
   margin-top: 2rem;
   font-size: 1.2rem;
   font-weight: 600;

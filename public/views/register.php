@@ -21,6 +21,7 @@ function retype($key) {
 </head>
 
 <body>
+  <?php include 'cookiebanner.php'; ?>
 
   <?php include 'header.html'; ?>
 

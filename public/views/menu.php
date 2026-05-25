@@ -14,6 +14,7 @@ $user = get_user_by_session();
 </head>
 <body>
 
+<?php include 'cookiebanner.php'; ?>
 <?php include __DIR__ . '/header.html'; ?>
 <?php include __DIR__ . '/sidebar.php'; ?>
 
@@ -21,7 +22,7 @@ $user = get_user_by_session();
 <?php include 'searchbar.php'; ?>
 <section class="search-results"></section>
 <section id="id" class="background-blur modal">
-    <article class="modal_content modernNeonBoxGlass">
+    <article class="modal_content modernNeonBox">
         <img src="../assets/images/default.png" class="background" alt="fork and knife default background">
         <div class="header">
             <a href="#" class="modal_close">&times;</a>

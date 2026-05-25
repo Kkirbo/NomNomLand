@@ -6,7 +6,7 @@
             "phone": "0123456789",
             "password": "$2y$10$nceDO5qoxCcFRfAG9elaWuW8SKbK86DmM96fntvJ0YzhZK7XxAyIe",
             "role": "client",
-            "status": "premium",
+            "status": "blocked",
             "fidelity": "904",
             "profile": {
                 "firstName": "Hecarim",
@@ -17,7 +17,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:39:47",
-            "lastLogin": "2026-05-20 18:33:25",
+            "lastLogin": "2026-05-21 02:48:45",
             "cookies": {
                 "essentialCookies": true,
                 "analyticsCookies": false,
@@ -29,7 +29,7 @@
             "email": "tomjedusor@email.com",
             "phone": "0132457890",
             "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
-            "role": "client",
+            "role": "admin",
             "status": "Free",
             "fidelity": 0,
             "profile": {
@@ -41,7 +41,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-05-18 07:17:28",
+            "lastLogin": "2026-05-25 22:53:06",
             "firstName": "elvis",
             "lastName": "Tom",
             "address": "12 rue de Rivoli",

@@ -66,8 +66,11 @@ Expiry Date: Any
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="../styles/order-preview.css">
+    <script defer type="module" src="../scripts/display-latest-order.js"></script>
 </head>
 <body>
+  <?php include 'cookiebanner.php'; ?>
 
   <?php include 'header.html'; ?>
 
@@ -75,7 +78,7 @@ Expiry Date: Any
 
   <main>
     <section class="infos">
-        <h2>Payment</h2>
+        <h2>Confirm your payment</h2>
         <article class="modernNeonBoxGlass">
             <?php if ($isReturn): ?>
                 <h3><?= htmlspecialchars($message ?? "Payment processed") ?></h3>
@@ -84,27 +87,25 @@ Expiry Date: Any
                 <h3>You have no unpaid order.</h3>
                 <a href="cart.php">Back to cart</a>
             <?php else: ?>
-            <form method="post" action="https://www.plateforme-smc.fr/cybank/">
-                <fieldset>
-                    <h1>Confirm your payment</h1>
+                <div class="ordersContainer modernNeonBoxGlass">
+                    <p>You have no past order.</p>
+                </div>
+                <form method="post" action="https://www.plateforme-smc.fr/cybank/">
                     <input type="hidden" name="transaction" value="<?= htmlspecialchars($transaction) ?>">
                     <input type="hidden" name="montant" value="<?= htmlspecialchars($amount) ?>">
                     <input type="hidden" name="vendeur" value="<?= htmlspecialchars($vendor) ?>">
                     <input type="hidden" name="retour" value="<?= htmlspecialchars($return) ?>">
                     <input type="hidden" name="control" value="<?= htmlspecialchars($control) ?>">
 
-                    <div class="field buttons">
-                        <div>
-                            <label>Proceed to payment</label>
-                            <button type="submit" class="button">Pay now</button>
-                        </div>
+                    <div class="buttons">
+                        <label>Proceed to payment</label>
+                        <button type="submit" class="button">Pay now</button>
                     </div>
 
                     <?php
                         if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
                     ?>
-                </fieldset>
-            </form>
+                </form>
             <?php endif; ?>
         </article>
     </section>

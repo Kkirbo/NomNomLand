@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../styles/textpage.css">
 </head>
 <body>
+    <?php include 'cookiebanner.php'; ?>
+
     <?php include 'header.html'; ?>
 
     <?php include 'sidebar.php'; ?>
@@ -75,7 +77,7 @@
 
         <h2>6. Your Rights</h2>
         <p>
-          In accordance with applicable data protection laws (including GDPR),
+          In accordance with applicable data protection laws,
           you have the right to:
         </p>
         <ul>

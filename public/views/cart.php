@@ -238,6 +238,7 @@ foreach ($cartData['items'] ?? [] as $item) {
 </head>
 
 <body>
+<?php include 'cookiebanner.php'; ?>
 
 <?php include 'header.html'; ?>
 

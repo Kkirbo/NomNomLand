@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../styles/textpage.css">
 </head>
 <body>
+    <?php include 'cookiebanner.php'; ?>
+    
     <?php include 'header.html'; ?>
 
     <?php include 'sidebar.php'; ?>

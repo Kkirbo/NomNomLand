@@ -36,6 +36,8 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 </head>
 <body>
 
+<?php include 'cookiebanner.php'; ?>
+
 <?php include 'sidebar.php'; ?>
 
 <section class="profile">

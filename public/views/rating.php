@@ -43,6 +43,7 @@ if (!$lastOrder) {
     <script defer type="module" src="../scripts/rating.js"></script>
   </head>
   <body>
+    <?php include 'cookiebanner.php'; ?>
 
     <?php include 'header.html'; ?>
 
