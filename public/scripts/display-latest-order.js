@@ -1,4 +1,5 @@
-import { getLastOrderInfo, generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
+import { getLastOrderInfo } from "../scripts/get-order-info.js";
+import { generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
 
 const ordersBox = document.querySelector('.ordersContainer');
 (async function() {

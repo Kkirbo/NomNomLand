@@ -43,6 +43,7 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/orders.css">
+    <link rel="stylesheet" href="../styles/order-preview.css">
     <script>
         const deliveryPeople = <?= json_encode($deliveryPeople) ?>;
     </script>
@@ -52,54 +53,41 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
 
     <?php include 'sidebar.php'; ?>
 
-    <h2>Pending Orders</h2>
+    <main>
+        <h2>Pending Orders</h2>
 
-    <section class="orders">
+        <section class="orders">
 
-        <?php foreach ($orders as $order): ?>
-        <?php /*if (!in_array($order["delivery"]["status"], array("success", "failed"))):*/ ?>
+            <?php foreach ($orders as $order): ?>
+            <?php /*if (!in_array($order["delivery"]["status"], array("success", "failed"))):*/ ?>
 
-        <?php
-        $isPending = $order["delivery"]["status"] == "pending";
-        $isPreparing = $order["delivery"]["status"] == "preparing";
-        $isReady = $order["delivery"]["status"] == "ready";
-        $isdelivery = $order["delivery"]["status"] == "delivery";
-        ?>
-
-        <article class="menu orderCard">
-
-            <h3>Order #<?= $order['id'] ?></h3>
-
-            <ul>
-                <li><strong>Customer Email:</strong> <? $orderUser = get_user_by_id($order['user_id']); echo ($orderUser ? $orderUser['email'] : "Undefined"); ?></li>
-                <li><strong>Arrival Date:</strong> <?= $order['date'] ?></li>
-            </ul>
+            <?php
+            $isPending = $order["delivery"]["status"] == "pending";
+            $isPreparing = $order["delivery"]["status"] == "preparing";
+            $isReady = $order["delivery"]["status"] == "ready";
+            $isdelivery = $order["delivery"]["status"] == "delivery";
+            ?>
 
             <?php $toggleId = "order-toggle-" . $order['id']; ?>
+            <article class="menu orderCard modernNeonBoxGlass">
 
-            <input type="checkbox" id="<?= $toggleId ?>" class="modalToggle">
+                <h3>#<?= $order['id'] ?></h3>
 
-            <label for="<?= $toggleId ?>" class="openModalBtn">
-                Display Details
-            </label>
+                <ul>
+                    <li><? $orderUser = get_user_by_id($order['user_id']); echo ($orderUser ? $orderUser['email'] : "Undefined"); ?></li>
+                    <li><?= $order['date'] ?></li>
+                </ul>
 
+                <label for="<?= $toggleId ?>" class="openModalBtn">
+                    Display Details
+                </label>
+            </article>
             <div class="modal">
+                <input type="checkbox" id="<?= $toggleId ?>" class="modalToggle">
                 <label for="<?= $toggleId ?>" class="background-blur"></label>
 
                 <div class="modalContent modernNeonBoxGlass">
-
-                    <h3>Order #<?= $order['id'] ?> Details</h3>
-
-                    <ul>
-                        <?php foreach ($order['content'] as $item): ?>
-                            <li><?= $item ?></li>
-                        <?php endforeach; ?>
-
-                    </ul>
-
-                    <p><strong>Status:</strong> <?= $order['delivery']['status'] ?></p>
-                    <p><strong>Address:</strong> <?= $order['delivery']['address'] ?></p>
-                    <p><strong>Total:</strong> <?= $order['price'] ?>$</p>
+                    <div class="ordersContainer modernNeonBoxGlass" data-id="<?= $order['id'] ?>"></div>
 
                     <p>
                         <strong>Delivery person:</strong>
@@ -159,14 +147,14 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
 
                 </div>
             </div>
+            <?php /*endif;*/ ?>
+            <?php endforeach; ?>
+        </section>
+        <?php
+            generateNavbar($page, $pagesCount);
+        ?>
+    </main>
 
-        </article>
-        <?php /*endif;*/ ?>
-        <?php endforeach; ?>
-    </section>
-    <?php
-        generateNavbar($page, $pagesCount);
-    ?>
-
+    <?php include 'footer.html'; ?>
 </body>
 </html>

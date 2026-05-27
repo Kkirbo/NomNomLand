@@ -278,12 +278,8 @@ button:hover svg {
   z-index: 2;
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
   background: var(--primary-bright-04);
   backdrop-filter: blur(6px);
-  box-shadow: 0 0 10px var(--secondary-cold-dark);
-  font-weight: 1;
 }
 .error-message {
   color: var(--white);
@@ -358,7 +354,7 @@ span.pastel-red {
 
 /*--Nav bar for multiple pages--*/
 nav.pageNav {
-    margin-top: 1rem;
+    margin: 1rem auto;
     display: flex;
     gap: 0.5rem;
     justify-content: center;

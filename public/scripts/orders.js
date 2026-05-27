@@ -1,4 +1,6 @@
-import { requestOrderUpdate } from "./request-order-update.js";
+import { requestOrderUpdate } from "../scripts/request-order-update.js";
+import { getOrderInfo } from "../scripts/get-order-info.js";
+import { generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
 
 function renderActions(status, orderId) {
 
@@ -100,3 +102,11 @@ document.addEventListener('click', async (e) => {
 
     actionsContainer.innerHTML = renderActions(value, orderId);
 });
+
+let orderInfoBoxes = document.querySelectorAll("div.ordersContainer");
+(async () => {
+    for (const orderInfoBox of orderInfoBoxes) {
+        let orderInfo = await getOrderInfo("order", orderInfoBox.dataset.id);
+        orderInfoBox.innerHTML = await generateOrderInfoBox(orderInfo.data);
+    }
+})();

@@ -53,7 +53,7 @@ if (!$lastOrder) {
     <?php if (!is_null($lastOrder) && !isset($lastOrder["rating"])): ?>
 
         <section class="card modernNeonBoxGlass">
-            <h2>My Orders</h2>
+            <h2>Latest Order</h2>
             <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
             <a href="orders.php">View my Orders</a>
         </section>

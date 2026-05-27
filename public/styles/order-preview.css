@@ -3,24 +3,24 @@
   display: flex;
   flex-direction: column;
 }
-.ordersContainer.modernNeonBoxGlass {
+.ordersContainer {
   padding: 1rem;
   margin-bottom: 1rem;
 }
-.ordersContainer.modernNeonBoxGlass div {
+.ordersContainer div {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 14rem);
   gap: 1rem;
   justify-content: center;
 }
-.ordersContainer.modernNeonBoxGlass div.details {
+.ordersContainer div.details {
     margin: 1rem 0;
 }
-.ordersContainer.modernNeonBoxGlass div p {
+.ordersContainer div p {
     margin: 0;
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview {
+.ordersContainer .orderItemsContainer .order-preview {
     width: 100%;
     height: 100%;
 
@@ -33,13 +33,13 @@
 
     transition: all 0.2s ease;
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview:hover {
+.ordersContainer .orderItemsContainer .order-preview:hover {
     transform: translateY(-2px);
     box-shadow:
         0 0 18px var(--secondary-shadow),
         0 0 28px var(--secondary-cold-dark);
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview img {
+.ordersContainer .orderItemsContainer .order-preview img {
     width: 100%;
     aspect-ratio: 4/3;
 
@@ -47,23 +47,23 @@
     border-radius: 1rem;
     border: 0.15rem solid var(--secondary);
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview .infos {
+.ordersContainer .orderItemsContainer .order-preview .infos {
     display: flex;
     flex-direction: column;
     gap: 0;
     padding: 0.2rem;
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview .title {
+.ordersContainer .orderItemsContainer .order-preview .title {
     color: var(--secondary-bright);
     font-size: 1.1rem;
     font-weight: 600;
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview .meta {
+.ordersContainer .orderItemsContainer .order-preview .meta {
     color: var(--white);
     opacity: 0.8;
     font-size: 0.9rem;
 }
-.ordersContainer.modernNeonBoxGlass .orderItemsContainer .order-preview .price {
+.ordersContainer .orderItemsContainer .order-preview .price {
     color: var(--pastel-orange);
     font-weight: 700;
 }
