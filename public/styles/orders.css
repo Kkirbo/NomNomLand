@@ -36,11 +36,46 @@ div.background-blur.active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 90%;
-    max-width: 80rem;
+
+    width: clamp(18rem, 80%, 80rem);
+    height: auto;
+    min-height: 80%;
+    max-height: 99%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+
     padding: 2rem;
     overflow: auto;
+}
+.modalContent .ordersContainer {
+    margin: 0;
+}
+.modalContent div {
+    width: 100%;
+}
+.modalContent div.deliveryInfo {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.modalContent div.deliveryInfo svg {
+    fill: var(--secondary);
+    width: 5rem;
+}
+.modalContent div.deliveryInfo p {
+    flex: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.modalContent button {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
 }
 
 .orders {
@@ -54,13 +89,6 @@ div.background-blur.active {
     grid-template-columns: repeat(auto-fit, 18rem);
     gap: 2rem;
     justify-content: center;
-}
-
-/* Bouton fermer */
-.closeBtn {
-    display: inline-block;
-    margin-top: 20px;
-    cursor: pointer;
 }
 
 .orderCard {
@@ -85,7 +113,12 @@ div.background-blur.active {
     padding: 1rem 1.5rem;
     cursor: pointer;
 }
-
+.orderCard label.closeBtn {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
 
 @keyframes fadeIn {
     from {
@@ -102,32 +135,35 @@ h2 {
     text-align: center;
 }
 
-.update-order-btn{
-    margin: 1rem;
-    padding: 1rem 1.5rem;
-    font-size: 1.2rem;
-}
-
 .orders label:not(.background-blur) {
-  background: var(--primary);
-  color: var(--secondary);
-  border: 0.2rem solid var(--secondary);
-  border-radius: 3rem;
-  transition: all 0.1s;
-  cursor: pointer;
-  padding: 1rem;
-  font-size: 1.2rem;
-  z-index: 0;
+    display: block;
+    width: fit-content;
+    background: var(--primary);
+    color: var(--secondary);
+    border: 0.2rem solid var(--secondary);
+    border-radius: 3rem;
+    transition: all 0.1s;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.2rem;
+    z-index: 0;
 }
 .orders label:not(.background-blur):hover {
-  color: var(--primary);
-  background: var(--secondary-bright);
-  border: 0.2rem solid var(--secondary-bright);
-  box-shadow: 0 0 1rem var(--secondary-hot);
+    color: var(--primary);
+    background: var(--secondary-bright);
+    border: 0.2rem solid var(--secondary-bright);
+    box-shadow: 0 0 1rem var(--secondary-hot);
 }
 
 .orders select {
     font-size: 1.2rem;
     padding: 1rem 1.5rem;
     padding-right: 2rem;
+}
+
+/*--Too small--*/
+@media screen and (max-width: 400px) {
+    .modalContent {
+        padding: 0.5rem;
+    }
 }

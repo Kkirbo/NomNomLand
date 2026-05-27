@@ -484,12 +484,12 @@ header {
   color: var(--secondary);
   background: var(--primary);
   border: 0.2rem solid var(--secondary-shadow);
-  box-shadow: 0 0 10px var(--secondary-cold-dark);
-  border-radius: 15px;
-  width: clamp(19rem, 50%, 50rem);
+  box-shadow: 0 0 0.8rem var(--secondary-cold-dark);
+  border-radius: 1rem;
+  width: clamp(18rem, 75%, 50rem);
   font-weight: 1;
-  padding: 15px;
-  margin: 10px auto;
+  padding: 1rem;
+  margin: 0.8rem auto;
 }
 header > h1 {
   font-family: 'Bolonewt', sans-serif;
@@ -499,23 +499,23 @@ header > h1 {
   color: transparent;
   margin: 0;
   font-weight: 1;
-  padding: 10px;
+  padding: 0.5rem;
   letter-spacing: 2px;
   text-align: center;
 }
 header > h2 {
   margin: 0;
   font-weight: 1;
-  padding: 10px;
+  padding: 0.5rem;
   text-align: center;
 }
 
 input.togglesidebar {
   position: fixed;
-  height: 0px;
-  width: 0px;
-  top: 0px;
-  left: 0px;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
   opacity: 0;
   display: none;
   visibility: hidden;
@@ -649,7 +649,7 @@ aside.sidebar li:hover svg {
 }
 
 main {
-  width: 100vw;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -719,7 +719,7 @@ section.carousel article::scroll-marker:target-current {
 section.carousel article {
   position: relative;
 
-  flex: 0 0 clamp(18rem, 60vw, 80rem);
+  flex: 0 0 clamp(18rem, 60%, 80rem);
   height: clamp(60vh, 60vw * 5 / 7, 75vh);
   box-sizing: border-box;
   box-shadow: none;
@@ -814,7 +814,7 @@ section.menus {
 }
 section.menus article {
   box-sizing: border-box;
-  flex: 0 0 clamp(18rem, 60vw, 80rem);
+  flex: 0 0 clamp(18rem, 60%, 80rem);
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -863,12 +863,14 @@ section.menus article button {
 }
 
 section.infos {
-  margin: 2rem;
+  width: clamp(18rem, 80%, 80rem);
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 section.infos h2 {
+  box-sizing: border-box;
   width: fit-content;
   font-size: 2rem;
   padding: 0.5rem 1rem;
@@ -945,8 +947,7 @@ footer li:hover iframe{
 }
 footer ul {
   list-style: none;
-  flex: 1 1 250px;
-  padding: 0 3rem;
+  flex: 1 1 15rem;
 }
 footer ul > li:first-child {
   margin-bottom: 0.2rem;
