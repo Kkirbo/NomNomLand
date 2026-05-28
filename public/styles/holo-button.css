@@ -16,6 +16,7 @@
 }
 
 .toggle-input {
+  display: none;
   position: absolute;
   opacity: 0;
   width: 0;

@@ -73,7 +73,7 @@
       <section class="infos" id="faq">
         <h2>Q&A</h2>
 
-        <details>
+        <details class="hidden">
           <summary>Do I need a reservation?</summary>
           <p>
             We highly recommend making a reservation, especially on weekends.
@@ -81,7 +81,7 @@
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>Do you offer vegetarian or vegan options?</summary>
           <p>
             Yes. Our menu includes carefully crafted vegetarian dishes and
@@ -89,7 +89,7 @@
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>Are allergens clearly indicated?</summary>
           <p>
             Absolutely. A full allergen list is available upon request and on
@@ -97,7 +97,7 @@
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>Do you host private events?</summary>
           <p>
             Yes, we offer private dining experiences for birthdays, corporate
@@ -105,14 +105,14 @@
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>Is there parking nearby?</summary>
           <p>
             Public parking is available within a 2-minute walk of the restaurant.
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>Do you accept large group bookings?</summary>
           <p>
             Yes, we welcome group reservations. Please contact us directly to arrange
@@ -120,14 +120,14 @@
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>What payment methods do you accept?</summary>
           <p>
             We accept cash, credit cards, and contactless payments.
           </p>
         </details>
 
-        <details>
+        <details class="hidden">
           <summary>Is the restaurant accessible?</summary>
           <p>
             Yes, our restaurant is wheelchair accessible and equipped with accessible

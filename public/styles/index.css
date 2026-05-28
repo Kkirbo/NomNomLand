@@ -606,9 +606,6 @@ label.togglesidebar span.bot_line {
   width: 35px;
   transform: translate(-50%, -50%);
 }
-input.togglesidebar:checked ~ .togglesidebar {
-  box-shadow: none;
-}
 input.togglesidebar:checked ~ .togglesidebar .top_line {
   left: 5px;
   top: 30px;
@@ -628,8 +625,7 @@ input.togglesidebar:checked ~ .togglesidebar .bot_line {
 
 aside.sidebar {
   height: 100%;
-  width: 25%;
-  min-width: 340px;
+  width: clamp(18rem, 25%, 23rem);
   position: fixed;
   z-index: 5;
   top: 0;
@@ -865,7 +861,7 @@ section.menus article {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  transition: 0.5s;
+  transition: all 0.4s;
 }
 section.menus article:hover {
   transform: translateY(-0.5rem);
@@ -951,6 +947,11 @@ section.infos details {
   width: 100%;
   border: 0.2rem solid var(--secondary-shadow);
   background: var(--primary-04);
+  transition: all 0.4s;
+}
+section.infos details.hidden {
+  opacity: 0;
+  transform: translateY(100%);
 }
 
 footer {
