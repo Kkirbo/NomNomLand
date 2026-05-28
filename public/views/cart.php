@@ -7,10 +7,10 @@ require_login();
 
 $user = get_user_by_session();
 
-/*if (is_user_last_order_unpaid($user['id'])) {
+if (is_user_last_order_unpaid($user['id'])) {
     header("Location: payment.php");
     exit();
-}*/
+}
 
 date_default_timezone_set('Pacific/Palau');
 
@@ -244,7 +244,7 @@ foreach ($cartData['items'] ?? [] as $item) {
 
 <?php include 'sidebar.php'; ?>
 
-<main class="cart-container">
+<main>
 
     <section class="infos">
         <h2>Your Cart</h2>

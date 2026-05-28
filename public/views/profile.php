@@ -36,124 +36,102 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 </head>
 <body>
 
-<?php include 'cookiebanner.php'; ?>
+  <?php include 'cookiebanner.php'; ?>
 
-<?php include 'sidebar.php'; ?>
+  <?php include 'sidebar.php'; ?>
 
-<section class="profile">
-
-  <header class="profile-header">
+  <header>
     <h1><?= $fullName ?></h1>
-    <p class="email"><?= $email ?></p>
+    <h2><?= $email ?></h2>
   </header>
 
-  <section class="card modernNeonBoxGlass">
-    <div class="card-header">
+  <main>
+
+    <section class="infos">
       <h2>Personal Information</h2>
-    </div>
 
-    <div class="info-row" data-field="firstName">
-      <span>First Name</span>
-      <span data-id="<?=htmlspecialchars($id)?>" data-name="firstName" class="editable-user-text-info"><?= htmlspecialchars($firstName) ?></span>
-    </div>
+      <article class="modernNeonBoxGlass infos">
+        <div>
+          <span>First Name</span>
+          <span data-id="<?=htmlspecialchars($id)?>" data-name="profile->firstName" class="editable-user-text-info"><?= htmlspecialchars($firstName) ?></span>
+        </div>
 
-    <div class="info-row" data-field="lastName">
-      <span>Last Name</span>
-      <span data-id="<?=htmlspecialchars($id)?>" data-name="lastName" class="editable-user-text-info"><?= htmlspecialchars($lastName) ?></span>
-    </div>
+        <div>
+          <span>Last Name</span>
+          <span data-id="<?=htmlspecialchars($id)?>" data-name="profile->lastName" class="editable-user-text-info"><?= htmlspecialchars($lastName) ?></span>
+        </div>
 
-    <div class="info-row" data-field="email">
-      <span>Email</span>
-      <span data-id="<?=htmlspecialchars($id)?>" data-name="email" class="editable-user-text-info"><?= htmlspecialchars($email) ?></span>
-    </div>
+        <div>
+          <span>Email</span>
+          <span data-id="<?=htmlspecialchars($id)?>" data-name="email" class="editable-user-text-info"><?= htmlspecialchars($email) ?></span>
+        </div>
 
-    <div class="info-row" data-field="phone">
-      <span>Phone</span>
-      <span data-id="<?=htmlspecialchars($id)?>" data-name="phone" class="editable-user-text-info"><?= htmlspecialchars($phone) ?></span>
-    </div>
+        <div>
+          <span>Phone</span>
+          <span data-id="<?=htmlspecialchars($id)?>" data-name="phone" class="editable-user-text-info"><?= htmlspecialchars($phone) ?></span>
+        </div>
 
-    <div class="info-row" data-field="address">
-      <span>Address</span>
-      <span data-id="<?=htmlspecialchars($id)?>" data-name="address" class="editable-user-text-info"><?= htmlspecialchars($address) ?></span>
-    </div>
-  </section>
+        <div>
+          <span>Address</span>
+          <span data-id="<?=htmlspecialchars($id)?>" data-name="address" class="editable-user-text-info"><?= htmlspecialchars($address) ?></span>
+        </div>
+      </article>
+    </section>
 
-  <section class="card modernNeonBoxGlass">
-    <h2>My Orders</h2>
-    <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
-    <a href="orders.php">View my Orders</a>
+    <section class="infos">
+        <h2>My Orders</h2>
+        <article class="card modernNeonBoxGlass">
+            <div class="ordersContainer modernNeonBoxGlass">
+                <p>You have no past order.</p>
+            </div>
+            <a href="orders.php">View my Orders</a>
+        </article>
+    </section>
 
-    <!--<?php foreach($ordersHistory as $order):
-    ?>
+    <section class="infos">
+      <h2>Loyalty</h2>
 
-      <div class="order">
-        <span><?= $order['id'] ?></span>
-        <span><?= $order['date'] ?></span>
-        <span><?= $order['price'] ?> $</span>
-        <span class="status <?= $order['delivery']['status'] ?>"><?= $order['delivery']['status'] ?></span>
-      </div>
+      <article class="modernNeonBoxGlass">
+        <p><strong>Current Points:</strong> <?= $fidelityPoints ?> pts</p>
+        <!--<p><strong>Next Reward:</strong> €5 off at 150 pts</p>
 
+        <div class="progress-bar">
+          <div class="progress" style="width: <?php echo ($fidelityPoints / 150) * 100; ?>%;"></div>
+        </div>-->
+      </article>
+    </section>
 
-    <?php endforeach ?>-->
-  </section>
+    <section class="infos">
+      <h2>Cookie Settings</h2>
 
-  <section class="card modernNeonBoxGlass">
-    <h2>Loyalty</h2>
+      <article class="modernNeonBoxGlass">
+        <p>You can manage your cookie preferences below. <br>For more information visit our <a href="cookies.php">cookies page</a>.</p>
 
-    <p><strong>Current Points:</strong> <?= $fidelityPoints ?> pts</p>
-    <p><strong>Next Reward:</strong> €5 off at 150 pts</p>
+        <form class="cookie-settings">
+          <label>
+            <input type="checkbox" name="essentialCookies" disabled checked >
+            Essential Cookies (Required)
+          </label>
 
-    <div class="progress-bar">
-      <div class="progress" style="width: <?php echo ($fidelityPoints / 150) * 100; ?>%;"></div>
-    </div>
-  </section>
+          <label>
+            <input type="checkbox" name="analyticsCookies" <?php if ($analyticsCookiesChecked) echo 'checked'; ?> >
+            Analytics Cookies
+          </label>
 
-  <section class="card modernNeonBoxGlass">
-    <h2>Cookie Settings</h2>
+          <label>
+            <input type="checkbox" name="functionalCookies" <?php if ($functionalCookiesChecked) echo 'checked'; ?> >
+            Functional Cookies
+          </label>
 
-    <p>You can manage your cookie preferences below.</p>
+          <button type="submit" class="btn-success">
+            Save Preferences
+          </button>
+        </form>
+      </article>
+    </section>
+  </main>
 
-    <form class="cookie-settings">
-      <label>
-        <input
-          type="checkbox"
-          name="essentialCookies"
-          disabled
-          checked
-        >
-        Essential Cookies (Required)
-      </label>
-
-      <label>
-        <input
-        type="checkbox"
-        name="analyticsCookies"
-        <?php if ($analyticsCookiesChecked) echo 'checked'; ?>
-      >
-        Analytics Cookies
-      </label>
-
-      <label>
-        <input
-        type="checkbox"
-        name="functionalCookies"
-        <?php if ($functionalCookiesChecked) echo 'checked'; ?>
-      >
-        Functional Cookies
-      </label>
-
-      <button type="submit" class="btn-success">
-        Save Preferences
-      </button>
-    </form>
-  </section>
-
-  <form action="logout.php">
-    <input type="submit" value="Log out"/>
-  </form>
-
-
-</section>
+  <?php include 'footer.html'; ?>
 
 </body>
 

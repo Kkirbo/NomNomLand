@@ -274,7 +274,7 @@ a.link:visited {
   padding: 0;
   margin: 0;
   font-size: 3rem;
-  color: var(--white);
+  color: var(--secondary);
   cursor: pointer;
 }
 

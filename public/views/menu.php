@@ -11,6 +11,8 @@ $user = get_user_by_session();
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/menu.css">
     <title>Menu</title>
+    <script defer type="module" src="../scripts/menu-modal.js"></script>
+    <script defer type="module" src="../scripts/menu.js"></script>
 </head>
 <body>
 
@@ -57,7 +59,6 @@ $user = get_user_by_session();
         </div>
     </article>
 </section>
-<script defer type="module" src="../scripts/menu-modal.js"></script>
 <!--
     <h1 id="menuheader">Restaurant Menu</h1>
     <div class="menu-left">

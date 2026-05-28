@@ -3,7 +3,6 @@ import { getSearchResult } from "./get-search-results.js";
 const searchForm = document.querySelector('form.searchbar');
 const searchResults = document.querySelector('section.search-results');
 const searchinput = searchForm.querySelector('section input[type="text"]');
-const tuneButton = searchForm.querySelector('button.tune');
 
 /**
  * Searchbar Animation
@@ -24,6 +23,9 @@ const searchBarEntersView = new IntersectionObserver(() => {
 });
 searchBarEntersView.observe(searchForm);
 
+/**
+ * Sorts
+ */
 const sortFunctions = {
   alphabetical: (items, invert) => {
     return items.sort((a, b) => {
@@ -86,8 +88,9 @@ for (const label of searchForm.querySelectorAll("section.dropdown label")) {
 updateSearchResults();
 
 /**
- * Searchbar Filters
+ * Display Searchbar Filters
  */
+const tuneButton = searchForm.querySelector('button.tune');
 const dropdown = searchForm.querySelector("section.dropdown");
 tuneButton.addEventListener("click", (e) => {
   dropdown.classList.toggle("active");

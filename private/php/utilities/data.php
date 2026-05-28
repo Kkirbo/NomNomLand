@@ -200,6 +200,17 @@ function get_user_last_order($userId) {
     if (!$lastOrder) return null;
     return $lastOrder;
 }
+function get_user_last_paid_order($userId) {
+    $userOrders = get_orders_by_user_id($userId);
+    $lastOrder = null;
+    foreach ($userOrders as $order) {
+        if ($order['paymentStatus'] !== "pending" && ($lastOrder === null || strtotime($order["date"]) > strtotime($lastOrder["date"]))){
+            $lastOrder = $order;
+        }
+    }
+    if (!$lastOrder) return null;
+    return $lastOrder;
+}
 function is_user_last_order_unpaid($userId) {
     $latestOrder = get_user_last_order($userId);
     return $latestOrder && $latestOrder['paymentStatus'] === 'pending';

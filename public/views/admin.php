@@ -52,11 +52,11 @@ $users = sliceArrayToPage($users, $visibleUsers, $page, $pagesCount);
                             generateAdminTable($users);
                         ?>
                     </tbody>
-                </table>
-                <?php
-                    generateNavbar($page, $pagesCount);
-                ?>
+                </table>                
             </article>
+            <?php
+                generateNavbar($page, $pagesCount);
+            ?>
         </section>
     </main>
 

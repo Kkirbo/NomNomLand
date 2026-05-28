@@ -318,6 +318,53 @@ input[type="number"]::placeholder {
   color: var(--secondary-cold-shadow);
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 3.5rem;
+  height: 2rem;
+  position: relative;
+
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+input[type="checkbox"]:disabled {
+  border: 0.2rem solid var(--pastel-red);
+  opacity: 0.7;
+}
+input[type="checkbox"]:hover:not(:disabled) {
+  border: 0.2rem solid var(--secondary-bright);
+  box-shadow: 0 0 1rem var(--secondary-hot);
+}
+input[type="checkbox"]::before {
+  content: "";
+
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+
+  height: calc(100% - 0.4rem);
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+  background: var(--secondary);
+
+  transition: transform 0.25s ease;
+}
+input[type="checkbox"]:disabled::before {
+  background: var(--pastel-red);
+}
+input[type="checkbox"]:not(:disabled):checked {
+  background: var(--secondary-dark);
+}
+input[type="checkbox"]:checked::before {
+  transform: translateX(1.5rem);
+}
+
 /*--Select--*/
 select {
   background: var(--primary);
@@ -823,6 +870,10 @@ section.menus article {
 section.menus article:hover {
   transform: translateY(-0.5rem);
 }
+section.menus article.hidden {
+  opacity: 0;
+  transform: translateY(10vh);
+}
 section.menus article img {
   display: block;
   margin: 0 auto;
@@ -890,7 +941,7 @@ section.infos article p {
 section.infos article strong {
   font-weight: 600;
 }
-section.infos article > p:last-child {
+section.infos article > p.highlight {
   margin-top: 2rem;
   font-size: 1.2rem;
   font-weight: 600;

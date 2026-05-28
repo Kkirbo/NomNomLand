@@ -19,7 +19,6 @@ if (file_exists($path)) {
     $data = ["users" => []];
 }
 
-$essentialCookies = true;
 $analyticsCookies = isset($_POST['analyticsCookies']);
 $functionalCookies = isset($_POST['functionalCookies']);
 
@@ -27,7 +26,6 @@ $found = false;
 foreach ($data['users'] as &$user) {
     if ($user['id'] === $loggedInUser['id']) {
         $user['cookies'] = [
-            "essentialCookies" => $essentialCookies,
             "analyticsCookies" => $analyticsCookies,
             "functionalCookies" => $functionalCookies
         ];
@@ -38,7 +36,6 @@ foreach ($data['users'] as &$user) {
 
 if (!$found) {
     $loggedInUser['cookies'] = [
-        "essentialCookies" => $essentialCookies,
         "analyticsCookies" => $analyticsCookies,
         "functionalCookies" => $functionalCookies
     ];

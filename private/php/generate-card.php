@@ -1,7 +1,7 @@
 <?php
 function generateCard($type="menu", $id="menu1", $image="../assets/images/default.png", $title="unknown", $description=[], $price=0)
 {
-    echo '<article class="menu modernNeonBoxGlass">';
+    echo '<article class="menu modernNeonBoxGlass hidden">';
     $href = (basename($_SERVER['PHP_SELF']) === 'menu.php' || basename($_SERVER['PHP_SELF']) === 'generate-search-result.php') ? '#' : 'menu.php#';
     echo '<a href="' . $href . htmlspecialchars($type) . "-" . htmlspecialchars($id) . '" class="imageLink">';
     echo '<img draggable="false" src="' . htmlspecialchars($image) . '" alt="' . htmlspecialchars($title) . ' Image">';

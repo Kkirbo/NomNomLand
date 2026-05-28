@@ -1,11 +1,9 @@
-.card.modernNeonBoxGlass {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
 .ordersContainer {
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.ordersContainer p {
+    text-align: center;
 }
 .ordersContainer div {
   width: 100%;

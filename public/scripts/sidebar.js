@@ -31,8 +31,12 @@ changeThemeButton.addEventListener('change', updateTheme);
 
 //Disco theme easter egg
 let clicksCounter = 0;
-setInterval(() => {
+let resetTime = 0;
+changeThemeButton.addEventListener('click', () => {
+  if (Date.now() - resetTime > 2000) {
+    resetTime = Date.now();
+    clicksCounter = 0;
+  }
+  clicksCounter++
   if (clicksCounter >= 12) htmlElement.classList.add("discoTheme");
-  clicksCounter = 0;
-}, 2000);
-changeThemeButton.addEventListener('click', () => clicksCounter++);
+});

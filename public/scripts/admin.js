@@ -1,7 +1,42 @@
 import { requestProfileUpdate } from "./request-profile-update.js";
 import "./editable-user-text-info.js";
 
-const tbody = document.querySelector('section.infos article table tbody');
+const scrollCollisionWidth = 20; //Width of the side rectangles that will scroll the dashboard left or right if the cursor is in it
+const scrollSpeed = 10; //Pixels to jump with each scroll step (keys or mouse)
+
+const dashboard = document.querySelector('section.infos article:has(table)');
+let scrollKeys = [false, false]
+let mouseCollision = 0;
+document.addEventListener('keydown', (e) => {
+    if (e.keyCode !== 37 && e.keyCode !== 39) return;
+    e.preventDefault();
+    if (e.keyCode === 37) scrollKeys[0] = true;
+    if (e.keyCode === 39) scrollKeys[1] = true;
+});
+document.addEventListener('keyup', (e) => {
+    if (e.keyCode !== 37 && e.keyCode !== 39) return;
+    e.preventDefault();
+    if (e.keyCode === 37) scrollKeys[0] = false;
+    if (e.keyCode === 39) scrollKeys[1] = false;
+});
+document.addEventListener('mousemove', (e) => {
+    mouseCollision = 0;
+    let dashboardRect = dashboard.getBoundingClientRect();
+    if (e.pageY >= dashboardRect.y && e.pageY <= dashboardRect.y + dashboardRect.height) {
+        if (e.pageX >= dashboardRect.x && e.pageX <= dashboardRect.x + scrollCollisionWidth)
+            mouseCollision = -1;
+        else if (e.pageX <= dashboardRect.x + dashboardRect.width && 
+            e.pageX >= dashboardRect.x + dashboardRect.width - scrollCollisionWidth)
+            mouseCollision = 1;
+    }
+});
+setInterval(() => {
+    if (scrollKeys[0]) dashboard.scrollLeft -= scrollSpeed;
+    if (scrollKeys[1]) dashboard.scrollLeft += scrollSpeed;
+    if (mouseCollision != 0) dashboard.scrollLeft += scrollSpeed * mouseCollision;
+}, 10);
+
+const tbody = dashboard.querySelector('table tbody');
 const users = tbody.querySelectorAll('tr');
 
 for (const user of users) {

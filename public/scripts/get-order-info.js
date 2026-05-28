@@ -18,3 +18,12 @@ export async function getLastOrderInfo() {
     userId = userId.id;
     return getOrderInfo("user", userId);
 }
+
+export async function getLastPaidOrderInfo() {
+    let userId = await getUserId();
+    if (!userId || userId.status != 200 || !userId.id) {
+        return;
+    }
+    userId = userId.id;
+    return getOrderInfo("user-paid", userId);
+}

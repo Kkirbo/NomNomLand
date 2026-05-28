@@ -74,7 +74,9 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                 <h3>#<?= $order['id'] ?></h3>
 
                 <ul>
+                    <li>User #<?= $order['user_id'] ?></li>
                     <li><? $orderUser = get_user_by_id($order['user_id']); echo ($orderUser ? $orderUser['email'] : "Undefined"); ?></li>
+                    <li>$ <?= $order['price'] ?></li>
                     <li><?= $order['date'] ?></li>
                 </ul>
 

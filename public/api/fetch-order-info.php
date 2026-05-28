@@ -8,6 +8,8 @@ if ($type === 'order') {
     $orderInfo = get_order_by_id($id);
 } elseif ($type === 'user') {
     $orderInfo = get_user_last_order($id);
+} elseif ($type === 'user-paid') {
+    $orderInfo = get_user_last_paid_order($id);
 }
 
 header('Content-Type: application/json');

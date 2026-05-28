@@ -8,7 +8,7 @@ export async function generateOrderInfoBox(orderInfo, showRatingLink=false) {
     }
     
     let newHTML = `
-        <h3>#${orderInfo?.id ?? "N/A"}</h3>
+        <h3>#${orderInfo?.id ?? "N/A"} ($ ${orderInfo?.price ?? 0})</h3>
         <div class="orderItemsContainer">
     `;
     for (const itemId in itemCounts) {

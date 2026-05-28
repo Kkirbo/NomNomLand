@@ -63,7 +63,7 @@
           </p>
           <p>La Funzione v2.0 — Now Serving Seasonal Updates</p>
 
-          <p>
+          <p class="highlight">
             Ready to execute your reservation?
             <a href="menu.php">Order now</a> or <a href="#contact">Contact us</a>
           </p>

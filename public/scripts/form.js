@@ -7,10 +7,10 @@ export function TogglePassword() {
     }
 }
 export function checkLength(input) {
-    if (input.length > 100 || input.length < 4) {
+    if (input.length > 100 || input.length < 3) {
         return {
             success: false,
-            error: "TOO_LONG"
+            error: "Length must be between 3 and 100 characters."
         };
     } else {
         return {

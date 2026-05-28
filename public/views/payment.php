@@ -67,7 +67,7 @@ Expiry Date: Any
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
     <link rel="stylesheet" href="../styles/order-preview.css">
-    <script defer type="module" src="../scripts/display-latest-order.js"></script>
+    <script defer type="module" src="../scripts/display-latest-unpaid-order.js"></script>
 </head>
 <body>
   <?php include 'cookiebanner.php'; ?>
@@ -97,10 +97,7 @@ Expiry Date: Any
                     <input type="hidden" name="retour" value="<?= htmlspecialchars($return) ?>">
                     <input type="hidden" name="control" value="<?= htmlspecialchars($control) ?>">
 
-                    <div class="buttons">
-                        <label>Proceed to payment</label>
-                        <button type="submit" class="button">Pay now</button>
-                    </div>
+                    <button type="submit" class="button">Proceed to payment</button>
 
                     <?php
                         if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
