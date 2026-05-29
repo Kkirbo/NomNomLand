@@ -83,12 +83,12 @@ function retype($key) {
         <span>Already have an account? <a href="login.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">Sign in</a></span>
       </div>
 
-
       <?php
         if ($error!='') echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
       ?>
-  </form>
+    </form>
   </main>
+
   <?php include 'footer.html'; ?>
 
 </body>
