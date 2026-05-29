@@ -153,53 +153,53 @@ export function validateForm(form) {
             fields[i].classList.remove("input-success");
         }
     }
-    if (!checkLength(name.value).success) {
+    if (name && !checkLength(name.value).success) {
         markError(name);
         errors.push("Nom trop long");
         valid = false;
-    } else {
+    } else if (name) {
         markSuccess(name);
     }
-    if (!checkLength(firstname.value).success) {
+    if (firstname && !checkLength(firstname.value).success) {
         markError(firstname);
         errors.push("Prénom trop long");
         valid = false;
-    } else {
+    } else if (firstname) {
         markSuccess(firstname);
     }
-    if (age.value < 18 || age.value > 120) {
+    if (age && (age.value < 18 || age.value > 120)) {
         markError(age);
         errors.push("Âge invalide (18-120)");
         valid = false;
-    } else {
+    } else if (age) {
         markSuccess(age);
     }
-    if (!validateEmail(email.value).success) {
+    if (!email || !validateEmail(email.value).success) {
         markError(email);
         errors.push("Email invalide");
         valid = false;
     } else {
         markSuccess(email);
     }
-    if (!validatePassword(password.value).success) {
+    if (!password || !validatePassword(password.value).success) {
         markError(password);
         errors.push("Mot de passe = 10 chiffres uniquement");
         valid = false;
     } else {
         markSuccess(password);
     }
-    if (!validatePhone(phone.value).success) {
+    if (phone && !validatePhone(phone.value).success) {
         markError(phone);
         errors.push("Téléphone invalide (10 chiffres, commence par 0)");
         valid = false;
-    } else {
+    } else if (phone) {
         markSuccess(phone);
     }
-    if (!validateAddress(address.value).success) {
+    if (address && !validateAddress(address.value).success) {
         markError(address);
         errors.push("Adresse invalide");
         valid = false;
-    } else {
+    } else if (address) {
         markSuccess(address);
     }
     if (!valid) {
@@ -232,8 +232,5 @@ for (const passwordField of passwordFields) {
 
 let formsToValidate = document.querySelectorAll("form.validateForm");
 for (const form of formsToValidate) form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log(validateForm(e.target));
-    
     if (!validateForm(e.target)) e.preventDefault();
 });

@@ -35,9 +35,8 @@ function login($email, $password) {
         return 1; //At least 1 empty field
     }
     $user = get_user_by_email($email);
-    if ($user['status'] == "deactivated") return 3; //Account deactivated
-
     if ($user && password_verify($password, $user["password"])) {
+        if ($user['status'] == "deactivated") return 3; //Account deactivated
         date_default_timezone_set('Pacific/Palau');
         update_user_field($user["id"], "lastLogin", date("Y-m-d H:i:s"));
 
