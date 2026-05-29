@@ -20,7 +20,7 @@
     }
 }
   function validateEmail(email) {
-    let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/; /*Une chaîne de caractère, suivi de l'@ forcé, et les domaines autorisés, avec ou .com, ou .fr à la fin */
+    let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant lettres chiffres caractès spéciaux avec le domaine après l'arobase avec . et des caractères ensuite*/
     if (regex.test(email)) {
         return {
             success: true,
@@ -29,12 +29,12 @@
     } else {
         return {
             success: false,
-            error: "INVALID_EMAIL"
+            error: "Please enter a valid email address."
         };
     }
 }
   function validateAddress(address) {
-let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant lettres chiffres caractès spéciaux avec le domaine après l'arobase avec . et des caractères ensuite*/
+let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier strictement positif, suivies éventuellement d’un espace, puis d’un texte alphabétique (avec accents, espaces, tirets, apostrophes)*/
     if (regex.test(address)) {
         return {
             success: true,
@@ -42,7 +42,7 @@ let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant
     } else {
         return {
             success: false,
-            error: "INVALID_ADDRESS"
+            error: "Please enter a valid address."
         };
     }
 }
@@ -55,10 +55,11 @@ let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant
     } else {
         return {
             success: false,
-            error: "INVALID_PHONE"
+            error: "Phone number must contain 10 digits and start with 0."
         };
     }
 }
+
   function validatePassword(password) {
     let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/    /*au moins 1 majuscule, 1 chiffre, et 5 caractères min*/
     if (regex.test(password)) {
@@ -68,10 +69,11 @@ let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant
     } else {
         return {
             success: false,
-            error: "INVALID_PASSWORD"
+            error: "Password must contain at least 5 characters, one uppercase letter and one number."
+    };
         };
     }
-}
+
   function markError(el) {
     el.classList.remove("input-success");
     el.classList.add("input-error");

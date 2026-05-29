@@ -5,10 +5,6 @@ if (session_status() === PHP_SESSION_NONE) session_start();
 
 function is_logged_in() {
     return isset($_SESSION["user_id"]);
-    $user=get_user_by_id($_SESSION["user_id"]);
-    if ($user["status"] == "blocked"){
-        redirect_url("login.php?redirect=" . urlencode(basename($_SERVER['REQUEST_URI'])));
-    }
 }
 
 function is_role($user, $role) {

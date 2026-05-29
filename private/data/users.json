@@ -5,8 +5,8 @@
             "email": "vroum@email.com",
             "phone": "0123456789",
             "password": "$2y$10$nceDO5qoxCcFRfAG9elaWuW8SKbK86DmM96fntvJ0YzhZK7XxAyIe",
-            "role": "client",
-            "status": "blocked",
+            "role": "admin",
+            "status": "Free",
             "fidelity": "904",
             "profile": {
                 "firstName": "Hecarim",
@@ -17,7 +17,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:39:47",
-            "lastLogin": "2026-05-29 09:40:17",
+            "lastLogin": "2026-05-29 10:30:03",
             "cookies": {
                 "analyticsCookies": false,
                 "functionalCookies": false
@@ -103,6 +103,25 @@
             },
             "createdAt": "2026-05-17 01:25:08",
             "lastLogin": null
+        },
+        {
+            "id": "6a18ebf4a08b7",
+            "email": "ab@email.com",
+            "phone": "0123407465",
+            "password": "$2y$10$JOoHFiTbaF0PhSPnKb8BGu\/9xtIi5Yfw0WjhiTNKh.vj2E0UfO6ta",
+            "role": "client",
+            "status": "free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Bombastic",
+                "lastName": "Aaaa",
+                "username": "Bombastic.Aaaa",
+                "age": 120,
+                "address": "2 rue de Rivoli",
+                "gender": "male"
+            },
+            "createdAt": "2026-05-29 01:29:24",
+            "lastLogin": "2026-05-29 10:44:04"
         }
     ]
 }

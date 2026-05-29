@@ -1,17 +1,12 @@
 async function checkUserStatus() {
-
     try {
-
         const response = await fetch('../api/check-status.php');
         const data = await response.json();
-        if (data.status === 'blocked') {
-            console.log("Your account has been blocked.");
-            /*window.location.href ='login.php?error=blocked'*/;
+        if (data.status === 'blocked' || data.status === 'deactivated') {
+            window.location.href = 'login.php?error=blocked';
         }
-
     } catch (error) {
-        console.error(error);
+        console.error("Status check failed:", error);
     }
 }
-
-setInterval(checkUserStatus, 10000);
+setInterval(checkUserStatus, 1000);

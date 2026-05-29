@@ -234,7 +234,7 @@ foreach ($cartData['items'] ?? [] as $item) {
     <link rel="stylesheet" href="../styles/order-preview.css">
 
     <script defer type="module" src="../scripts/display-latest-order.js"></script>
-
+    <script defer src="../scripts/status.js"></script>
 </head>
 
 <body>
