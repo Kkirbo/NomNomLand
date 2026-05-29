@@ -1,1 +1,0 @@
-import { Vector2 } from "./math.js";

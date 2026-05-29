@@ -36,9 +36,7 @@ Fix:
   -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs)
 -Form.js
   -Régler login/register export/module | Julien
-  -Message d'erreur sur admin/profil + touche entrée |Aymane
-  -Messages d'erreur | Aymane
-  -Regex d'adress a rework | Aymane
+  -Message d'erreur sur admin/profil/login/register (form.js) |Aymane
 
 Secondaire:
 -Payement/Profil
