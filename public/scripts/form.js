@@ -1,4 +1,4 @@
-export function TogglePassword() {
+  function TogglePassword() {
     let a = document.getElementById("password");
     if (a.type === "text") {
         a.type = "password";
@@ -6,7 +6,7 @@ export function TogglePassword() {
         a.type = "text";
     }
 }
-export function checkLength(input) {
+  function checkLength(input) {
     if (input.length > 100 || input.length < 3) {
         return {
             success: false,
@@ -19,7 +19,7 @@ export function checkLength(input) {
         };
     }
 }
-export function validateEmail(email) {
+  function validateEmail(email) {
     let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/; /*Une chaîne de caractère, suivi de l'@ forcé, et les domaines autorisés, avec ou .com, ou .fr à la fin */
     if (regex.test(email)) {
         return {
@@ -33,8 +33,8 @@ export function validateEmail(email) {
         };
     }
 }
-export function validateAddress(address) {
-    let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier strictement positif, suivies éventuellement d’un espace, puis d’un texte alphabétique (avec accents, espaces, tirets, apostrophes)*/
+  function validateAddress(address) {
+let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant lettres chiffres caractès spéciaux avec le domaine après l'arobase avec . et des caractères ensuite*/
     if (regex.test(address)) {
         return {
             success: true,
@@ -46,7 +46,7 @@ export function validateAddress(address) {
         };
     }
 }
-export function validatePhone(phone) {
+  function validatePhone(phone) {
     let regex = /^0[0-9]{9}$/; /*0 obligatoire en début de numéro, puis 9 chiffres*/
     if (regex.test(phone)) {
         return {
@@ -59,7 +59,7 @@ export function validatePhone(phone) {
         };
     }
 }
-export function validatePassword(password) {
+  function validatePassword(password) {
     let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/    /*au moins 1 majuscule, 1 chiffre, et 5 caractères min*/
     if (regex.test(password)) {
         return {
@@ -72,15 +72,15 @@ export function validatePassword(password) {
         };
     }
 }
-export function markError(el) {
+  function markError(el) {
     el.classList.remove("input-success");
     el.classList.add("input-error");
 }
-export function markSuccess(el) {
+  function markSuccess(el) {
     el.classList.remove("input-error");
     el.classList.add("input-success");
 }
-export function checkLogin(){
+  function checkLogin(){
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let errors = [];
@@ -119,7 +119,7 @@ export function checkLogin(){
     }
     return valid;
 }
-export function CharLength() {
+  function CharLength() {
     let input = document.getElementById("password");
     let length = input.value.length;
     document.getElementById("compteur").textContent = length;
@@ -132,7 +132,7 @@ export function CharLength() {
     }
 }
 
-export function validateForm() {
+  function validateForm() {
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let name = document.getElementById("name");
@@ -213,13 +213,13 @@ export function validateForm() {
     }
     return valid;
 }
-export function updateCounter(input, counterId) {
+  function updateCounter(input, counterId) {
     let max = input.maxLength;
     let current = input.value.length;
     let counter = document.getElementById(counterId);
     counter.textContent = current + " / " + max;
 }
-export function Autocorrect() {
+  function Autocorrect() {
     let champs = document.getElementsByClassName("champ");
     for (let i = 0; i < champs.length; i++) {
         let texte = champs[i].value.toLowerCase();
