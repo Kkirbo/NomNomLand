@@ -33,7 +33,7 @@ Fix:
   -Modal async qui redirige pas et choisir un nombre de plats
 -Orders
   -Vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
-  -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs)
+  -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs) | ccy
 -Form.js
   -Régler login/register export/module | Julien
   -Message d'erreur sur admin/profil/login/register (form.js) |Aymane
