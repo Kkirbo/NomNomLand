@@ -171,8 +171,8 @@ html, body {
 
 /*--Custom elements--*/
 a {
-    color: var(--pastel-blue);
-    text-decoration: none;
+  color: var(--pastel-blue);
+  text-decoration: none;
 }
 
 /*--Buttons--*/
@@ -324,6 +324,7 @@ input[type="checkbox"] {
   width: 3.5rem;
   height: 2rem;
   position: relative;
+  --knob-size: calc(100% - (0.2rem * 2));
 
   background: var(--primary);
   color: var(--secondary);
@@ -344,8 +345,9 @@ input[type="checkbox"]::before {
   content: "";
 
   position: absolute;
-  top: 0.2rem;
+  top: 50%;
   left: 0.2rem;
+  transform: translateY(-50%);
 
   height: calc(100% - 0.4rem);
   aspect-ratio: 1;
@@ -353,7 +355,7 @@ input[type="checkbox"]::before {
   border-radius: 50%;
   background: var(--secondary);
 
-  transition: transform 0.25s ease;
+  transition: all 0.25s ease;
 }
 input[type="checkbox"]:disabled::before {
   background: var(--pastel-red);
@@ -362,7 +364,7 @@ input[type="checkbox"]:not(:disabled):checked {
   background: var(--secondary-dark);
 }
 input[type="checkbox"]:checked::before {
-  transform: translateX(1.5rem);
+  left: calc(100% - 1.4rem);
 }
 
 /*--Select--*/

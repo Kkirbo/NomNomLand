@@ -1,12 +1,8 @@
-  function TogglePassword() {
-    let a = document.getElementById("password");
-    if (a.type === "text") {
-        a.type = "password";
-    } else {
-        a.type = "text";
-    }
+export function togglePassword(input) {
+    if (input.type === "text") input.type = "password";
+    else if (input.type === "password") input.type = "text";
 }
-  function checkLength(input) {
+export function checkLength(input) {
     if (input.length > 100 || input.length < 3) {
         return {
             success: false,
@@ -19,7 +15,7 @@
         };
     }
 }
-  function validateEmail(email) {
+export function validateEmail(email) {
     let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant lettres chiffres caractès spéciaux avec le domaine après l'arobase avec . et des caractères ensuite*/
     if (regex.test(email)) {
         return {
@@ -33,8 +29,8 @@
         };
     }
 }
-  function validateAddress(address) {
-let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier strictement positif, suivies éventuellement d’un espace, puis d’un texte alphabétique (avec accents, espaces, tirets, apostrophes)*/
+export function validateAddress(address) {
+    let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier strictement positif, suivies éventuellement d’un espace, puis d’un texte alphabétique (avec accents, espaces, tirets, apostrophes)*/
     if (regex.test(address)) {
         return {
             success: true,
@@ -46,7 +42,7 @@ let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier
         };
     }
 }
-  function validatePhone(phone) {
+export function validatePhone(phone) {
     let regex = /^0[0-9]{9}$/; /*0 obligatoire en début de numéro, puis 9 chiffres*/
     if (regex.test(phone)) {
         return {
@@ -59,8 +55,7 @@ let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier
         };
     }
 }
-
-  function validatePassword(password) {
+export function validatePassword(password) {
     let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,}$/    /*au moins 1 majuscule, 1 chiffre, et 5 caractères min*/
     if (regex.test(password)) {
         return {
@@ -70,29 +65,29 @@ let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier
         return {
             success: false,
             error: "Password must contain at least 5 characters, one uppercase letter and one number."
-    };
         };
-    }
+    };
+}
 
-  function markError(el) {
+export function markError(el) {
     el.classList.remove("input-success");
     el.classList.add("input-error");
 }
-  function markSuccess(el) {
+export function markSuccess(el) {
     el.classList.remove("input-error");
     el.classList.add("input-success");
 }
-  function checkLogin(){
+export function checkLogin(){
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let errors = [];
     let valid = true;
     let errorBox = document.querySelector(".error-message");
     if (!errorBox) {
-    errorBox = document.createElement("p");
-    errorBox.className = "error-message";
-    document.querySelector("form fieldset").appendChild(errorBox);
-}
+        errorBox = document.createElement("p");
+        errorBox.className = "error-message";
+        document.querySelector("form fieldset").appendChild(errorBox);
+    }
     let fields = [email, password];
     for (let i = 0; i < fields.length; i++) {
         if (fields[i]) {
@@ -121,7 +116,7 @@ let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier
     }
     return valid;
 }
-  function CharLength() {
+export function CharLength() {
     let input = document.getElementById("password");
     let length = input.value.length;
     document.getElementById("compteur").textContent = length;
@@ -134,20 +129,21 @@ let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier
     }
 }
 
-  function validateForm() {
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
-    let name = document.getElementById("name");
-    let firstname = document.getElementById("firstname");
-    let age = document.getElementById("age");
-    let phone = document.getElementById("phone");
-    let address = document.getElementById("address");
-    let errorBox = document.querySelector(".error-message");
+export function validateForm(form) {
+    let email = form.querySelector("#email");
+    let password = form.querySelector("#password");
+    let name = form.querySelector("#name");
+    let firstname = form.querySelector("#firstname");
+    let age = form.querySelector("#age");
+    let phone = form.querySelector("#phone");
+    let address = form.querySelector("#address");
+    let errorBox = form.querySelector(".error-message");
     if (!errorBox) {
-        errorBox = document.createElement("p");
+        errorBox = form.createElement("p");
         errorBox.className = "error-message";
-        document.querySelector("form fieldset").appendChild(errorBox);
+        form.appendChild(errorBox);
     }
+    errorBox.textContent = "";
     let errors = [];
     let valid = true;
     let fields = [email, password, name, firstname, age, phone, address];
@@ -199,32 +195,45 @@ let regex = /^[0-9]+ ?[A-Za-zÀ-ÿ' \-]+$/; /*chaînes commençant par un entier
     } else {
         markSuccess(phone);
     }
-    if (address.value !== "") {
-        if (!validateAddress(address.value).success) {
-            markError(address);
-            errors.push("Adresse invalide");
-            valid = false;
-        } else {
-            markSuccess(address);
-        }
-    }
-    if (valid === false) {
-        errorBox.textContent = errors.join(" | ");
+    if (!validateAddress(address.value).success) {
+        markError(address);
+        errors.push("Adresse invalide");
+        valid = false;
     } else {
-        errorBox.textContent = "";
+        markSuccess(address);
+    }
+    if (!valid) {
+        errorBox.textContent = errors.join(" | ");
     }
     return valid;
 }
-  function updateCounter(input, counterId) {
+export function updateCounter(input, counterId) {
     let max = input.maxLength;
     let current = input.value.length;
     let counter = document.getElementById(counterId);
     counter.textContent = current + " / " + max;
 }
-  function Autocorrect() {
-    let champs = document.getElementsByClassName("champ");
-    for (let i = 0; i < champs.length; i++) {
-        let texte = champs[i].value.toLowerCase();
-        champs[i].value = texte.charAt(0).toUpperCase()+texte.slice(1);
-    }
+
+let formatInputs = document.querySelectorAll("input.autoformat");
+for (const formatInput of formatInputs) formatInput.addEventListener("input", (e) => {
+    let value = e.target.value.toLowerCase();
+    e.target.value = value.charAt(0).toUpperCase()+value.slice(1);
+});
+
+let passwordFields = document.querySelectorAll("div.password-field");
+for (const passwordField of passwordFields) {
+    const passwordInput = passwordField.querySelector("input[type=\"password\"]");
+    const togglePasswordCheckbox = passwordField.querySelector("input[type=\"checkbox\"][name=\"togglePassword\"]");
+    const valueLengthSpan = passwordField.querySelector("span.valueLength span");
+
+    passwordInput.addEventListener("input", (e) => valueLengthSpan.textContent = e.target.value.length);
+    togglePasswordCheckbox.addEventListener("change", () => togglePassword(passwordInput));
 }
+
+let formsToValidate = document.querySelectorAll("form.validateForm");
+for (const form of formsToValidate) form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log(validateForm(e.target));
+    
+    if (!validateForm(e.target)) e.preventDefault();
+});

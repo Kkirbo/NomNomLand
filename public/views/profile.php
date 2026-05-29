@@ -29,9 +29,6 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <link rel="stylesheet" href="../styles/profile.css"/>
     <link rel="stylesheet" href="../styles/order-preview.css">
     <title>Profile</title>
-    <script>
-      const user_id = <?= json_encode($id) ?>;
-    </script>
     <script defer type="module" src="../scripts/profile.js"></script>
 </head>
 <body>

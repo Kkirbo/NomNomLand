@@ -1,7 +1,7 @@
 import { requestProfileUpdate } from "./request-profile-update.js";
 import "./editable-user-text-info.js";
 
-const scrollCollisionWidth = 20; //Width of the side rectangles that will scroll the dashboard left or right if the cursor is in it
+const scrollCollisionWidth = 40; //Width of the side rectangles that will scroll the dashboard left or right if the cursor is in it
 const scrollSpeed = 10; //Pixels to jump with each scroll step (keys or mouse)
 
 const dashboard = document.querySelector('section.infos article:has(table)');

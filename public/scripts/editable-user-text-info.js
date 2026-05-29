@@ -1,59 +1,7 @@
 import { getUserId } from "../scripts/get-user-id.js";
 import { requestProfileUpdate } from "./request-profile-update.js";
+import { checkLength, validateEmail, validatePhone, validateAddress } from "./form.js";
 
-  function checkLength(input) {
-    if (input.length > 100 || input.length < 3) {
-        return {
-            success: false,
-            error: "Length must be between 3 and 100 characters."
-        };
-    } else {
-        return {
-            success: true,
-            
-        };
-    }
-}
-  function validatePhone(phone) {
-    let regex = /^0[0-9]{9}$/; /*0 obligatoire en début de numéro, puis 9 chiffres*/
-    if (regex.test(phone)) {
-        return {
-            success: true,
-        };
-    } else {
-        return {
-            success: false,
-            error: "INVALID_PHONE"
-        };
-    }
-}
-  function validateAddress(address) {
-let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; /*chaînes ayant lettres chiffres caractès spéciaux avec le domaine après l'arobase avec . et des caractères ensuite*/
-    if (regex.test(address)) {
-        return {
-            success: true,
-        };
-    } else {
-        return {
-            success: false,
-            error: "INVALID_ADDRESS"
-        };
-    }
-}
- function validateEmail(email) {
-    let regex = /^[a-zA-Z0-9]+@(gmail|yahoo|email|outlook)\.(com|fr)$/; /*Une chaîne de caractère, suivi de l'@ forcé, et les domaines autorisés, avec ou .com, ou .fr à la fin */
-    if (regex.test(email)) {
-        return {
-            success: true,
-            
-        };
-    } else {
-        return {
-            success: false,
-            error: "INVALID_EMAIL"
-        };
-    }
-}
 const sidebarCheckbox = document.querySelector('#togglesidebar');
 
 function cancelInput(input) {
@@ -133,7 +81,7 @@ document.addEventListener("click", async (e) => {
 
     const input = document.createElement("input");
     input.className = "editing-user-text-info";
-    input.type = "text";
+    input.type = span.dataset.name == "email" || span.dataset.name == "password" ? span.dataset.name : "text";
     input.value = span.textContent;
     input.placeholder = span.textContent;
     input.dataset.id = span.dataset.id;

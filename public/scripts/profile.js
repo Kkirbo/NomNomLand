@@ -1,8 +1,8 @@
+import { getUserId } from "./get-user-id.js";
+import { requestProfileUpdate } from "./request-profile-update.js";
 import "./editable-user-text-info.js";
-
 import "./display-latest-order.js";
 
-import { requestProfileUpdate } from "./request-profile-update.js";
 
 const form = document.querySelector("form.cookie-settings");
 
@@ -15,6 +15,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
+    let user_id = getUserId();
     await requestProfileUpdate(user_id, "cookies", encodeURIComponent(JSON.stringify(cookies)));
   } catch (error) {}
 });

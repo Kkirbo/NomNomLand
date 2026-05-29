@@ -25,7 +25,6 @@ Phase 4 prio:
   Générateur de mail (sans les envoyer) pour genre register, commande confirmée/livrée (Messagerie) (Aymane a renseigner)
 
 Fix:
--Lien conditions sur register
 -Carousel | Julien
 -Compte deactivated pas bloqués | Aymane
 -Menus

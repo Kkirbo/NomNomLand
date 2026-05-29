@@ -40,7 +40,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-05-25 22:53:06",
+            "lastLogin": "2026-05-30 00:19:35",
             "address": "12 rue de Rivoli",
             "cookies": {
                 "analyticsCookies": true,
@@ -122,6 +122,25 @@
             },
             "createdAt": "2026-05-29 01:29:24",
             "lastLogin": "2026-05-29 21:05:34"
+        },
+        {
+            "id": "6a19d3dc05e57",
+            "email": "tuesunsorcier@hogwarts.com",
+            "phone": "0011223344",
+            "password": "$2y$12$.TDQlCRm4WPjSkibEI37F.ydiGrDp8esCtdVqL4blrmkod4oWiRY.",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Hagrid",
+                "lastName": "Dupond",
+                "username": "Hagrid.Dupond",
+                "age": 89,
+                "address": "13 Tour de Tokyo",
+                "gender": "male"
+            },
+            "createdAt": "2026-05-29 17:58:52",
+            "lastLogin": "2026-05-30 02:58:52"
         }
     ]
 }

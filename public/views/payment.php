@@ -18,11 +18,7 @@ if ($order && is_user_last_order_unpaid($user['id'])) {
   $vendor = "MI-4_C";//Our group (MI-4_K) isn't valid
   $api_key = getAPIKey($vendor);
   $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-  $baseUrl = $protocol . '://' . $_SERVER['HTTP_HOST'];
-  $return = $baseUrl . '/public/views/payment.php?bank_return=1&order_id=' . urlencode($order['id']);
-  echo $return;
-//   $return = "http://localhost:8080/public/views/payment.php?bank_return=1&order_id=" . urlencode($order['id']);
-//   echo $return;
+  $return = $protocol . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?bank_return=1&order_id=' . urlencode($order['id']);
   $control = md5(
       $api_key . "#" .
       $transaction . "#" .
