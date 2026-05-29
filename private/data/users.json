@@ -17,7 +17,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:39:47",
-            "lastLogin": "2026-05-29 10:30:03",
+            "lastLogin": "2026-05-29 19:12:00",
             "cookies": {
                 "analyticsCookies": false,
                 "functionalCookies": false
@@ -110,7 +110,7 @@
             "phone": "0123407465",
             "password": "$2y$10$JOoHFiTbaF0PhSPnKb8BGu\/9xtIi5Yfw0WjhiTNKh.vj2E0UfO6ta",
             "role": "client",
-            "status": "free",
+            "status": "blocked",
             "fidelity": 0,
             "profile": {
                 "firstName": "Bombastic",
@@ -121,7 +121,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-29 01:29:24",
-            "lastLogin": "2026-05-29 10:44:04"
+            "lastLogin": "2026-05-29 19:26:15"
         }
     ]
 }

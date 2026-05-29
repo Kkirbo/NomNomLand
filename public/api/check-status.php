@@ -6,6 +6,8 @@ if (!is_logged_in()) {
     exit;
 }
 $user = get_user_by_session();
+
+
 echo json_encode([
     "status" => $user["status"]
 ]);
