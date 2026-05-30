@@ -1,7 +1,6 @@
 TODO:
 
 Fonctionalités importantes:
--Confirm password sur register (deuxième champ mot de passe qui est comparé au premier en local)
 -Mot de passe oublié: 
  -reset du mot de passe pour une valeur comme -1 par exemple
  -code envoyé à l'utilisateur
