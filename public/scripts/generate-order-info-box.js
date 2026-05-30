@@ -1,7 +1,6 @@
 import { getItemInfo } from "../scripts/get-item-info.js";
 
 export async function generateOrderInfoBox(orderInfo, showRatingLink=false) {
-    //const items = orderInfo?.content?.join(", ") || "No items";
     const itemCounts = {};
     for (const item of orderInfo?.content || []) {
         itemCounts[item] = (itemCounts[item] || 0) + 1;

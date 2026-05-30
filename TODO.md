@@ -25,7 +25,6 @@ Phase 4 prio:
   Générateur de mail (sans les envoyer) pour genre register, commande confirmée/livrée (Messagerie) (Aymane a renseigner)
 
 Fix:
--Carousel | Julien
 -Compte deactivated pas bloqués | Aymane
 -Menus
   -Fix les menus (stocker données des plats choisis)
@@ -33,9 +32,6 @@ Fix:
 -Orders
   -Vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
   -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs) | ccy
--Form.js
-  -Régler login/register export/module | Julien
-  -Message d'erreur sur admin/profil/login/register (form.js) |Aymane
 
 Secondaire:
 -Payement/Profil
