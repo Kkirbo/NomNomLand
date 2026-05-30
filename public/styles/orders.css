@@ -90,6 +90,9 @@ div.background-blur.active {
     gap: 2rem;
     justify-content: center;
 }
+.orders > p {
+    text-align: center;
+}
 
 .orderCard {
     display: flex;

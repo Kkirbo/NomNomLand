@@ -11,9 +11,11 @@ if (!is_logged_in()) {
 
 $loggedInUser = get_user_by_session();
 $userId = $_GET['userId'] ?? '';
-$field = $_GET['field'] ?? '';
-$value = $_GET['value'] ?? '';
-$value = urldecode($value);
+$userId = urldecode($userId);
+$dish_id = $_GET['dish_id'] ?? '';
+$dish_id = urldecode($dish_id);
+$quantity = $_GET['quantity'] ?? '';
+$quantity = urldecode($quantity);
 
 $targetUser = get_user_by_id($userId);
 if (!$targetUser) {

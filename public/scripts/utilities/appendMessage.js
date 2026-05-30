@@ -8,7 +8,6 @@ export function appendMessage(Element, text, error=false) {
     let anchor = Element;
     if (Element instanceof HTMLInputElement || Element instanceof HTMLTextAreaElement || Element instanceof HTMLSelectElement) {
         let wrapper = Element.parentElement;
-
         if (!wrapper?.classList.contains("input-container")) {
             wrapper = document.createElement("div");
             wrapper.className = "input-container";
@@ -23,6 +22,7 @@ export function appendMessage(Element, text, error=false) {
     oldMessages.forEach(msg => msg.remove());
     anchor.appendChild(message);
     setTimeout(() => {
-    message.classList.add("fade-out");
-    message.addEventListener("transitionend", () =>{message.remove();});}, 5000);
+        message.classList.add("fade-out");
+        message.addEventListener("transitionend", () => message.remove());
+    }, 7000);
 }

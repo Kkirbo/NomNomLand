@@ -11,8 +11,11 @@ if (!is_logged_in()) {
 
 $loggedInUser = get_user_by_session();
 $orderId = $_GET['orderId'] ?? '';
+$orderId = urldecode($orderId);
 $field = $_GET['field'] ?? '';
+$field = urldecode($field);
 $value = $_GET['value'] ?? '';
+$value = urldecode($value);
 
 if ($field === "rating") {
     $value = json_decode($value, true);

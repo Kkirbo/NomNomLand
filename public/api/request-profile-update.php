@@ -11,7 +11,9 @@ if (!is_logged_in()) {
 
 $loggedInUser = get_user_by_session();
 $userId = $_GET['userId'] ?? '';
+$userId = urldecode($userId);
 $field = $_GET['field'] ?? '';
+$field = urldecode($field);
 $value = $_GET['value'] ?? '';
 $value = urldecode($value);
 

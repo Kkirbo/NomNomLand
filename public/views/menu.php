@@ -46,6 +46,7 @@ $user = get_user_by_session();
             </div>
             <form method="POST" action="../views/panier.php">
                 <input type="hidden" name="dish_id" value="id">
+                <input type="number" name="quantity" id="quantity" value="1" min="1" max="999">
                 <h3 class="hidden">Starter</h3>
                 <select name="starter" required disabled></select>
                 <h3 class="hidden">Main Course</h3>

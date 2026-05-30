@@ -40,7 +40,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-05-31 00:11:44",
+            "lastLogin": "2026-05-31 07:31:07",
             "cookies": {
                 "analyticsCookies": true,
                 "functionalCookies": true
@@ -86,7 +86,7 @@
         },
         {
             "id": "6a0918f48825f",
-            "email": "aaa@email.com",
+            "email": "adilgenial@email.com",
             "phone": "0011223344",
             "password": "$2y$12$IjQnwKf4qm7uh0SEvaVllegXX6RK6D4tLbI1t8p8z5jaYttfHVtXW",
             "role": "client",
@@ -159,6 +159,25 @@
             },
             "createdAt": "2026-05-29 23:41:22",
             "lastLogin": "2026-05-30 09:18:59"
+        },
+        {
+            "id": "6a1b63f6dfc1d",
+            "email": "aaa@aaaa.co",
+            "phone": "0011223344",
+            "password": "$2y$12$Snl5nubKzp52I2fz\/pay3O3xMxffYd1Tk6fxYympqx9piXvdAYAm2",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Jean",
+                "lastName": "Passe",
+                "username": "Jean.Passe",
+                "age": 46,
+                "address": "14 rue a cote du pont l\u00e0",
+                "gender": "other"
+            },
+            "createdAt": "2026-05-30 22:25:59",
+            "lastLogin": "2026-05-31 07:25:59"
         }
     ]
 }

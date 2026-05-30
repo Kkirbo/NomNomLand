@@ -1,4 +1,5 @@
 import { getModalInfo } from "./get-modal-info.js";
+import { addArticleToCart } from "./add-to-cart.js";
 
 const sidebarCheckbox = document.querySelector('#togglesidebar');
 const backgroundBlur = document.querySelector('.background-blur');
@@ -13,7 +14,9 @@ const selectStarter = footerForm.querySelector("select[name=\"starter\"]");
 const selectMaincourse = footerForm.querySelector("select[name=\"main course\"]");
 const selectDrink = footerForm.querySelector("select[name=\"drink\"]");
 const selectDessert = footerForm.querySelector("select[name=\"dessert\"]");
-const addToCartInput = backgroundBlur.querySelector(".footer form input[type=\"hidden\"]");
+const addToCartInput = footerForm.querySelector("input[type=\"hidden\"][name=\"dish_id\"]");
+const quantityInput = footerForm.querySelector("input[type=\"number\"][name=\"quantity\"]");
+let itemPrice = 0;
 
 export async function updateModal() {
     selectStarter.innerHTML = "";
@@ -46,12 +49,14 @@ export async function updateModal() {
         return;
     }
     modalInfo = modalInfo.data;
+    itemPrice = modalInfo.price;
 
     backgroundBlur.classList.add("active");
     headerTitle.textContent = modalInfo.title;
     addToCartInput.value = modalInfo.id;
     backgroundBlur.querySelector('.background').src = modalInfo.image;
-    footerTitle.textContent = `Price: $${modalInfo.price}`;
+    quantityInput.value = 1;
+    footerTitle.textContent = `Price: ${itemPrice}€`;
     descFooter.textContent = modalInfo.comment ?? '';
     if (type === 'menu') {
         descVersion.innerHTML = "";
@@ -104,18 +109,22 @@ export async function updateModal() {
     }
 }
 
+quantityInput.addEventListener("input", (e) => {
+    footerTitle.textContent = `${itemPrice}€ | Total: ${Math.floor(itemPrice*e.target.value*1000)/1000}€`
+});
+
 export function closeModal() {
     window.location.href = "#";
 }
 
 //Hide modal when clicking outside
-backgroundBlur.addEventListener('click', (e) => {
+backgroundBlur.addEventListener("click", (e) => {
     if (backgroundBlur.children[0].contains(e.target)) return;
     closeModal();
 });
 
 //Escape key to close modal
-document.addEventListener('keydown', (e) => {
+document.addEventListener("keydown", (e) => {
   if (e.keyCode === 27) {
     if (sidebarCheckbox && window.location.hash != "") setTimeout(() => sidebarCheckbox.checked = !sidebarCheckbox.checked, 1);
     closeModal();
@@ -123,8 +132,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 //openModal when clicking on links
-window.addEventListener('hashchange', (e) => {
+window.addEventListener("hashchange", (e) => {
     updateModal();
 });
 //Initial update
 updateModal();
+
+//Async form
+footerForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  addArticleToCart(footerForm);
+});

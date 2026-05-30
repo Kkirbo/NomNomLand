@@ -97,14 +97,11 @@ export function validateInput(input) {
             validate = validatePhone(input.value);
             break;
         case "password":
-            console.log("password detected", input.id);
             validate = validatePassword(input.value);
             if (input.id === "confirmPassword") {
-        const password = document.getElementById("password");
-        if (password.value !== input.value) {
-            validate = {success: false,error: "Passwords do not match."};
-        }
-    }
+                const password = document.getElementById("password");
+                if (password && password.value !== input.value) validate = { success: false, error: "Passwords do not match." };
+            }
             break;
         case "number":
             inputValid = true;

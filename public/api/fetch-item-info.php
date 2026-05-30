@@ -1,6 +1,7 @@
 <?php
 require_once "../../private/php/utilities/data.php";
 $id = $_GET['id'] ?? '';
+$id = urldecode($id);
 
 $itemInfo = get_dish_by_id($id);
 if (!$itemInfo) {

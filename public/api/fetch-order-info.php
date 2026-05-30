@@ -1,7 +1,9 @@
 <?php
 require_once "../../private/php/utilities/data.php";
 $type = $_GET['type'] ?? '';
+$type = urldecode($type);
 $id = $_GET['id'] ?? '';
+$id = urldecode($id);
 
 $orderInfo = null;
 if ($type === 'order') {
