@@ -1,0 +1,2 @@
+[2026-05-30 01:32:38] [IP:127.0.0.1] [USER:Bombastic.Aaaa] [EMAIL:ab@email.com] [ROLE:client] [STATUS:blocked] Tentative de connexion à un compte bloqué
+[2026-05-30 01:32:41] [IP:127.0.0.1] [USER:Bombastic.Aaaa] [EMAIL:ab@email.com] [ROLE:client] [STATUS:blocked] Tentative de connexion à un compte bloqué
