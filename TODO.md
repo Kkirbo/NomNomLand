@@ -30,8 +30,7 @@ Fix:
   -Fix les menus (stocker données des plats choisis)
   -Modal async qui redirige pas et choisir un nombre de plats
 -Orders
-  -Vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
-  -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs) | ccy
+  -Vérifier le rôle avant d'afficher les boutons et d'autoriser les action
 
 Secondaire:
 -Payement/Profil
