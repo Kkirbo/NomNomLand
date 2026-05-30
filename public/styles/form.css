@@ -92,7 +92,13 @@ form {
 .field .password-field span.valueLength span {
   color: var(--secondary-cold-shadow);
 }
-
+.floating-message {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+.floating-message.fade-out {
+    opacity: 0;
+}
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{
   -webkit-appearance: none;

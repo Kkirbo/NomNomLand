@@ -16,11 +16,13 @@ export function appendMessage(Element, text, error=false) {
             Element.parentNode.insertBefore(wrapper, Element);
             wrapper.appendChild(Element);
         }
-
         anchor = wrapper;
     }
     if (getComputedStyle(anchor).position != "relative") anchor.style.position = "relative";
+    const oldMessages = anchor.querySelectorAll(".floating-message");
+    oldMessages.forEach(msg => msg.remove());
     anchor.appendChild(message);
-
-    setTimeout(() => message.remove(), 7000);
+    setTimeout(() => {
+    message.classList.add("fade-out");
+    message.addEventListener("transitionend", () =>{message.remove();});}, 5000);
 }
