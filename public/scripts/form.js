@@ -1,3 +1,5 @@
+import { appendMessage } from "./utilities/appendMessage.js";
+
 export function togglePassword(input) {
     if (input.type === "text") input.type = "password";
     else if (input.type === "password") input.type = "text";
@@ -26,6 +28,18 @@ export function validateEmail(email) {
         return {
             success: false,
             error: "Please enter a valid email address."
+        };
+    }
+}
+export function validateAge(age) {
+    if (age >= 18 && age <= 120) {
+        return {
+            success: true,
+        };
+    } else {
+        return {
+            success: false,
+            error: "Age must be between 18 and 120."
         };
     }
 }
@@ -69,6 +83,44 @@ export function validatePassword(password) {
     };
 }
 
+export function validateInput(input) {
+    let error = "";
+    let lengthCheck = checkLength(input.value);
+    error += lengthCheck.error ?? "";
+    let inputValid = lengthCheck.success;
+    let validate = undefined;
+    switch (input.type) {
+        case "email":
+            validate = validateEmail(input.value);
+            break;
+        case "tel":
+            validate = validatePhone(input.value);
+            break;
+        case "password":
+            validate = validatePassword(input.value);
+            break;
+        case "number":
+            inputValid = true;
+            error = "";
+            if (input.name == "age" ||  input.dataset.name == "age") validate = validateAge(input.value);
+            else validate = { success: true };
+            break;
+        case "text":
+            if (input.name == "address" ||  input.dataset.name == "address") validate = validateAddress(input.value);
+            else validate = { success: true };
+            break;
+        default:
+            inputValid = true;
+            error = "";
+            validate = { success: true };
+            break;
+    }
+    if (error != "") error += "\n";
+    error += validate.error ?? "";
+    inputValid = inputValid && validate.success;
+    return { success: inputValid, error: error };
+}
+
 export function markError(el) {
     el.classList.remove("input-success");
     el.classList.add("input-error");
@@ -77,60 +129,20 @@ export function markSuccess(el) {
     el.classList.remove("input-error");
     el.classList.add("input-success");
 }
-export function checkLogin(){
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
-    let errors = [];
-    let valid = true;
-    let errorBox = document.querySelector(".error-message");
-    if (!errorBox) {
-        errorBox = document.createElement("p");
-        errorBox.className = "error-message";
-        document.querySelector("form fieldset").appendChild(errorBox);
-    }
-    let fields = [email, password];
-    for (let i = 0; i < fields.length; i++) {
-        if (fields[i]) {
-            fields[i].classList.remove("input-error");
-            fields[i].classList.remove("input-success");
-        }
-    }
-    if (!validateEmail(email.value).success) {
-        markError(email);
-        errors.push("INVALID_EMAIL");
-        valid = false;
-    } else {
-        markSuccess(email);
-    }
-    if (!validatePassword(password.value).success) {
-        markError(password);
-        errors.push("INCORRECT_PASSWORD");
-        valid = false;
-    } else {
-        markSuccess(password);
-    }
-    if (valid === false) {
-        errorBox.textContent = errors.join(" | ");
-    } else {
-        errorBox.textContent = "";
-    }
-    return valid;
-}
-export function CharLength() {
-    let input = document.getElementById("password");
-    let length = input.value.length;
-    document.getElementById("compteur").textContent = length;
-    if (length > 100) {
-        input.classList.add("input-error");
-        input.classList.remove("input-success");
-    } else {
-        input.classList.add("input-success");
-        input.classList.remove("input-error");
-    }
-}
 
 export function validateForm(form) {
-    let email = form.querySelector("#email");
+    let valid = true;
+    let error = "";
+    const inputs = form.querySelectorAll("input");
+    for (const input of inputs) {
+        if (input.classList.contains("novalidate")) continue;
+        let validate = validateInput(input);
+        if (!validate.success) appendMessage(input, validate.error, true);
+        valid = valid && validate.success;
+        if (!valid) break;
+    }
+    return valid;
+    /*let email = form.querySelector("#email");
     let password = form.querySelector("#password");
     let name = form.querySelector("#name");
     let firstname = form.querySelector("#firstname");
@@ -205,13 +217,7 @@ export function validateForm(form) {
     if (!valid) {
         errorBox.textContent = errors.join(" | ");
     }
-    return valid;
-}
-export function updateCounter(input, counterId) {
-    let max = input.maxLength;
-    let current = input.value.length;
-    let counter = document.getElementById(counterId);
-    counter.textContent = current + " / " + max;
+    return valid;*/
 }
 
 let formatInputs = document.querySelectorAll("input.autoformat");

@@ -194,9 +194,6 @@ button.pastel-red {
   background: var(--primary);
   color: var(--pastel-red);
   border: 0.2rem solid var(--pastel-red);
-  border-radius: 3rem;
-  transition: all 0.1s;
-  cursor: pointer;
 }
 button.pastel-red:hover {
   color: var(--primary);
@@ -208,9 +205,6 @@ button.pastel-orange {
   background: var(--primary);
   color: var(--pastel-orange);
   border: 0.2rem solid var(--pastel-orange);
-  border-radius: 3rem;
-  transition: all 0.1s;
-  cursor: pointer;
 }
 button.pastel-orange:hover {
   color: var(--primary);
@@ -281,15 +275,54 @@ button:hover svg {
   background: var(--primary-bright-04);
   backdrop-filter: blur(6px);
 }
+.floating-message {
+  background: var(--primary);
+  color: var(--secondary);
+  border: 0.2rem solid var(--secondary);
+  border-radius: 3rem;
+  cursor: help;
+
+  width: 120%;
+  min-width: 18rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  white-space: pre-line;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 1rem));
+}
+.floating-message.pastel-red {
+  color: var(--pastel-red);
+  border: 0.2rem solid var(--pastel-red);
+}
+.floating-message::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+
+  width: 0;
+  height: 0;
+  border-left: 0.8rem solid transparent;
+  border-right: 0.8rem solid transparent;
+  border-top: 0.8rem solid var(--secondary);
+}
+.floating-message.pastel-red::after {
+  border-top: 0.8rem solid var(--pastel-red);
+}
 .error-message {
-  color: var(--white);
-  background-color: var(--pastel-red);
+  color: var(--pastel-red);
+  background-color: var(--primary);
   font-size: 1.2rem;
   text-align: center;
   padding: 1rem 2rem;
   margin: 1rem auto;
   border-radius: 3rem;
-  border: 0.2rem solid var(--pastel-red-dark);
+  border: 0.2rem solid var(--pastel-red);
 }
 .input-error {
   border: 1px solid var(--pastel-red) !important;
@@ -324,7 +357,6 @@ input[type="checkbox"] {
   width: 3.5rem;
   height: 2rem;
   position: relative;
-  --knob-size: calc(100% - (0.2rem * 2));
 
   background: var(--primary);
   color: var(--secondary);

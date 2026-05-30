@@ -40,11 +40,11 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-05-30 03:21:34",
+            "lastLogin": "2026-05-30 08:42:41",
             "address": "12 rue de Rivoli",
             "cookies": {
                 "analyticsCookies": true,
-                "functionalCookies": false
+                "functionalCookies": true
             }
         },
         {
@@ -56,9 +56,9 @@
             "status": "vip",
             "fidelity": 0,
             "profile": {
-                "firstName": "Lalivreuse",
-                "lastName": "Nina",
-                "username": "Lalivreuse.Nina",
+                "firstName": "Nina",
+                "lastName": "Lalivreuse",
+                "username": "Lalivreuse.N",
                 "age": 19,
                 "address": "12 rue de Rivoli",
                 "gender": "female"
@@ -129,7 +129,7 @@
             "phone": "0011223344",
             "password": "$2y$12$.TDQlCRm4WPjSkibEI37F.ydiGrDp8esCtdVqL4blrmkod4oWiRY.",
             "role": "client",
-            "status": "Free",
+            "status": "premium",
             "fidelity": 0,
             "profile": {
                 "firstName": "Hagrid",
@@ -141,6 +141,25 @@
             },
             "createdAt": "2026-05-29 17:58:52",
             "lastLogin": "2026-05-30 02:58:52"
+        },
+        {
+            "id": "6a1a24226000c",
+            "email": "fzafza@aaaa.com",
+            "phone": "0011223344",
+            "password": "$2y$10$JOoHFiTbaF0PhSPnKb8BGu\/9xtIi5Yfw0WjhiTNKh.vj2E0UfO6ta",
+            "role": "cook",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Fab",
+                "lastName": "Tropfor",
+                "username": "Fab.Tropfor",
+                "age": 18,
+                "address": "13 La grande roue de LA",
+                "gender": "other"
+            },
+            "createdAt": "2026-05-29 23:41:22",
+            "lastLogin": "2026-05-30 08:41:22"
         }
     ]
 }

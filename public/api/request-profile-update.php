@@ -13,6 +13,7 @@ $loggedInUser = get_user_by_session();
 $userId = $_GET['userId'] ?? '';
 $field = $_GET['field'] ?? '';
 $value = $_GET['value'] ?? '';
+$value = urldecode($value);
 
 $targetUser = get_user_by_id($userId);
 if (!$targetUser) {
@@ -23,7 +24,7 @@ if (!$targetUser) {
 if ($field === "cookies") {
     $value = json_decode($value, true);
     if ($value === null || !is_array($value)) {
-        echo json_encode([ 'status' => 400, 'error' => 'Invalid cookies payload' ]);
+        echo json_encode([ 'status' => 400, 'error' => 'Invalid cookies payload.']);
         exit;
     }
 }
@@ -126,7 +127,7 @@ if ($field === 'role') {
         echo json_encode([ 'status' => 403, 'error' => 'Only admin can change roles' ]);
         exit;
     }
-    if (!in_array($value, ['admin', 'client', 'delivery'], true)) {
+    if (!in_array($value, ['client', 'delivery', 'cook'], true)) {
         echo json_encode([ 'status' => 400, 'error' => 'Invalid role' ]);
         exit;
     }
@@ -137,7 +138,7 @@ if ($field === 'status') {
         echo json_encode([ 'status' => 403, 'error' => 'Only admin can change status' ]);
         exit;
     }
-    if (!in_array($value, ['Free', 'vip', 'blocked', 'deactivated'], true)) {
+    if (!in_array($value, ['Free', 'premium', 'vip', 'blocked', 'deactivated'], true)) {
         echo json_encode([ 'status' => 400, 'error' => 'Invalid status' ]);
         exit;
     }

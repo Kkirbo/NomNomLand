@@ -15,7 +15,8 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
-    let user_id = getUserId();
-    await requestProfileUpdate(user_id, "cookies", encodeURIComponent(JSON.stringify(cookies)));
+    let userIdRequest = await getUserId();
+    if (!userIdRequest || userIdRequest.status != 200 || !userIdRequest.id) return;
+    let answer = await requestProfileUpdate(userIdRequest.id, "cookies", encodeURIComponent(JSON.stringify(cookies)));
   } catch (error) {}
 });

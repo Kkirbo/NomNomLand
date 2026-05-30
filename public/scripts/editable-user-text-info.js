@@ -1,6 +1,7 @@
 import { getUserId } from "../scripts/get-user-id.js";
 import { requestProfileUpdate } from "./request-profile-update.js";
-import { checkLength, validateEmail, validatePhone, validateAddress } from "./form.js";
+import { appendMessage } from "./utilities/appendMessage.js";
+import { checkLength, validateInput } from "./form.js";
 
 const sidebarCheckbox = document.querySelector('#togglesidebar');
 
@@ -22,22 +23,10 @@ async function submitInput(input) {
     span.dataset.name = input.dataset.name;
     span.textContent = input.placeholder;
 
-    let inputValid = checkLength(input.value).success;
-    switch (span.dataset.name) {
-        case "email":
-            inputValid = inputValid && validateEmail(input.value).success;
-            break;
-        case "phone":
-            inputValid = inputValid && validatePhone(input.value).success;
-            break;
-        case "address":
-            inputValid = inputValid && validateAddress(input.value).success;
-            break;
-        default:
-            break;
-    }
-    if (!inputValid) {
+    let validate = validateInput(input);
+    if (!validate.success) {
         input.replaceWith(span);
+        appendMessage(span, validate.error, true);
         return;
     }
 
@@ -45,6 +34,7 @@ async function submitInput(input) {
     if (!userId) userId = await getUserId();
     if (!userId || userId.status != 200 || !userId.id) {
         input.replaceWith(span);
+        appendMessage(span, "Failed to get user ID", true);
         return;
     }
     userId = userId.id;
@@ -52,6 +42,7 @@ async function submitInput(input) {
     const updated = await requestProfileUpdate(userId, span.dataset.name, input.value);
     if (!updated || updated.status != 200) {
         input.replaceWith(span);
+        appendMessage(span, "Failed to update profile", true);
         return;
     }
 
@@ -81,9 +72,9 @@ document.addEventListener("click", async (e) => {
 
     const input = document.createElement("input");
     input.className = "editing-user-text-info";
-    input.type = span.dataset.name == "email" || span.dataset.name == "password" ? span.dataset.name : "text";
-    input.value = span.textContent;
-    input.placeholder = span.textContent;
+    input.type = span.dataset.name == "phone" ? "tel" : span.dataset.name == "email" || span.dataset.name == "password" ? span.dataset.name : "text";
+    input.value = span.firstChild.textContent.trim();
+    input.placeholder = span.firstChild.textContent.trim();
     input.dataset.id = span.dataset.id;
     input.dataset.name = span.dataset.name;
     
