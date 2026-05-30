@@ -7,7 +7,7 @@ export async function generateOrderInfoBox(orderInfo, showRatingLink=false) {
     }
     
     let newHTML = `
-        <h3>#${orderInfo?.id ?? "N/A"} ($ ${orderInfo?.price ?? 0})</h3>
+        <h3>#${orderInfo?.id ?? "N/A"} (${orderInfo?.price ?? 0}€)</h3>
         <div class="orderItemsContainer">
     `;
     for (const itemId in itemCounts) {
@@ -33,7 +33,7 @@ export async function generateOrderInfoBox(orderInfo, showRatingLink=false) {
             <p><strong>User ID:</strong> ${orderInfo?.user_id ?? "N/A"}</p>
             <p><strong>Phone:</strong> ${orderInfo?.phone ?? "N/A"}</p>
             
-            <p><strong>Price:</strong> $${orderInfo?.price ?? 0}</p>
+            <p><strong>Price:</strong> ${orderInfo?.price ?? 0}€</p>
             <p><strong>Payment:</strong> ${orderInfo?.paymentStatus ?? "N/A"}</p>
             
             <p><strong>Delivery Status:</strong> ${orderInfo?.delivery.status ?? "N/A"}</p>

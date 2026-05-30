@@ -12,6 +12,10 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
 }
 
 $deliveryPeople = get_users_by_role("delivery");
+$avaiableDeliveryPeople = array_filter($deliveryPeople, function($deliveryPerson) {
+    return get_order_by_delivery_id($deliveryPerson["id"]) == null;
+});
+
 if (is_role($user, "client")) $orders = get_orders_by_user_id($user['id']);
 else $orders = get_orders();
 
@@ -45,7 +49,7 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
     <link rel="stylesheet" href="../styles/orders.css">
     <link rel="stylesheet" href="../styles/order-preview.css">
     <script>
-        const deliveryPeople = <?= json_encode($deliveryPeople) ?>;
+        const avaiableDeliveryPeople = <?= json_encode($avaiableDeliveryPeople) ?>;
     </script>
     <script defer type="module" src="../scripts/orders.js"></script>
 </head>
@@ -60,12 +64,17 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
     <main>
         <section class="orders">
 
+            <?php
+                if (!$orders) echo "<p>No orders found.</p>";
+            ?>
+
             <?php foreach ($orders as $order): ?>
 
             <?php
             $isPending = $order["delivery"]["status"] == "pending";
             $isPreparing = $order["delivery"]["status"] == "preparing";
             $isReady = $order["delivery"]["status"] == "ready";
+            $isRestaurant = $order["delivery"]["address"] == "restaurant";
             $isdelivery = $order["delivery"]["status"] == "delivery";
             ?>
 
@@ -107,35 +116,43 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                 
                     <div class="order-actions">
 
-                        <?php if ($isPending): ?>
+                        <?php if ($isPending && is_any_role($user, ["admin", "cook"])): ?>
                             <button
                                 class="update-order-btn"
                                 data-order-id="<?= $order['id'] ?>"
                                 data-field="delivery->status"
                                 data-value="preparing"
+                                data-is-restaurant="<?= $isRestaurant ?>"
                             >
                                 Prepare command
                             </button>
                         <?php endif ?>
 
-                        <?php if ($isPreparing): ?>
+                        <?php if ($isPreparing && is_any_role($user, ["admin", "cook"])): ?>
                             <button
                                 class="update-order-btn"
                                 data-order-id="<?= $order['id'] ?>"
                                 data-field="delivery->status"
                                 data-value="ready"
+                                data-is-restaurant="<?= $isRestaurant ?>"
                             >
                                 Put command as ready
                             </button>
                         <?php endif ?>
 
-                        <?php if ($isReady): ?>
+                        <?php if ($isReady && !$isRestaurant && is_any_role($user, ["admin", "cook", "delivery"])): ?>
                             <select class="delivery-person-select">
-                                <?php foreach ($deliveryPeople as $deliveryPerson): ?>
-                                    <option value="<?= $deliveryPerson['id'] ?>">
-                                        <?= get_user_full_name($deliveryPerson['id']) ?>
-                                    </option>
-                                <?php endforeach; ?>
+                                <?php
+                                    if (is_role($user, "delivery")) $avaiableDeliveryPeople = [$user];
+                                    foreach ($avaiableDeliveryPeople as $deliveryPerson) {
+                                        echo '
+                                            <option value="' . $deliveryPerson["id"] . '" class="delivery-person-name">
+                                                ' . get_user_full_name($deliveryPerson["id"]) . '
+                                            </option>
+                                        ';
+                                    }
+                                    
+                                ?>
                             </select>
 
                             <button
@@ -143,8 +160,21 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                                 data-order-id="<?= $order['id'] ?>"
                                 data-field="delivery->status"
                                 data-value="delivery"
+                                data-is-restaurant="<?= $isRestaurant ?>"
                             >
                                 Send to Delivery
+                            </button>
+                        <?php endif ?>
+
+                        <?php if ($isReady && $isRestaurant && is_any_role($user, ["admin", "cook"])): ?>
+                            <button
+                                class="update-order-btn"
+                                data-order-id="<?= $order['id'] ?>"
+                                data-field="delivery->status"
+                                data-value="success"
+                                data-is-restaurant="<?= $isRestaurant ?>"
+                            >
+                                Send to a waiter.
                             </button>
                         <?php endif ?>
 

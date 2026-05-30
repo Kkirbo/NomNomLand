@@ -1,7 +1,14 @@
 TODO:
 
-Phase 4 prio:
--Logs d'incident
+Fonctionalités importantes:
+-Confirm password sur register (deuxième champ mot de passe qui est comparé au premier en local)
+-Mot de passe oublié: 
+ -reset du mot de passe pour une valeur comme -1 par exemple
+ -code envoyé à l'utilisateur
+ -deconnexion de toutes les machines de ce compte
+ -mot de passe modifié à la prochaine connexion avec code à fournir
+
+Fonctionalités suggérées:
 -Stats: compter plats/menus achetés
 -Menu aléatoire
 -Page menu pour admin: modifier/créer des plats/menus
@@ -23,15 +30,6 @@ Phase 4 prio:
   Créateur de plat (genre sandwich) custom (pourquoi pas avec un petit jeu ou faut satisfaire les demandes du chef)
   Panier sur menu avec drag and drop (prendre les plats et les mettre dans le panier a la souris)
   Générateur de mail (sans les envoyer) pour genre register, commande confirmée/livrée (Messagerie) (Aymane a renseigner)
-
-Fix:
--Compte deactivated pas bloqués | Aymane
--Menus
-  -Fix les menus (stocker données des plats choisis)
-  -Modal async qui redirige pas et choisir un nombre de plats
--Orders
-  -Vérifier le rôle avant d'afficher les boutons et d'autoriser les actions
-  -Ajouter commande sur place (si addresse = "restaurant" on autorise pas les livreurs) | ccy
 
 Secondaire:
 -Payement/Profil

@@ -154,8 +154,7 @@ echo '<section class="menus">';
 foreach ($filteredDishes as $dish) {
     $dishTypeAsArray = [];
     $dishTags = $dish['tags'] ?? [];
-    foreach ([ 'menu', 'starter', 'main course', 'drink', 'dessert' ] as $type) {
-        if ($type === 'menu') continue;
+    foreach ([ 'starter', 'main course', 'drink', 'dessert' ] as $type) {
         if (in_array($type, $dishTags)) $dishTypeAsArray = [$type];
     }
     generateCard("dish", $dish['id'], $dish['image'], $dish['title'], $dishTypeAsArray, $dish['price']);

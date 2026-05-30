@@ -42,7 +42,7 @@ async function submitInput(input) {
     const updated = await requestProfileUpdate(userId, span.dataset.name, input.value);
     if (!updated || updated.status != 200) {
         input.replaceWith(span);
-        appendMessage(span, "Failed to update profile", true);
+        appendMessage(span, updated.error ?? "Failed to update profile", true);
         return;
     }
 

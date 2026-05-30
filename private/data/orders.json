@@ -28,7 +28,7 @@
             ],
             "options": [],
             "delivery": {
-                "status": "pending",
+                "status": "ready",
                 "address": "12 rue de Rivoli",
                 "delivery_person_id": ""
             },

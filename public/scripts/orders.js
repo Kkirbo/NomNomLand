@@ -2,7 +2,7 @@ import { requestOrderUpdate } from "../scripts/request-order-update.js";
 import { getOrderInfo } from "../scripts/get-order-info.js";
 import { generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
 
-function renderActions(status, orderId) {
+function renderActions(status, isRestaurant, orderId) {
 
     switch(status) {
 
@@ -13,6 +13,7 @@ function renderActions(status, orderId) {
                     data-order-id="${orderId}"
                     data-field="delivery->status"
                     data-value="preparing"
+                    data-is-restaurant="${isRestaurant}"
                 >
                     Prepare command
                 </button>
@@ -25,26 +26,44 @@ function renderActions(status, orderId) {
                 data-order-id="${orderId}"
                 data-field="delivery->status"
                 data-value="ready"
+                data-is-restaurant="${isRestaurant}"
                 >
                 Put command as ready
                 </button>
             `;
             
         case 'ready':
-            return `
-                <select class="delivery-person-select">
-                    ${renderDeliveryPeopleOptions()}
-                </select>
 
-                <button
-                    class="update-order-btn"
-                    data-order-id="${orderId}"
-                    data-field="delivery->status"
-                    data-value="delivery"
-                >
-                    Send to Delivery
-                </button>
-            `;
+            if (!isRestaurant) {
+                return `
+                    <select class="delivery-person-select">
+                        ${renderDeliveryPeopleOptions()}
+                    </select>
+
+                    <button
+                        class="update-order-btn"
+                        data-order-id="${orderId}"
+                        data-field="delivery->status"
+                        data-value="delivery"
+                        data-is-restaurant="${isRestaurant}"
+                    >
+                        Send to Delivery
+                    </button>
+                `;
+            } else {
+                return `
+                    <button
+                        class="update-order-btn"
+                        data-order-id="${orderId}"
+                        data-field="delivery->status"
+                        data-value="success"
+                        data-is-restaurant="${isRestaurant}"
+                    >
+                        Send to a waiter.
+                    </button>
+                `;
+            }
+
 
         default:
             return `<p>No actions available</p>`;
@@ -53,7 +72,7 @@ function renderActions(status, orderId) {
 
 function renderDeliveryPeopleOptions() {    
 
-    return deliveryPeople.map(person => `
+    return avaiableDeliveryPeople.map(person => `
         <option value="${person.id}">
             ${person.profile.firstName} ${person.profile.lastName}
         </option>
@@ -72,9 +91,10 @@ document.addEventListener('click', async (e) => {
     const orderId = button.dataset.orderId;
     const field = button.dataset.field;
     const value = button.dataset.value;
+    const isRestaurant = button.dataset.isRestaurant
+    
 
     const delivery_status_updated = await requestOrderUpdate(orderId, field, value);
-    console.log(delivery_status_updated);
     
     if (!delivery_status_updated || delivery_status_updated.status != 200) {
         return;
@@ -88,7 +108,6 @@ document.addEventListener('click', async (e) => {
         const deliveryPersonName = select.options[select.selectedIndex].text;
 
         const delivery_person_updated = await requestOrderUpdate(orderId, "delivery->delivery_person_id", deliveryPersonId);
-        console.log(delivery_person_updated);
 
         if (!delivery_person_updated || delivery_person_updated.status != 200) {
             return;
@@ -100,7 +119,7 @@ document.addEventListener('click', async (e) => {
 
     }
 
-    actionsContainer.innerHTML = renderActions(value, orderId);
+    actionsContainer.innerHTML = renderActions(value, isRestaurant, orderId);
 });
 
 let orderInfoBoxes = document.querySelectorAll("div.ordersContainer");

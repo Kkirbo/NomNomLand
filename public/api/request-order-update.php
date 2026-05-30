@@ -60,7 +60,7 @@ if ($field === 'rating') {
         echo json_encode([ 'status' => 400, 'error' => 'Invalid delivery status' ]);
         exit;
     }
-    if ($loggedInUser['role'] === 'admin') {
+    if ($loggedInUser['role'] === 'admin' || $loggedInUser['role'] === 'cook') {
         $allowed = true;
     } elseif ($loggedInUser['role'] === 'delivery' && isset($order['delivery']['delivery_person_id']) && $order['delivery']['delivery_person_id'] === $loggedInUser['id']) {
         $allowed = true;
@@ -69,8 +69,8 @@ if ($field === 'rating') {
         exit;
     }
 } elseif ($field === 'delivery->delivery_person_id') {
-    if ($loggedInUser['role'] !== 'admin') {
-        echo json_encode([ 'status' => 403, 'error' => 'Only admin may assign delivery personnel' ]);
+    if ($loggedInUser['role'] !== 'admin'|| $loggedInUser['role'] === 'cook') {
+        echo json_encode([ 'status' => 403, 'error' => 'Not allowed to assign delivery personnel' ]);
         exit;
     }
     $deliveryUser = get_user_by_id($value);
