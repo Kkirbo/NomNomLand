@@ -138,7 +138,7 @@ if ($field === 'status') {
         echo json_encode([ 'status' => 403, 'error' => 'Only admin can change status' ]);
         exit;
     }
-    if (!in_array($value, ['Free', 'premium', 'vip', 'blocked', 'deactivated'], true)) {
+    if (!in_array($value, ['free', 'premium', 'vip', 'blocked', 'deactivated'], true)) {
         echo json_encode([ 'status' => 400, 'error' => 'Invalid status' ]);
         exit;
     }

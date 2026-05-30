@@ -36,12 +36,11 @@
                 "lastName": "Jedusor",
                 "username": "elvis.Tom",
                 "age": 18,
-                "address": "12 rue de Rivoli",
+                "address": "8 privet drive",
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-05-30 08:42:41",
-            "address": "12 rue de Rivoli",
+            "lastLogin": "2026-05-31 00:11:44",
             "cookies": {
                 "analyticsCookies": true,
                 "functionalCookies": true
@@ -53,7 +52,7 @@
             "phone": "0123456789",
             "password": "$2y$10$s46N5PPYrPD.5eTCPV7bVut1gfq\/XFW.bsdJrY9\/BqYvvoINY77\/a",
             "role": "delivery",
-            "status": "vip",
+            "status": "premium",
             "fidelity": 0,
             "profile": {
                 "firstName": "Nina",
@@ -72,7 +71,7 @@
             "phone": "0011223344",
             "password": "$2y$12$90QV\/FcTOX7eyBGHZFfohufP7E5dxI0f2VzXQIBrxRnJD638QDL0a",
             "role": "client",
-            "status": "Free",
+            "status": "free",
             "fidelity": 0,
             "profile": {
                 "firstName": "Client",
@@ -91,7 +90,7 @@
             "phone": "0011223344",
             "password": "$2y$12$IjQnwKf4qm7uh0SEvaVllegXX6RK6D4tLbI1t8p8z5jaYttfHVtXW",
             "role": "client",
-            "status": "deactivated",
+            "status": "free",
             "fidelity": 0,
             "profile": {
                 "firstName": "Leo",

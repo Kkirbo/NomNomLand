@@ -64,6 +64,10 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
     <main>
         <section class="orders">
 
+            <?php
+                if (!$orders) echo "<p>No orders found.</p>";
+            ?>
+
             <?php foreach ($orders as $order): ?>
 
             <?php

@@ -19,12 +19,18 @@ table th {
   color: var(--secondary);
 }
 
-table tr:hover {
+table thead th {
+  cursor: pointer;
+}
+table thead th:hover {
+  background: var(--primary);
+}
+table tbody tr:hover {
   background: var(--primary);
 }
 
-table td span.editable-user-text-info {
-  cursor: pointer;
+table td span:not(.editable-user-text-info) {
+  cursor: not-allowed;
 }
 
 button.admin-locked {

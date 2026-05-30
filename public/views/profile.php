@@ -70,7 +70,7 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
 
         <div>
           <span>Address</span>
-          <span data-id="<?=htmlspecialchars($id)?>" data-name="address" class="editable-user-text-info"><?= htmlspecialchars($address) ?></span>
+          <span data-id="<?=htmlspecialchars($id)?>" data-name="profile->address" class="editable-user-text-info"><?= htmlspecialchars($address) ?></span>
         </div>
       </article>
     </section>
