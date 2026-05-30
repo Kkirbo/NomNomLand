@@ -1,7 +1,14 @@
 TODO:
 
-Phase 4 prio:
--Logs d'incident
+Fonctionalités importantes:
+-Confirm password sur register (deuxième champ mot de passe qui est comparé au premier en local)
+-Mot de passe oublié: 
+ -reset du mot de passe pour une valeur comme -1 par exemple
+ -code envoyé à l'utilisateur
+ -deconnexion de toutes les machines de ce compte
+ -mot de passe modifié à la prochaine connexion avec code à fournir
+
+Fonctionalités suggérées:
 -Stats: compter plats/menus achetés
 -Menu aléatoire
 -Page menu pour admin: modifier/créer des plats/menus
