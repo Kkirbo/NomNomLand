@@ -1,28 +1,5 @@
 import { getSearchResult } from "./get-search-results.js";
 
-const searchForm = document.querySelector('form.searchbar');
-const searchResults = document.querySelector('section.search-results');
-const searchinput = searchForm.querySelector('section input[type="text"]');
-
-/**
- * Searchbar Animation
- */
-searchinput.placeholder = "";
-const placeholderText = "Search for your favorite meal...";
-function animatePlaceholder() {
-  if (searchinput.placeholder.length == placeholderText.length) return;
-  else searchinput.placeholder += placeholderText[searchinput.placeholder.length];
-  window.setTimeout(animatePlaceholder, Math.random() * (250 - 50) + 50);
-};
-const searchBarEntersView = new IntersectionObserver(() => {
-  searchinput.placeholder = "";
-  animatePlaceholder();
-},
-{
-  threshold: 1
-});
-searchBarEntersView.observe(searchForm);
-
 /**
  * Sorts
  */
@@ -50,6 +27,11 @@ const sortFunctions = {
   }
 }
 
+const searchForm = document.querySelector('form.searchbar');
+const searchResults = document.querySelector('section.search-results');
+const searchinput = searchForm.querySelector('section input[type="text"]');
+const placeholderText = "Search for your favorite meal...";
+
 /**
  * Generate the page based on search
  */
@@ -74,6 +56,10 @@ async function updateSearchResults() {
   
   searchResults.innerHTML = documentSections.body.innerHTML;
 }
+
+/**
+ * Refresh Results
+ */
 //Block search submit when on menu page
 searchForm.addEventListener("submit", async (e) => {
   if (!searchResults || !window.location.pathname.endsWith("/menu.php")) return;
@@ -86,15 +72,6 @@ for (const label of searchForm.querySelectorAll("section.dropdown label")) {
   label.addEventListener("input", updateSearchResults);
 }
 updateSearchResults();
-
-/**
- * Display Searchbar Filters
- */
-const tuneButton = searchForm.querySelector('button.tune');
-const dropdown = searchForm.querySelector("section.dropdown");
-tuneButton.addEventListener("click", (e) => {
-  dropdown.classList.toggle("active");
-});
 
 /**
  * Searchbar Sorts
@@ -127,3 +104,30 @@ for (const sortButton of sortButtons) {
     updateSearchResults();
   });
 }
+
+/**
+ * Searchbar Animation
+ */
+searchinput.placeholder = "";
+function animatePlaceholder() {
+  if (searchinput.placeholder.length == placeholderText.length) return;
+  else searchinput.placeholder += placeholderText[searchinput.placeholder.length];
+  window.setTimeout(animatePlaceholder, Math.random() * (250 - 50) + 50);
+};
+const searchBarEntersView = new IntersectionObserver(() => {
+  searchinput.placeholder = "";
+  animatePlaceholder();
+},
+{
+  threshold: 1
+});
+searchBarEntersView.observe(searchForm);
+
+/**
+ * Display Searchbar Filters
+ */
+const tuneButton = searchForm.querySelector('button.tune');
+const dropdown = searchForm.querySelector("section.dropdown");
+tuneButton.addEventListener("click", (e) => {
+  dropdown.classList.toggle("active");
+});

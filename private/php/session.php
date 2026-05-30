@@ -40,18 +40,17 @@ function login($email, $password) {
         if ($user['status'] == "deactivated"){
             logIncident($user,"Tentative de connexion à un compte désactivé");
             return 3; //Account deactivated
-            }
-            if ($user["status"] === "blocked") {
-        logIncident( $user,"Tentative de connexion à un compte bloqué");
-        return 4; //blocked account
-    }
+        }
+        if ($user["status"] === "blocked") {
+            logIncident( $user,"Tentative de connexion à un compte bloqué");
+            return 4; //blocked account
+        }
         date_default_timezone_set('Pacific/Palau');
         update_user_field($user["id"], "lastLogin", date("Y-m-d H:i:s"));
         $_SESSION["user_id"] = $user["id"];
         redirect_url();
         return 0; //Logged in successfully
     }
-
     return 2; //Invalid Credentials
 }
 
