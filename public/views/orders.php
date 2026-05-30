@@ -16,11 +16,11 @@ if (is_role($user, "client")) $orders = get_orders_by_user_id($user['id']);
 else $orders = get_orders();
 
 
-if (is_role($user, "cook")) {
+/*if (is_role($user, "cook")) {
     $orders = array_filter($orders, function($order) {
-    return $order["delivery"]['status'] !== 'delivery';
+        return $order["delivery"]['status'] !== 'delivery';
     });
-}
+}*/
 if (is_role($user, "delivery")) {
     $orders = array_filter($orders, function($order) {
         return in_array($order["delivery"]['status'], array("ready", "delivery"));
@@ -53,13 +53,14 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
 
     <?php include 'sidebar.php'; ?>
 
-    <main>
-        <h2>Pending Orders</h2>
+    <header>
+        <h1>Orders</h1>
+    </header>
 
+    <main>
         <section class="orders">
 
             <?php foreach ($orders as $order): ?>
-            <?php /*if (!in_array($order["delivery"]["status"], array("success", "failed"))):*/ ?>
 
             <?php
             $isPending = $order["delivery"]["status"] == "pending";
@@ -155,7 +156,6 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
 
                 </div>
             </div>
-            <?php /*endif;*/ ?>
             <?php endforeach; ?>
         </section>
         <?php

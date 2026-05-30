@@ -232,8 +232,8 @@ for (const passwordField of passwordFields) {
     const togglePasswordCheckbox = passwordField.querySelector("input[type=\"checkbox\"][name=\"togglePassword\"]");
     const valueLengthSpan = passwordField.querySelector("span.valueLength span");
 
-    passwordInput.addEventListener("input", (e) => valueLengthSpan.textContent = e.target.value.length);
-    togglePasswordCheckbox.addEventListener("change", () => togglePassword(passwordInput));
+    if (passwordInput && valueLengthSpan) passwordInput.addEventListener("input", (e) => valueLengthSpan.textContent = e.target.value.length);
+    if (togglePasswordCheckbox) togglePasswordCheckbox.addEventListener("change", () => togglePassword(passwordInput));
 }
 
 let formsToValidate = document.querySelectorAll("form.validateForm");
