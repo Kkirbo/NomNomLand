@@ -24,14 +24,6 @@ Phase 4 prio:
   Panier sur menu avec drag and drop (prendre les plats et les mettre dans le panier a la souris)
   Générateur de mail (sans les envoyer) pour genre register, commande confirmée/livrée (Messagerie) (Aymane a renseigner)
 
-Fix:
--Compte deactivated pas bloqués | Aymane
--Menus
-  -Fix les menus (stocker données des plats choisis)
-  -Modal async qui redirige pas et choisir un nombre de plats
--Orders
-  -Vérifier le rôle avant d'afficher les boutons et d'autoriser les action
-
 Secondaire:
 -Payement/Profil
   -Implémenter points fidélité
