@@ -60,7 +60,7 @@ if ($field === 'rating') {
         echo json_encode([ 'status' => 400, 'error' => 'Invalid delivery status' ]);
         exit;
     }
-    if ($loggedInUser['role'] === 'admin') {
+    if ($loggedInUser['role'] === 'admin' || $loggedInUser['role'] === 'cook') {
         $allowed = true;
     } elseif ($loggedInUser['role'] === 'delivery' && isset($order['delivery']['delivery_person_id']) && $order['delivery']['delivery_person_id'] === $loggedInUser['id']) {
         $allowed = true;

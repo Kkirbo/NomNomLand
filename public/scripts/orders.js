@@ -72,7 +72,7 @@ function renderActions(status, isRestaurant, orderId) {
 
 function renderDeliveryPeopleOptions() {    
 
-    return deliveryPeople.map(person => `
+    return avaiableDeliveryPeople.map(person => `
         <option value="${person.id}">
             ${person.profile.firstName} ${person.profile.lastName}
         </option>

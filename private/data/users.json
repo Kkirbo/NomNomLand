@@ -109,7 +109,7 @@
             "email": "ab@email.com",
             "phone": "0123407465",
             "password": "$2y$10$JOoHFiTbaF0PhSPnKb8BGu\/9xtIi5Yfw0WjhiTNKh.vj2E0UfO6ta",
-            "role": "client",
+            "role": "delivery",
             "status": "blocked",
             "fidelity": 0,
             "profile": {
@@ -128,7 +128,7 @@
             "email": "tuesunsorcier@hogwarts.com",
             "phone": "0011223344",
             "password": "$2y$12$.TDQlCRm4WPjSkibEI37F.ydiGrDp8esCtdVqL4blrmkod4oWiRY.",
-            "role": "client",
+            "role": "cook",
             "status": "premium",
             "fidelity": 0,
             "profile": {
