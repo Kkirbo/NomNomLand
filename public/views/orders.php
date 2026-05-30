@@ -66,6 +66,7 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
             $isPending = $order["delivery"]["status"] == "pending";
             $isPreparing = $order["delivery"]["status"] == "preparing";
             $isReady = $order["delivery"]["status"] == "ready";
+            $isRestaurant = $order["delivery"]["address"] == "restaurant";
             $isdelivery = $order["delivery"]["status"] == "delivery";
             ?>
 
@@ -113,6 +114,7 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                                 data-order-id="<?= $order['id'] ?>"
                                 data-field="delivery->status"
                                 data-value="preparing"
+                                data-is-restaurant="<?= $isRestaurant ?>"
                             >
                                 Prepare command
                             </button>
@@ -124,15 +126,16 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                                 data-order-id="<?= $order['id'] ?>"
                                 data-field="delivery->status"
                                 data-value="ready"
+                                data-is-restaurant="<?= $isRestaurant ?>"
                             >
                                 Put command as ready
                             </button>
                         <?php endif ?>
 
-                        <?php if ($isReady): ?>
+                        <?php if ($isReady && !$isRestaurant): ?>
                             <select class="delivery-person-select">
                                 <?php foreach ($deliveryPeople as $deliveryPerson): ?>
-                                    <option value="<?= $deliveryPerson['id'] ?>">
+                                    <option value="<?= $deliveryPerson['id'] ?>" class="delivery-person-name">
                                         <?= get_user_full_name($deliveryPerson['id']) ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -143,8 +146,21 @@ $orders = sliceArrayToPage($orders, $visibleOrders, $page, $pagesCount);
                                 data-order-id="<?= $order['id'] ?>"
                                 data-field="delivery->status"
                                 data-value="delivery"
+                                data-is-restaurant="<?= $isRestaurant ?>"
                             >
                                 Send to Delivery
+                            </button>
+                        <?php endif ?>
+
+                        <?php if ($isReady && $isRestaurant): ?>
+                            <button
+                                class="update-order-btn"
+                                data-order-id="<?= $order['id'] ?>"
+                                data-field="delivery->status"
+                                data-value="success"
+                                data-is-restaurant="<?= $isRestaurant ?>"
+                            >
+                                Send to a waiter.
                             </button>
                         <?php endif ?>
 
