@@ -149,7 +149,8 @@ function get_user_cart($userId) {
     }
     $cartInfo = [
         'contents' => $cart,
-        'total' => 0
+        'total' => 0,
+        'discount' => 0
     ];
     foreach ($cart as $item) {
         $itemInfo = get_dish_by_id($item['id']);
@@ -159,7 +160,8 @@ function get_user_cart($userId) {
         $price = $itemInfo['price'] ?? 0;
         $cartInfo['total'] += $price * $item['quantity'];
     }
-    $cartInfo['total'] = floor($cartInfo['total']*1000)/1000;
+    $cartInfo['discount'] = $user['fidelity']/1000;
+    $cartInfo['total'] = floor(($cartInfo['total'] - $cartInfo['discount'])*1000)/1000;
     
     return $cartInfo;
 }

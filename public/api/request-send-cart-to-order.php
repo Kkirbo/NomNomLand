@@ -35,7 +35,10 @@ if (empty($cartInfo['contents'])) {
 }
 
 $tip = isset($options['tip']) ? (float)$options['tip'] : 0;
+$fidelityDiscount = $loggedInUser['fidelity']/1000;
 $totalPrice = floor(1000 * $cartInfo['total'] * (1 + $tip / 100))/1000;
+$updatedFidelity = update_user_field($loggedInUser['id'], 'fidelity', floor($totalPrice*100));
+if ($updatedFidelity) $cartInfo['total'] = $cartInfo['total'] - $fidelityDiscount;
 
 $order = [
     'id' => uniqid(),

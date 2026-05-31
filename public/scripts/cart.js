@@ -69,7 +69,7 @@ const placeOrderButton = document.querySelector('article.cartContainer button.pl
   if (!ordersBox) return;
   const cartInfo = await getCartInfo();
   if (!cartInfo || cartInfo.status != 200 || cartInfo.data.total <= 0) return;
-  if (priceTotalSpan) priceTotalSpan.textContent = `${cartInfo.data.total}€`;
+  if (priceTotalSpan) priceTotalSpan.textContent = `${cartInfo.data.total}€ (Fidelity discount: ${cartInfo.data.discount}€)`;
   placeOrderButton.classList.remove("hidden");
   const cartInfoHTML = await generateCartInfoBox(cartInfo.data, true);
   ordersBox.innerHTML = cartInfoHTML;
@@ -107,7 +107,7 @@ document.addEventListener("keydown", (e) => {
  */
 const sendToDeliveryButton = backgroundBlurModal.querySelector('.modalContent button.placeOrder');
 const optionsForm = backgroundBlurModal.querySelector('.modalContent form.options');
-optionsForm.addEventListener("submit", (e) => e.preventDefault());
+if (optionsForm) optionsForm.addEventListener("submit", (e) => e.preventDefault());
 
 if (sendToDeliveryButton) sendToDeliveryButton.addEventListener("click", async (e) => {
   const options = {

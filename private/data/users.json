@@ -30,7 +30,7 @@
             "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
             "role": "admin",
             "status": "Free",
-            "fidelity": 0,
+            "fidelity": 1400,
             "profile": {
                 "firstName": "Tom",
                 "lastName": "Jedusor",
