@@ -54,14 +54,14 @@ if (is_user_last_order_unpaid($user['id'])) {
             <button class="placeOrder hidden" class="button">Place Order</button>
         </article>
     </section>
-    <section id="id" class="background-blur modal active">
+    <section id="id" class="background-blur modal">
         <article class="modalContent modernNeonBoxGlass">
             <h2>1. Select Options:</h2>
             <form action="" method="post" class="options">
                 <div class="option"><input type="checkbox" name="salt" id="salt"><label for="salt">Salt</label></div>
                 <div class="option"><input type="checkbox" name="fries" id="fries"><label for="fries">Extra Fries</label></div>
                 <div class="option"><input type="checkbox" name="priority" id="priority"><label for="priority">Urgent Delivery</label></div>
-                <div class="option"><div class="input"><input type="number" name="tip" id="tip" value="0" min="0" max="100">%</div> Tip</div>
+                <div class="option"><div class="input"><input type="number" name="tip" id="tip" placeholder="0" min="0" max="100">%</div> Tip</div>
             </form>
             <h2>2. Choose where you want to eat</h2>
             <h3>Reserve a table</h3>

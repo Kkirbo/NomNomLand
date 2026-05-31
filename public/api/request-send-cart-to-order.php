@@ -17,8 +17,7 @@ if (!$loggedInUser) {
     exit;
 }
 
-$options = $_GET['options'] ?? '';
-$options = urldecode($options);
+$options = json_decode($_GET['options'] ?? '{}', true);
 $deliveryMode = $_GET['deliveryMode'] ?? '';
 $deliveryMode = urldecode($deliveryMode);
 $address = $loggedInUser['profile']['address'] ?? '';
@@ -35,6 +34,9 @@ if (empty($cartInfo['contents'])) {
     exit;
 }
 
+$tip = isset($options['tip']) ? (float)$options['tip'] : 0;
+$totalPrice = floor(1000 * $cartInfo['total'] * (1 + $tip / 100))/1000;
+
 $order = [
     'id' => uniqid(),
     'user_id' => $loggedInUser['id'],
@@ -46,7 +48,7 @@ $order = [
         'address' => $address,
         'delivery_person_id' => ''
     ],
-    'price' => $cartInfo['total'],
+    'price' => $totalPrice,
     'paymentStatus' => 'pending',
     'date' => date('Y-m-d H:i:s')
 ];
@@ -63,6 +65,6 @@ if (!$updated) {
     exit;
 }
 
-echo json_encode([ 'status' => 200, 'data' => $cartInfo ]);
+echo json_encode([ 'status' => 200, 'data' => $order ]);
 exit;
 ?>

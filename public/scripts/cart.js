@@ -106,15 +106,21 @@ document.addEventListener("keydown", (e) => {
  * Place order
  */
 const sendToDeliveryButton = backgroundBlurModal.querySelector('.modalContent button.placeOrder');
+const optionsForm = backgroundBlurModal.querySelector('.modalContent form.options');
+optionsForm.addEventListener("submit", (e) => e.preventDefault());
+
 if (sendToDeliveryButton) sendToDeliveryButton.addEventListener("click", async (e) => {
-  
-  let request = await sendCartToOrder("delivery");
-  console.log(request);
-  
+  const options = {
+    salt: optionsForm.elements.salt.checked,
+    fries: optionsForm.elements.fries.checked,
+    priority: optionsForm.elements.priority.checked,
+    tip: Number(optionsForm.elements.tip.value || 0)
+  };
+  let request = await sendCartToOrder(options, "delivery");
   if (!request || request.status != 200) {
     sendUserNotification(request.error ?? "Failed to add item to cart", 5, true);
     return;
   }
   window.location.href = "payment.php";
-  sendUserNotification(`<span>Your order was placed:</span><span><a href="orders.php">View my Orders</a></span>`, 5);
+  //sendUserNotification(`<span>Your order was placed:</span><span><a href="orders.php">View my Orders</a></span>`, 5);
 });
