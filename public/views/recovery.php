@@ -3,7 +3,15 @@ require '../../private/php/session.php';
 require '../../private/php/utilities/data.php';
 
 $user = get_user_by_session();
-if (!$user) redirect_url("login.php");
+if (!$user) logout();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $password = $_POST["password"] ?? '';
+    $confirmPassword = $_POST["confirmPassword"] ?? '';
+    if ($password === $confirmPassword) {
+        update_user_field($user['id'],'password',password_hash($password, PASSWORD_DEFAULT));
+        logout();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

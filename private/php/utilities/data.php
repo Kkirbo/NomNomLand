@@ -273,9 +273,4 @@ function get_dish_by_id($id) {
     }
     return null;
 }
-function update_user_password($userId, $newPassword) {
-    $user = get_user_by_id($userId);
-    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-    return update_user_field($userId, "password", $hashedPassword);
-}
 ?>
