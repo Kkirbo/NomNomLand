@@ -67,23 +67,23 @@
 }
 
 .square {
-  background-color: #dbb7b7;
-  color: rgb(130, 65, 0);
+  background-color: var(--primary-bright);
+  color: var(--secondary-bright);
 }
 
 .square.dark {
-  background-color: #824100;
-  color: rgb(219, 183, 183);
+  background-color: var(--primary);
+  color: var(--secondary-highlight);
   box-sizing: border-box;
 }
 
 .avail-move {
   margin: auto;
-  background-color: #a4ff3fc2;
+  background-color: var(--neon);
+  border: 1px solid var(--primary-dark);
   opacity: 80%;
   display: block;
   border-radius: 50%;
-  border: 1px solid black;
   width: 20%;
   max-width: 2vw;
   height: 20%;

@@ -1,12 +1,16 @@
 :root {
   --square-border-width: 4px;
-  --darkest-color: #010101;
-  --darker-color: #282828;
-  --dark-color: #545454;
-  --dark-color-hover: #4b4b4b;
-  --light-color: #848484;
-  --lighter-color: #bfbfbf;
-  --lightest-color: #ffffff;
+
+  /* Mapping vers votre thème */
+  --darkest-color: var(--primary-dark);
+  --darker-color: var(--primary-shadow);
+  --dark-color: var(--primary);
+  --dark-color-hover: var(--primary-highlight);
+
+  --light-color: var(--primary-bright);
+  --lighter-color: var(--secondary-highlight);
+  --lightest-color: var(--white);
+
   --board-vh-limit: 70vh;
   --graveyard-unit: 0.6rem;
 }
