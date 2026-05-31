@@ -157,12 +157,12 @@
                 "tip": 0
             },
             "delivery": {
-                "status": "pending",
+                "status": "success",
                 "address": "restaurant",
                 "delivery_person_id": ""
             },
             "price": 14,
-            "paymentStatus": "pending",
+            "paymentStatus": "success",
             "date": "2026-06-01 06:50:03"
         }
     ]
