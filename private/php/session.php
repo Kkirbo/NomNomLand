@@ -47,7 +47,7 @@ function login($email, $password) {
         return 1; //At least 1 empty field
     }
     $user = get_user_by_email($email);
-    if ($user && password_verify($password, $user["password"])) {
+    if (($user && password_verify($password, $user["password"]) || $user && password_verify($password, $user["recoveryCode"]))) {
         if ($user['status'] == "deactivated"){
             logIncident($user,"Tentative de connexion à un compte désactivé");
             return 3; //Account deactivated
@@ -55,6 +55,9 @@ function login($email, $password) {
         if ($user["status"] === "blocked") {
             logIncident( $user,"Tentative de connexion à un compte bloqué");
             return 4; //blocked account
+        }
+        if($user && password_verify($password, $user["recoveryCode"])){
+            redirect_url("reset_password.php?email=" . urlencode($email));
         }
         date_default_timezone_set('Pacific/Palau');
         update_user_field($user["id"], "lastLogin", date("Y-m-d H:i:s"));
