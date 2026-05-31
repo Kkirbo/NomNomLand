@@ -1,24 +1,47 @@
-# NomNomLand
-La Funzione
+# La Funzione
+
+La Funzione is a tech-themed restaurant website.
+
 [Rapport Phase 1,2,3.pdf](https://github.com/user-attachments/files/27927628/Rapport.Phase.1.2.3.pdf)
 
-Comptes admin:
-email: "tomjedusor@email.com"
-password: "Aa12345678!"
+---
 
-Comptes livreur:
-email: "ninalalivreuse@email.com"
-password: "Aa12345678!"
+## Installation
 
-Comptes client:
-email: "vroum@email.com"
-password: "Aa12345678!"
+Clone the repository:
+
+```bash
+git clone https://github.com/Kkirbo/NomNomLand.git
+cd NomNomLand
+```
+
+---
+
+## Running the Project
 
 
-Fonctionnalités non implémentées en [Phase#3]:
+```bash
+php -S localhost:8080 -t public
+```
 
--refonte logique de la partie commande
+The website will then be available at:
 
--Phase 4
+```text
+http://localhost:8080
+```
 
-(Le numéro de port est le 8080)
+> Make sure to use port **8080** as shown above.
+
+---
+
+## Demo Accounts
+
+You can use the following credentials to log in:
+
+| Role  | Email                                         | Password    |
+| ----- | --------------------------------------------- | ----------- |
+| Admin | [tomjedusor@email.com](mailto:tomjedusor@email.com) | Aa12345678! |
+| Delivery  | [ninalalivreuse@email.com](mailto:ninalalivreuse@email.com)   | Aa12345678! |
+| Client  | [vroum@email.com](mailto:vroum@email.com)   | Aa12345678! |
+
+---
