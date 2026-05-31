@@ -70,14 +70,12 @@ function renderActions(status, isRestaurant, orderId) {
     }
 }
 
-function renderDeliveryPeopleOptions() {    
-
+function renderDeliveryPeopleOptions() {
     return avaiableDeliveryPeople.map(person => `
         <option value="${person.id}">
             ${person.profile.firstName} ${person.profile.lastName}
         </option>
     `).join('');
-
 }
 
 document.addEventListener('click', async (e) => {

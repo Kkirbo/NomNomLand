@@ -12,9 +12,9 @@ if (is_role($user, "delivery") && get_order_by_delivery_id($user['id']) !== null
 }
 
 $deliveryPeople = get_users_by_role("delivery");
-$avaiableDeliveryPeople = array_filter($deliveryPeople, function($deliveryPerson) {
+$avaiableDeliveryPeople = array_values(array_filter($deliveryPeople, function($deliveryPerson) {
     return get_order_by_delivery_id($deliveryPerson["id"]) == null;
-});
+}));
 
 if (is_role($user, "client")) $orders = get_orders_by_user_id($user['id']);
 else $orders = get_orders();

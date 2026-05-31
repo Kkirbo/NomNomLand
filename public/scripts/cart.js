@@ -107,6 +107,7 @@ document.addEventListener("keydown", (e) => {
  */
 const sendToDeliveryButton = backgroundBlurModal.querySelector('.modalContent button.placeOrder');
 if (sendToDeliveryButton) sendToDeliveryButton.addEventListener("click", async (e) => {
+  
   let request = await sendCartToOrder("delivery");
   console.log(request);
   
