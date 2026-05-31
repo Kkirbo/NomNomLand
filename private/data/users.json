@@ -105,25 +105,6 @@
             "lastLogin": null
         },
         {
-            "id": "6a18ebf4a08b7",
-            "email": "ab@email.com",
-            "phone": "0123407465",
-            "password": "$2y$10$JOoHFiTbaF0PhSPnKb8BGu\/9xtIi5Yfw0WjhiTNKh.vj2E0UfO6ta",
-            "role": "delivery",
-            "status": "blocked",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Bombastic",
-                "lastName": "Aaaa",
-                "username": "Bombastic.Aaaa",
-                "age": 120,
-                "address": "2 rue de Rivoli",
-                "gender": "male"
-            },
-            "createdAt": "2026-05-29 01:29:24",
-            "lastLogin": "2026-05-29 21:05:34"
-        },
-        {
             "id": "6a19d3dc05e57",
             "email": "tuesunsorcier@hogwarts.com",
             "phone": "0011223344",
@@ -141,25 +122,6 @@
             },
             "createdAt": "2026-05-29 17:58:52",
             "lastLogin": "2026-05-31 00:39:21"
-        },
-        {
-            "id": "6a1a24226000c",
-            "email": "fzafza@aaaa.com",
-            "phone": "0011223344",
-            "password": "$2y$10$JOoHFiTbaF0PhSPnKb8BGu\/9xtIi5Yfw0WjhiTNKh.vj2E0UfO6ta",
-            "role": "cook",
-            "status": "Free",
-            "fidelity": 0,
-            "profile": {
-                "firstName": "Fab",
-                "lastName": "Tropfor",
-                "username": "Fab.Tropfor",
-                "age": 18,
-                "address": "13 La grande roue de LA",
-                "gender": "other"
-            },
-            "createdAt": "2026-05-29 23:41:22",
-            "lastLogin": "2026-05-30 09:18:59"
         },
         {
             "id": "6a1b63f6dfc1d",
