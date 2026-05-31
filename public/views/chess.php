@@ -12,6 +12,7 @@
   <link rel="stylesheet" type="text/css" href="../chess/styles/main-menu.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/pgnMenu.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/game-alert.css">
+  <link rel="stylesheet" type="text/css" href="../chess/styles/progress-bar.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/chss.css">
   <link rel="stylesheet" href="../styles/index.css">
   <link rel="icon" href="../chess/images/black-pawn.png">
@@ -36,6 +37,7 @@
   <script defer type="text/javascript" src="../chess/scripts/init.js"></script>
   <script defer type="text/javascript" src="../chess/scripts/handlePGN.js"></script>
   <script defer type="text/javascript" src="../chess/scripts/bookTest.js"></script>
+  <script defer type="module" src="../chess/scripts/progress-bar.js"></script>
 
 </head>
 <?php include 'sidebar.php'; ?>
@@ -247,7 +249,44 @@
         <button class="" id="next-move"></button>
       </div>
     </div>
-  </div> 
+  </div>
+
+  <div id="order-progress-container">
+    <div id="order-progress-title">
+        Order Status
+    </div>
+
+    <div id="order-progress">
+        <div class="progress-line"></div>
+        <div class="progress-line-active"></div>
+
+        <div class="step active" data-step="0">
+            <div class="step-circle"></div>
+            <span>Pending</span>
+        </div>
+
+        <div class="step" data-step="1">
+            <div class="step-circle"></div>
+            <span>Cooking</span>
+        </div>
+
+        <div class="step" data-step="2">
+            <div class="step-circle"></div>
+            <span>Ready</span>
+        </div>
+
+        <div class="step" data-step="3">
+            <div class="step-circle"></div>
+            <span>Delivery</span>
+        </div>
+
+        <div class="step" data-step="4">
+            <div class="step-circle"></div>
+            <span>Finish</span>
+        </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

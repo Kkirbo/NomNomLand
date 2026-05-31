@@ -1,0 +1,163 @@
+#order-progress-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 12px auto 20px auto;
+    padding: 16px 24px;
+
+    background: var(--primary);
+    border: 1px solid var(--outline);
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 8px var(--primary-shadow);
+
+    box-sizing: border-box;
+}
+
+#order-progress-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin-bottom: 18px;
+
+    color: var(--white);
+}
+
+#order-progress {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.progress-line,
+.progress-line-active {
+    position: absolute;
+    top: 18px;
+    left: 8%;
+    width: 84%;
+    height: 5px;
+    border-radius: 999px;
+}
+
+.progress-line {
+    background: var(--primary-bright);
+}
+
+.progress-line-active {
+    background: linear-gradient(
+        90deg,
+        var(--secondary),
+        var(--secondary-bright)
+    );
+
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 8px var(--secondary-shadow);
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex: 1;
+}
+
+.step-circle {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: var(--primary-dark);
+    border: 3px solid var(--primary-bright);
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.step span {
+    margin-top: 10px;
+
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    color: var(--primary-bright);
+
+    transition: color 0.3s ease;
+}
+
+/* étape en cours */
+.step.active .step-circle {
+    background: var(--secondary-highlight);
+    border-color: var(--secondary-bright);
+
+    box-shadow:
+        0 0 12px var(--secondary-shadow),
+        0 0 20px var(--secondary-shadow);
+
+    transform: scale(1.1);
+}
+
+.step.active span {
+    color: var(--white);
+}
+
+/* étapes terminées */
+.step.completed .step-circle {
+    background: var(--secondary);
+    border-color: var(--secondary-bright);
+
+    box-shadow:
+        0 0 6px var(--secondary-shadow);
+}
+
+.step.completed span {
+    color: var(--white);
+}
+
+/* état livraison terminée */
+.step.completed.final .step-circle,
+.step.active.final .step-circle {
+    background: var(--neon);
+    border-color: var(--neon);
+
+    box-shadow:
+        0 0 10px var(--neon),
+        0 0 20px var(--neon),
+        0 0 30px var(--neon);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+
+    #order-progress-container {
+        padding: 12px;
+    }
+
+    .step-circle {
+        width: 28px;
+        height: 28px;
+    }
+
+    .step span {
+        font-size: 10px;
+    }
+
+    .progress-line,
+    .progress-line-active {
+        top: 14px;
+    }
+}
+
+.hidden {
+    display: none;
+}

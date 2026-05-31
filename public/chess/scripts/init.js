@@ -31,11 +31,11 @@ if (!onMobile){
   toNextMove.addEventListener('mousedown',callFuncIfNotThinking.bind(null,handleNextMoveClick));
 } else {
   toPrevMove.addEventListener('touchstart',callFuncIfNotThinking.bind(null,()=>{
-    console.log('click')
+
     handlePrevMoveClick()
   }));
   toNextMove.addEventListener('touchstart',callFuncIfNotThinking.bind(null,()=>{
-    console.log('click')
+
     handleNextMoveClick()
   }));  
 }
@@ -58,10 +58,9 @@ async function handleNextMoveClick() {
   } else {
     movesOwed += 1;
   }
-  console.log(movesOwed)
   while (movesOwed > 0) {
     await showNextMove();  
-    console.log('moved')
+
   }
 }
 
@@ -207,7 +206,7 @@ function registerClicks(e){
     function checkPGN(clickedElements){
       let selectedPgnMenu = Array.from(clickedElements).some(el=>(el.id==="pgn-menu" || el.id==="menu-tab"))
       if (!selectedPgnMenu){
-        pgnMenu.classList.add('hidden');
+        // pgnMenu.classList.add('hidden');
       }
     }
     function checkForfeit(clickedElements){
@@ -219,9 +218,9 @@ function registerClicks(e){
     function checkSidebar(clickedElements){
       let selectedSidebar = Array.from(clickedElements).some(el=>(el.id==='menu-container'|| el.id==="forfeit"))
       if (!selectedSidebar){
-        if ((window.innerWidth-mainContainer.offsetWidth)/2 < menuContainer.offsetWidth){
-          hideSidebar();        
-        }
+        // if ((window.innerWidth-mainContainer.offsetWidth)/2 < menuContainer.offsetWidth){
+        //   hideSidebar();        
+        // }
       }
     }
   }
