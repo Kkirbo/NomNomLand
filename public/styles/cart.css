@@ -17,8 +17,9 @@ section.infos article.cartContainer div.ordersContainer.cart:has(a[href="menu.ph
     margin: 0 auto;
 }
 
-button.placeOrder {
-    margin: auto;
+button.placeOrder,
+button.restaurantOrder {
+    margin: 0 auto;
     font-size: 1.2rem;
     padding: 1rem 2rem;
     width: 100%;
@@ -62,7 +63,7 @@ button.placeOrder.hidden {
     margin: 0;
 }
 .modalContent h2:not(:first-of-type) {
-    margin-top: 2rem;
+    margin-top: auto;
 }
 .modalContent h3 {
     text-align: center;
@@ -100,9 +101,4 @@ button.placeOrder.hidden {
     border-radius: 0;
     outline: none;
     padding: 0;
-}
-.modalContent form.bookTable {
-    width: 100%;
-    flex: 1;
-    border: 1px solid red;
 }

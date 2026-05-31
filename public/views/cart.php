@@ -65,7 +65,7 @@ if (is_user_last_order_unpaid($user['id'])) {
             </form>
             <h2>2. Choose where you want to eat</h2>
             <h3>Reserve a table</h3>
-            <form action="" method="post" class="bookTable"></form>
+            <button name="restaurantOrder" class="restaurantOrder">Eat in our restaurant</button>
             <h3>At Home (<?= $user['profile']['address'] ?>)</h3>
             <button name="placeOrder" class="placeOrder">Get it delivered</button>
         </article>
