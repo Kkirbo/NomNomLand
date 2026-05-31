@@ -1,5 +1,5 @@
 import { requestProfileUpdate } from "./request-profile-update.js";
-import { appendMessage } from "./utilities/appendMessage.js";
+import { appendMessage } from "./utilities/message.js";
 import "./editable-user-text-info.js";
 
 const scrollCollisionWidth = 40; //Width of the side rectangles that will scroll the dashboard left or right if the cursor is in it
@@ -50,7 +50,7 @@ for (const user of users) {
         const updated = await requestProfileUpdate(userId, "role", e.target.value);
         if (!updated || updated.status != 200) {
             roleSelect.value = roleSelectOldValue;
-            appendMessage(roleSelect, updated.error ?? "Failed to update profile", true);
+            appendMessage(roleSelect, updated.error ?? "Failed to update profile", 7, true);
             return;
         }
         roleSelectOldValue = roleSelect.value;
@@ -60,7 +60,7 @@ for (const user of users) {
         const updated = await requestProfileUpdate(userId, "status", statusSelect.value);
         if (!updated || updated.status != 200) {
             statusSelect.value = statusSelectOldValue;
-            appendMessage(statusSelect, updated.error ?? "Failed to update profile", true);
+            appendMessage(statusSelect, updated.error ?? "Failed to update profile", 7, true);
             return;
         }
         statusSelectOldValue = statusSelect.value;

@@ -27,7 +27,6 @@ $functionalCookiesChecked = $user['cookies']['functionalCookies'] ?? false;
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css"/>
     <link rel="stylesheet" href="../styles/profile.css"/>
-    <link rel="stylesheet" href="../styles/order-preview.css">
     <title>Profile</title>
     <script defer type="module" src="../scripts/profile.js"></script>
 </head>

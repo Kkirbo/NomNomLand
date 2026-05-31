@@ -36,7 +36,6 @@ if (!$lastOrder) {
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/rating.css">
-    <link rel="stylesheet" href="../styles/order-preview.css">
     <script>
         const lastOrder = <?= json_encode($lastOrder) ?>;
     </script>

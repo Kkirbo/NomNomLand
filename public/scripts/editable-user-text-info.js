@@ -1,6 +1,6 @@
 import { getUserId } from "../scripts/get-user-id.js";
 import { requestProfileUpdate } from "./request-profile-update.js";
-import { appendMessage } from "./utilities/appendMessage.js";
+import { appendMessage } from "./utilities/message.js";
 import { checkLength, validateInput } from "./form.js";
 
 const sidebarCheckbox = document.querySelector('#togglesidebar');
@@ -26,7 +26,7 @@ async function submitInput(input) {
     let validate = validateInput(input);
     if (!validate.success) {
         input.replaceWith(span);
-        appendMessage(span, validate.error, true);
+        appendMessage(span, validate.error, 7, true);
         return;
     }
 
@@ -34,7 +34,7 @@ async function submitInput(input) {
     if (!userId) userId = await getUserId();
     if (!userId || userId.status != 200 || !userId.id) {
         input.replaceWith(span);
-        appendMessage(span, "Failed to get user ID", true);
+        appendMessage(span, "Failed to get user ID", 7, true);
         return;
     }
     userId = userId.id;
@@ -42,7 +42,7 @@ async function submitInput(input) {
     const updated = await requestProfileUpdate(userId, span.dataset.name, input.value);
     if (!updated || updated.status != 200) {
         input.replaceWith(span);
-        appendMessage(span, updated.error ?? "Failed to update profile", true);
+        appendMessage(span, updated.error ?? "Failed to update profile", 7, true);
         return;
     }
 

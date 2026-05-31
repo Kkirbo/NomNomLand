@@ -1,28 +1,32 @@
 import { getItemInfo } from "../scripts/get-item-info.js";
 
 export async function generateOrderInfoBox(orderInfo, showRatingLink=false) {
-    const itemCounts = {};
-    for (const item of orderInfo?.content || []) {
-        itemCounts[item] = (itemCounts[item] || 0) + 1;
-    }
-    
     let newHTML = `
         <h3>#${orderInfo?.id ?? "N/A"} (${orderInfo?.price ?? 0}€)</h3>
         <div class="orderItemsContainer">
     `;
-    for (const itemId in itemCounts) {
-        let itemInfo = await getItemInfo(itemId);
-        if (!itemInfo) continue;
+    for (const item of orderInfo?.contents) {
+        console.log(item);
+        let itemInfo = await getItemInfo(item.id);
+        if (!itemInfo || itemInfo.status != 200 || !itemInfo.data) continue;
         itemInfo = itemInfo.data;
 
-        itemInfo.quantity = itemCounts[itemId];
         newHTML += `
             <div class="order-preview modernNeonBoxGlass">
                 <img src="${itemInfo.image}" alt="${itemInfo.title}">
                 <div class="infos">
                     <span class="title">${itemInfo.title}</span>
-                    <span class="meta">${"No options"}</span>
-                    <span class="price">x${itemInfo.quantity} • ${itemInfo.price}€</span>
+        `;
+        if (item.contents) for (const dish of item.contents) {
+            let dishInfo = await getItemInfo(dish);
+            if (!dishInfo || dishInfo.status != 200 || !dishInfo.data) continue;
+            newHTML += `
+                <span class="meta">${dishInfo.data.title ?? dish}</span>
+            `;
+        } 
+        else newHTML += `<span class="meta">${"No options"}</span>`;
+        newHTML += `
+                    <span class="price">x${item.quantity} • ${itemInfo.price}€</span>
                 </div>
             </div>
         `;

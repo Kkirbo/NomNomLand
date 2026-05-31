@@ -1,5 +1,7 @@
 import { getModalInfo } from "./get-modal-info.js";
-import { addArticleToCart } from "./add-to-cart.js";
+import { addArticleToCart, getCartInfo } from "./cart.js";
+import { sendUserNotification } from "./utilities/message.js";
+import { getItemInfo } from "./get-item-info.js";
 
 const sidebarCheckbox = document.querySelector('#togglesidebar');
 const backgroundBlur = document.querySelector('.background-blur');
@@ -14,7 +16,7 @@ const selectStarter = footerForm.querySelector("select[name=\"starter\"]");
 const selectMaincourse = footerForm.querySelector("select[name=\"main course\"]");
 const selectDrink = footerForm.querySelector("select[name=\"drink\"]");
 const selectDessert = footerForm.querySelector("select[name=\"dessert\"]");
-const addToCartInput = footerForm.querySelector("input[type=\"hidden\"][name=\"dish_id\"]");
+const addToCartInput = footerForm.querySelector("input[type=\"hidden\"][name=\"item_id\"]");
 const quantityInput = footerForm.querySelector("input[type=\"number\"][name=\"quantity\"]");
 let itemPrice = 0;
 
@@ -139,7 +141,34 @@ window.addEventListener("hashchange", (e) => {
 updateModal();
 
 //Async form
-footerForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  addArticleToCart(footerForm);
+footerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    closeModal();
+    let addToCart = await addArticleToCart(footerForm);
+    if (!addToCart || addToCart.status != 200) {
+        sendUserNotification(addToCart.error ?? "Failed to add item to cart", 5, true);
+        return;
+    }
+    let itemInfo;
+    if (addToCart.data.id) itemInfo = await getItemInfo(addToCart.data.id);
+    if (!itemInfo || itemInfo.status != 200 || !itemInfo.data) {
+        sendUserNotification(`<span>Item added to your cart<span>`, 3);
+        return;
+    }
+    itemInfo = itemInfo.data;
+    let cartTotal = await getCartInfo();
+    if (!cartTotal || cartTotal.status != 200 || !cartTotal.data) cartTotal = { data: { total: 0 } };
+    sendUserNotification(`
+        <div class="orderItemsContainer">
+            <div class="order-preview modernNeonBoxGlass">
+                <img src="${itemInfo.image}" alt="${itemInfo.title}">
+                <div class="infos">
+                    <span class="title">${itemInfo.title}</span>
+                    <span class="meta">${"No options"}</span>
+                    <span class="price">x${addToCart.data.quantity} • ${itemInfo.price}€</span>
+                </div>
+            </div>
+        </div>
+        <p><span>Added to your cart</span><span class="price">Cart total: ${cartTotal.data.total}€</span><p>
+    `, 3);
 });

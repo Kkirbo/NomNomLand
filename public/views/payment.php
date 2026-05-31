@@ -67,7 +67,6 @@ Expiry Date: Any
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
-    <link rel="stylesheet" href="../styles/order-preview.css">
     <script defer type="module" src="../scripts/display-latest-unpaid-order.js"></script>
 </head>
 <body>

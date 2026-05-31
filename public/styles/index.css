@@ -335,6 +335,125 @@ button:hover svg {
   box-shadow: 0 0 5px var(--pastel-red) !important;
 }
 
+.notification-container {
+  z-index: 6;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 1rem;
+  font-size: 1.2rem;
+  max-width: 50%;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.notification {
+  display: flex;
+  gap: 1rem;
+
+  padding: 1rem;
+  font-size: 1.2rem;
+  max-width: 100%;
+  overflow: auto;
+
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+.notification.fade-out {
+  opacity: 0;
+}
+.notification.pastel-red {
+  color: var(--pastel-red);
+  border: 0.2rem solid var(--pastel-red);
+}
+.notification > div {
+  max-width: 50%;
+}
+.notification p {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.notification p span.price {
+    color: var(--pastel-orange);
+    font-weight: 700;
+}
+
+.ordersContainer {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.ordersContainer p {
+    text-align: center;
+}
+.ordersContainer div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 14rem);
+  gap: 1rem;
+  justify-content: center;
+}
+.ordersContainer div.details {
+  margin: 1rem 0;
+}
+.ordersContainer div p {
+  margin: 0;
+}
+.orderItemsContainer .order-preview {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  
+  padding: 0.8rem 2rem;
+
+  transition: all 0.2s ease;
+}
+.orderItemsContainer .order-preview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px var(--secondary-shadow), 0 0 28px var(--secondary-cold-dark);
+}
+.orderItemsContainer .order-preview img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 10rem;
+  max-height: 10rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 3rem;
+}
+.orderItemsContainer .order-preview .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0.2rem;
+}
+.orderItemsContainer .order-preview .title {
+  margin-top: auto;
+  color: var(--secondary-bright);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.orderItemsContainer .order-preview .meta {
+  color: var(--white);
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+.orderItemsContainer .order-preview .price {
+  color: var(--pastel-orange);
+  font-weight: 700;
+}
+
 /*--Input--*/
 input[type="text"],
 input[type="email"],

@@ -1,4 +1,4 @@
-import { appendMessage } from "./utilities/appendMessage.js";
+import { appendMessage } from "./utilities/message.js";
 
 export function togglePassword(input) {
     if (input.type === "text") input.type = "password";
@@ -141,7 +141,7 @@ export function validateForm(form) {
     for (const input of inputs) {
         if (input.classList.contains("novalidate")) continue;
         let validate = validateInput(input);
-        if (!validate.success) appendMessage(input, validate.error, true);
+        if (!validate.success) appendMessage(input, validate.error, 7, true);
         valid = valid && validate.success;
         if (!valid) break;
     }

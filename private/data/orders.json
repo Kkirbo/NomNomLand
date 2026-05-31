@@ -4,9 +4,9 @@
             "id": "6a08e9a154020",
             "user_id": "69f9f3e7e6e91",
             "phone": "0123456789",
-            "content": [
-                "RTX",
-                "margherita"
+            "contents": [
+                {"id":"RTX","quantity":1},
+                {"id":"margherita","quantity":1}
             ],
             "options": [],
             "delivery": {
@@ -22,9 +22,9 @@
             "id": "6a0a395259dc0",
             "user_id": "69f9f3e7e6e91",
             "phone": "0132457891",
-            "content": [
-                "bruschetta",
-                "gelato"
+            "contents": [
+                {"id":"bruschetta","quantity":1},
+                {"id":"gelato","quantity":1}
             ],
             "options": [],
             "delivery": {
@@ -33,15 +33,16 @@
                 "delivery_person_id": ""
             },
             "price": 8,
-            "paymentStatus": "pending",
+            "paymentStatus": "failed",
             "date": "2026-05-18 06:55"
         },
         {
             "id": "6a145574738c1",
             "user_id": "69f9f3e7e6e91",
             "phone": "0132457890",
-            "content": [
-                "garlic"
+            "contents": [
+                {"id":"garlic","quantity":1},
+                {"id":"menu7","quantity":1,"contents":["salad","margherita","smoothie","tiramisu"]}
             ],
             "options": [],
             "delivery": {
@@ -50,7 +51,7 @@
                 "delivery_person_id": ""
             },
             "price": 7,
-            "paymentStatus": "pending",
+            "paymentStatus": "failed",
             "date": "2026-05-25 22:58"
         }
     ]

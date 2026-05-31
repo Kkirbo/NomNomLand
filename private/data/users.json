@@ -44,7 +44,8 @@
             "cookies": {
                 "analyticsCookies": true,
                 "functionalCookies": true
-            }
+            },
+            "cart": "[{\"id\":\"RTX\",\"quantity\":1},{\"id\":\"ravioli\",\"quantity\":1},{\"id\":\"menu1\",\"quantity\":1,\"contents\":[\"bruschetta\"]},{\"id\":\"menu7\",\"quantity\":1,\"contents\":[\"salad\",\"margherita\",\"smoothie\",\"tiramisu\"]}]"
         },
         {
             "id": "69f9f4d7be1cc",
