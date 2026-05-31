@@ -14,18 +14,18 @@ function assignBorder(good,lastMove){
 function highlightSquare(square){
   if (!square || !square.classList.contains("square")){ return }
   if (square.classList.contains("dark")){
-    square.style.backgroundColor = "rgb(180, 90, 70)";
+    square.style.backgroundColor = "var(--primary-highlight)";
   } else {
-    square.style.backgroundColor = "rgb(255, 210, 150)";
+    square.style.backgroundColor = "var(--primary-bright)";
   }
 }
 
 function unhighlightSquare(square){
   if (!square || !square.classList.contains("square")){ return }
   if (square.classList.contains("dark")){
-    square.style.backgroundColor = "rgb(130, 65, 0)";
+    square.style.backgroundColor = "var(--primary)";
   } else {
-    square.style.backgroundColor = "rgb(219, 183, 183)";
+    square.style.backgroundColor = "var(--primary-highlight)";
   }
   square.classList.remove('correct')
   square.classList.remove('incorrect')
