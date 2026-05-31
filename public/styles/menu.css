@@ -406,10 +406,3 @@ a.link:visited {
       0 0 20px var(--basic);
   }
 }
-
-
-@media (max-width: 768px) {
-  .texte {
-    font-size: 1rem;
-  }
-}
