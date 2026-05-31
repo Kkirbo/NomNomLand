@@ -57,7 +57,8 @@ function login($email, $password) {
             return 4; //blocked account
         }
         if($user && password_verify($password, $user["recoveryCode"])){
-            redirect_url("reset_password.php?email=" . urlencode($email));
+            $_SESSION["user_id"] = $user["id"];
+            redirect_url("recovery.php");
         }
         date_default_timezone_set('Pacific/Palau');
         update_user_field($user["id"], "lastLogin", date("Y-m-d H:i:s"));
