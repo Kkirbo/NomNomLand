@@ -6,7 +6,6 @@ export async function generateOrderInfoBox(orderInfo, showRatingLink=false) {
         <div class="orderItemsContainer">
     `;
     for (const item of orderInfo?.contents) {
-        console.log(item);
         let itemInfo = await getItemInfo(item.id);
         if (!itemInfo || itemInfo.status != 200 || !itemInfo.data) continue;
         itemInfo = itemInfo.data;

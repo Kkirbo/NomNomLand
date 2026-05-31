@@ -8,3 +8,15 @@ export async function requestOrderUpdate(orderId, field, value) {
     return false;
   }
 }
+
+export async function sendCartToOrder(options=[], deliveryMode="delivery") {
+  try {
+    console.log(`options=${options}&deliveryMode=${deliveryMode}`);
+    return 0;
+    /*const response = await fetch(`../api/request-send-cart-to-order.php?options=${options}&deliveryMode=${deliveryMode}`);
+    return await response.json();*/
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+}

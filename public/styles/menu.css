@@ -224,7 +224,7 @@ a.link:visited {
   opacity: 1;
 }
 
-.modal_content {
+.modalContent {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -237,7 +237,7 @@ a.link:visited {
   color: var(--white);
   font-size: 1.2rem;
 }
-.modal_content img.background {
+.modalContent img.background {
   position: absolute;
   top: 0;
   left: 0;
@@ -250,20 +250,20 @@ a.link:visited {
   background: transparent;
   opacity: 0.33;
 }
-.modal_content div {
+.modalContent div {
     z-index: 1;
 }
-.modal_content div.header {
+.modalContent div.header {
     flex: 1;
     max-height: 15%;
 }
-.modal_content div.description {
+.modalContent div.description {
     overflow-y: auto;
 }
-.modal_content div.footer {
+.modalContent div.footer {
     flex: 1;
 }
-.modal_content div.footer h3 {
+.modalContent div.footer h3 {
     margin: 0;
 }
 
@@ -278,31 +278,31 @@ a.link:visited {
   cursor: pointer;
 }
 
-.modal_content form > div {
+.modalContent form > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
 }
 
-.modal_content form * {
+.modalContent form * {
   font-size: 1.2rem;
 }
 
-.modal_content form h3.hidden {
+.modalContent form h3.hidden {
   display: none;
 }
-.modal_content form select {
+.modalContent form select {
   width: min(100%, 250px);
   padding: 0.5rem 1rem;
   padding-right: 2rem;
   margin-bottom: 1rem;
 }
-.modal_content form select:disabled {
+.modalContent form select:disabled {
   display: none;
 }
 
-.modal_content form button {
+.modalContent form button {
   display: block;
   margin: auto;
   margin-top: 1rem;

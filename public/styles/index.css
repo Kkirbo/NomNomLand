@@ -174,6 +174,10 @@ a {
   color: var(--pastel-blue);
   text-decoration: none;
 }
+span.price {
+  color: var(--pastel-orange);
+  font-weight: 700;
+}
 
 /*--Buttons--*/
 button {
@@ -448,10 +452,6 @@ button:hover svg {
   color: var(--white);
   opacity: 0.8;
   font-size: 0.9rem;
-}
-.orderItemsContainer .order-preview .price {
-  color: var(--pastel-orange);
-  font-weight: 700;
 }
 
 /*--Input--*/

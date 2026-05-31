@@ -1,7 +1,7 @@
 import { getLastPaidOrderInfo } from "../scripts/get-order-info.js";
 import { generateOrderInfoBox } from "../scripts/generate-order-info-box.js";
 
-const ordersBox = document.querySelector('.ordersContainer');
+const ordersBox = document.querySelector('.ordersContainer.latestOrder');
 (async function() {
   if (!ordersBox) return;
   const lastOrderInfo = await getLastPaidOrderInfo();

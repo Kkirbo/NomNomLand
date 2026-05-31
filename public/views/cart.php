@@ -10,210 +10,6 @@ if (is_user_last_order_unpaid($user['id'])) {
     header("Location: payment.php");
     exit();
 }
-
-date_default_timezone_set('Pacific/Palau');
-
-$cartData = get_cart();
-
-$optionsData = load_data("options.json", "options")['options'] ?? [];
-
-$optionsById = [];
-foreach ($optionsData as $o) {
-    $optionsById[$o['id']] = $o;
-}
-
-function calculateItemPrice($basePrice, $selectedOptions, $optionsById) {
-    $price = $basePrice;
-
-    foreach ($selectedOptions as $optId) {
-
-        $opt = $optionsById[$optId] ?? null;
-
-        if (!$opt) continue;
-
-        if ($opt['type'] === 'ingredient_modification') {
-            $price *= 1 + ($opt['priceImpact'] ?? 0);
-        }
-
-        if ($opt['type'] === 'coupon') {
-            $price *= 1 - (($opt['discountPercentage'] ?? 0) / 100);
-        }
-    }
-
-    return round($price, 2);
-}
-
-/**
- * POST ACTIONS
- */
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    /**
-     * REMOVE ITEM
-     */
-    if (isset($_POST['remove'])) {
-
-        remove_cart_item(
-            $user['id'],
-            $_POST['id'],
-            $_POST['type'] ?? 'solo'
-        );
-
-        header('Location: cart.php');
-        exit();
-    }
-
-    /**
-     * PLACE ORDER
-     */
-    if (isset($_POST['place_order'])) {
-
-        $orderContent = [];
-        $orderOptions = [];
-        $totalPrice = 0;
-
-        /**
-         * SOLO ITEMS
-         */
-        foreach ($cartData['soloItems'] ?? [] as $item) {
-
-            if (($item['user_id'] ?? null) !== $user['id']) {
-                continue;
-            }
-
-            $dish = get_dish_by_id($item['id']);
-
-            if (!$dish || !isset($dish['price'])) {
-                continue;
-            }
-
-            // IMPORTANT:
-            // on stocke l'ID et NON le titre
-            $orderContent[] = $dish['id'];
-
-            $totalPrice += $dish['price'] * $item['quantity'];
-        }
-
-        /**
-         * MENUS
-         */
-        foreach ($cartData['items'] ?? [] as $item) {
-
-            if (($item['user_id'] ?? null) !== $user['id']) {
-                continue;
-            }
-
-            $menu = get_menu_by_id($item['id']);
-
-            if (!$menu || !isset($menu['price'])) {
-                continue;
-            }
-
-            $selectedOptions = $_POST['options'][$item['id']] ?? [];
-
-            $menuPrice = calculateItemPrice(
-                $menu['price'],
-                $selectedOptions,
-                $optionsById
-            );
-
-            // IMPORTANT:
-            // on stocke l'ID
-            $orderContent[] = $menu['id'];
-
-            foreach ($selectedOptions as $optId) {
-
-                $opt = $optionsById[$optId] ?? null;
-
-                if (!$opt) continue;
-
-                $orderOptions[] =
-                    $opt['description']
-                    ?? $opt['couponCode']
-                    ?? '';
-            }
-
-            $totalPrice += $menuPrice * $item['quantity'];
-        }
-
-        /**
-         * EMPTY CART CHECK
-         */
-        if (empty($orderContent)) {
-            header('Location: cart.php?error=empty');
-            exit();
-        }
-
-        /**
-         * CREATE ORDER
-         */
-        $order = [
-            'id' => uniqid(),
-            'user_id' => $user['id'],
-            'phone' => $user['phone'] ?? '',
-            'content' => $orderContent,
-            'options' => $orderOptions,
-
-            'delivery' => [
-                'status' => 'pending',
-                'address' => $user['address'] ?? '',
-                'delivery_person_id' => ''
-            ],
-
-            'price' => round($totalPrice, 2),
-            'paymentStatus' => 'pending',
-            'date' => date('Y-m-d H:i')
-        ];
-
-        add_order($order);
-
-        clear_user_cart($user['id']);
-
-        header('Location: cart.php?ordered=1');
-        exit();
-    }
-}
-
-/**
- * TOTAL ITEMS
- */
-$totalItems = 0;
-
-/**
- * SOLO ITEMS COUNT
- */
-foreach ($cartData['soloItems'] ?? [] as $item) {
-
-    if (($item['user_id'] ?? null) !== $user['id']) {
-        continue;
-    }
-
-    $dish = get_dish_by_id($item['id']);
-
-    if (!$dish || !isset($dish['price'])) {
-        continue;
-    }
-
-    $totalItems += $item['quantity'];
-}
-
-/**
- * MENU ITEMS COUNT
- */
-foreach ($cartData['items'] ?? [] as $item) {
-
-    if (($item['user_id'] ?? null) !== $user['id']) {
-        continue;
-    }
-
-    $menu = get_menu_by_id($item['id']);
-
-    if (!$menu || !isset($menu['price'])) {
-        continue;
-    }
-
-    $totalItems += $item['quantity'];
-}
 ?>
 
 <!DOCTYPE html>
@@ -231,6 +27,7 @@ foreach ($cartData['items'] ?? [] as $item) {
 
     <link rel="stylesheet" href="../styles/cart.css">
 
+    <script defer type="module" src="../scripts/cart.js"></script>
     <script defer type="module" src="../scripts/display-latest-order.js"></script>
     <script defer src="../scripts/status.js"></script>
 </head>
@@ -246,197 +43,38 @@ foreach ($cartData['items'] ?? [] as $item) {
 
     <section class="infos">
         <h2>Your Cart</h2>
-        <article class="modernNeonBoxGlass">
-
-            <?php if(isset($_GET['ordered'])): ?>
-                <p class="success-message">
-                    Your order has been placed!
-                </p>
-            <?php endif; ?>
-
-            <?php if(isset($_GET['error']) && $_GET['error'] === 'empty'): ?>
-                <p class="error-message">
-                    Your cart is empty!
-                </p>
-            <?php endif; ?>
-
-            <!-- SOLO ITEMS -->
-
-            <h1>Solo Items</h1>
-
-            <ul class="cart-list">
-
-                <form method="post">
-
-                    <?php foreach($cartData['soloItems'] ?? [] as $item): ?>
-
-                        <?php
-                        if (($item['user_id'] ?? null) !== $user['id']) {
-                            continue;
-                        }
-
-                        $dish = get_dish_by_id($item['id']);
-
-                        if (!$dish || !isset($dish['price'])) {
-                            continue;
-                        }
-                        ?>
-
-                        <li class="cart-item">
-
-                            <span>
-                                <?= htmlspecialchars($dish['title']) ?>
-                            </span>
-
-                            <span>
-                                Quantity: <?= $item['quantity'] ?>
-                            </span>
-
-                            <span>
-                                <?= number_format($dish['price'] * $item['quantity'], 2) ?> €
-                            </span>
-
-                            <input
-                                type="hidden"
-                                name="id"
-                                value="<?= $item['id'] ?>"
-                            >
-
-                            <input
-                                type="hidden"
-                                name="type"
-                                value="solo"
-                            >
-
-                            <button type="submit" name="remove">
-                                Remove
-                            </button>
-
-                        </li>
-
-                    <?php endforeach; ?>
-
-                </form>
-
-            </ul>
-
-            <!-- MENUS -->
-
-            <h1>Menus</h1>
-
-            <ul class="cart-list">
-
-                <form method="post">
-
-                    <?php foreach($cartData['items'] ?? [] as $item): ?>
-
-                        <?php
-                        if (($item['user_id'] ?? null) !== $user['id']) {
-                            continue;
-                        }
-
-                        $menu = get_menu_by_id($item['id']);
-
-                        if (!$menu || !isset($menu['price'])) {
-                            continue;
-                        }
-                        ?>
-
-                        <li class="cart-item">
-
-                            <span>
-                                <?= htmlspecialchars($menu['title']) ?>
-                            </span>
-
-                            <span>
-                                Quantity: <?= $item['quantity'] ?>
-                            </span>
-
-                            <div class="cart-item-options">
-
-                                <?php foreach($optionsData as $opt): ?>
-
-                                    <?php if(
-                                        $opt['type'] === 'ingredient_modification'
-                                        || $opt['type'] === 'coupon'
-                                    ): ?>
-
-                                        <label>
-
-                                            <input
-                                                type="checkbox"
-                                                name="options[<?= $item['id'] ?>][]"
-                                                value="<?= $opt['id'] ?>"
-                                            >
-
-                                            <?= htmlspecialchars(
-                                                $opt['description']
-                                                ?? $opt['couponCode']
-                                            ) ?>
-
-                                        </label>
-
-                                    <?php endif; ?>
-
-                                <?php endforeach; ?>
-
-                            </div>
-
-                            <input
-                                type="hidden"
-                                name="id"
-                                value="<?= $item['id'] ?>"
-                            >
-
-                            <input
-                                type="hidden"
-                                name="type"
-                                value="menu"
-                            >
-
-                            <button type="submit" name="remove">
-                                Remove
-                            </button>
-
-                        </li>
-
-                    <?php endforeach; ?>
-
-                </form>
-
-            </ul>
-
-            <!-- ORDER BUTTON -->
-
-            <form method="post">
-
-                <?php if ($totalItems > 0): ?>
-
-                    <button
-                        type="submit"
-                        name="place_order"
-                        class="button"
-                    >
-                        Order
-                    </button>
-
-                <?php else: ?>
-
-                    <a href="menu.php">
-                        Go to the menu
-                    </a>
-
-                <?php endif; ?>
-
+        <article class="modernNeonBoxGlass cartContainer">
+            <h3>Total: <span class="price">0€</span></h3>
+            <div class="ordersContainer cart modernNeonBoxGlass">
+                <p>Your cart is empty.</p>
+                <a href="menu.php">
+                    Visit the menu
+                </a>
+            </div>
+            <button class="placeOrder hidden" class="button">Place Order</button>
+        </article>
+    </section>
+    <section id="id" class="background-blur modal active">
+        <article class="modalContent modernNeonBoxGlass">
+            <h2>1. Select Options:</h2>
+            <form action="" method="post" class="options">
+                <div class="option"><input type="checkbox" name="salt" id="salt"><label for="salt">Salt</label></div>
+                <div class="option"><input type="checkbox" name="fries" id="fries"><label for="fries">Extra Fries</label></div>
+                <div class="option"><input type="checkbox" name="priority" id="priority"><label for="priority">Urgent Delivery</label></div>
+                <div class="option"><div class="input"><input type="number" name="tip" id="tip" value="0" min="0" max="100">%</div> Tip</div>
             </form>
-
+            <h2>2. Choose where you want to eat</h2>
+            <h3>Reserve a table</h3>
+            <form action="" method="post" class="bookTable"></form>
+            <h3>At Home (<?= $user['profile']['address'] ?>)</h3>
+            <button name="placeOrder" class="placeOrder">Get it delivered</button>
         </article>
     </section>
 
     <section class="infos">
         <h2>My Orders</h2>
         <article class="card modernNeonBoxGlass">
-            <div class="ordersContainer modernNeonBoxGlass">
+            <div class="ordersContainer latestOrder modernNeonBoxGlass">
                 <p>You have no past order.</p>
             </div>
             <a href="orders.php">View my Orders</a>

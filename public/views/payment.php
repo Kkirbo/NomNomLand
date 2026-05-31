@@ -87,7 +87,7 @@ Expiry Date: Any
                 <h3>You have no unpaid order.</h3>
                 <a href="cart.php">Back to cart</a>
             <?php else: ?>
-                <div class="ordersContainer modernNeonBoxGlass">
+                <div class="ordersContainer latestOrder modernNeonBoxGlass">
                     <p>You have no past order.</p>
                 </div>
                 <form method="post" action="https://www.plateforme-smc.fr/cybank/">

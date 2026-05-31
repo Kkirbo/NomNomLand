@@ -25,7 +25,7 @@ $user = get_user_by_session();
         <?php include 'searchbar.php'; ?>
         <section class="search-results"></section>
         <section id="id" class="background-blur modal">
-            <article class="modal_content modernNeonBox">
+            <article class="modalContent modernNeonBox">
                 <img src="../assets/images/default.png" class="background" alt="fork and knife default background">
                 <div class="header">
                     <a href="#" class="modal_close">&times;</a>

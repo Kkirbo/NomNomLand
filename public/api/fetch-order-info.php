@@ -19,5 +19,5 @@ if ($orderInfo) {
     echo json_encode(['status' => 200, 'data' => $orderInfo]);
     exit;
 }
-echo json_encode(['status' => 404, 'data' => $id]);
+echo json_encode(['status' => 404, 'data' => "Can't find order with id: " . $id]);
 ?>

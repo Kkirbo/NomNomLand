@@ -16,25 +16,7 @@ if (!$loggedInUser) {
     exit;
 }
 
-$cart = json_decode($loggedInUser['cart'] ?? '[]', true);
-if (!is_array($cart)) {
-    $cart = [];
-}
-
-$cartInfo = [
-    'items' => $cart,
-    'total' => 0
-];
-
-foreach ($cart as $item) {
-    $itemInfo = get_dish_by_id($item['id']);
-    if (!$itemInfo) {
-        $itemInfo = get_menu_by_id($item['id']);
-    }
-    $price = $itemInfo['price'] ?? 0;
-    $cartInfo['total'] += $price * $item['quantity'];
-}
-$cartInfo['total'] = floor($cartInfo['total']*1000)/1000;
+$cartInfo = get_user_cart($loggedInUser['id']);
 
 if ($cartInfo) {
     echo json_encode([ 'status' => 200, 'data' => $cartInfo ]);

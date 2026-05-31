@@ -4,14 +4,14 @@ import { sendUserNotification } from "./utilities/message.js";
 import { getItemInfo } from "./get-item-info.js";
 
 const sidebarCheckbox = document.querySelector('#togglesidebar');
-const backgroundBlur = document.querySelector('.background-blur');
+const backgroundBlurModal = document.querySelector('.background-blur.modal');
 
-const headerTitle = backgroundBlur.querySelector(".header h2");
-const descVersion = backgroundBlur.querySelector(".description p.dish-version");
-const description = backgroundBlur.querySelector(".description div.dish-section");
-const descFooter = backgroundBlur.querySelector(".description p.dish-footer");
-const footerTitle = backgroundBlur.querySelector(".footer h3");
-const footerForm = backgroundBlur.querySelector(".footer form");
+const headerTitle = backgroundBlurModal.querySelector(".header h2");
+const descVersion = backgroundBlurModal.querySelector(".description p.dish-version");
+const description = backgroundBlurModal.querySelector(".description div.dish-section");
+const descFooter = backgroundBlurModal.querySelector(".description p.dish-footer");
+const footerTitle = backgroundBlurModal.querySelector(".footer h3");
+const footerForm = backgroundBlurModal.querySelector(".footer form");
 const selectStarter = footerForm.querySelector("select[name=\"starter\"]");
 const selectMaincourse = footerForm.querySelector("select[name=\"main course\"]");
 const selectDrink = footerForm.querySelector("select[name=\"drink\"]");
@@ -34,7 +34,7 @@ export async function updateModal() {
     selectDessert.previousElementSibling.classList.add("hidden");
     selectDessert.disabled = true;
     if (window.location.hash == '') {
-        backgroundBlur.classList.remove("active");
+        backgroundBlurModal.classList.remove("active");
         return;
     }
     
@@ -53,10 +53,10 @@ export async function updateModal() {
     modalInfo = modalInfo.data;
     itemPrice = modalInfo.price;
 
-    backgroundBlur.classList.add("active");
+    backgroundBlurModal.classList.add("active");
     headerTitle.textContent = modalInfo.title;
     addToCartInput.value = modalInfo.id;
-    backgroundBlur.querySelector('.background').src = modalInfo.image;
+    backgroundBlurModal.querySelector('.background').src = modalInfo.image;
     quantityInput.value = 1;
     footerTitle.textContent = `Price: ${itemPrice}€`;
     descFooter.textContent = modalInfo.comment ?? '';
@@ -120,8 +120,8 @@ export function closeModal() {
 }
 
 //Hide modal when clicking outside
-backgroundBlur.addEventListener("click", (e) => {
-    if (backgroundBlur.children[0].contains(e.target)) return;
+backgroundBlurModal.addEventListener("click", (e) => {
+    if (backgroundBlurModal.children[0].contains(e.target)) return;
     closeModal();
 });
 

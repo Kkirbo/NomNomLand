@@ -37,7 +37,7 @@ export function sendUserNotification(html, timer=5, error=false) {
     }
 
     const notification = document.createElement("div");
-    notification.className = "notification modernNeonBoxGlass";
+    notification.className = "notification modernNeonBox";
     if (error) notification.classList.add("pastel-red");
     notification.innerHTML = html;
 

@@ -10,6 +10,8 @@ header h1 {
 article.infos div {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
   align-items: center;
   font-size: 1.1rem;
   padding: 1rem;
