@@ -3,6 +3,7 @@ require_once __DIR__ . "/utilities/data.php";
 if (is_logged_in()) redirect_url();
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') return;
+
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 if (get_user_by_email($email) !== null) {
     $error = "An account with this email already exist. Please log in instead.";
@@ -33,12 +34,14 @@ if (!is_numeric($age) || $age < 18 || $age > 120) {
 $address = $_POST['address'] ?? '';
 $gender = $_POST['gender'] ?? 'other';
 $username = $firstName . '.' . $lastName;
+$code = $_POST['recoveryCode'] ?? '';
 
 $user = [
     "id" => uniqid(),
     "email" => $email,
     "phone" => $phone,
     "password" => password_hash($password, PASSWORD_DEFAULT),
+    "recoveryCode" => $code,
     "role" => "client",
     "status" => "Free",
     "fidelity" => 0,
@@ -54,5 +57,8 @@ $user = [
     "lastLogin" => null
 ];
 
-if (register_user($user)) login($email, $password);
+if (register_user($user)){
+    unset($_SESSION['recoveryCode']);
+    login($email, $password);
+} 
 ?>
