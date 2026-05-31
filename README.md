@@ -3,7 +3,7 @@
 La Funzione is a tech-themed restaurant website.
 
 [Rapport Phase 1,2,3.pdf](https://github.com/user-attachments/files/27927628/Rapport.Phase.1.2.3.pdf)
-
+ 
 ---
 
 ## Installation
