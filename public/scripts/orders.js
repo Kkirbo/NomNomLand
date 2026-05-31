@@ -112,8 +112,6 @@ document.addEventListener('click', async (e) => {
         }
 
         const modalContent = button.closest('.modalContent');
-        const deliveryPersonElement = modalContent.querySelector('.delivery-person-name');
-        deliveryPersonElement.textContent = deliveryPersonName;
 
     }
 
