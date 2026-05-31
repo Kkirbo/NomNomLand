@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>VanillaJS Chess</title>
-  <link rel="stylesheet" href="../styles/index.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/layout.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/board.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/checkLine.css">
@@ -14,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="../chess/styles/pgnMenu.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/game-alert.css">
   <link rel="stylesheet" type="text/css" href="../chess/styles/chss.css">
+  <link rel="stylesheet" href="../styles/index.css">
   <link rel="icon" href="../chess/images/black-pawn.png">
   <script defer type="text/javascript" src="../chess/scripts/sidebar.js" ></script>
   <script defer type="text/javascript" src="../chess/scripts/globalVars.js"></script>
