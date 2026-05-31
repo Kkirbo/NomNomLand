@@ -53,7 +53,7 @@ if (!$lastOrder) {
 
         <section class="card modernNeonBoxGlass">
             <h2>Latest Order</h2>
-            <article class="ordersContainer latestOrder modernNeonBoxGlass">You have no past order.</article>
+            <article class="ordersContainer modernNeonBoxGlass">You have no past order.</article>
             <a href="orders.php">View my Orders</a>
         </section>
 
