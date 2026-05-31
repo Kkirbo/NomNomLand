@@ -139,6 +139,32 @@ function update_user_field($userId, $fieldPath, $newValue) {
 }
 
 /**
+ * CART
+ */
+function get_user_cart($userId) {
+    $user = get_user_by_id($userId);
+    $cart = json_decode($user['cart'] ?? '[]', true);
+    if (!is_array($cart)) {
+        $cart = [];
+    }
+    $cartInfo = [
+        'contents' => $cart,
+        'total' => 0
+    ];
+    foreach ($cart as $item) {
+        $itemInfo = get_dish_by_id($item['id']);
+        if (!$itemInfo) {
+            $itemInfo = get_menu_by_id($item['id']);
+        }
+        $price = $itemInfo['price'] ?? 0;
+        $cartInfo['total'] += $price * $item['quantity'];
+    }
+    $cartInfo['total'] = floor($cartInfo['total']*1000)/1000;
+    
+    return $cartInfo;
+}
+
+/**
  * ORDERS
  */
 function get_orders() {
@@ -170,25 +196,6 @@ function get_orders_by_user_id($user_id) {
     }
     return $orders;
 }
-function update_order($orderId, $newData) {
-    return update_data_entry($orderId, $newData, "orders.json", "orders");
-}
-function update_order_field($orderId, $fieldPath, $newValue) {
-    $orderData = get_order_by_id($orderId);
-    if (!$orderData) return false;
-
-    $fields = explode('->', $fieldPath);
-    $currentField = &$orderData;
-    foreach ($fields as $field) {
-        if (!isset($currentField[$field]) || !is_array($currentField[$field]) && $field !== end($fields)) {
-            $currentField[$field] = [];
-        }
-        $currentField = &$currentField[$field];
-    }
-    $currentField = $newValue;
-
-    return update_order($orderId, $orderData);
-}
 function get_user_last_order($userId) {
     $userOrders = get_orders_by_user_id($userId);
     $lastOrder = null;
@@ -214,6 +221,29 @@ function get_user_last_paid_order($userId) {
 function is_user_last_order_unpaid($userId) {
     $latestOrder = get_user_last_order($userId);
     return $latestOrder && $latestOrder['paymentStatus'] === 'pending';
+}
+
+function create_order($order) {
+    return add_data_entry($order, "orders.json", "orders");
+}
+function update_order($orderId, $newData) {
+    return update_data_entry($orderId, $newData, "orders.json", "orders");
+}
+function update_order_field($orderId, $fieldPath, $newValue) {
+    $orderData = get_order_by_id($orderId);
+    if (!$orderData) return false;
+
+    $fields = explode('->', $fieldPath);
+    $currentField = &$orderData;
+    foreach ($fields as $field) {
+        if (!isset($currentField[$field]) || !is_array($currentField[$field]) && $field !== end($fields)) {
+            $currentField[$field] = [];
+        }
+        $currentField = &$currentField[$field];
+    }
+    $currentField = $newValue;
+
+    return update_order($orderId, $orderData);
 }
 
 /**
