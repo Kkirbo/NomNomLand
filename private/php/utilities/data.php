@@ -84,7 +84,7 @@ function get_users_by_role($role) {
 function get_users_by_firstname($firstname) {
     $users = [];
     foreach (get_users() as $user) {
-        if ($user["profile"]["firstname"] === $firstname) {
+        if ($user["profile"]["firstName"] === $firstname) {
             $users[] = $user;
         }
     }
@@ -242,5 +242,10 @@ function get_dish_by_id($id) {
         }
     }
     return null;
+}
+function update_user_password($userId, $newPassword) {
+    $user = get_user_by_id($userId);
+    $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+    return update_user_field($userId, "password", $hashedPassword);
 }
 ?>

@@ -10,7 +10,7 @@ function retype($key) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Recovery Mode</title>
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
