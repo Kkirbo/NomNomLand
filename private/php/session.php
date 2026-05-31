@@ -3,7 +3,18 @@ require_once __DIR__ . "/utilities/data.php";
 require_once __DIR__ . "/utilities/url.php";
 require_once __DIR__ . "/logger.php";
 if (session_status() === PHP_SESSION_NONE) session_start();
-
+function generateResetCode() {
+    $chars = explode(',', 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9');
+    $code = '';
+    for ($i = 0; $i < 4; $i++) {
+        $code .= $chars[random_int(0, count($chars) - 1)];
+    }
+    $code .= '-';
+    for ($i = 0; $i < 4; $i++) {
+        $code .= $chars[random_int(0, count($chars) - 1)];
+    }
+    return $code;
+}
 function is_logged_in() {
     return isset($_SESSION["user_id"]);
 }
@@ -36,7 +47,7 @@ function login($email, $password) {
         return 1; //At least 1 empty field
     }
     $user = get_user_by_email($email);
-    if ($user && password_verify($password, $user["password"])) {
+    if (($user && password_verify($password, $user["password"]) || $user && password_verify($password, $user["recoveryCode"]))) {
         if ($user['status'] == "deactivated"){
             logIncident($user,"Tentative de connexion à un compte désactivé");
             return 3; //Account deactivated
@@ -44,6 +55,9 @@ function login($email, $password) {
         if ($user["status"] === "blocked") {
             logIncident( $user,"Tentative de connexion à un compte bloqué");
             return 4; //blocked account
+        }
+        if($user && password_verify($password, $user["recoveryCode"])){
+            redirect_url("reset_password.php?email=" . urlencode($email));
         }
         date_default_timezone_set('Pacific/Palau');
         update_user_field($user["id"], "lastLogin", date("Y-m-d H:i:s"));

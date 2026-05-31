@@ -41,3 +41,16 @@ form.cookie-settings button {
   font-size: 1.2rem;
   text-align: center;
 }
+.password-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.password-field svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.password-field input[type="checkbox"] {
+    display: none;
+}

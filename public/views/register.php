@@ -1,7 +1,11 @@
 <?php 
 require '../../private/php/session.php';
 include '../../private/php/register.php'; 
-
+session_start();
+if (!isset($_SESSION['recoveryCode'])) {
+    $_SESSION['recoveryCode'] = generateResetCode();
+}
+$recoveryCode = $_SESSION['recoveryCode'];
 function retype($key) {
     return htmlspecialchars($_POST[$key] ?? '');
 }
@@ -85,7 +89,11 @@ function retype($key) {
           <label for="address">Address:</label>
           <input id="address" name="address" type="text" placeholder="12 Rivoli Street Paris" value="<?= retype('address') ?>">
       </div>
-
+    <div class="field">
+          <label for="recovery-code">Recovery code:</label>
+          <span class="recoveryCode"><?php echo"$recoveryCode" ?></span>
+          <input type="hidden" name="recoveryCode" value="<?= htmlspecialchars($recoveryCode) ?>">
+      </div>
       <div class="footer">
         <span>By signing up you argree to the <a href="terms-conditions.php">Terms & Conditions</a> and our <a href="privacy.php">Privacy Policy</a></span>
         <button type="submit" class="button">Sign up</button>
