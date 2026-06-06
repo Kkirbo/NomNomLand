@@ -127,8 +127,8 @@ backgroundBlurModal.addEventListener("click", (e) => {
 
 //Escape key to close modal
 document.addEventListener("keydown", (e) => {
-  if (e.keyCode === 27) {
-    if (sidebarCheckbox && window.location.hash != "") setTimeout(() => sidebarCheckbox.checked = !sidebarCheckbox.checked, 1);
+  if (e.code === "Escape") {
+    if (sidebarCheckbox && backgroundBlurModal.classList.contains("active")) setTimeout(() => sidebarCheckbox.checked = !sidebarCheckbox.checked, 1);
     closeModal();
   }
 });

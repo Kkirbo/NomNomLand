@@ -55,9 +55,8 @@ if ($drink !== '') $contents[] = $drink;
 if ($dessert !== '') $contents[] = $dessert;
 if (!empty($contents)) $item['contents'] = $contents;
 
-//merge with existing cart items
-$merged = false;
-foreach ($cart as &$existing) {
+$deleted = false;
+foreach ($cart as $index => &$existing) {
     $existingContents = $existing['contents'] ?? [];
     $itemContents = $item['contents'] ?? [];
 
@@ -65,23 +64,22 @@ foreach ($cart as &$existing) {
     sort($itemContents);
 
     if (($existing['id'] ?? '') === $item['id'] && $existingContents == $itemContents) {
-        $existing['quantity'] = ($existing['quantity'] ?? 0) + $item['quantity'];
-        $merged = true;
+        $existing['quantity'] = ($existing['quantity'] ?? 0) - $item['quantity'];
+        //We send the final quantity in response
+        $item['quantity'] = $existing['quantity'];
+        if ($existing['quantity'] <= 0) array_splice($cart, $index, 1);
+        $deleted = true;
         break;
     }
 }
 unset($existing);
 
-if (!$merged) {
-    $cart[] = $item;
-}
-
 $updated = update_user_field($loggedInUser['id'], "cart", json_encode($cart));
-if ($updated) {
-    echo json_encode([ 'status' => 200, 'data' => $item ]);
+if ($updated && $deleted) {
+    echo json_encode([ 'status' => 200, 'data' => $item, 'success' => 'Item removed from cart']);
     exit;
 }
 
-echo json_encode([ 'status' => 500, 'error' => 'Failed to add item to cart' ]);
+echo json_encode([ 'status' => 500, 'error' => 'Failed to remove item from cart']);
 exit;
 ?>

@@ -45,7 +45,7 @@
                 "analyticsCookies": true,
                 "functionalCookies": true
             },
-            "cart": "[]"
+            "cart": "[{\"id\":\"ravioli\",\"quantity\":1}]"
         },
         {
             "id": "69f9f4d7be1cc",

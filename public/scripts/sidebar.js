@@ -15,7 +15,7 @@ document.addEventListener('click', (e) => {
 
 //Escape key to toggle sidebar
 document.addEventListener('keydown', (e) => {
-  if (e.keyCode === 27) sidebarCheckbox.checked = !sidebarCheckbox.checked;
+  if (e.code === "Escape") sidebarCheckbox.checked = !sidebarCheckbox.checked;
 });
 
 //Change theme when toggling button in sidebar

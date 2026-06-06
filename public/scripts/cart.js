@@ -14,6 +14,16 @@ export async function addArticleToCart(form) {
   }
 }
 
+export async function removeArticleFromCart(id, quantity=1, starter="", mainCourse="", drink="", dessert="") {
+  try {
+    const response = await fetch(`../api/request-remove-from-cart.php?item_id=${id}&quantity=${quantity}&main_course=${mainCourse}&starter=${starter}&drink=${drink}&dessert=${dessert}`);
+    return await response.json();
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+}
+
 export async function getCartInfo() {
   try {
     const response = await fetch(`../api/fetch-cart-info.php`);
@@ -34,7 +44,7 @@ export async function generateCartInfoBox(cartInfo, showRatingLink=false) {
         itemInfo = itemInfo.data;
 
         newHTML += `
-            <div class="order-preview modernNeonBoxGlass">
+            <div class="order-preview modernNeonBoxGlass" data-id=${itemInfo.id}>
                 <img src="${itemInfo.image}" alt="${itemInfo.title}">
                 <div class="infos">
                     <span class="title">${itemInfo.title}</span>
@@ -43,10 +53,10 @@ export async function generateCartInfoBox(cartInfo, showRatingLink=false) {
             let dishInfo = await getItemInfo(dish);
             if (!dishInfo || dishInfo.status != 200 || !dishInfo.data) continue;
             newHTML += `
-                <span class="meta">${dishInfo.data.title ?? dish}</span>
+                <span class="meta menuInfo" data-id=${dishInfo.data.id}>${dishInfo.data.title ?? dish}</span>
             `;
         } 
-        else newHTML += `<span class="meta">${"No options"}</span>`;
+        else newHTML += `<span class="meta mealInfo">${"No options"}</span>`;
         newHTML += `
                     <span class="price">x${item.quantity} • ${itemInfo.price}€</span>
                 </div>
@@ -73,7 +83,35 @@ const placeOrderButton = document.querySelector('article.cartContainer button.pl
   placeOrderButton.classList.remove("hidden");
   const cartInfoHTML = await generateCartInfoBox(cartInfo.data, true);
   ordersBox.innerHTML = cartInfoHTML;
+  for (const card of Array.from(ordersBox.querySelectorAll(".orderItemsContainer .order-preview"))) {
+    let removeButton = document.createElement("button");
+    removeButton.classList.add("removeItem");
+    removeButton.innerHTML = "Remove";
+    removeButton.dataset.id = card.dataset.id;
+    card.appendChild(removeButton);
+  }
 })();
+
+/**
+ * Remove Button for all cards (avoids an event listener per card)
+ */
+if (ordersBox) ordersBox.addEventListener("click", async (event) => {
+  const removeButton = event.target.closest(".removeItem");
+  if (!removeButton) return;
+
+  const itemId = removeButton.dataset.id;
+  let menuDishes = Array.from(removeButton.parentElement.querySelectorAll(".infos span.meta.menuInfo")).map(element => element.dataset.id);
+  let removed = await removeArticleFromCart(itemId, 1, menuDishes[0] ?? "", menuDishes[1] ?? "", menuDishes[2] ?? "", menuDishes[3] ?? "");
+  console.log(removed);
+  
+  if (!removed || removed.status != 200 || !removed.data || !removed.success) return sendUserNotification(removed.error ?? "Failed to remove item from cart", 5, true);
+  if (removed.data?.quantity <= 0) removeButton.parentElement.remove();
+  else {
+    let priceInfo = removeButton.parentElement.querySelector("span.price");
+    priceInfo.textContent = `x${removed.data?.quantity ?? 1} • ${priceInfo.textContent.split(" • ")[1]}`;
+  }
+  sendUserNotification(removed.success ?? "Item removed from cart", 5);
+});
 
 /**
  * Place order modal
@@ -96,7 +134,7 @@ backgroundBlurModal.addEventListener("click", (e) => {
 
 //Escape key to close modal
 document.addEventListener("keydown", (e) => {
-  if (e.keyCode === 27) {
+  if (e.code === "Escape") {
     if (sidebarCheckbox && backgroundBlurModal.classList.contains("active")) setTimeout(() => sidebarCheckbox.checked = !sidebarCheckbox.checked, 1);
     closeModal();
   }
@@ -122,7 +160,7 @@ if (sendToDeliveryButton) sendToDeliveryButton.addEventListener("click", async (
     return;
   }
   window.location.href = "payment.php";
-  //sendUserNotification(`<span>Your order was placed:</span><span><a href="orders.php">View my Orders</a></span>`, 5);
+  sendUserNotification(`<span>Your order was placed:</span><span><a href="orders.php">View my Orders</a></span>`, 5);
 });
 
 const restaurantOrderButton = backgroundBlurModal.querySelector('.modalContent button.restaurantOrder');
@@ -139,5 +177,5 @@ if (restaurantOrderButton) restaurantOrderButton.addEventListener("click", async
     return;
   }
   window.location.href = "payment.php";
-  //sendUserNotification(`<span>Your order was placed:</span><span><a href="orders.php">View my Orders</a></span>`, 5);
+  sendUserNotification(`<span>Your order was placed:</span><span><a href="orders.php">View my Orders</a></span>`, 5);
 });

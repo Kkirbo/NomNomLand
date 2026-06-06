@@ -2,23 +2,29 @@ import { requestProfileUpdate } from "./request-profile-update.js";
 import { appendMessage } from "./utilities/message.js";
 import "./editable-user-text-info.js";
 
+// Dashboard scrolling configuration.
+// `scrollCollisionWidth` defines how close the cursor must be to the left/right edge of the dashboard
+// before automatic scrolling begins. `scrollSpeed` is the number of pixels scrolled per step.
 const scrollCollisionWidth = 40; //Width of the side rectangles that will scroll the dashboard left or right if the cursor is in it
 const scrollSpeed = 10; //Pixels to jump with each scroll step (keys or mouse)
 
 const dashboard = document.querySelector('section.infos article:has(table)');
 let scrollKeys = [false, false]
 let mouseCollision = 0;
+
+// Track whether the left or right arrow key is currently held down.
+// scrollKeys[0] is left, scrollKeys[1] is right.
 document.addEventListener('keydown', (e) => {
-    if (e.keyCode !== 37 && e.keyCode !== 39) return;
+    if (e.code !== "ArrowLeft" && e.code !== "ArrowRight") return;
     e.preventDefault();
-    if (e.keyCode === 37) scrollKeys[0] = true;
-    if (e.keyCode === 39) scrollKeys[1] = true;
+    if (e.code === "ArrowLeft") scrollKeys[0] = true;
+    if (e.code === "ArrowRight") scrollKeys[1] = true;
 });
 document.addEventListener('keyup', (e) => {
-    if (e.keyCode !== 37 && e.keyCode !== 39) return;
+    if (e.code !== "ArrowLeft" && e.code !== "ArrowRight") return;
     e.preventDefault();
-    if (e.keyCode === 37) scrollKeys[0] = false;
-    if (e.keyCode === 39) scrollKeys[1] = false;
+    if (e.code === "ArrowLeft") scrollKeys[0] = false;
+    if (e.code === "ArrowRight") scrollKeys[1] = false;
 });
 document.addEventListener('mousemove', (e) => {
     mouseCollision = 0;
@@ -31,6 +37,9 @@ document.addEventListener('mousemove', (e) => {
             mouseCollision = 1;
     }
 });
+
+// Polling loop that applies scrolling based on keyboard state or mouse edge hover.
+// This keeps the dashboard moving while a control is active.
 setInterval(() => {
     if (scrollKeys[0]) dashboard.scrollLeft -= scrollSpeed;
     if (scrollKeys[1]) dashboard.scrollLeft += scrollSpeed;
@@ -46,6 +55,8 @@ for (const user of users) {
     
     const roleSelect = user.querySelector('select[name="role"]');
     let roleSelectOldValue = roleSelect ? roleSelect.value : undefined;
+
+    // Role dropdown updates user role metadata and reverts the UI if the server rejects the change.
     if (roleSelect) roleSelect.addEventListener('change', async (e) => {
         const updated = await requestProfileUpdate(userId, "role", e.target.value);
         if (!updated || updated.status != 200) {
@@ -56,6 +67,7 @@ for (const user of users) {
         roleSelectOldValue = roleSelect.value;
     });
 
+    // Shared status update helper used by the status dropdown and the block/deactivate buttons.
     async function statusChange() {
         const updated = await requestProfileUpdate(userId, "status", statusSelect.value);
         if (!updated || updated.status != 200) {
@@ -86,6 +98,7 @@ for (const user of users) {
         }
     });
 
+    // Points controller allows incremental fidelity updates with modifier keys.
     const pointsController = user.querySelector('div.points-control');
     const pointsSpan = pointsController.querySelector('span.points');
     const minusButton = pointsController.querySelector('button[name=minusfidelity]');

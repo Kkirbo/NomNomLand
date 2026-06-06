@@ -52,7 +52,7 @@ async function submitInput(input) {
 
 document.addEventListener("keydown", (e) => {
     const activeInputs = document.querySelectorAll("input.editing-user-text-info");
-    if (e.keyCode == 27) {
+    if (e.code == "Escape") {
         let canceledInput = false;
         for (const activeInput of activeInputs) if (activeInput) {
             cancelInput(activeInput);
@@ -60,7 +60,7 @@ document.addEventListener("keydown", (e) => {
         }
         if (sidebarCheckbox && canceledInput) setTimeout(() => sidebarCheckbox.checked = !sidebarCheckbox.checked, 1);
     }
-    if (e.keyCode == 13) for (const activeInput of activeInputs) if (activeInput) submitInput(activeInput);
+    if (e.code == "Enter") for (const activeInput of activeInputs) if (activeInput) submitInput(activeInput);
 });
 
 document.addEventListener("click", async (e) => {
