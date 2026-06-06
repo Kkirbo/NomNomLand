@@ -75,10 +75,18 @@ export async function generateCartInfoBox(cartInfo, showRatingLink=false) {
 const priceTotalSpan = document.querySelector('article.cartContainer h3>span.price');
 const ordersBox = document.querySelector('.ordersContainer.cart');
 const placeOrderButton = document.querySelector('article.cartContainer button.placeOrder');
-(async function() {
+async function updateCartDisplay() {
   if (!ordersBox) return;
   const cartInfo = await getCartInfo();
-  if (!cartInfo || cartInfo.status != 200 || cartInfo.data.total <= 0) return;
+  if (!cartInfo || cartInfo.status != 200 || cartInfo.data.total <= 0) return ordersBox.parentElement.innerHTML = `
+            <h3>Total: <span class="price">0€</span></h3>
+            <div class="ordersContainer cart modernNeonBoxGlass">
+                <p>Your cart is empty.</p>
+                <a href="menu.php">
+                    Visit the menu
+                </a>
+            </div>
+            <button class="placeOrder hidden" class="button">Place Order</button>`;
   if (priceTotalSpan) priceTotalSpan.textContent = `${cartInfo.data.total}€ (Fidelity discount: ${cartInfo.data.discount}€)`;
   placeOrderButton.classList.remove("hidden");
   const cartInfoHTML = await generateCartInfoBox(cartInfo.data, true);
@@ -86,11 +94,12 @@ const placeOrderButton = document.querySelector('article.cartContainer button.pl
   for (const card of Array.from(ordersBox.querySelectorAll(".orderItemsContainer .order-preview"))) {
     let removeButton = document.createElement("button");
     removeButton.classList.add("removeItem");
-    removeButton.innerHTML = "Remove";
+    removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>';
     removeButton.dataset.id = card.dataset.id;
     card.appendChild(removeButton);
   }
-})();
+}
+updateCartDisplay();
 
 /**
  * Remove Button for all cards (avoids an event listener per card)
@@ -105,11 +114,7 @@ if (ordersBox) ordersBox.addEventListener("click", async (event) => {
   console.log(removed);
   
   if (!removed || removed.status != 200 || !removed.data || !removed.success) return sendUserNotification(removed.error ?? "Failed to remove item from cart", 5, true);
-  if (removed.data?.quantity <= 0) removeButton.parentElement.remove();
-  else {
-    let priceInfo = removeButton.parentElement.querySelector("span.price");
-    priceInfo.textContent = `x${removed.data?.quantity ?? 1} • ${priceInfo.textContent.split(" • ")[1]}`;
-  }
+  updateCartDisplay();
   sendUserNotification(removed.success ?? "Item removed from cart", 5);
 });
 

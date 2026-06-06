@@ -416,6 +416,7 @@ button:hover svg {
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
+  overflow: hidden;
   
   padding: 0.8rem 2rem;
 
@@ -452,9 +453,26 @@ button:hover svg {
   font-size: 0.9rem;
 }
 .orderItemsContainer .order-preview button.removeItem {
-  margin-top: auto;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  display: none;
+}
+.orderItemsContainer .order-preview:hover button.removeItem {
+  display: block;
+}
+.orderItemsContainer .order-preview button.removeItem svg {
+  padding: 0.1rem;
+  background: var(--primary);
+  border-radius: 0 0 0 0.5rem;
+  fill: var(--pastel-red);
 }
 
 /*--Input--*/
