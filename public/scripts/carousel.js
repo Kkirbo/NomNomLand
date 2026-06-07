@@ -16,6 +16,10 @@ let lastInteract = 0;
 // Rate limit for infinite scroll adjustments, in milliseconds.
 let lastUpdate = 0;
 
+//Duplicate first and last card to fake infinite scroll
+carousel.insertBefore(cards[cards.length-1].cloneNode(true), cards[0]);
+carousel.appendChild(cards[0].cloneNode(true));
+
 function updateCarousel() {
   cards = [...carousel.children];
   const center = carousel.scrollLeft + carousel.clientWidth / 2;
@@ -31,52 +35,18 @@ function updateCarousel() {
   });
 
   /**
-   * Snap to the nearest real card when the carousel is scrolled into a blank sentinel card.
-   * The blank cards at index 0 and the last index are used to create the illusion of
-   * an infinite loop while allowing a smooth transition back to the valid content range.
+   * Infinite Scroll
    */
   if (closestIndex === 0) {
     carousel.scrollTo({
-      left: cards[firstValidCard].offsetLeft - (carousel.clientWidth - cards[firstValidCard].clientWidth) / 2,
-      behavior: 'smooth'
+      left: cards[firstValidCard].clientWidth * (cards.length-2),
+      behavior: 'instant'
     });
   } else if (closestIndex === cards.length - 1) {
     carousel.scrollTo({
-      left: cards[lastValidCard].offsetLeft - (carousel.clientWidth - cards[lastValidCard].clientWidth) / 2,
-      behavior: 'smooth'
+      left: cards[firstValidCard].clientWidth,
+      behavior: 'instant'
     });
-  }
- 
-  /**
-   * Infinite Scroll
-   */
-  if (closestIndex === 1) {
-    if (Date.now() - lastUpdate > 500) {
-      lastUpdate = Date.now();
-      // Move the last real card to the front to preserve the infinite-scroll illusion.
-      let lastCard = carousel.children[cards.length - 2];
-      let firstCard = carousel.children[1];
-      carousel.insertBefore(lastCard, firstCard);
-      cards = [...carousel.children];
-      carousel.scrollTo({
-        left: cards[2].offsetLeft - (carousel.clientWidth - cards[2].clientWidth) / 2,
-        behavior: 'auto'
-      });
-    }
-  }
-  if (closestIndex === cards.length - 2) {
-    if (Date.now() - lastUpdate > 500) {
-      lastUpdate = Date.now();
-      // Move the first real card to the end when scrolling toward the last real card.
-      let lastCard = carousel.children[cards.length - 1];
-      let firstCard = carousel.children[1];
-      carousel.insertBefore(firstCard, lastCard);
-      cards = [...carousel.children];
-      carousel.scrollTo({
-        left: cards[cards.length - 3].offsetLeft - (carousel.clientWidth - cards[cards.length - 3].clientWidth) / 2,
-        behavior: 'auto'
-      });
-    }
   }
 }
 

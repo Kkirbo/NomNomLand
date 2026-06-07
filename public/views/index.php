@@ -22,12 +22,8 @@
 
     <main>
       <section class="carousel">
-          <article class="modernNeonBoxGlass"></article>
-
           <?php include '../../private/php/generate-carousel.php'; ?>
           <?php generateCarousel(); ?>
-
-          <article class="modernNeonBoxGlass"></article>
       </section>
 
       <?php include 'searchbar.php'; ?>
