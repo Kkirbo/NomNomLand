@@ -51,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <span class="valueLength"><span>0</span>/100</span>
             <input id="confirmPassword" maxlength="100" name="confirmPassword" type="password" placeholder="Confirm password" required>
           </div>
-
+    <div class="field">
     <button type="submit" class="button">Reset</button>
-
+    </div>
 </form>
 
 </main>
