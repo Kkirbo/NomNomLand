@@ -141,6 +141,26 @@
             },
             "createdAt": "2026-05-30 22:25:59",
             "lastLogin": "2026-05-31 07:25:59"
+        },
+        {
+            "id": "6a24d148c5f7d",
+            "email": "baba@gmail.com",
+            "phone": "0622407465",
+            "password": "$2y$10$jruvAINgHw0yShtffhtfhfhyjgyjgftefsfdgrfdrghdhgftgh9n.M8.hL.1y5e9Z0o5W9VJ39ZjuMDkNvPToyrp8m",
+            "recoveryCode": "$2y$10$VwGrzwBJwUkWMiKAHCt24elW2v7nwWzbfB7Y.Mf.9DKBR\/R90xk1u",
+            "role": "client",
+            "status": "Free",
+            "fidelity": 0,
+            "profile": {
+                "firstName": "Dupond",
+                "lastName": "Jean",
+                "username": "Dupond.Jean",
+                "age": 19,
+                "address": "2 rue de Rivoli",
+                "gender": "male"
+            },
+            "createdAt": "2026-06-07 02:02:48",
+            "lastLogin": "2026-06-07 11:02:49"
         }
     ]
 }

@@ -1,6 +1,6 @@
 <?php
 require '../../private/php/session.php';
-require '../../private/php/utilities/data.php';
+require_once '../../private/php/utilities/data.php';
 
 $user = get_user_by_session();
 if (!$user) logout();
