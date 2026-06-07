@@ -11,4 +11,6 @@ $login = login($_POST['email'], $_POST['password']);
 if ($login == 1) $error = "Please fill in all fields.";
 else if ($login == 2) $error = "Invalid credentials, please try again.";
 else if ($login == 3) $error = "Your account has been deactivated. Please contact support for more information.";
+else if ($login == 4) $error = "Your account has been blocked. Please contact support for more information.";
+else if ($login == 5) $error = "You will be sent to the recovery page shortly.";
 ?>

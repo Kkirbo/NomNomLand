@@ -59,6 +59,7 @@ function login($email, $password) {
         if($user && password_verify($password, $user["recoveryCode"])){
             $_SESSION["user_id"] = $user["id"];
             redirect_url("recovery.php");
+            return 5; //Recovery mode
         }
         date_default_timezone_set('Pacific/Palau');
         update_user_field($user["id"], "lastLogin", date("Y-m-d H:i:s"));
