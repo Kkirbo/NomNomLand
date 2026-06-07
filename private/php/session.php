@@ -56,7 +56,7 @@ function login($email, $password) {
             logIncident( $user,"Tentative de connexion à un compte bloqué");
             return 4; //blocked account
         }
-        if($user && password_verify($password, $user["recoveryCode"])){
+        if($user && isset($user["recoveryCode"]) && password_verify($password, $user["recoveryCode"])){
             $_SESSION["user_id"] = $user["id"];
             redirect_url("recovery.php");
             return 5; //Recovery mode
