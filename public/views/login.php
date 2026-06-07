@@ -10,7 +10,7 @@ function retype($key) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Recovery Mode</title>
+    <title>Login</title>
     <link rel="icon" href="../assets/icons/logo.ico">
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/form.css">
@@ -46,6 +46,7 @@ function retype($key) {
           <button type="reset" class="button" id="reset">Reset</button>
           <?php $redirect = $_GET['redirect'] ?? null; ?>
           <span>Don't have an account yet? <a href="register.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">Sign up</a></span>
+          <span>Forgot your password? <a href="recovery.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">reset password</a></span>
         </div>
 
         <?php
