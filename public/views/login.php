@@ -46,7 +46,7 @@ function retype($key) {
           <button type="reset" class="button" id="reset">Reset</button>
           <?php $redirect = $_GET['redirect'] ?? null; ?>
           <span>Don't have an account yet? <a href="register.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">Sign up</a></span>
-          <span>Forgot your password? <a href="recovery.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">reset password</a></span>
+          <span>Forgot your password? Use your recovery code instead.</span>
         </div>
 
         <?php
