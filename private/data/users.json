@@ -30,7 +30,7 @@
             "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
             "role": "admin",
             "status": "Free",
-            "fidelity": 1400,
+            "fidelity": 759,
             "profile": {
                 "firstName": "Tom",
                 "lastName": "Jedusor",
@@ -40,7 +40,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-06-08 20:20:47",
+            "lastLogin": "2026-06-08 22:10:06",
             "cookies": {
                 "analyticsCookies": false,
                 "functionalCookies": false

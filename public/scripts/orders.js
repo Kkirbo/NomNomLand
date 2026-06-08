@@ -91,19 +91,12 @@ document.addEventListener('click', async (e) => {
     const value = button.dataset.value;
     const isRestaurant = button.dataset.isRestaurant
     
-
-    const delivery_status_updated = await requestOrderUpdate(orderId, field, value);
-    
-    if (!delivery_status_updated || delivery_status_updated.status != 200) {
-        return;
-    }
-
     const actionsContainer = button.closest('.order-actions');
-
+    
     if (value == "delivery") {
         const select = actionsContainer.querySelector('.delivery-person-select');
         const deliveryPersonId = select.value;
-        const deliveryPersonName = select.options[select.selectedIndex].text;
+        if (!deliveryPersonId) return;
 
         const delivery_person_updated = await requestOrderUpdate(orderId, "delivery->delivery_person_id", deliveryPersonId);
 
@@ -113,6 +106,12 @@ document.addEventListener('click', async (e) => {
 
         const modalContent = button.closest('.modalContent');
 
+    }
+
+    const delivery_status_updated = await requestOrderUpdate(orderId, field, value);
+    
+    if (!delivery_status_updated || delivery_status_updated.status != 200) {
+        return;
     }
 
     actionsContainer.innerHTML = renderActions(value, isRestaurant, orderId);

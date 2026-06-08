@@ -78,9 +78,7 @@ const placeOrderButton = document.querySelector('article.cartContainer button.pl
 async function updateCartDisplay() {
   if (!ordersBox) return;
   const cartInfo = await getCartInfo();
-  console.log(cartInfo);
-  
-  if (!cartInfo || cartInfo.status != 200 || cartInfo.data.total != 0) return ordersBox.parentElement.innerHTML = `
+  if (!cartInfo || cartInfo.status != 200 || cartInfo.data.total == 0) return ordersBox.parentElement.innerHTML = `
             <h3>Total: <span class="price">0€</span></h3>
             <div class="ordersContainer cart modernNeonBoxGlass">
                 <p>Your cart is empty.</p>
