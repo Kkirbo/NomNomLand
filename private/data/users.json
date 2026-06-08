@@ -40,10 +40,10 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-05 15:43:04",
-            "lastLogin": "2026-06-08 00:47:00",
+            "lastLogin": "2026-06-08 20:20:47",
             "cookies": {
-                "analyticsCookies": true,
-                "functionalCookies": true
+                "analyticsCookies": false,
+                "functionalCookies": false
             },
             "cart": "[]"
         },
@@ -121,7 +121,7 @@
                 "gender": "male"
             },
             "createdAt": "2026-05-29 17:58:52",
-            "lastLogin": "2026-05-31 00:39:21"
+            "lastLogin": "2026-06-08 20:20:04"
         },
         {
             "id": "6a1b63f6dfc1d",
@@ -146,9 +146,9 @@
             "id": "6a24d148c5f7d",
             "email": "baba@gmail.com",
             "phone": "0622407465",
-            "password": "$2y$10$jruvAINgHw0yShtffhtfhfhyjgyjgftefsfdgrfdrghdhgftgh9n.M8.hL.1y5e9Z0o5W9VJ39ZjuMDkNvPToyrp8m",
+            "password": "$2y$10$GlEIUOJhm9khWRm5UrIJnuyH5JJVosQ.ZaLSlVGp1nGPwzo.T28pK",
             "recoveryCode": "$2y$10$VwGrzwBJwUkWMiKAHCt24elW2v7nwWzbfB7Y.Mf.9DKBR\/R90xk1u",
-            "role": "client",
+            "role": "delivery",
             "status": "Free",
             "fidelity": 0,
             "profile": {
@@ -160,7 +160,28 @@
                 "gender": "male"
             },
             "createdAt": "2026-06-07 02:02:48",
-            "lastLogin": "2026-06-07 11:02:49"
+            "lastLogin": "2026-06-08 20:23:16"
+        },
+        {
+            "id": "6a26a2d498ed0",
+            "email": "md@mail.com",
+            "phone": "0011223344",
+            "password": "$2y$12$seX6zGkDim2q9KWHJYmj3OuXz\/2oXxs4CsCosWXoemHs.0tRLUlK6",
+            "recoveryCode": "$2y$12$FXMy5AHlOg.icMF49yR8deMerT9xlJtPkqowNCS47o0FMycBbgwDm",
+            "role": "client",
+            "status": "free",
+            "fidelity": 233861,
+            "profile": {
+                "firstName": "Malo",
+                "lastName": "Doe",
+                "username": "Malo.Doe",
+                "age": 19,
+                "address": "12 rue des cerisiers Cergy",
+                "gender": "male"
+            },
+            "createdAt": "2026-06-08 11:09:08",
+            "lastLogin": "2026-06-08 20:26:44",
+            "cart": "[]"
         }
     ]
 }

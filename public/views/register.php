@@ -1,7 +1,6 @@
 <?php 
 require '../../private/php/session.php';
-include '../../private/php/register.php'; 
-session_start();
+include '../../private/php/register.php';
 if (!isset($_SESSION['recoveryCode'])) {
     $_SESSION['recoveryCode'] = generateResetCode();
 }
